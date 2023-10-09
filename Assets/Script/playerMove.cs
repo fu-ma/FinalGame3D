@@ -15,12 +15,6 @@ public class playerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // transformを取得
-        Transform myTransform = this.transform;
-
-        // ローカル座標での座標を取得
-        Vector3 localPos = myTransform.localPosition;
-
         if (Input.anyKeyDown)
         {
             playerMoveNum = 0.00001f;
@@ -29,35 +23,34 @@ public class playerMove : MonoBehaviour
         {
             if(playerMoveNum < 0.005f)
             {
-                playerMoveNum += 0.0001f;
+                playerMoveNum += 0.0005f;
             }
-            localPos.x -= playerMoveNum;
+            this.transform.position -= transform.right * playerMoveNum;
         }
         if(Input.GetKey(KeyCode.D))
         {
             if (playerMoveNum < 0.005f)
             {
-                playerMoveNum += 0.0001f;
+                playerMoveNum += 0.0005f;
             }
-            localPos.x += playerMoveNum;
+            this.transform.position += transform.right * playerMoveNum;
         }
         if(Input.GetKey(KeyCode.W))
         {
             if (playerMoveNum < 0.005f)
             {
-                playerMoveNum += 0.0001f;
+                playerMoveNum += 0.0005f;
             }
-            localPos.z += playerMoveNum;
+            this.transform.position += transform.forward * playerMoveNum;
         }
-        if(Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S))
         {
             if (playerMoveNum < 0.005f)
             {
-                playerMoveNum += 0.0001f;
+                playerMoveNum += 0.0005f;
             }
-            localPos.z -= playerMoveNum;
+            this.transform.position -= transform.forward * playerMoveNum;
         }
-        myTransform.localPosition = localPos; // ローカル座標での座標を設定
     }
     void OnCollisionEnter(Collision collision)
     {
