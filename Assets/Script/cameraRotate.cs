@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class cameraRotate : MonoBehaviour
 {
+    private PlayerInputSystem inputAction_;
     // Start is called before the first frame update
     void Start()
     {
-        
+        inputAction_ = new PlayerInputSystem();
+        inputAction_.Enable();
     }
 
     // Update is called once per frame
@@ -21,12 +24,12 @@ public class cameraRotate : MonoBehaviour
             angle.z = 0;
             transform.eulerAngles = angle;
         }
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (inputAction_.Player.RotateLeft.triggered)
         {
             angle.y -= 45;
             transform.eulerAngles = angle;
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (inputAction_.Player.RotateRight.triggered)
         {
             angle.y += 45;
             transform.eulerAngles = angle;
