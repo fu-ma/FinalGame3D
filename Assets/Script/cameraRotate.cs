@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class cameraRotate : MonoBehaviour
 {
+    int leftNum = 0;
+    int rightNum = 0;
     private PlayerInputSystem inputAction_;
     // Start is called before the first frame update
     void Start()
@@ -16,23 +18,40 @@ public class cameraRotate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 angle = transform.eulerAngles;
+        Vector3 angle = this.transform.eulerAngles;
         if (Input.GetKeyDown(KeyCode.R))
         {
             angle.x = 0;
             angle.y = 0;
             angle.z = 0;
-            transform.eulerAngles = angle;
+            leftNum = 0;
+            rightNum = 0;
+            this.transform.eulerAngles = angle;
         }
         if (inputAction_.Player.RotateLeft.triggered)
         {
-            angle.y -= 45;
-            transform.eulerAngles = angle;
+            leftNum++;
+            angle.y += 45;
+            this.transform.eulerAngles = angle;
         }
         if (inputAction_.Player.RotateRight.triggered)
         {
-            angle.y += 45;
-            transform.eulerAngles = angle;
+            rightNum++;
+            angle.y -= 45;
+            this.transform.eulerAngles = angle;
+        }
+
+        if (leftNum == 2)
+        {
+            angle.y -= 90;
+            this.transform.eulerAngles = angle;
+            leftNum = 0;
+        }
+        if (rightNum == 2)
+        {
+            angle.y += 90;
+            this.transform.eulerAngles = angle;
+            rightNum = 0;
         }
     }
 }

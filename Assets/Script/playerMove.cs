@@ -60,7 +60,7 @@ public class playerMove : MonoBehaviour
     {
         if (collision.gameObject.tag == "Stage")
         {
-            playerMoveNum = 0.00001f;
+            playerMoveNum = 0.00000f;
         }
     }
     private void OnCollisionStay(Collision collision)

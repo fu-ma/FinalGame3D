@@ -18,7 +18,7 @@ public class playerRotate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 angle = transform.eulerAngles;
+        Vector3 angle = this.transform.eulerAngles;
 
         if (Input.GetKeyDown(KeyCode.R))
         {
@@ -27,7 +27,7 @@ public class playerRotate : MonoBehaviour
             angle.z = 0;
             leftNum = 0;
             rightNum = 0;
-            transform.eulerAngles = angle;
+            this.transform.eulerAngles = angle;
         }
         if (inputAction_.Player.RotateLeft.triggered)
         {
@@ -40,14 +40,14 @@ public class playerRotate : MonoBehaviour
 
         if(leftNum == 2)
         {
-            angle.y -= 90;
-            transform.eulerAngles = angle;
+            angle.y += 90;
+            this.transform.eulerAngles = angle;
             leftNum = 0;
         }
         if (rightNum == 2)
         {
-            angle.y += 90;
-            transform.eulerAngles = angle;
+            angle.y -= 90;
+            this.transform.eulerAngles = angle;
             rightNum = 0;
         }
     }
