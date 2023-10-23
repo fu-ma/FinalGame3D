@@ -18,6 +18,10 @@ public class playerMove : MonoBehaviour
         inputAction_ = new PlayerInputSystem();
         inputAction_.Enable();
         rb = GetComponent<Rigidbody>();
+        rb.mass = 10;
+        rb.drag = 20;
+        rb.angularDrag = 0;
+        rb.constraints = RigidbodyConstraints.FreezeRotation;
     }
 
     // Update is called once per frame
