@@ -22,23 +22,55 @@ public class playerSpriteMove : MonoBehaviour
         if (inputAction_.Player.MoveLeft.IsPressed())
         {
             anim.enabled = true;
+            if (inputAction_.Player.SpeedUp.IsPressed())
+            {
+                anim.SetFloat("Speed", 2.0f);
+            }
+            else
+            {
+                anim.SetFloat("Speed", 0.4f);
+            }
             //anim.SetBool("move", true);
             anim.Play("playerLeftAnimation");
-        }
-        else if(inputAction_.Player.MoveDown.IsPressed())
-        {
-            anim.enabled = true;
-            //anim.SetBool("move", true);
-            anim.Play("playerFowordAnimation");
         }
         else if(inputAction_.Player.MoveRight.IsPressed())
         {
             anim.enabled = true;
+            if (inputAction_.Player.SpeedUp.IsPressed())
+            {
+                anim.SetFloat("Speed", 2.0f);
+            }
+            else
+            {
+                anim.SetFloat("Speed", 0.4f);
+            }
             anim.Play("playerRightAnimation");
+        }
+        else if(inputAction_.Player.MoveDown.IsPressed())
+        {
+            anim.enabled = true;
+            if (inputAction_.Player.SpeedUp.IsPressed())
+            {
+                anim.SetFloat("Speed", 2.1f);
+            }
+            else
+            {
+                anim.SetFloat("Speed", 0.5f);
+            }
+            //anim.SetBool("move", true);
+            anim.Play("playerFowordAnimation");
         }
         else if(inputAction_.Player.MoveUp.IsPressed())
         {
             anim.enabled = true;
+            if (inputAction_.Player.SpeedUp.IsPressed())
+            {
+                anim.SetFloat("Speed", 2.1f);
+            }
+            else
+            {
+                anim.SetFloat("Speed", 0.5f);
+            }
             anim.Play("playerDownAnimation");
         }
         else
