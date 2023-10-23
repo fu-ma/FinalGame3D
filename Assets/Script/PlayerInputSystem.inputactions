@@ -60,9 +60,15 @@
                     "initialStateCheck": false
                 },
                 {
+<<<<<<< HEAD
                     "name": "GetItem",
                     "type": "Button",
                     "id": "c3407579-5c9f-49bc-b63f-15084abd6b19",
+=======
+                    "name": "Talk",
+                    "type": "Button",
+                    "id": "dfa57d0a-0c61-4b94-8346-86b3fc0cd70b",
+>>>>>>> 5727fe39a3770b9c77277371e7581684626a1eab
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -248,12 +254,32 @@
                 },
                 {
                     "name": "",
+<<<<<<< HEAD
                     "id": "9099a3dd-9ed1-4c39-a228-6234aab3dd8c",
                     "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "GetItem",
+=======
+                    "id": "a39bdc6a-af81-4da3-970c-e336c950cb4a",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Talk",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "aa54a490-4a5e-48d6-88c9-66fde10a5fba",
+                    "path": "<XInputController>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Talk",
+>>>>>>> 5727fe39a3770b9c77277371e7581684626a1eab
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
