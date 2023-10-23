@@ -80,6 +80,15 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""GetItem"",
+                    ""type"": ""Button"",
+                    ""id"": ""c3407579-5c9f-49bc-b63f-15084abd6b19"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -256,6 +265,17 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""RotateRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9099a3dd-9ed1-4c39-a228-6234aab3dd8c"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GetItem"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -849,6 +869,7 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
         m_Player_MoveRight = m_Player.FindAction("MoveRight", throwIfNotFound: true);
         m_Player_RotateLeft = m_Player.FindAction("RotateLeft", throwIfNotFound: true);
         m_Player_RotateRight = m_Player.FindAction("RotateRight", throwIfNotFound: true);
+        m_Player_GetItem = m_Player.FindAction("GetItem", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -928,6 +949,7 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_MoveRight;
     private readonly InputAction m_Player_RotateLeft;
     private readonly InputAction m_Player_RotateRight;
+    private readonly InputAction m_Player_GetItem;
     public struct PlayerActions
     {
         private @PlayerInputSystem m_Wrapper;
@@ -938,6 +960,7 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
         public InputAction @MoveRight => m_Wrapper.m_Player_MoveRight;
         public InputAction @RotateLeft => m_Wrapper.m_Player_RotateLeft;
         public InputAction @RotateRight => m_Wrapper.m_Player_RotateRight;
+        public InputAction @GetItem => m_Wrapper.m_Player_GetItem;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -965,6 +988,9 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
             @RotateRight.started += instance.OnRotateRight;
             @RotateRight.performed += instance.OnRotateRight;
             @RotateRight.canceled += instance.OnRotateRight;
+            @GetItem.started += instance.OnGetItem;
+            @GetItem.performed += instance.OnGetItem;
+            @GetItem.canceled += instance.OnGetItem;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -987,6 +1013,9 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
             @RotateRight.started -= instance.OnRotateRight;
             @RotateRight.performed -= instance.OnRotateRight;
             @RotateRight.canceled -= instance.OnRotateRight;
+            @GetItem.started -= instance.OnGetItem;
+            @GetItem.performed -= instance.OnGetItem;
+            @GetItem.canceled -= instance.OnGetItem;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1175,6 +1204,7 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
         void OnMoveRight(InputAction.CallbackContext context);
         void OnRotateLeft(InputAction.CallbackContext context);
         void OnRotateRight(InputAction.CallbackContext context);
+        void OnGetItem(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
