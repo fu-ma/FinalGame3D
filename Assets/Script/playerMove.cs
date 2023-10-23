@@ -10,11 +10,9 @@ public class playerMove : MonoBehaviour
     public float maxSpeed;
     public float power;
     private PlayerInputSystem inputAction_;
-    bool hitFlag;
     // Start is called before the first frame update
     void Start()
     {
-        hitFlag = false;
         inputAction_ = new PlayerInputSystem();
         inputAction_.Enable();
         rb = GetComponent<Rigidbody>();
