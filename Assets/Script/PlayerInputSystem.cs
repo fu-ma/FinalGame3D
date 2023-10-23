@@ -98,6 +98,15 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""GetItem"",
+                    ""type"": ""Button"",
+                    ""id"": ""e32bcda5-1593-4fe1-9852-5d52fc61f003"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -318,6 +327,17 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""SpeedUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""96684535-f4dc-48b4-acb2-e93dfff58675"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GetItem"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -913,6 +933,7 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
         m_Player_RotateRight = m_Player.FindAction("RotateRight", throwIfNotFound: true);
         m_Player_Talk = m_Player.FindAction("Talk", throwIfNotFound: true);
         m_Player_SpeedUp = m_Player.FindAction("SpeedUp", throwIfNotFound: true);
+        m_Player_GetItem = m_Player.FindAction("GetItem", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -994,6 +1015,7 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_RotateRight;
     private readonly InputAction m_Player_Talk;
     private readonly InputAction m_Player_SpeedUp;
+    private readonly InputAction m_Player_GetItem;
     public struct PlayerActions
     {
         private @PlayerInputSystem m_Wrapper;
@@ -1006,6 +1028,7 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
         public InputAction @RotateRight => m_Wrapper.m_Player_RotateRight;
         public InputAction @Talk => m_Wrapper.m_Player_Talk;
         public InputAction @SpeedUp => m_Wrapper.m_Player_SpeedUp;
+        public InputAction @GetItem => m_Wrapper.m_Player_GetItem;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1039,6 +1062,9 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
             @SpeedUp.started += instance.OnSpeedUp;
             @SpeedUp.performed += instance.OnSpeedUp;
             @SpeedUp.canceled += instance.OnSpeedUp;
+            @GetItem.started += instance.OnGetItem;
+            @GetItem.performed += instance.OnGetItem;
+            @GetItem.canceled += instance.OnGetItem;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1067,6 +1093,9 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
             @SpeedUp.started -= instance.OnSpeedUp;
             @SpeedUp.performed -= instance.OnSpeedUp;
             @SpeedUp.canceled -= instance.OnSpeedUp;
+            @GetItem.started -= instance.OnGetItem;
+            @GetItem.performed -= instance.OnGetItem;
+            @GetItem.canceled -= instance.OnGetItem;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1257,6 +1286,7 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
         void OnRotateRight(InputAction.CallbackContext context);
         void OnTalk(InputAction.CallbackContext context);
         void OnSpeedUp(InputAction.CallbackContext context);
+        void OnGetItem(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

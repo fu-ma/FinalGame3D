@@ -1,26 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class playerGetItem : MonoBehaviour
 {
+    private PlayerInputSystem inputAction_;
     // Start is called before the first frame update
     void Start()
     {
-        
+        inputAction_ = new PlayerInputSystem();
+        inputAction_.Enable();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag == "Item")
+        if (inputAction_.Player.GetItem.triggered)
         {
-            other.GetComponent<Item>().ItemGet();
+            if (other.gameObject.tag == "Item")
+            {
+                other.GetComponent<Item>().ItemGet();
+            }
         }
     }
 }
