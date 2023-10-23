@@ -5,7 +5,10 @@ using UnityEngine.InputSystem;
 
 public class playerMove : MonoBehaviour
 {
-    float playerMoveNum;
+    Vector3 moveVelocity;
+    public Rigidbody rb;
+    public float maxSpeed;
+    public float power;
     private PlayerInputSystem inputAction_;
     bool hitFlag;
     // Start is called before the first frame update
@@ -14,53 +17,74 @@ public class playerMove : MonoBehaviour
         hitFlag = false;
         inputAction_ = new PlayerInputSystem();
         inputAction_.Enable();
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.anyKeyDown)
-        {
-            playerMoveNum = 0.00001f;
-        }
         if (inputAction_.Player.MoveLeft.IsPressed())
         {
-            if(playerMoveNum < 0.005f)
+            if (inputAction_.Player.SpeedUp.IsPressed())
             {
-                playerMoveNum += 0.0005f;
+                power = -12.0f;
+                maxSpeed = 24.0f;
             }
-            this.transform.position -= transform.right * playerMoveNum;
+            else
+            {
+                power = -6.0f;
+                maxSpeed = 12.0f;
+            }
+            rb.AddForce(Vector3.right * ((maxSpeed - rb.velocity.x) * power), ForceMode.Force);
         }
-        if(inputAction_.Player.MoveRight.IsPressed())
+        if (inputAction_.Player.MoveRight.IsPressed())
         {
-            if (playerMoveNum < 0.005f)
+            if (inputAction_.Player.SpeedUp.IsPressed())
             {
-                playerMoveNum += 0.0005f;
+                power = 16.0f;
+                maxSpeed = 24.0f;
             }
-            this.transform.position += transform.right * playerMoveNum;
+            else
+            {
+                power = 8.0f;
+                maxSpeed = 12.0f;
+            }
+            rb.AddForce(Vector3.right * ((maxSpeed - rb.velocity.x) * power), ForceMode.Force);
         }
-        if(inputAction_.Player.MoveUp.IsPressed())
+        if (inputAction_.Player.MoveUp.IsPressed())
         {
-            if (playerMoveNum < 0.005f)
+            if (inputAction_.Player.SpeedUp.IsPressed())
             {
-                playerMoveNum += 0.0005f;
+                power = 16.0f;
+                maxSpeed = 24.0f;
             }
-            this.transform.position += transform.forward * playerMoveNum;
+            else
+            {
+                power = 8.0f;
+                maxSpeed = 12.0f;
+            }
+            rb.AddForce(Vector3.forward * ((maxSpeed - rb.velocity.z) * power), ForceMode.Force);
         }
         if (inputAction_.Player.MoveDown.IsPressed())
         {
-            if (playerMoveNum < 0.005f)
+            if (inputAction_.Player.SpeedUp.IsPressed())
             {
-                playerMoveNum += 0.0005f;
+                power = -12.0f;
+                maxSpeed = 24.0f;
             }
-            this.transform.position -= transform.forward * playerMoveNum;
+            else
+            {
+                power = -6.0f;
+                maxSpeed = 12.0f;
+            }
+            rb.AddForce(Vector3.forward * ((maxSpeed - rb.velocity.z) * power), ForceMode.Force);
         }
     }
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Stage")
         {
-            playerMoveNum = 0.00000f;
+            //playerMoveNum = 0.00000f;
         }
     }
     private void OnCollisionStay(Collision collision)
