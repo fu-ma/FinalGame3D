@@ -20,6 +20,7 @@ public class playerMove : MonoBehaviour
         rb.drag = 20;
         rb.angularDrag = 0;
         rb.constraints = RigidbodyConstraints.FreezeRotation;
+        Application.targetFrameRate = 60;
     }
 
     // Update is called once per frame
@@ -29,57 +30,57 @@ public class playerMove : MonoBehaviour
         {
             if (inputAction_.Player.SpeedUp.IsPressed())
             {
-                power = -12.0f;
-                maxSpeed = 24.0f;
+                power = -24.0f;
+                maxSpeed = 48.0f;
             }
             else
             {
-                power = -6.0f;
-                maxSpeed = 12.0f;
+                power = -12.0f;
+                maxSpeed = 24.0f;
             }
-            rb.AddForce(Vector3.right * ((maxSpeed - rb.velocity.x) * power), ForceMode.Force);
+            rb.AddForce(transform.right * ((maxSpeed - rb.velocity.x) * power), ForceMode.Force);
         }
         if (inputAction_.Player.MoveRight.IsPressed())
         {
             if (inputAction_.Player.SpeedUp.IsPressed())
             {
-                power = 16.0f;
-                maxSpeed = 24.0f;
+                power = 32.0f;
+                maxSpeed = 48.0f;
             }
             else
             {
-                power = 8.0f;
-                maxSpeed = 12.0f;
+                power = 16.0f;
+                maxSpeed = 24.0f;
             }
-            rb.AddForce(Vector3.right * ((maxSpeed - rb.velocity.x) * power), ForceMode.Force);
+            rb.AddForce(transform.right * ((maxSpeed - rb.velocity.x) * power), ForceMode.Force);
         }
         if (inputAction_.Player.MoveUp.IsPressed())
         {
             if (inputAction_.Player.SpeedUp.IsPressed())
             {
-                power = 16.0f;
-                maxSpeed = 24.0f;
+                power = 32.0f;
+                maxSpeed = 48.0f;
             }
             else
             {
-                power = 8.0f;
-                maxSpeed = 12.0f;
+                power = 16.0f;
+                maxSpeed = 24.0f;
             }
-            rb.AddForce(Vector3.forward * ((maxSpeed - rb.velocity.z) * power), ForceMode.Force);
+            rb.AddForce(transform.forward * ((maxSpeed - rb.velocity.z) * power), ForceMode.Force);
         }
         if (inputAction_.Player.MoveDown.IsPressed())
         {
             if (inputAction_.Player.SpeedUp.IsPressed())
             {
-                power = -12.0f;
-                maxSpeed = 24.0f;
+                power = -24.0f;
+                maxSpeed = 48.0f;
             }
             else
             {
-                power = -6.0f;
-                maxSpeed = 12.0f;
+                power = -12.0f;
+                maxSpeed = 24.0f;
             }
-            rb.AddForce(Vector3.forward * ((maxSpeed - rb.velocity.z) * power), ForceMode.Force);
+            rb.AddForce(transform.forward * ((maxSpeed - rb.velocity.z) * power), ForceMode.Force);
         }
     }
     void OnCollisionEnter(Collision collision)
