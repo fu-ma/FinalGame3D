@@ -107,6 +107,24 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CharacterChangeGirl"",
+                    ""type"": ""Button"",
+                    ""id"": ""78b0da9b-d025-44f8-8b4a-655e31e8a024"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CharacterChangeBoy"",
+                    ""type"": ""Button"",
+                    ""id"": ""d73c3367-46d7-4dca-a0c8-1626604c5611"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -338,6 +356,50 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""GetItem"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""958e54a8-4cfc-40a6-9969-6eb1106b9a8d"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CharacterChangeGirl"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b8aae6f1-57ca-4014-a73e-04eab4cb020b"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CharacterChangeGirl"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9208da0a-302e-4ed9-8bf3-5e68c33ab73f"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CharacterChangeBoy"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""28695b2a-57de-4a22-a675-efb7e5c5a1dd"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CharacterChangeBoy"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -934,6 +996,8 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
         m_Player_Talk = m_Player.FindAction("Talk", throwIfNotFound: true);
         m_Player_SpeedUp = m_Player.FindAction("SpeedUp", throwIfNotFound: true);
         m_Player_GetItem = m_Player.FindAction("GetItem", throwIfNotFound: true);
+        m_Player_CharacterChangeGirl = m_Player.FindAction("CharacterChangeGirl", throwIfNotFound: true);
+        m_Player_CharacterChangeBoy = m_Player.FindAction("CharacterChangeBoy", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1016,6 +1080,8 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Talk;
     private readonly InputAction m_Player_SpeedUp;
     private readonly InputAction m_Player_GetItem;
+    private readonly InputAction m_Player_CharacterChangeGirl;
+    private readonly InputAction m_Player_CharacterChangeBoy;
     public struct PlayerActions
     {
         private @PlayerInputSystem m_Wrapper;
@@ -1029,6 +1095,8 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
         public InputAction @Talk => m_Wrapper.m_Player_Talk;
         public InputAction @SpeedUp => m_Wrapper.m_Player_SpeedUp;
         public InputAction @GetItem => m_Wrapper.m_Player_GetItem;
+        public InputAction @CharacterChangeGirl => m_Wrapper.m_Player_CharacterChangeGirl;
+        public InputAction @CharacterChangeBoy => m_Wrapper.m_Player_CharacterChangeBoy;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1065,6 +1133,12 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
             @GetItem.started += instance.OnGetItem;
             @GetItem.performed += instance.OnGetItem;
             @GetItem.canceled += instance.OnGetItem;
+            @CharacterChangeGirl.started += instance.OnCharacterChangeGirl;
+            @CharacterChangeGirl.performed += instance.OnCharacterChangeGirl;
+            @CharacterChangeGirl.canceled += instance.OnCharacterChangeGirl;
+            @CharacterChangeBoy.started += instance.OnCharacterChangeBoy;
+            @CharacterChangeBoy.performed += instance.OnCharacterChangeBoy;
+            @CharacterChangeBoy.canceled += instance.OnCharacterChangeBoy;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1096,6 +1170,12 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
             @GetItem.started -= instance.OnGetItem;
             @GetItem.performed -= instance.OnGetItem;
             @GetItem.canceled -= instance.OnGetItem;
+            @CharacterChangeGirl.started -= instance.OnCharacterChangeGirl;
+            @CharacterChangeGirl.performed -= instance.OnCharacterChangeGirl;
+            @CharacterChangeGirl.canceled -= instance.OnCharacterChangeGirl;
+            @CharacterChangeBoy.started -= instance.OnCharacterChangeBoy;
+            @CharacterChangeBoy.performed -= instance.OnCharacterChangeBoy;
+            @CharacterChangeBoy.canceled -= instance.OnCharacterChangeBoy;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1287,6 +1367,8 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
         void OnTalk(InputAction.CallbackContext context);
         void OnSpeedUp(InputAction.CallbackContext context);
         void OnGetItem(InputAction.CallbackContext context);
+        void OnCharacterChangeGirl(InputAction.CallbackContext context);
+        void OnCharacterChangeBoy(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

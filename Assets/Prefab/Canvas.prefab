@@ -132,6 +132,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uitext: {fileID: 7619807555207358917}
+  girl: {fileID: 0}
+  boy: {fileID: 0}
 --- !u!1 &7619807555546300825
 GameObject:
   m_ObjectHideFlags: 0

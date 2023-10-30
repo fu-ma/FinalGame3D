@@ -7,8 +7,13 @@ public class playerMove : MonoBehaviour
 {
     Vector3 moveVelocity;
     public Rigidbody rb;
+    public BoxCollider bc;
+    public Transform playerTransform;
     public float maxSpeed;
     public float power;
+    public GameObject girlObject;
+    public GameObject boyObject;
+    //public Transform cameraTransform;
     private PlayerInputSystem inputAction_;
     // Start is called before the first frame update
     void Start()
@@ -20,6 +25,13 @@ public class playerMove : MonoBehaviour
         rb.drag = 20;
         rb.angularDrag = 0;
         rb.constraints = RigidbodyConstraints.FreezeRotation;
+
+        bc = GetComponent<BoxCollider>();
+        bc.size = new Vector3(1, 2.36f, 1);
+
+        playerTransform = GetComponent<Transform>();
+        playerTransform.position = new Vector3(0, 1, 0);
+        //cameraTransform = GetComponent<Transform>();
         Application.targetFrameRate = 60;
     }
 
@@ -81,6 +93,18 @@ public class playerMove : MonoBehaviour
                 maxSpeed = 24.0f;
             }
             rb.AddForce(transform.forward * ((maxSpeed - rb.velocity.z) * power), ForceMode.Force);
+        }
+
+        //キャラクター切り替え
+        if(inputAction_.Player.CharacterChangeGirl.triggered)
+        {
+            girlObject.SetActive(true);
+            boyObject.SetActive(false);
+        }
+        if (inputAction_.Player.CharacterChangeBoy.triggered)
+        {
+            girlObject.SetActive(false);
+            boyObject.SetActive(true);
         }
     }
     void OnCollisionEnter(Collision collision)
