@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Stage
   - Item
+  - 1-A KEY
+  - FirstKey
   layers:
   - Default
   - TransparentFX
@@ -13,7 +15,7 @@ TagManager:
   - Stage
   - Water
   - UI
-  - 
+  - Item
   - 
   - 
   - 

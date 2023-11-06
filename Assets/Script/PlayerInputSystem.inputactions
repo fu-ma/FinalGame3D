@@ -87,18 +87,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "CharacterChangeGirl",
+                    "name": "UseItem",
                     "type": "Button",
-                    "id": "78b0da9b-d025-44f8-8b4a-655e31e8a024",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "CharacterChangeBoy",
-                    "type": "Button",
-                    "id": "d73c3367-46d7-4dca-a0c8-1626604c5611",
+                    "id": "55776a45-3674-4354-847d-313e2d662a74",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -339,45 +330,12 @@
                 },
                 {
                     "name": "",
-                    "id": "958e54a8-4cfc-40a6-9969-6eb1106b9a8d",
-                    "path": "<Gamepad>/leftTrigger",
+                    "id": "b2445100-6085-4a24-83a3-0fecc5625448",
+                    "path": "<Keyboard>/i",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "CharacterChangeGirl",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "b8aae6f1-57ca-4014-a73e-04eab4cb020b",
-                    "path": "<Keyboard>/z",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "CharacterChangeGirl",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "9208da0a-302e-4ed9-8bf3-5e68c33ab73f",
-                    "path": "<Gamepad>/rightTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "CharacterChangeBoy",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "28695b2a-57de-4a22-a675-efb7e5c5a1dd",
-                    "path": "<Keyboard>/x",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "CharacterChangeBoy",
+                    "action": "UseItem",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

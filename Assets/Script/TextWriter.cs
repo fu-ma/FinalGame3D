@@ -8,9 +8,6 @@ public class TextWriter : MonoBehaviour
 
     private PlayerInputSystem inputAction_;
 
-    public GameObject girl;
-    public GameObject boy;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -28,8 +25,7 @@ public class TextWriter : MonoBehaviour
     {
         //uitext.DrawText("ナレーションだったらこのまま書けばOK");
         //yield return StartCoroutine("Skip");
-        boy.SetActive(false);
-        girl.SetActive(true);
+
         uitext.DrawText("名前", "人が話すのならこんな感じ");
         yield return StartCoroutine("Skip");
 
@@ -39,8 +35,6 @@ public class TextWriter : MonoBehaviour
 
     IEnumerator Syabetarou()
     {
-        girl.SetActive(false);
-        boy.SetActive(true);
         uitext.DrawText("喋太郎", "毎度おおきに。わいは喋太郎や ? helpコマンドで使い方を表示するで");
         yield return StartCoroutine("Skip");
 
