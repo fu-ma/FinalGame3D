@@ -31,6 +31,9 @@ public class playerMove : MonoBehaviour
         //cameraTransform = GetComponent<Transform>();
         Application.targetFrameRate = 60;
         Screen.SetResolution(1280, 720, FullScreenMode.FullScreenWindow, 60);
+<<<<<<< HEAD
+>>>>>>> fuuma
+=======
 >>>>>>> fuuma
     }
 

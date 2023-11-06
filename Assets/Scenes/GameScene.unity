@@ -124,6 +124,7 @@ NavMeshSettings:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!65 &53471733
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -291,6 +292,8 @@ CanvasRenderer:
   m_CullTransparentMesh: 1
 =======
 >>>>>>> fuuma
+=======
+>>>>>>> fuuma
 --- !u!1 &123871238
 GameObject:
   m_ObjectHideFlags: 0
@@ -423,7 +426,10 @@ Transform:
   - {fileID: 2043550749}
   - {fileID: 1242616328}
   m_Father: {fileID: 0}
+<<<<<<< HEAD
   m_RootOrder: 4
+=======
+>>>>>>> fuuma
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &123871245
@@ -451,6 +457,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 <<<<<<< HEAD
+<<<<<<< HEAD
   itemBox: {fileID: 0}
   have1AKey: 0
   item: 0
@@ -460,10 +467,15 @@ BoxCollider:
 --- !u!114 &123871247
 MonoBehaviour:
 >>>>>>> fuuma
+=======
+--- !u!114 &123871247
+MonoBehaviour:
+>>>>>>> fuuma
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD
   m_GameObject: {fileID: 409493325}
   m_Material: {fileID: 0}
@@ -475,6 +487,8 @@ MonoBehaviour:
 --- !u!65 &145259933
 BoxCollider:
 =======
+=======
+>>>>>>> fuuma
   m_GameObject: {fileID: 123871238}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -485,6 +499,7 @@ BoxCollider:
   damageEffect: {fileID: 1339727648}
 --- !u!1 &294366802
 GameObject:
+<<<<<<< HEAD
 >>>>>>> fuuma
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -633,6 +648,8 @@ BoxCollider:
   m_Center: {x: -20.566023, y: 0.730811, z: 32.6184}
 --- !u!65 &330474933
 BoxCollider:
+=======
+>>>>>>> fuuma
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -660,6 +677,9 @@ BoxCollider:
 =======
   m_GameObject: {fileID: 294366802}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD
+>>>>>>> fuuma
+=======
 >>>>>>> fuuma
 --- !u!1001 &409493294
 PrefabInstance:
@@ -671,7 +691,11 @@ PrefabInstance:
     - target: {fileID: 83189928285007116, guid: 850d0c64674e22e4d92568e5df3ee1f3, type: 3}
       propertyPath: m_RootOrder
 <<<<<<< HEAD
+<<<<<<< HEAD
       value: 2
+=======
+      value: 4
+>>>>>>> fuuma
 =======
       value: 4
 >>>>>>> fuuma
@@ -722,6 +746,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 850d0c64674e22e4d92568e5df3ee1f3, type: 3}
+<<<<<<< HEAD
 <<<<<<< HEAD
 --- !u!1 &409493295 stripped
 GameObject:
@@ -1021,10 +1046,15 @@ BoxCollider:
 --- !u!1 &488268725
 GameObject:
 >>>>>>> fuuma
+=======
+--- !u!1 &488268725
+GameObject:
+>>>>>>> fuuma
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD
   m_GameObject: {fileID: 409493342}
   m_Material: {fileID: 0}
@@ -1036,6 +1066,8 @@ GameObject:
 --- !u!65 &472896542
 BoxCollider:
 =======
+=======
+>>>>>>> fuuma
   serializedVersion: 6
   m_Component:
   - component: {fileID: 488268726}
@@ -1142,6 +1174,9 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 488268725}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD
+>>>>>>> fuuma
+=======
 >>>>>>> fuuma
 --- !u!1001 &569482376
 PrefabInstance:
@@ -1188,7 +1223,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9068881740540414361, guid: 5de61396472e986428db6672b58a83a9, type: 3}
       propertyPath: m_RootOrder
+<<<<<<< HEAD
       value: 3
+=======
+>>>>>>> fuuma
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9068881740540414361, guid: 5de61396472e986428db6672b58a83a9, type: 3}
@@ -1339,6 +1377,9 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 613488464}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD
+>>>>>>> fuuma
+=======
 >>>>>>> fuuma
 --- !u!1 &730339583
 GameObject:
@@ -1389,6 +1430,7 @@ Transform:
   m_Father: {fileID: 2043550749}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD
 --- !u!65 &762992450
 BoxCollider:
@@ -1565,10 +1607,15 @@ BoxCollider:
 --- !u!1 &916865124
 GameObject:
 >>>>>>> fuuma
+=======
+--- !u!1 &916865124
+GameObject:
+>>>>>>> fuuma
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 409493302}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -1578,6 +1625,8 @@ GameObject:
   m_Center: {x: 42.1088, y: 5.1931868, z: -12.21631}
 --- !u!65 &1142025790
 BoxCollider:
+=======
+>>>>>>> fuuma
   serializedVersion: 6
   m_Component:
   - component: {fileID: 916865125}
@@ -1596,6 +1645,7 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 409493335}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -1605,6 +1655,8 @@ RectTransform:
   m_Center: {x: -22.836296, y: 3.243212, z: 25.975216}
 --- !u!65 &1206778572
 BoxCollider:
+=======
+>>>>>>> fuuma
   m_GameObject: {fileID: 916865124}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -1625,6 +1677,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 409493300}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -1640,6 +1693,10 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 409493313}
+=======
+  m_GameObject: {fileID: 916865124}
+  m_Enabled: 1
+>>>>>>> fuuma
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -1803,8 +1860,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!65 &1302946721
 BoxCollider:
+=======
+--- !u!1 &1339727648
+GameObject:
+>>>>>>> fuuma
 =======
 --- !u!1 &1339727648
 GameObject:
@@ -1813,6 +1875,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD
   m_GameObject: {fileID: 409493321}
   m_Material: {fileID: 0}
@@ -1824,6 +1887,8 @@ GameObject:
 --- !u!65 &1406681310
 BoxCollider:
 =======
+=======
+>>>>>>> fuuma
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1339727649}
@@ -1904,6 +1969,9 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1339727648}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD
+>>>>>>> fuuma
+=======
 >>>>>>> fuuma
 --- !u!1 &1417686446
 GameObject:
@@ -2086,11 +2154,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1583381044
 Transform:
+=======
+  uitext: {fileID: 1445073462}
+  girl: {fileID: 916865124}
+  boy: {fileID: 1476298184}
+--- !u!1 &1451450930
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1451450931}
+  - component: {fileID: 1451450933}
+  - component: {fileID: 1451450932}
+  m_Layer: 5
+  m_Name: TalkText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1451450931
+RectTransform:
+>>>>>>> fuuma
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2191,6 +2285,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1779595714}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD
 --- !u!65 &1823552393
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2283,6 +2378,9 @@ PrefabInstance:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5de61396472e986428db6672b58a83a9, type: 3}
 --- !u!1 &1914159244
+=======
+--- !u!1 &1583381041
+>>>>>>> fuuma
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2312,6 +2410,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
+<<<<<<< HEAD
   m_Father: {fileID: 1992643442}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2372,6 +2471,11 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5, y: 0.5, z: 50}
   m_Center: {x: 42.1088, y: 5.398458, z: 0}
+=======
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+>>>>>>> fuuma
 --- !u!1 &1951837734
 =======
 --- !u!1 &1583381041
@@ -2425,6 +2529,7 @@ Transform:
   m_Father: {fileID: 2043550749}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!1 &1992643441
 =======
   m_Father: {fileID: 0}
@@ -2536,6 +2641,8 @@ BoxCollider:
   m_Father: {fileID: 2043550749}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+>>>>>>> fuuma
+=======
 >>>>>>> fuuma
 --- !u!1 &2019967438
 GameObject:
@@ -2749,6 +2856,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &2095804487
 GameObject:
   m_ObjectHideFlags: 0
@@ -2832,6 +2940,11 @@ BoxCollider:
 PrefabInstance:
 >>>>>>> fuuma
   m_ObjectHideFlags: 0
+=======
+--- !u!1001 &2055404533
+PrefabInstance:
+  m_ObjectHideFlags: 0
+>>>>>>> fuuma
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
@@ -2979,7 +3092,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 6
+=======
+  m_RootOrder: 7
+>>>>>>> fuuma
 =======
   m_RootOrder: 7
 >>>>>>> fuuma
@@ -3097,6 +3214,66 @@ PrefabInstance:
       value: Operating room
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+<<<<<<< HEAD
+=======
+  m_SourcePrefab: {fileID: 100100000, guid: e07a59a2a7d4126498c1737d664335d7, type: 3}
+--- !u!1001 &3639429317907332876
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2754073418121765902, guid: ad2b0af5afb47fd4b92ee7534d04b8f3, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2754073418121765902, guid: ad2b0af5afb47fd4b92ee7534d04b8f3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2754073418121765902, guid: ad2b0af5afb47fd4b92ee7534d04b8f3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2754073418121765902, guid: ad2b0af5afb47fd4b92ee7534d04b8f3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2754073418121765902, guid: ad2b0af5afb47fd4b92ee7534d04b8f3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2754073418121765902, guid: ad2b0af5afb47fd4b92ee7534d04b8f3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2754073418121765902, guid: ad2b0af5afb47fd4b92ee7534d04b8f3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2754073418121765902, guid: ad2b0af5afb47fd4b92ee7534d04b8f3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2754073418121765902, guid: ad2b0af5afb47fd4b92ee7534d04b8f3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2754073418121765902, guid: ad2b0af5afb47fd4b92ee7534d04b8f3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 2754073418121765902, guid: ad2b0af5afb47fd4b92ee7534d04b8f3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3275171919209316020, guid: ad2b0af5afb47fd4b92ee7534d04b8f3, type: 3}
+      propertyPath: m_Name
+      value: Operating room
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+>>>>>>> fuuma
   m_SourcePrefab: {fileID: 100100000, guid: ad2b0af5afb47fd4b92ee7534d04b8f3, type: 3}
 --- !u!1001 &6157187523264753421
 PrefabInstance:
