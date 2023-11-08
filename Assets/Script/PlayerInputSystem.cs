@@ -125,6 +125,15 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UseItem"",
+                    ""type"": ""Button"",
+                    ""id"": ""9db42c2e-f476-4d12-b61c-333e1ec5925b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -400,6 +409,17 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""CharacterChangeBoy"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fe47e18d-97d5-4d99-871b-29290fdae49c"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UseItem"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -998,6 +1018,7 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
         m_Player_GetItem = m_Player.FindAction("GetItem", throwIfNotFound: true);
         m_Player_CharacterChangeGirl = m_Player.FindAction("CharacterChangeGirl", throwIfNotFound: true);
         m_Player_CharacterChangeBoy = m_Player.FindAction("CharacterChangeBoy", throwIfNotFound: true);
+        m_Player_UseItem = m_Player.FindAction("UseItem", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1082,6 +1103,7 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_GetItem;
     private readonly InputAction m_Player_CharacterChangeGirl;
     private readonly InputAction m_Player_CharacterChangeBoy;
+    private readonly InputAction m_Player_UseItem;
     public struct PlayerActions
     {
         private @PlayerInputSystem m_Wrapper;
@@ -1097,6 +1119,7 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
         public InputAction @GetItem => m_Wrapper.m_Player_GetItem;
         public InputAction @CharacterChangeGirl => m_Wrapper.m_Player_CharacterChangeGirl;
         public InputAction @CharacterChangeBoy => m_Wrapper.m_Player_CharacterChangeBoy;
+        public InputAction @UseItem => m_Wrapper.m_Player_UseItem;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1139,6 +1162,9 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
             @CharacterChangeBoy.started += instance.OnCharacterChangeBoy;
             @CharacterChangeBoy.performed += instance.OnCharacterChangeBoy;
             @CharacterChangeBoy.canceled += instance.OnCharacterChangeBoy;
+            @UseItem.started += instance.OnUseItem;
+            @UseItem.performed += instance.OnUseItem;
+            @UseItem.canceled += instance.OnUseItem;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1176,6 +1202,9 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
             @CharacterChangeBoy.started -= instance.OnCharacterChangeBoy;
             @CharacterChangeBoy.performed -= instance.OnCharacterChangeBoy;
             @CharacterChangeBoy.canceled -= instance.OnCharacterChangeBoy;
+            @UseItem.started -= instance.OnUseItem;
+            @UseItem.performed -= instance.OnUseItem;
+            @UseItem.canceled -= instance.OnUseItem;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1369,6 +1398,7 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
         void OnGetItem(InputAction.CallbackContext context);
         void OnCharacterChangeGirl(InputAction.CallbackContext context);
         void OnCharacterChangeBoy(InputAction.CallbackContext context);
+        void OnUseItem(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
