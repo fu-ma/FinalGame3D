@@ -11,11 +11,16 @@ public class TextWriter : MonoBehaviour
     public GameObject girl;
     public GameObject boy;
 
+    private GameObject fadeInObj;
+    private FadeIn fadeIn;
     // Start is called before the first frame update
     void Start()
     {
         inputAction_ = new PlayerInputSystem();
         inputAction_.Enable();
+
+        fadeInObj = GameObject.Find("fadeIn");
+        fadeIn = fadeInObj.GetComponent<FadeIn>();
     }
 
     IEnumerator Skip()
@@ -24,14 +29,26 @@ public class TextWriter : MonoBehaviour
         while (!uitext.IsClicked()) yield return 0;
     }
 
-    IEnumerator Cotest()
+    IEnumerator RooftopStory()
     {
         //uitext.DrawText("ナレーションだったらこのまま書けばOK");
         //yield return StartCoroutine("Skip");
         boy.SetActive(false);
         girl.SetActive(true);
-        uitext.DrawText("名前", "人が話すのならこんな感じ");
+        uitext.DrawText("少女", "あれ...?");
         yield return StartCoroutine("Skip");
+        uitext.DrawText( "気が付くと、見知らぬ場所に倒れていた。");
+        yield return StartCoroutine("Skip");
+        uitext.DrawText( "周りを見渡してみるも真っ暗で、ぼんやりと光る電飾だけが、頭上から辺りをうっすら照らしている。");
+        yield return StartCoroutine("Skip");
+        uitext.DrawText("数メートル先の暗闇に微かに柵が見えた。");
+        yield return StartCoroutine("Skip");
+        fadeIn.fadeFlag = true;
+        uitext.DrawText("少女", "何してたんだっけ...");
+        yield return StartCoroutine("Skip");
+        uitext.DrawText("どうやら、ここに来るまでの記憶が抜け落ちているみたいだ。");
+        yield return StartCoroutine("Skip");
+
 
         uitext.DrawText("主人公", "こんにちは");
         yield return StartCoroutine("Skip");
@@ -52,7 +69,7 @@ public class TextWriter : MonoBehaviour
     {
         if(inputAction_.Player.MoveLeft.triggered)
         {
-            StartCoroutine("Cotest");
+            StartCoroutine("RooftopStory");
         }
         if(inputAction_.Player.MoveRight.triggered)
         {
