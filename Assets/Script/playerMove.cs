@@ -30,7 +30,7 @@ public class playerMove : MonoBehaviour
         bc.size = new Vector3(1, 2.36f, 1);
 
         playerTransform = GetComponent<Transform>();
-        playerTransform.position = new Vector3(-20, 1, 0);
+        playerTransform.position = new Vector3(0, 1, -20);
         //cameraTransform = GetComponent<Transform>();
         Application.targetFrameRate = 60;
         Screen.SetResolution(1280, 720, FullScreenMode.FullScreenWindow, 60);
