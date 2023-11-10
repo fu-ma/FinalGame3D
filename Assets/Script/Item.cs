@@ -15,8 +15,4 @@ public class Item : MonoBehaviour
     {
         
     }
-    public void ItemGet()
-    {
-        Destroy(this.gameObject);
-    }
 }
