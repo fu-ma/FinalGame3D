@@ -28,18 +28,18 @@ public class cameraRotate : MonoBehaviour
             rightNum = 0;
             this.transform.eulerAngles = angle;
         }
-        if (inputAction_.Player.RotateLeft.triggered)
-        {
-            leftNum++;
-            angle.y += 45;
-            this.transform.eulerAngles = angle;
-        }
-        if (inputAction_.Player.RotateRight.triggered)
-        {
-            rightNum++;
-            angle.y -= 45;
-            this.transform.eulerAngles = angle;
-        }
+        //if (inputAction_.Player.RotateLeft.triggered)
+        //{
+        //    leftNum++;
+        //    angle.y += 45;
+        //    this.transform.eulerAngles = angle;
+        //}
+        //if (inputAction_.Player.RotateRight.triggered)
+        //{
+        //    rightNum++;
+        //    angle.y -= 45;
+        //    this.transform.eulerAngles = angle;
+        //}
 
         if (leftNum == 2)
         {

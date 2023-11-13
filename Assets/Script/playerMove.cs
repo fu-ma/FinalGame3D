@@ -16,6 +16,9 @@ public class playerMove : MonoBehaviour
     //public Transform cameraTransform;
     private PlayerInputSystem inputAction_;
     // Start is called before the first frame update
+    private publicFlag gameStop;
+    private TextWriter textWriter;
+
     void Start()
     {
         inputAction_ = new PlayerInputSystem();
@@ -34,90 +37,102 @@ public class playerMove : MonoBehaviour
         //cameraTransform = GetComponent<Transform>();
         Application.targetFrameRate = 60;
         Screen.SetResolution(1280, 720, FullScreenMode.FullScreenWindow, 60);
+        girlObject.SetActive(true);
+        boyObject.SetActive(false);
+
+        gameStop = GameObject.Find("GameManager").GetComponent<publicFlag>();
+
+        textWriter = GameObject.Find("Canvas").GetComponent<TextWriter>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (inputAction_.Player.MoveLeft.IsPressed())
+        if (gameStop.stopFlag == false)
         {
-            if (inputAction_.Player.SpeedUp.IsPressed())
+            if (inputAction_.Player.MoveLeft.IsPressed())
             {
-                power = -24.0f;
-                maxSpeed = 48.0f;
+                if (inputAction_.Player.SpeedUp.IsPressed())
+                {
+                    power = -24.0f;
+                    maxSpeed = 48.0f;
+                }
+                else
+                {
+                    power = -12.0f;
+                    maxSpeed = 24.0f;
+                }
+                rb.AddForce(transform.right * ((maxSpeed - rb.velocity.x) * power), ForceMode.Force);
             }
-            else
+            if (inputAction_.Player.MoveRight.IsPressed())
             {
-                power = -12.0f;
-                maxSpeed = 24.0f;
+                if (inputAction_.Player.SpeedUp.IsPressed())
+                {
+                    power = 32.0f;
+                    maxSpeed = 48.0f;
+                }
+                else
+                {
+                    power = 16.0f;
+                    maxSpeed = 24.0f;
+                }
+                rb.AddForce(transform.right * ((maxSpeed - rb.velocity.x) * power), ForceMode.Force);
             }
-            rb.AddForce(transform.right * ((maxSpeed - rb.velocity.x) * power), ForceMode.Force);
-        }
-        if (inputAction_.Player.MoveRight.IsPressed())
-        {
-            if (inputAction_.Player.SpeedUp.IsPressed())
+            if (inputAction_.Player.MoveUp.IsPressed())
             {
-                power = 32.0f;
-                maxSpeed = 48.0f;
+                if (inputAction_.Player.SpeedUp.IsPressed())
+                {
+                    power = 32.0f;
+                    maxSpeed = 48.0f;
+                }
+                else
+                {
+                    power = 16.0f;
+                    maxSpeed = 24.0f;
+                }
+                rb.AddForce(transform.forward * ((maxSpeed - rb.velocity.z) * power), ForceMode.Force);
             }
-            else
+            if (inputAction_.Player.MoveDown.IsPressed())
             {
-                power = 16.0f;
-                maxSpeed = 24.0f;
+                if (inputAction_.Player.SpeedUp.IsPressed())
+                {
+                    power = -24.0f;
+                    maxSpeed = 48.0f;
+                }
+                else
+                {
+                    power = -12.0f;
+                    maxSpeed = 24.0f;
+                }
+                rb.AddForce(transform.forward * ((maxSpeed - rb.velocity.z) * power), ForceMode.Force);
             }
-            rb.AddForce(transform.right * ((maxSpeed - rb.velocity.x) * power), ForceMode.Force);
-        }
-        if (inputAction_.Player.MoveUp.IsPressed())
-        {
-            if (inputAction_.Player.SpeedUp.IsPressed())
-            {
-                power = 32.0f;
-                maxSpeed = 48.0f;
-            }
-            else
-            {
-                power = 16.0f;
-                maxSpeed = 24.0f;
-            }
-            rb.AddForce(transform.forward * ((maxSpeed - rb.velocity.z) * power), ForceMode.Force);
-        }
-        if (inputAction_.Player.MoveDown.IsPressed())
-        {
-            if (inputAction_.Player.SpeedUp.IsPressed())
-            {
-                power = -24.0f;
-                maxSpeed = 48.0f;
-            }
-            else
-            {
-                power = -12.0f;
-                maxSpeed = 24.0f;
-            }
-            rb.AddForce(transform.forward * ((maxSpeed - rb.velocity.z) * power), ForceMode.Force);
-        }
 
-        //キャラクター切り替え
-        if(inputAction_.Player.CharacterChangeGirl.triggered)
-        {
-            girlObject.SetActive(true);
-            boyObject.SetActive(false);
-        }
-        if (inputAction_.Player.CharacterChangeBoy.triggered)
-        {
-            girlObject.SetActive(false);
-            boyObject.SetActive(true);
+            //キャラクター切り替え
+            //if(inputAction_.Player.CharacterChangeGirl.triggered)
+            //{
+            //    girlObject.SetActive(true);
+            //    boyObject.SetActive(false);
+            //}
+            //if (inputAction_.Player.CharacterChangeBoy.triggered)
+            //{
+            //    girlObject.SetActive(false);
+            //    boyObject.SetActive(true);
+            //}
         }
     }
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.tag == "Stage")
+        if (collision.gameObject.tag == "door" && inputAction_.Player.Talk.triggered && textWriter.dollGetFlag == false)
         {
-            //playerMoveNum = 0.00000f;
+            textWriter.TextNum = 3;
+        }
+        if(collision.gameObject.tag == "fence" && inputAction_.Player.Talk.triggered && textWriter.dollGetFlag == true && textWriter.TextNum == 4)
+        {
+            textWriter.TextNum = 5;
+        }
+        if (collision.gameObject.tag == "door" && inputAction_.Player.Talk.triggered && textWriter.fenceStoryFlag == true)
+        {
+            textWriter.TextNum = 7;
         }
     }
-    private void OnCollisionStay(Collision collision)
-    {
-        
-    }
-
 }

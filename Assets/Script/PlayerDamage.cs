@@ -12,6 +12,7 @@ public class PlayerDamage : MonoBehaviour
     private int damageTimer;
     private bool damageFlag;
 
+    public bool isDamage;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,12 +24,13 @@ public class PlayerDamage : MonoBehaviour
 
         damageFlag = false;
         damageTimer = 0;
+        isDamage = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (inputAction_.Player.CharacterChangeGirl.triggered)
+        if (isDamage == true)
         {
             if (hpSprite.HP > 0)
             {
@@ -36,16 +38,9 @@ public class PlayerDamage : MonoBehaviour
             }
             damageFlag = true;
         }
-        if (inputAction_.Player.CharacterChangeBoy.triggered)
-        {
-            if (hpSprite.HP < 5)
-            {
-                hpSprite.HP++;
-            }
-        }
-
         if(damageFlag == true)
         {
+            isDamage = false;
             if (damageTimer == 0)
             {
                 damageEffect.SetActive(true);

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Stage
   - Item
+  - door
+  - fence
   layers:
   - Default
   - TransparentFX

@@ -29,14 +29,14 @@ public class playerRotate : MonoBehaviour
             rightNum = 0;
             this.transform.eulerAngles = angle;
         }
-        if (inputAction_.Player.RotateLeft.triggered)
-        {
-            leftNum++;
-        }
-        if (inputAction_.Player.RotateRight.triggered)
-        {
-            rightNum++;
-        }
+        //if (inputAction_.Player.RotateLeft.triggered)
+        //{
+        //    leftNum++;
+        //}
+        //if (inputAction_.Player.RotateRight.triggered)
+        //{
+        //    rightNum++;
+        //}
 
         if(leftNum == 2)
         {
