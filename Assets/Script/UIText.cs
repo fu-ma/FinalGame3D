@@ -14,16 +14,25 @@ public class UIText : MonoBehaviour
 
     private PlayerInputSystem inputAction_;
 
+    //テキストの表示音
+    public AudioClip sound1;
+    AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
         inputAction_ = new PlayerInputSystem();
         inputAction_.Enable();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public bool IsClicked()
     {
-        if (inputAction_.Player.Talk.triggered) return true;
+        if (inputAction_.Player.Talk.triggered)
+        {
+            audioSource.PlayOneShot(sound1);
+            return true;
+        }
         return false;
     }
 
@@ -47,7 +56,6 @@ public class UIText : MonoBehaviour
         {
             yield return 0;
             time += Time.deltaTime;
-
             if (IsClicked()) break;
 
             int len = Mathf.FloorToInt(time / textSpeed);
