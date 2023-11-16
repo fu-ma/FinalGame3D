@@ -134,6 +134,15 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ChangeMenuScreen"",
+                    ""type"": ""Value"",
+                    ""id"": ""2289c475-6577-4717-aca4-c5b80710787a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -420,6 +429,17 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""UseItem"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b6c00700-d128-41b8-b30e-0c8647f47df2"",
+                    ""path"": ""<Keyboard>/m"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeMenuScreen"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1019,6 +1039,7 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
         m_Player_CharacterChangeGirl = m_Player.FindAction("CharacterChangeGirl", throwIfNotFound: true);
         m_Player_CharacterChangeBoy = m_Player.FindAction("CharacterChangeBoy", throwIfNotFound: true);
         m_Player_UseItem = m_Player.FindAction("UseItem", throwIfNotFound: true);
+        m_Player_ChangeMenuScreen = m_Player.FindAction("ChangeMenuScreen", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1104,6 +1125,7 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_CharacterChangeGirl;
     private readonly InputAction m_Player_CharacterChangeBoy;
     private readonly InputAction m_Player_UseItem;
+    private readonly InputAction m_Player_ChangeMenuScreen;
     public struct PlayerActions
     {
         private @PlayerInputSystem m_Wrapper;
@@ -1120,6 +1142,7 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
         public InputAction @CharacterChangeGirl => m_Wrapper.m_Player_CharacterChangeGirl;
         public InputAction @CharacterChangeBoy => m_Wrapper.m_Player_CharacterChangeBoy;
         public InputAction @UseItem => m_Wrapper.m_Player_UseItem;
+        public InputAction @ChangeMenuScreen => m_Wrapper.m_Player_ChangeMenuScreen;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1165,6 +1188,9 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
             @UseItem.started += instance.OnUseItem;
             @UseItem.performed += instance.OnUseItem;
             @UseItem.canceled += instance.OnUseItem;
+            @ChangeMenuScreen.started += instance.OnChangeMenuScreen;
+            @ChangeMenuScreen.performed += instance.OnChangeMenuScreen;
+            @ChangeMenuScreen.canceled += instance.OnChangeMenuScreen;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1205,6 +1231,9 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
             @UseItem.started -= instance.OnUseItem;
             @UseItem.performed -= instance.OnUseItem;
             @UseItem.canceled -= instance.OnUseItem;
+            @ChangeMenuScreen.started -= instance.OnChangeMenuScreen;
+            @ChangeMenuScreen.performed -= instance.OnChangeMenuScreen;
+            @ChangeMenuScreen.canceled -= instance.OnChangeMenuScreen;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1399,6 +1428,7 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
         void OnCharacterChangeGirl(InputAction.CallbackContext context);
         void OnCharacterChangeBoy(InputAction.CallbackContext context);
         void OnUseItem(InputAction.CallbackContext context);
+        void OnChangeMenuScreen(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
