@@ -17,10 +17,14 @@ public class Password : MonoBehaviour
     [SerializeField] Sprite numberPhoto7;
     [SerializeField] Sprite numberPhoto8;
     [SerializeField] Sprite numberPhoto9;
+    [SerializeField] Sprite spriteCirsol;
     [SerializeField] Image imagePasswordPanel;
     [SerializeField] Image imageNumber100;
     [SerializeField] Image imageNumber10;
     [SerializeField] Image imageNumber1;
+    [SerializeField] Image imageCirsol100;
+    [SerializeField] Image imageCirsol10;
+    [SerializeField] Image imageCirsol1;
     public bool isCommand = false;
     public bool answerPass = false;
     public bool isGetOpeKey = false;
@@ -38,10 +42,17 @@ public class Password : MonoBehaviour
         imageNumber100 = GameObject.Find("number100").GetComponent<Image>();
         imageNumber10 = GameObject.Find("number10").GetComponent<Image>();
         imageNumber1 = GameObject.Find("number1").GetComponent<Image>();
+        imageCirsol100 = GameObject.Find("NowPanel100").GetComponent<Image>();
+        imageCirsol10 = GameObject.Find("NowPanel10").GetComponent<Image>();
+        imageCirsol1 = GameObject.Find("NowPanel1").GetComponent<Image>();
         imagePasswordPanel.enabled = false;
         imageNumber100.enabled = false;
         imageNumber10.enabled = false;
         imageNumber1.enabled = false;
+        imageCirsol100.enabled = false;
+        imageCirsol10.enabled = false;
+        imageCirsol1.enabled = false;
+        isCommand = true;
     }
 
     // Update is called once per frame
@@ -61,6 +72,10 @@ public class Password : MonoBehaviour
             }
             if (changePass == 0)
             {
+                imageCirsol100.enabled = true;
+                imageCirsol10.enabled = false;
+                imageCirsol1.enabled = false;
+                imageCirsol100.sprite = spriteCirsol;
                 if (inputAction.Player.MoveUp.triggered && numberPass100 < 9)
                 {
                     numberPass100++;
@@ -80,6 +95,10 @@ public class Password : MonoBehaviour
             }
             if (changePass == 1)
             {
+                imageCirsol100.enabled = false;
+                imageCirsol10.enabled = true;
+                imageCirsol1.enabled = false;
+                imageCirsol10.sprite = spriteCirsol;
                 if (inputAction.Player.MoveUp.triggered && numberPass10 < 9)
                 {
                     numberPass10++;
@@ -99,6 +118,10 @@ public class Password : MonoBehaviour
             }
             if (changePass == 2)
             {
+                imageCirsol100.enabled = false;
+                imageCirsol10.enabled = false;
+                imageCirsol1.enabled = true;
+                imageCirsol1.sprite = spriteCirsol;
                 if (inputAction.Player.MoveUp.triggered && numberPass1 < 9)
                 {
                     numberPass1++;
@@ -274,6 +297,9 @@ public class Password : MonoBehaviour
                 imageNumber100.enabled = false;
                 imageNumber10.enabled = false;
                 imageNumber1.enabled = false;
+                imageCirsol100.enabled = false;
+                imageCirsol10.enabled = false;
+                imageCirsol1.enabled = false;
             }
         }
         
