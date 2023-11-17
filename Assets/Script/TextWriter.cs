@@ -14,6 +14,7 @@ public class TextWriter : MonoBehaviour
     public GameObject Canbus;
     public GameObject HP;
     public GameObject doll;
+    public GameObject sewing;
     public GameObject rooftopEffect;
     private GameObject fadeInObj;
     private FadeIn fadeIn;
@@ -60,6 +61,7 @@ public class TextWriter : MonoBehaviour
         Canbus.SetActive(true);
         HP.SetActive(false);
         doll.SetActive(false);
+        sewing.SetActive(false);
         rooftopEffect.SetActive(true);
 
         dollGetFlag = false;
@@ -209,9 +211,11 @@ public class TextWriter : MonoBehaviour
         girl_fear.SetActive(false);
         uitext.DrawText("バタン！！！！");
         yield return StartCoroutine("Skip");
+        hospital.backFlag = true;
         girl_fear.SetActive(true);
         uitext.DrawText("少女", "っ……");
         yield return StartCoroutine("Skip");
+        hospital.backFlag = false;
         uitext.DrawText("少女", "先に進むしかない…よね…");
         yield return StartCoroutine("Skip");
         girl_fear.SetActive(false);
@@ -225,6 +229,105 @@ public class TextWriter : MonoBehaviour
         boy.SetActive(false);
         uitext.DrawText("ドアは閉まっている。");
         yield return StartCoroutine("Skip");
+        gameStop.stopFlag = false;
+    }
+
+    IEnumerator operatingDoorStory()
+    {
+        girl.SetActive(false);
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        uitext.DrawText("手術室と書かれている。");
+        yield return StartCoroutine("Skip");
+        fadeIn.fadeOutFlag = true;
+        uitext.DrawText("少女", "いや！");
+        yield return StartCoroutine("Skip");
+        uitext.DrawText("少女", "だめっ！");
+        yield return StartCoroutine("Skip");
+        uitext.DrawText("少女", "死なないでっ！！");
+        yield return StartCoroutine("Skip");
+        uitext.DrawText("少女", "置いてかないで……");
+        yield return StartCoroutine("Skip");
+        fadeIn.fadeFlag = true;
+        girl_fear.SetActive(true);
+        uitext.DrawText("少女", "うっ…頭痛い…");
+        yield return StartCoroutine("Skip");
+        girl_fear.SetActive(true);
+        uitext.DrawText("少女", "それに何か…大切な…");
+        yield return StartCoroutine("Skip");
+        girl_fear.SetActive(true);
+        uitext.DrawText("少女", "思い出せない…");
+        yield return StartCoroutine("Skip");
+        girl_fear.SetActive(false);
+
+        gameStop.stopFlag = false;
+    }
+
+    IEnumerator ironDoorStory()
+    {
+        girl.SetActive(false);
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        uitext.DrawText("鉄柵のゲートだ。");
+        yield return StartCoroutine("Skip");
+        uitext.DrawText("更に奥にはドアが見える。");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(true);
+        uitext.DrawText("少女", "この鉄柵、アイツの身長なら登れたかな。");
+        yield return StartCoroutine("Skip");
+        uitext.DrawText("少女", "…あれ、アイツって…誰のことだろう…");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        gameStop.stopFlag = false;
+    }
+
+    IEnumerator classroomStory()
+    {
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        girl.SetActive(true);
+        uitext.DrawText("少女", "今度は…学校？");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        gameStop.stopFlag = false;
+    }
+
+    IEnumerator classroomStory2()
+    {
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        girl.SetActive(true);
+        uitext.DrawText("少女", "あれ？さっきとおなじ？");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        gameStop.stopFlag = false;
+    }
+
+    IEnumerator desk1Story()
+    {
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        girl.SetActive(false);
+        uitext.DrawText("机の中に何か入っている。");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(true);
+        uitext.DrawText("少女", "これは…裁縫道具…？");
+        yield return StartCoroutine("Skip");
+        uitext.DrawText("少女", "これがあればお人形を治せるかも。");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+        sewing.SetActive(true);
+        uitext.DrawText("裁縫道具を手に入れた。");
+        yield return StartCoroutine("Skip");
+        sewing.SetActive(false);
+        uitext.DrawText("※アイテム欄から”裁縫道具”を使用すると、HPを全回復することが出来ます。");
+        yield return StartCoroutine("Skip");
+        uitext.DrawText("一度使用した裁縫道具は失われます。");
+        yield return StartCoroutine("Skip");
+
         gameStop.stopFlag = false;
     }
 
@@ -281,6 +384,36 @@ public class TextWriter : MonoBehaviour
             gameStop.stopFlag = true;
             StartCoroutine("entranceDoorStory");
             TextNum = 14;
+        }
+        if(TextNum == 15)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("operatingDoorStory");
+            TextNum = 16;
+        }
+        if(TextNum == 17)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("ironDoorStory");
+            TextNum = 18;
+        }
+        if(TextNum == 19)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("classroomStory");
+            TextNum = 20;
+        }
+        if(TextNum == 21)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("classroomStory2");
+            TextNum = 22;
+        }
+        if(TextNum == 23)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("desk1Story");
+            TextNum = 24;
         }
         if(inputAction_.Player.MoveRight.triggered)
         {

@@ -19,6 +19,13 @@ public class playerMove : MonoBehaviour
     private publicFlag gameStop;
     private TextWriter textWriter;
 
+    private PlayerTeleport playerTeleport;
+
+    private bool classroomFlag;
+    private bool classroomFlag2;
+
+    private bool desk1Flag;
+
     void Start()
     {
         inputAction_ = new PlayerInputSystem();
@@ -43,6 +50,13 @@ public class playerMove : MonoBehaviour
         gameStop = GameObject.Find("GameManager").GetComponent<publicFlag>();
 
         textWriter = GameObject.Find("Canvas").GetComponent<TextWriter>();
+
+        playerTeleport = GameObject.Find("player").GetComponent<PlayerTeleport>();
+
+        classroomFlag = false;
+        classroomFlag2 = false;
+
+        desk1Flag = false;
     }
 
     // Update is called once per frame
@@ -137,6 +151,80 @@ public class playerMove : MonoBehaviour
         if(collision.gameObject.tag == "entranceDoor" && inputAction_.Player.Talk.triggered)
         {
             textWriter.TextNum = 13;
+        }
+        if(collision.gameObject.tag == "1-1goDoor")
+        {
+            playerTeleport.SetPosition(-64, 39.5f);
+            if(classroomFlag == false)
+            {
+                textWriter.TextNum = 19;
+            }
+            classroomFlag = true;
+        }
+        if (collision.gameObject.tag == "2-1goDoor")
+        {
+            playerTeleport.SetPosition(83.5f, 39);
+            if (classroomFlag == false)
+            {
+                textWriter.TextNum = 19;
+            }
+            classroomFlag = true;
+        }
+        if (collision.gameObject.tag == "entrancegoDoor1")
+        {
+            playerTeleport.SetPosition(-17.2f, 38.85f);
+        }
+        if (collision.gameObject.tag == "entrancegoDoor2")
+        {
+            playerTeleport.SetPosition(27.1f, 38.85f);
+        }
+        if(collision.gameObject.tag == "operatingDoor" && inputAction_.Player.Talk.triggered)
+        {
+            textWriter.TextNum = 15;
+        }
+        if (collision.gameObject.tag == "ironDoor" && inputAction_.Player.Talk.triggered)
+        {
+            textWriter.TextNum = 17;
+        }
+        if (collision.gameObject.tag == "1-2goDoor")
+        {
+            playerTeleport.SetPosition(-76.1f, 99.3f);
+            if (classroomFlag2 == false)
+            {
+                textWriter.TextNum = 21;
+            }
+            classroomFlag2 = true;
+        }
+        if (collision.gameObject.tag == "2-2goDoor")
+        {
+            playerTeleport.SetPosition(96.35f, 99.3f);
+            if (classroomFlag2 == false)
+            {
+                textWriter.TextNum = 21;
+            }
+            classroomFlag2 = true;
+        }
+        if(collision.gameObject.tag == "1-3goDoor")
+        {
+            playerTeleport.SetPosition(-76.1f, 159.3f);
+        }
+        if (collision.gameObject.tag == "2-3goDoor")
+        {
+            playerTeleport.SetPosition(96.35f, 159.3f);
+        }
+        if (collision.gameObject.tag == "1-1leftGoDoor")
+        {
+            playerTeleport.SetPosition(-76.1f, 39.3f);
+        }
+        if (collision.gameObject.tag == "2-1leftGoDoor")
+        {
+            playerTeleport.SetPosition(96.35f, 39.3f);
+        }
+
+        if(collision.gameObject.tag == "1-1desk" && inputAction_.Player.Talk.triggered && desk1Flag == false)
+        {
+            textWriter.TextNum = 23;
+            desk1Flag = true;
         }
     }
 }

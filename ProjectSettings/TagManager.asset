@@ -11,6 +11,17 @@ TagManager:
   - entranceDoor
   - 1-1goDoor
   - 2-1goDoor
+  - entrancegoDoor1
+  - entrancegoDoor2
+  - operatingDoor
+  - ironDoor
+  - 1-2goDoor
+  - 2-2goDoor
+  - 1-3goDoor
+  - 2-3goDoor
+  - 1-1leftGoDoor
+  - 2-1leftGoDoor
+  - 1-1desk
   layers:
   - Default
   - TransparentFX
