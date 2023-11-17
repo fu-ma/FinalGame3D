@@ -121,6 +121,33 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "PassChange",
+                    "type": "Button",
+                    "id": "29efde8f-78e0-4cd5-acfc-049fc02e45bf",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "NumberChangeRight",
+                    "type": "Button",
+                    "id": "5f14a341-7eb4-4ed4-87fc-2f53b0ee9594",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "NumberChangeLeft",
+                    "type": "Button",
+                    "id": "17305657-7aee-47d8-bfb7-7f822af3c710",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -418,6 +445,39 @@
                     "processors": "",
                     "groups": "",
                     "action": "ChangeMenuScreen",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9cf156e2-9fb6-4489-bfa6-2f7b8a25221d",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PassChange",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d639b419-96bd-418d-b190-a6fc90fa1d83",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NumberChangeRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "52f33909-9c3d-45e1-bc7f-76d6f514890f",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NumberChangeLeft",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
