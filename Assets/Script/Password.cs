@@ -291,16 +291,19 @@ public class Password : MonoBehaviour
             }
             if (numberPass100 == 2 && numberPass10 == 4 && numberPass1 == 2 && inputAction.Player.PassChange.triggered)
             {
-                isGetOpeKey = true;
                 isCommand = false;
-                imagePasswordPanel.enabled = false;
-                imageNumber100.enabled = false;
-                imageNumber10.enabled = false;
-                imageNumber1.enabled = false;
-                imageCirsol100.enabled = false;
-                imageCirsol10.enabled = false;
-                imageCirsol1.enabled = false;
             }
+        }
+        else
+        {
+            isGetOpeKey = true;
+            imagePasswordPanel.enabled = false;
+            imageNumber100.enabled = false;
+            imageNumber10.enabled = false;
+            imageNumber1.enabled = false;
+            imageCirsol100.enabled = false;
+            imageCirsol10.enabled = false;
+            imageCirsol1.enabled = false;
         }
         
     }
