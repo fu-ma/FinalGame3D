@@ -134,5 +134,9 @@ public class playerMove : MonoBehaviour
         {
             textWriter.TextNum = 7;
         }
+        if(collision.gameObject.tag == "entranceDoor" && inputAction_.Player.Talk.triggered)
+        {
+            textWriter.TextNum = 13;
+        }
     }
 }

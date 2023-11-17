@@ -8,6 +8,9 @@ TagManager:
   - Item
   - door
   - fence
+  - entranceDoor
+  - 1-1goDoor
+  - 2-1goDoor
   layers:
   - Default
   - TransparentFX

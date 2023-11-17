@@ -82,5 +82,9 @@ public class playerSpriteMove : MonoBehaviour
                 anim.enabled = false;
             }
         }
+        else
+        {
+            anim.enabled = false;
+        }
     }
 }

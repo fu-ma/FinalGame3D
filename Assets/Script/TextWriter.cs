@@ -26,6 +26,8 @@ public class TextWriter : MonoBehaviour
 
     private PlayerTeleport playerTeleport;
 
+    private hospitalPlayerSprite hospital;
+
     //人形を持っているか
     public bool dollGetFlag;
     public bool fenceStoryFlag;
@@ -49,6 +51,8 @@ public class TextWriter : MonoBehaviour
         playerDamage = GameObject.Find("player").GetComponent<PlayerDamage>();
 
         playerTeleport = GameObject.Find("player").GetComponent<PlayerTeleport>();
+
+        hospital = GameObject.Find("playerShadow").GetComponent<hospitalPlayerSprite>();
 
         TextNum = 0;
         fenceStoryFlag = false;
@@ -173,8 +177,55 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         uitext.DrawText("中に入ろう。");
         yield return StartCoroutine("Skip");
-        gameStop.stopFlag = false;
         playerTeleport.SetPosition(5, 30);
+        TextNum = 9;
+    }
+
+    IEnumerator hospitalStory()
+    {
+        girl.SetActive(false);
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        girl_fear.SetActive(true);
+        uitext.DrawText("少女", "え…………?");
+        yield return StartCoroutine("Skip");
+        girl_fear.SetActive(false);
+
+        hospital.Flag = true;
+    }
+
+    IEnumerator hospitalStory2()
+    {
+        girl.SetActive(false);
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        uitext.DrawText("目の前に広がっているのは、病院のエントランスだろうか。");
+        yield return StartCoroutine("Skip");
+        uitext.DrawText("しかし後ろを振り向けば、ドアの先には屋上が広がっている。");
+        yield return StartCoroutine("Skip");
+        girl_fear.SetActive(true);
+        uitext.DrawText("少女","どうなってるの…");
+        yield return StartCoroutine("Skip");
+        girl_fear.SetActive(false);
+        uitext.DrawText("バタン！！！！");
+        yield return StartCoroutine("Skip");
+        girl_fear.SetActive(true);
+        uitext.DrawText("少女", "っ……");
+        yield return StartCoroutine("Skip");
+        uitext.DrawText("少女", "先に進むしかない…よね…");
+        yield return StartCoroutine("Skip");
+        girl_fear.SetActive(false);
+        gameStop.stopFlag = false;
+    }
+
+    IEnumerator entranceDoorStory()
+    {
+        girl.SetActive(false);
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        uitext.DrawText("ドアは閉まっている。");
+        yield return StartCoroutine("Skip");
+        gameStop.stopFlag = false;
     }
 
     // Update is called once per frame
@@ -211,6 +262,25 @@ public class TextWriter : MonoBehaviour
             gameStop.stopFlag = true;
             StartCoroutine("doorStory2");
             TextNum = 8;
+        }
+        //入口のストーリー
+        if(TextNum == 9)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("hospitalStory");
+            TextNum = 10;
+        }
+        if(TextNum == 11)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("hospitalStory2");
+            TextNum = 12;
+        }
+        if(TextNum == 13)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("entranceDoorStory");
+            TextNum = 14;
         }
         if(inputAction_.Player.MoveRight.triggered)
         {
