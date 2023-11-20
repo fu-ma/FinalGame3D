@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class Password : MonoBehaviour
 {
+    private AudioSource audiosource;
+    public AudioClip daiyaruSE;
+
     [SerializeField] Sprite passwordPanel;
     [SerializeField] Sprite numberPhoto0;
     [SerializeField] Sprite numberPhoto1;
@@ -36,6 +39,7 @@ public class Password : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audiosource = GetComponent<AudioSource>();
         inputAction = new PlayerInputSystem();
         inputAction.Enable();
         imagePasswordPanel = GameObject.Find("blackBord").GetComponent<Image>();
@@ -52,7 +56,6 @@ public class Password : MonoBehaviour
         imageCirsol100.enabled = false;
         imageCirsol10.enabled = false;
         imageCirsol1.enabled = false;
-        isCommand = true;
     }
 
     // Update is called once per frame
@@ -65,10 +68,12 @@ public class Password : MonoBehaviour
             if (inputAction.Player.NumberChangeLeft.triggered && changePass > 0)
             {
                 changePass--;
+                audiosource.PlayOneShot(daiyaruSE);
             }
             else if (inputAction.Player.NumberChangeRight.triggered && changePass < 2)
             {
                 changePass++;
+                audiosource.PlayOneShot(daiyaruSE);
             }
             if (changePass == 0)
             {
@@ -79,18 +84,22 @@ public class Password : MonoBehaviour
                 if (inputAction.Player.MoveUp.triggered && numberPass100 < 9)
                 {
                     numberPass100++;
+                    audiosource.PlayOneShot(daiyaruSE);
                 }
                 else if (inputAction.Player.MoveUp.triggered && numberPass100 == 9)
                 {
                     numberPass100 = 0;
+                    audiosource.PlayOneShot(daiyaruSE);
                 }
                 if (inputAction.Player.MoveDown.triggered && numberPass100 > 0)
                 {
                     numberPass100--;
+                    audiosource.PlayOneShot(daiyaruSE);
                 }
                 else if (inputAction.Player.MoveDown.triggered && numberPass100 == 0)
                 {
                     numberPass100 = 9;
+                    audiosource.PlayOneShot(daiyaruSE);
                 }
             }
             if (changePass == 1)
@@ -102,18 +111,22 @@ public class Password : MonoBehaviour
                 if (inputAction.Player.MoveUp.triggered && numberPass10 < 9)
                 {
                     numberPass10++;
+                    audiosource.PlayOneShot(daiyaruSE);
                 }
                 else if (inputAction.Player.MoveUp.triggered && numberPass10 == 9)
                 {
                     numberPass10 = 0;
+                    audiosource.PlayOneShot(daiyaruSE);
                 }
                 if (inputAction.Player.MoveDown.triggered && numberPass10 > 0)
                 {
                     numberPass10--;
+                    audiosource.PlayOneShot(daiyaruSE);
                 }
                 else if (inputAction.Player.MoveDown.triggered && numberPass10 == 0)
                 {
                     numberPass10 = 9;
+                    audiosource.PlayOneShot(daiyaruSE);
                 }
             }
             if (changePass == 2)
@@ -125,18 +138,22 @@ public class Password : MonoBehaviour
                 if (inputAction.Player.MoveUp.triggered && numberPass1 < 9)
                 {
                     numberPass1++;
+                    audiosource.PlayOneShot(daiyaruSE);
                 }
                 else if (inputAction.Player.MoveUp.triggered && numberPass1 == 9)
                 {
                     numberPass1 = 0;
+                    audiosource.PlayOneShot(daiyaruSE);
                 }
                 if (inputAction.Player.MoveDown.triggered && numberPass1 > 0)
                 {
                     numberPass1--;
+                    audiosource.PlayOneShot(daiyaruSE);
                 }
                 else if (inputAction.Player.MoveDown.triggered && numberPass1 == 0)
                 {
                     numberPass1 = 9;
+                    audiosource.PlayOneShot(daiyaruSE);
                 }
             }
             if (numberPass100 == 0)
