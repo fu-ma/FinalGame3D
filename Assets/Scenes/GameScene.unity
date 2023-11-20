@@ -593,7 +593,7 @@ MonoBehaviour:
   itemPhoto1: {fileID: 1945331010}
   itemPhoto2: {fileID: 33190070}
   menuPhoto: {fileID: 1179761839}
-  have1AKey: 0
+  haveOpeKey: 0
   openMenu: 0
   sowingGet: 0
 --- !u!114 &123871247
@@ -13335,7 +13335,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.04, y: 0.009999999, z: 0.02}
+  m_Size: {x: 0.01, y: 0.009999999, z: 0.02}
   m_Center: {x: 0.000000059604645, y: 0, z: 0}
 --- !u!65 &2011573950
 BoxCollider:
@@ -15000,6 +15000,7 @@ GameObject:
   - component: {fileID: 6003001033519767505}
   - component: {fileID: 3271056020115650919}
   - component: {fileID: 2010753058}
+  - component: {fileID: 6003001033519767506}
   m_Layer: 0
   m_Name: door2
   m_TagString: operatingDoor
@@ -17291,6 +17292,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1024066626591646896}
   m_Mesh: {fileID: 1292163514871375830, guid: 6e945e51a26d0b24b9004c6854f5cdff, type: 3}
+--- !u!65 &6003001033519767506
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024066626591646896}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.04, y: 0.009999999, z: 0.010000003}
+  m_Center: {x: 0.000000059604645, y: 4.656613e-10, z: 0}
 --- !u!1 &6196220935033098978
 GameObject:
   m_ObjectHideFlags: 0

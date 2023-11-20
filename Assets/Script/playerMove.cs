@@ -33,6 +33,8 @@ public class playerMove : MonoBehaviour
 
     private Password password;
 
+    private playerGetItem getItem;
+
     private bool classroomFlag;
     private bool classroomFlag2;
 
@@ -73,6 +75,8 @@ public class playerMove : MonoBehaviour
         playerTeleport = GameObject.Find("player").GetComponent<PlayerTeleport>();
 
         password = GameObject.Find("player").GetComponent<Password>();
+
+        getItem = GameObject.Find("player").GetComponent<playerGetItem>();
 
         classroomFlag = false;
         classroomFlag2 = false;
@@ -214,9 +218,18 @@ public class playerMove : MonoBehaviour
         {
             playerTeleport.SetPosition(27.1f, 38.85f);
         }
-        if(collision.gameObject.tag == "operatingDoor" && inputAction_.Player.Talk.triggered)
+        //カギを持ってないとき
+        if(collision.gameObject.tag == "operatingDoor" && inputAction_.Player.Talk.triggered && getItem.haveOpeKey == false)
         {
             textWriter.TextNum = 15;
+        }
+        //持ってるとき
+        if (collision.gameObject.tag == "operatingDoor" && inputAction_.Player.UseItem.triggered && getItem.openMenu == true && getItem.haveOpeKey == true)
+        {
+            //アイテムを使った時の処理を書いてほしい
+            getItem.haveOpeKey = false;
+            getItem.itemPhoto1.enabled = false;
+            getItem.itemPhoto2.enabled = false;
         }
         if (collision.gameObject.tag == "ironDoor" && inputAction_.Player.Talk.triggered)
         {
