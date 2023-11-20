@@ -8,6 +8,7 @@ public class Password : MonoBehaviour
 {
     private AudioSource audiosource;
     public AudioClip daiyaruSE;
+    public AudioClip missSE;
 
     [SerializeField] Sprite passwordPanel;
     [SerializeField] Sprite numberPhoto0;
@@ -31,6 +32,7 @@ public class Password : MonoBehaviour
     public bool isCommand = false;
     public bool answerPass = false;
     public bool isGetOpeKey = false;
+    public bool isMiss = false;
     public int numberPass100 = 0;
     public int numberPass10 = 0;
     public int numberPass1 = 0;
@@ -56,6 +58,7 @@ public class Password : MonoBehaviour
         imageCirsol100.enabled = false;
         imageCirsol10.enabled = false;
         imageCirsol1.enabled = false;
+        isCommand = true;
     }
 
     // Update is called once per frame
@@ -306,9 +309,21 @@ public class Password : MonoBehaviour
                 imageNumber1.enabled = true;
                 imageNumber1.sprite = numberPhoto9;
             }
-            if (numberPass100 == 2 && numberPass10 == 4 && numberPass1 == 2 && inputAction.Player.PassChange.triggered)
+            if (inputAction.Player.PassChange.triggered)
             {
-                isCommand = false;
+                if (numberPass100 == 2 && numberPass10 == 4 && numberPass1 == 2)
+                {
+                    isCommand = false;
+                }
+                else 
+                {
+                    isMiss = true;
+                }
+            }
+            if (isMiss == true)
+            {
+                audiosource.PlayOneShot(missSE);
+                isMiss = false;
             }
         }
         else
