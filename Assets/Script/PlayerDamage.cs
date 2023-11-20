@@ -13,6 +13,7 @@ public class PlayerDamage : MonoBehaviour
     private bool damageFlag;
 
     public bool isDamage;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +36,7 @@ public class PlayerDamage : MonoBehaviour
             if (hpSprite.HP > 0)
             {
                 hpSprite.HP--;
+                damageTimer = 0;
             }
             damageFlag = true;
         }

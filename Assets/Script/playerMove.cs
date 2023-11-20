@@ -31,6 +31,8 @@ public class playerMove : MonoBehaviour
 
     private PlayerTeleport playerTeleport;
 
+    private Password password;
+
     private bool classroomFlag;
     private bool classroomFlag2;
 
@@ -69,6 +71,8 @@ public class playerMove : MonoBehaviour
         textWriter = GameObject.Find("Canvas").GetComponent<TextWriter>();
 
         playerTeleport = GameObject.Find("player").GetComponent<PlayerTeleport>();
+
+        password = GameObject.Find("player").GetComponent<Password>();
 
         classroomFlag = false;
         classroomFlag2 = false;
@@ -283,6 +287,14 @@ public class playerMove : MonoBehaviour
         if (collision.gameObject.tag == "2-1blackBoard" && inputAction_.Player.Talk.triggered)
         {
             textWriter.TextNum = 29;
+        }
+        if (collision.gameObject.tag == "2-2blackBoard" && inputAction_.Player.Talk.triggered)
+        {
+            textWriter.TextNum = 31;
+        }
+        if (collision.gameObject.tag == "2-3blackBoard" && inputAction_.Player.Talk.triggered && password.dontObject == false)
+        {
+            textWriter.TextNum = 33;
         }
     }
 }

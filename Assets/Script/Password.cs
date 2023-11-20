@@ -7,6 +7,9 @@ using UnityEngine.UI;
 public class Password : MonoBehaviour
 {
     private AudioSource audiosource;
+    private PlayerDamage playerDamage;
+    private publicFlag gameStop;
+
     public AudioClip daiyaruSE;
     public AudioClip missSE;
 
@@ -32,6 +35,8 @@ public class Password : MonoBehaviour
     public bool isCommand = false;
     public bool answerPass = false;
     public bool isGetOpeKey = false;
+    public bool isGetKeyStory = false;
+    public bool dontObject = false;
     public bool isMiss = false;
     public int numberPass100 = 0;
     public int numberPass10 = 0;
@@ -42,6 +47,9 @@ public class Password : MonoBehaviour
     void Start()
     {
         audiosource = GetComponent<AudioSource>();
+        playerDamage = GameObject.Find("player").GetComponent<PlayerDamage>();
+        gameStop = GameObject.Find("GameManager").GetComponent<publicFlag>();
+
         inputAction = new PlayerInputSystem();
         inputAction.Enable();
         imagePasswordPanel = GameObject.Find("blackBord").GetComponent<Image>();
@@ -58,7 +66,9 @@ public class Password : MonoBehaviour
         imageCirsol100.enabled = false;
         imageCirsol10.enabled = false;
         imageCirsol1.enabled = false;
-        isCommand = true;
+        isCommand = false;
+        dontObject = false;
+        isGetKeyStory = false;
     }
 
     // Update is called once per frame
@@ -313,7 +323,11 @@ public class Password : MonoBehaviour
             {
                 if (numberPass100 == 2 && numberPass10 == 4 && numberPass1 == 2)
                 {
+                    isGetOpeKey = true;
+                    isGetKeyStory = true;
+                    gameStop.stopFlag = false;
                     isCommand = false;
+                    dontObject = true;
                 }
                 else 
                 {
@@ -322,13 +336,14 @@ public class Password : MonoBehaviour
             }
             if (isMiss == true)
             {
+                playerDamage.isDamage = true;
                 audiosource.PlayOneShot(missSE);
-                isMiss = false;
+                //isMiss = false;
+                isCommand = false;
             }
         }
         else
         {
-            isGetOpeKey = true;
             imagePasswordPanel.enabled = false;
             imageNumber100.enabled = false;
             imageNumber10.enabled = false;
@@ -337,6 +352,6 @@ public class Password : MonoBehaviour
             imageCirsol10.enabled = false;
             imageCirsol1.enabled = false;
         }
-        
+
     }
 }

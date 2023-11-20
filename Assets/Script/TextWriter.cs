@@ -16,6 +16,7 @@ public class TextWriter : MonoBehaviour
     public GameObject doll;
     public GameObject sewing;
     public GameObject rooftopEffect;
+    public GameObject opeKey;
     private GameObject fadeInObj;
     private FadeIn fadeIn;
 
@@ -30,6 +31,8 @@ public class TextWriter : MonoBehaviour
     private hospitalPlayerSprite hospital;
 
     private playerGetItem playergetitem;
+
+    private Password password;
 
     //人形を持っているか
     public bool dollGetFlag;
@@ -59,6 +62,8 @@ public class TextWriter : MonoBehaviour
 
         playergetitem = GameObject.Find("player").GetComponent<playerGetItem>();
 
+        password = GameObject.Find("player").GetComponent<Password>();
+
         TextNum = 0;
         fenceStoryFlag = false;
 
@@ -67,6 +72,7 @@ public class TextWriter : MonoBehaviour
         doll.SetActive(false);
         sewing.SetActive(false);
         rooftopEffect.SetActive(true);
+        opeKey.SetActive(false);
 
         dollGetFlag = false;
     }
@@ -417,6 +423,78 @@ public class TextWriter : MonoBehaviour
         Canbus.SetActive(false);
     }
 
+    IEnumerator BlackBoardStory2()
+    {
+        Canbus.SetActive(true);
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        girl.SetActive(false);
+        uitext.DrawText("How many chalk?");
+        yield return StartCoroutine("Skip");
+
+        girl.SetActive(true);
+        uitext.DrawText("少女", "チョークの数？");
+        yield return StartCoroutine("Skip");
+        uitext.DrawText("少女", "でもここにチョークは無いよね。");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        gameStop.stopFlag = false;
+        Canbus.SetActive(false);
+    }
+
+    IEnumerator BlackBoardStory3()
+    {
+        Canbus.SetActive(true);
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        girl.SetActive(false);
+        uitext.DrawText("answer the question");
+        yield return StartCoroutine("Skip");
+
+        Canbus.SetActive(false);
+        password.isCommand = true;
+    }
+
+    IEnumerator playerDamageStory()
+    {
+        Canbus.SetActive(true);
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        girl.SetActive(true);
+        uitext.DrawText("少女","痛っ！");
+        yield return StartCoroutine("Skip");
+
+        uitext.DrawText("少女", "間違ったってこと…？");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        Canbus.SetActive(false);
+        gameStop.stopFlag = false;
+    }
+
+    IEnumerator playerGetKeyStory()
+    {
+        Canbus.SetActive(true);
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        girl.SetActive(true);
+        uitext.DrawText("少女", "ん？何か落ちたような…");
+        yield return StartCoroutine("Skip");
+
+        uitext.DrawText("少女", "これ…鍵だ。");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        opeKey.SetActive(true);
+        uitext.DrawText("手術室の鍵を入手しました。");
+        yield return StartCoroutine("Skip");
+        opeKey.SetActive(false);
+
+        Canbus.SetActive(false);
+        gameStop.stopFlag = false;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -519,7 +597,32 @@ public class TextWriter : MonoBehaviour
             StartCoroutine("BlackBoardStory");
             TextNum = 30;
         }
-        if(inputAction_.Player.MoveRight.triggered)
+        if(TextNum == 31)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("BlackBoardStory2");
+            TextNum = 32;
+        }
+        if (TextNum == 33)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("BlackBoardStory3");
+            TextNum = 34;
+        }
+        //ダメージを受けたときの処理
+        if(password.isMiss == true)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("playerDamageStory");
+            password.isMiss = false;
+        }
+        if(password.isGetKeyStory == true)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("playerGetKeyStory");
+            password.isGetKeyStory = false;
+        }
+        if (inputAction_.Player.MoveRight.triggered)
         {
             //StartCoroutine("Syabetarou");
         }

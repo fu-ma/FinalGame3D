@@ -26,6 +26,9 @@ TagManager:
   - 1-2blackBoard
   - 1-3blackBoard
   - Enemy
+  - 2-1blackBoard
+  - 2-2blackBoard
+  - 2-3blackBoard
   layers:
   - Default
   - TransparentFX
