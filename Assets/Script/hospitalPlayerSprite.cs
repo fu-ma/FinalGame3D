@@ -31,7 +31,12 @@ public class hospitalPlayerSprite : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Flag == true)
+        if (backFlag == true)
+        {
+            image.sprite = backSprite;
+        }
+
+        if (Flag == true)
         {
             animationTime++;
             if (animationTime < 30)
@@ -53,17 +58,9 @@ public class hospitalPlayerSprite : MonoBehaviour
             else
             {
                 image.sprite = nowSprite;
-                textWriter.TextNum = 11;
                 Flag = false;
+                textWriter.TextNum = 11;
             }
-        }
-        if(Flag == false && backFlag == false)
-        {
-            image.sprite = nowSprite;
-        }
-        if(Flag == false && backFlag == true)
-        {
-            image.sprite = backSprite;
         }
     }
 }

@@ -22,6 +22,10 @@ TagManager:
   - 1-1leftGoDoor
   - 2-1leftGoDoor
   - 1-1desk
+  - 1-1blackBoard
+  - 1-2blackBoard
+  - 1-3blackBoard
+  - Enemy
   layers:
   - Default
   - TransparentFX

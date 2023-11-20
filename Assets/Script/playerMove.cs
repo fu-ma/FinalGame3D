@@ -13,6 +13,16 @@ public class playerMove : MonoBehaviour
     public float power;
     public GameObject girlObject;
     public GameObject boyObject;
+
+    public GameObject blackBoard1;
+    private bool blackBoard1showFlag;
+
+    public GameObject blackBoard2;
+    private bool blackBoard2showFlag;
+
+    public GameObject blackBoard3;
+    private bool blackBoard3showFlag;
+
     //public Transform cameraTransform;
     private PlayerInputSystem inputAction_;
     // Start is called before the first frame update
@@ -46,6 +56,13 @@ public class playerMove : MonoBehaviour
         Screen.SetResolution(1280, 720, FullScreenMode.FullScreenWindow, 60);
         girlObject.SetActive(true);
         boyObject.SetActive(false);
+
+        blackBoard1.SetActive(false);
+        blackBoard1showFlag = false;
+        blackBoard2.SetActive(false);
+        blackBoard2showFlag = false;
+        blackBoard3.SetActive(false);
+        blackBoard3showFlag = false;
 
         gameStop = GameObject.Find("GameManager").GetComponent<publicFlag>();
 
@@ -120,7 +137,6 @@ public class playerMove : MonoBehaviour
                 }
                 rb.AddForce(transform.forward * ((maxSpeed - rb.velocity.z) * power), ForceMode.Force);
             }
-
             //キャラクター切り替え
             //if(inputAction_.Player.CharacterChangeGirl.triggered)
             //{
@@ -132,6 +148,22 @@ public class playerMove : MonoBehaviour
             //    girlObject.SetActive(false);
             //    boyObject.SetActive(true);
             //}
+        }
+
+        if (inputAction_.Player.Talk.triggered && blackBoard1showFlag == true)
+        {
+            gameStop.stopFlag = false;
+            blackBoard1.SetActive(false);
+        }
+        if (inputAction_.Player.Talk.triggered && blackBoard2showFlag == true)
+        {
+            gameStop.stopFlag = false;
+            blackBoard2.SetActive(false);
+        }
+        if (inputAction_.Player.Talk.triggered && blackBoard3showFlag == true)
+        {
+            gameStop.stopFlag = false;
+            blackBoard3.SetActive(false);
         }
     }
     void OnCollisionStay(Collision collision)
@@ -166,7 +198,7 @@ public class playerMove : MonoBehaviour
             playerTeleport.SetPosition(83.5f, 39);
             if (classroomFlag == false)
             {
-                textWriter.TextNum = 19;
+                textWriter.TextNum = 25;
             }
             classroomFlag = true;
         }
@@ -225,6 +257,32 @@ public class playerMove : MonoBehaviour
         {
             textWriter.TextNum = 23;
             desk1Flag = true;
+        }
+        if(collision.gameObject.tag == "1-1blackBoard" && inputAction_.Player.Talk.triggered)
+        {
+            blackBoard1showFlag = true;
+            gameStop.stopFlag = true;
+            blackBoard1.SetActive(true);
+        }
+        if (collision.gameObject.tag == "1-2blackBoard" && inputAction_.Player.Talk.triggered)
+        {
+            blackBoard2showFlag = true;
+            gameStop.stopFlag = true;
+            blackBoard2.SetActive(true);
+        }
+        if (collision.gameObject.tag == "1-3blackBoard" && inputAction_.Player.Talk.triggered)
+        {
+            blackBoard3showFlag = true;
+            gameStop.stopFlag = true;
+            blackBoard3.SetActive(true);
+        }
+        if(collision.gameObject.tag == "Enemy")
+        {
+            textWriter.TextNum = 27;
+        }
+        if (collision.gameObject.tag == "2-1blackBoard" && inputAction_.Player.Talk.triggered)
+        {
+            textWriter.TextNum = 29;
         }
     }
 }

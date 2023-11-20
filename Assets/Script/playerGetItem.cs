@@ -14,6 +14,7 @@ public class playerGetItem : MonoBehaviour
     [SerializeField] Image menuPhoto;
     public bool have1AKey = false;
     public bool openMenu = false;
+    public bool sowingGet = false;
 
     private PlayerInputSystem inputAction;
     // Start is called before the first frame update
@@ -57,12 +58,21 @@ public class playerGetItem : MonoBehaviour
         {
             if (openMenu == true)
             {
-                itemPhoto1.enabled = true;
-                itemPhoto1.sprite = imageKey;
+                if (itemPhoto1.enabled == false)
+                {
+                    itemPhoto1.enabled = true;
+                    itemPhoto1.sprite = imageKey;
+                }
+                else if (itemPhoto1.enabled == false)
+                {
+                    itemPhoto2.enabled = true;
+                    itemPhoto1.sprite = imageKey;
+                }
             }
             else
             {
                 itemPhoto1.enabled = false;
+                itemPhoto2.enabled = false;
             }
             if (inputAction.Player.UseItem.triggered)//if文増やして座標を指定する処理を追加したい
             {
@@ -70,6 +80,36 @@ public class playerGetItem : MonoBehaviour
                 //アイテムを使った時の処理を書いてほしい
                 have1AKey = false;
                 itemPhoto1.enabled = false;
+                itemPhoto2.enabled = false;
+            }
+        }
+        if (sowingGet == true)
+        {
+            if (openMenu == true)
+            {
+                if (itemPhoto1.enabled == false)
+                {
+                    itemPhoto1.enabled = true;
+                    itemPhoto1.sprite = imageItem;
+                }
+                else if (itemPhoto1.enabled == false)
+                {
+                    itemPhoto2.enabled = true;
+                    itemPhoto2.sprite = imageItem;
+                }
+            }
+            else
+            {
+                itemPhoto1.enabled = false;
+                itemPhoto2.enabled = false;
+            }
+            if (inputAction.Player.UseItem.triggered)//if文増やして座標を指定する処理を追加したい
+            {
+                Debug.Log("裁縫道具を使用した");
+                //アイテムを使った時の処理を書いてほしい
+                sowingGet = false;
+                itemPhoto1.enabled = false;
+                itemPhoto2.enabled = false;
             }
         }
     }
