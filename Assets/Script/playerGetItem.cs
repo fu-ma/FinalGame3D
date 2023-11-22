@@ -22,6 +22,7 @@ public class playerGetItem : MonoBehaviour
     //[SerializeField] Image itemFrame8;
     //[SerializeField] Image itemFrame9;
     public bool haveOpeKey = false;
+    public bool haveIronKey = false;
     public bool openMenu = false;
     public bool sowingGet = false;
 
@@ -92,6 +93,35 @@ public class playerGetItem : MonoBehaviour
         }
         //アイテムを使うとき
         if (haveOpeKey == true)
+        {
+            if (openMenu == true)
+            {
+                if (itemPhoto1.enabled == false)
+                {
+                    itemPhoto1.enabled = true;
+                    itemPhoto1.sprite = imageKey;
+                }
+                else if (itemPhoto1.enabled == false)
+                {
+                    itemPhoto2.enabled = true;
+                    itemPhoto1.sprite = imageKey;
+                }
+            }
+            else
+            {
+                itemPhoto1.enabled = false;
+                itemPhoto2.enabled = false;
+            }
+            //if (inputAction.Player.UseItem.triggered)//if文増やして座標を指定する処理を追加したい
+            //{
+            //    Debug.Log("手術室のカギを使った");
+            //    //アイテムを使った時の処理を書いてほしい
+            //    haveOpeKey = false;
+            //    itemPhoto1.enabled = false;
+            //    itemPhoto2.enabled = false;
+            //}
+        }
+        if (haveIronKey == true)
         {
             if (openMenu == true)
             {

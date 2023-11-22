@@ -11,12 +11,16 @@ public class TextWriter : MonoBehaviour
     public GameObject girl;
     public GameObject girl_fear;
     public GameObject boy;
+    public GameObject boy_fear;
     public GameObject Canbus;
     public GameObject HP;
     public GameObject doll;
     public GameObject sewing;
     public GameObject rooftopEffect;
     public GameObject opeKey;
+    public GameObject ironKey;
+    public GameObject operoomDoor;
+    public GameObject ironKeyEffect;
     private GameObject fadeInObj;
     private FadeIn fadeIn;
 
@@ -66,14 +70,16 @@ public class TextWriter : MonoBehaviour
 
         TextNum = 0;
         fenceStoryFlag = false;
-
+        boy_fear.SetActive(false);
         Canbus.SetActive(true);
         HP.SetActive(false);
         doll.SetActive(false);
         sewing.SetActive(false);
         rooftopEffect.SetActive(true);
         opeKey.SetActive(false);
-
+        ironKey.SetActive(false);
+        operoomDoor.SetActive(true);
+        ironKeyEffect.SetActive(true);
         dollGetFlag = false;
     }
 
@@ -495,6 +501,316 @@ public class TextWriter : MonoBehaviour
         gameStop.stopFlag = false;
     }
 
+    IEnumerator openOperoomStory()
+    {
+        Canbus.SetActive(true);
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        girl.SetActive(false);
+
+        uitext.DrawText("ドアが開いた様だ。");
+        yield return StartCoroutine("Skip");
+
+        operoomDoor.SetActive(false);
+        Canbus.SetActive(false);
+        gameStop.stopFlag = false;
+    }
+
+    IEnumerator operoomStory()
+    {
+        Canbus.SetActive(true);
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        boy_fear.SetActive(false);
+        girl.SetActive(false);
+
+        fadeIn.fadeOutFlag = true;
+        uitext.DrawText("医師", "最善は…尽くしましたが………");
+        yield return StartCoroutine("Skip");
+
+        girl.SetActive(true);
+        uitext.DrawText("少女", "彼が…");
+        yield return StartCoroutine("Skip");
+        uitext.DrawText("少女", "私を庇って……");
+        yield return StartCoroutine("Skip");
+        uitext.DrawText("少女", "私だけ生きて………");
+        yield return StartCoroutine("Skip");
+        uitext.DrawText("少女", "どうして…");
+        yield return StartCoroutine("Skip");
+        uitext.DrawText("少女", "どうして……");
+        yield return StartCoroutine("Skip");
+
+        girl.SetActive(false);
+        uitext.DrawText("？？", "…い……");
+        yield return StartCoroutine("Skip");
+
+        girl.SetActive(true);
+        uitext.DrawText("少女", "どうして………");
+        yield return StartCoroutine("Skip");
+
+        girl.SetActive(false);
+        uitext.DrawText("？？", "だ……ぶか…");
+        yield return StartCoroutine("Skip");
+
+        fadeIn.fadeFlag = true;
+        boy.SetActive(true);
+        uitext.DrawText("少年", "おい！");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("少女", "！！！！");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("少年", "あいや、ビビらせるつもりは無かったんだが。");
+        yield return StartCoroutine("Skip");
+        uitext.DrawText("少年", "随分と、思い悩んでたっつーか。");
+        yield return StartCoroutine("Skip");
+        uitext.DrawText("少年", "危険な感じしたからよ…その、大丈夫か？");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        uitext.DrawText("少年が心配そうにしている。");
+        yield return StartCoroutine("Skip");
+
+        girl.SetActive(true);
+        uitext.DrawText("少女", "すみません……大丈夫…です。");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("少年", "…そうか。なんだ、お前も起きたらここに居た口か？それとも…");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("少女", "！！");
+        yield return StartCoroutine("Skip");
+        uitext.DrawText("少女", "あ、あなたもそうなんですか！？");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("少年", "おぉ、やっぱりそうなのか。なんか同じ匂いしたからよ。");
+        yield return StartCoroutine("Skip");
+        uitext.DrawText("少年", "あや、匂いっつーか気配的な、さ。");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        fadeIn.fadeOutFlag = true;
+        uitext.DrawText("少女は少し安堵したように微笑んだ。");
+        yield return StartCoroutine("Skip");
+        playerTeleport.SetPosition(-9.52f, 48.7f);
+        fadeIn.fadeFlag = true;
+
+        girl.SetActive(true);
+        uitext.DrawText("少女", "ということはつまり、あなたも起きたらここに居て、どうにか道を進んで来たら手術室に着いたんですね。");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("少年", "おう、そうだな。そしたらお前がパ二クってる所に出くわしたって訳だ。");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("少女", "すみません。見苦しいところを。");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("少年", "あやっ…いや、どうってことないぜ(？)");
+        yield return StartCoroutine("Skip");
+        uitext.DrawText("少年", "それでどーするよ。");
+        yield return StartCoroutine("Skip");
+        uitext.DrawText("少年", "俺も探してここまで来たわけだが、こっち側の部屋をお前が探索しきったってんなら他に進む道は無いよな…");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("少女", "あ、それなら。");
+        yield return StartCoroutine("Skip");
+        uitext.DrawText("少女", "向こうの教室の、高くて手が届かない場所に何かあるみたいなんです。");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("少年", "なるほどね、それが鍵とかならサイコーだな。");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        uitext.DrawText("※ここからは少年が共に行動してくれます。");
+        yield return StartCoroutine("Skip");
+        uitext.DrawText("以前探索した場所を少年に助けてもらうことで、新たな手掛かりが見つかるかもしれません。");
+        yield return StartCoroutine("Skip");
+        
+
+        Canbus.SetActive(false);
+        gameStop.stopFlag = false;
+    }
+
+    IEnumerator ironDoorStory2()
+    {
+        Canbus.SetActive(true);
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        boy_fear.SetActive(false);
+        girl.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("少女", "ところで、私が探索した限り他に行ける場所が無いように思えたのですが、何処から来たんですか？");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("少年", "あぁ、ここをよじ登ってきたんだ。");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("少女", "な、なるほど。");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        Canbus.SetActive(false);
+        gameStop.stopFlag = false;
+    }
+
+    IEnumerator boyClassroom1Story()
+    {
+        Canbus.SetActive(true);
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        boy_fear.SetActive(false);
+        girl.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("少年", "あーここか。");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("少女", "？！ここには一度来てたんですかっ");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("少年", "あーいや、なんでもねー。忘れてくれ。");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("少女", "え………そうですか…");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        Canbus.SetActive(false);
+        gameStop.stopFlag = false;
+    }
+
+    IEnumerator blackBoard1_2Story()
+    {
+        Canbus.SetActive(true);
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        girl.SetActive(false);
+
+        uitext.DrawText("黒板の上に何か光るものが見える");
+        yield return StartCoroutine("Skip");
+
+        girl.SetActive(true);
+        uitext.DrawText("少女", "高くて取れないな…");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        Canbus.SetActive(false);
+        gameStop.stopFlag = false;
+    }
+
+    IEnumerator boyBlackBoard1_2Story()
+    {
+        Canbus.SetActive(true);
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        boy_fear.SetActive(false);
+        girl.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("少女", "ここです。この黒板の上に、何かありませんか？");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("少年", "あー、なんか見えるなぁ。");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        uitext.DrawText("そういって少年は大きく手を伸ばす。");
+        yield return StartCoroutine("Skip");
+
+        boy.SetActive(true);
+        uitext.DrawText("少年", "おぉ、鍵だ。");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        ironKey.SetActive(true);
+        uitext.DrawText("鉄柵の鍵を手に入れた。");
+        yield return StartCoroutine("Skip");
+        ironKey.SetActive(false);
+        playergetitem.haveIronKey = true;
+        ironKeyEffect.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("少年", "取り合えずこれで俺が来た方と繋がったって所か。");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        Canbus.SetActive(false);
+        gameStop.stopFlag = false;
+    }
+
+    IEnumerator ironOpenDoorStory()
+    {
+        Canbus.SetActive(true);
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        boy_fear.SetActive(false);
+        girl.SetActive(false);
+
+        uitext.DrawText("鉄柵の扉が開いた。");
+        yield return StartCoroutine("Skip");
+
+        boy.SetActive(true);
+        uitext.DrawText("少年", "そーいや、俺がこっちに来るまでの部屋に小さい抜け道があったんだけどよ。");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("少年", "いかんせん俺じゃ通れなくてな。");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("少年", "お前の背格好なら通れたりしねぇか？");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("少女", "次は私が活躍する番ってことですね。");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("少年", "んぁ、そうだな。助かるぜ。");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        Canbus.SetActive(false);
+        gameStop.stopFlag = false;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -609,8 +925,50 @@ public class TextWriter : MonoBehaviour
             StartCoroutine("BlackBoardStory3");
             TextNum = 34;
         }
+        if(TextNum == 35)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("openOperoomStory");
+            TextNum = 36;
+        }
+        if(TextNum == 37)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("operoomStory");
+            TextNum = 38;
+        }
+        if(TextNum == 39)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("ironDoorStory2");
+            TextNum = 40;
+        }
+        if(TextNum == 41)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("boyClassroom1Story");
+            TextNum = 42;
+        }
+        if(TextNum == 43)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("blackBoard1_2Story");
+            TextNum = 44;
+        }
+        if(TextNum == 45)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("boyBlackBoard1_2Story");
+            TextNum = 46;
+        }
+        if(TextNum == 47)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("ironOpenDoorStory");
+            TextNum = 48;
+        }
         //ダメージを受けたときの処理
-        if(password.isMiss == true)
+        if (password.isMiss == true)
         {
             gameStop.stopFlag = true;
             StartCoroutine("playerDamageStory");

@@ -29,6 +29,8 @@ TagManager:
   - 2-1blackBoard
   - 2-2blackBoard
   - 2-3blackBoard
+  - operoomGoDoor
+  - entrancetoOpeGoDoor
   layers:
   - Default
   - TransparentFX
@@ -37,7 +39,7 @@ TagManager:
   - Water
   - UI
   - 1-A KEY
-  - 
+  - ActionObject
   - 
   - 
   - 
