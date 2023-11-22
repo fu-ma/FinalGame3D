@@ -437,6 +437,7 @@ GameObject:
   - component: {fileID: 123871248}
   - component: {fileID: 123871249}
   - component: {fileID: 123871250}
+  - component: {fileID: 123871251}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -590,6 +591,7 @@ MonoBehaviour:
   imageKey: {fileID: 21300000, guid: ec4158f5442e75a4ea0284eea8a1d6f9, type: 3}
   imageItem: {fileID: 21300000, guid: 2d44e6a56412e094083e911f9fc53af3, type: 3}
   imageMenu: {fileID: 21300000, guid: 362180a527536b14d8cd02b76c35da51, type: 3}
+  nowItems: {fileID: 0}
   itemPhoto1: {fileID: 1945331010}
   itemPhoto2: {fileID: 33190070}
   menuPhoto: {fileID: 1179761839}
@@ -763,6 +765,49 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &123871251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123871238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448141fe5910aa145a9a583dfc31f872, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  daiyaruSE: {fileID: 8300000, guid: ee29d8b4afac70b4191d49792922165e, type: 3}
+  missSE: {fileID: 0}
+  passwordPanel: {fileID: 21300000, guid: 444d02beb0e9d0b4d8f157cdc4cee843, type: 3}
+  numberPhoto0: {fileID: 21300000, guid: e2014061e55d0854fb603479e872ab75, type: 3}
+  numberPhoto1: {fileID: 21300000, guid: 5f861f4f788e5104daf27965165335ef, type: 3}
+  numberPhoto2: {fileID: 21300000, guid: aa7155e2a8c096048abdd91be62bef5e, type: 3}
+  numberPhoto3: {fileID: 21300000, guid: 55a79213b01ad60419739984de7ebe05, type: 3}
+  numberPhoto4: {fileID: 21300000, guid: 013af991c67c3ab42b2fa5a4fc62ccf5, type: 3}
+  numberPhoto5: {fileID: 21300000, guid: 09ecc18072fd9e047b5c49f924b8df7f, type: 3}
+  numberPhoto6: {fileID: 21300000, guid: f1a50456001564441b27aa26b5c1f8a6, type: 3}
+  numberPhoto7: {fileID: 21300000, guid: 8607f521003791f4da2438fd50472c28, type: 3}
+  numberPhoto8: {fileID: 21300000, guid: 9a29c0a9fc5068b429b7ef0796f4a31d, type: 3}
+  numberPhoto9: {fileID: 21300000, guid: a515cb41c1a52074ca7ae8da62d8fabe, type: 3}
+  spriteCirsol: {fileID: 21300000, guid: c501311e20ad0014787e6500a7877a6c, type: 3}
+  imagePasswordPanel: {fileID: 0}
+  imageNumber100: {fileID: 0}
+  imageNumber10: {fileID: 0}
+  imageNumber1: {fileID: 0}
+  imageCirsol100: {fileID: 0}
+  imageCirsol10: {fileID: 0}
+  imageCirsol1: {fileID: 0}
+  isIronCommand: 0
+  answerPass: 0
+  isGetOpeKey: 0
+  isGetKeyStory: 0
+  dontObject: 0
+  isMiss: 0
+  numberPass100: 0
+  numberPass10: 0
+  numberPass1: 0
+  changePass: 0
 --- !u!65 &124928503
 BoxCollider:
   m_ObjectHideFlags: 0
