@@ -32,8 +32,11 @@ public class playerMove : MonoBehaviour
     private PlayerTeleport playerTeleport;
 
     private Password password;
+    private Password2 password2;
 
     private playerGetItem getItem;
+
+    private EnemyTargetMove enemyTarget;
 
     private bool classroomFlag;
     private bool classroomFlag2;
@@ -46,6 +49,26 @@ public class playerMove : MonoBehaviour
     private bool boyFlag;
     private bool boyClassroomFlag1;
     private bool boyClassroomFlag2;
+    private bool room4StoryFlag;
+    private bool room6StoryFlag;
+    private bool undergroundStoryFlag;
+    private bool room0StoryFlag;
+    private bool room0StoryFlag2;
+    private bool nameFlag;
+    private bool balanceroomStory;
+    private bool enemyShowFlag;
+    private bool room0FirstFlag;
+    private bool room0backHomeFlag;
+
+    //ƒLƒ‰ƒLƒ‰
+    public GameObject kirakira1;
+    public GameObject kirakira2;
+    public GameObject kirakira3;
+    public GameObject kirakira4;
+    public GameObject kirakira5;
+    public GameObject kirakira6;
+    public GameObject kirakira7;
+    public GameObject kirakira8;
 
     void Start()
     {
@@ -82,8 +105,11 @@ public class playerMove : MonoBehaviour
         playerTeleport = GameObject.Find("player").GetComponent<PlayerTeleport>();
 
         password = GameObject.Find("player").GetComponent<Password>();
+        password2 = GameObject.Find("player").GetComponent<Password2>();
 
         getItem = GameObject.Find("player").GetComponent<playerGetItem>();
+
+        enemyTarget = GameObject.Find("room0Enemy").GetComponent<EnemyTargetMove>();
 
         classroomFlag = false;
         classroomFlag2 = false;
@@ -95,12 +121,32 @@ public class playerMove : MonoBehaviour
 
         boyClassroomFlag1 = false;
         boyClassroomFlag2 = false;
+
+        room4StoryFlag = false;
+        room6StoryFlag = false;
+        undergroundStoryFlag = false;
+        room0StoryFlag = false;
+        room0StoryFlag2 = false;
+        nameFlag = false;
+        balanceroomStory = false;
+        enemyShowFlag = false;
+        room0FirstFlag = false;
+        room0backHomeFlag = false;
+
+        kirakira1.SetActive(true);
+        kirakira2.SetActive(true);
+        kirakira3.SetActive(true);
+        kirakira4.SetActive(true);
+        kirakira5.SetActive(true);
+        kirakira6.SetActive(true);
+        kirakira7.SetActive(true);
+        kirakira8.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (gameStop.stopFlag == false)
+        if (gameStop.stopFlag == false && gameStop.playerDontMoveFlag == false)
         {
             if (inputAction_.Player.MoveLeft.IsPressed())
             {
@@ -241,6 +287,11 @@ public class playerMove : MonoBehaviour
                     textWriter.TextNum = 25;
                     classroomFlag = true;
                 }
+                if(classroomFlag == true && enemyShowFlag == false)
+                {
+                    textWriter.TextNum = 26;
+                    enemyShowFlag = true;
+                }
                 if (boyFlag == true && boyClassroomFlag1 == true)
                 {
                     textWriter.TextNum = 41;
@@ -367,14 +418,154 @@ public class playerMove : MonoBehaviour
                 if (operoomFlag == false)
                 {
                     textWriter.TextNum = 37;
-                    operoomFlag = true;
                     boyFlag = true;
                     boyClassroomFlag1 = true;
+                    operoomFlag = true;
                 }
             }
             if (collision.gameObject.tag == "entrancetoOpeGoDoor")
             {
                 playerTeleport.SetPosition(-9.52f, 48.7f);
+            }
+
+            if(collision.gameObject.tag == "room4goDoor")
+            {
+                playerTeleport.SetPosition(37, 96.8f);
+                if (room4StoryFlag == false)
+                {
+                    textWriter.TextNum = 49;
+                    room4StoryFlag = true;
+                }
+            }
+
+            if(collision.gameObject.tag == "entrancetoRoom4Door")
+            {
+                playerTeleport.SetPosition(19.36f, 48.51f);
+            }
+
+            if(collision.gameObject.tag == "room6goDoor")
+            {
+                playerTeleport.SetPosition(-6.25f, 156.93f);
+                if (room6StoryFlag == false)
+                {
+                    textWriter.TextNum = 51;
+                    room6StoryFlag = true;
+                }
+            }
+
+            if (collision.gameObject.tag == "room4toRoom6Door")
+            {
+                playerTeleport.SetPosition(28.85f, 115.63f);
+            }
+
+            if (collision.gameObject.tag == "room0goDoor")
+            {
+                if(room0StoryFlag == false)
+                {
+                    textWriter.TextNum = 55;
+                    room0StoryFlag = true;
+                }
+                if(room0StoryFlag2 == true && textWriter.room0FirstFlag == true)
+                {
+                    playerTeleport.SetPosition(36.26f, 157.14f);
+                    enemyTarget.moveFlag = true;
+                }
+                if (room0StoryFlag == true && nameFlag == true && room0StoryFlag2 == false)
+                {
+                    textWriter.TextNum = 57;
+                    room0StoryFlag2 = true;
+
+                }
+            }
+
+            if (collision.gameObject.tag == "undergroundgoDoor")
+            {
+                playerTeleport.SetPosition(-9.89f, 219.28f);
+                if(undergroundStoryFlag == false)
+                {
+                    textWriter.TextNum = 53;
+                    nameFlag = true;
+                    undergroundStoryFlag = true;
+                }
+            }
+
+            if (collision.gameObject.tag == "room6toRoom0Door")
+            {
+                playerTeleport.SetPosition(-6.23f, 174.86f);
+                enemyTarget.moveFlag = false;
+                room0FirstFlag = true;
+                kirakira1.SetActive(false);
+                kirakira2.SetActive(false);
+                kirakira3.SetActive(false);
+                kirakira4.SetActive(false);
+                kirakira5.SetActive(false);
+                kirakira6.SetActive(false);
+                kirakira7.SetActive(false);
+                kirakira8.SetActive(false);
+                if(room0backHomeFlag == false)
+                {
+                    textWriter.TextNum = 82;
+                    room0backHomeFlag = true;
+                }
+            }
+
+            if (collision.gameObject.tag == "room6toUndergroundDoor")
+            {
+                playerTeleport.SetPosition(-13.63f, 174.86f);
+            }
+
+            if (collision.gameObject.tag == "balanceroomGoDoor")
+            {
+                playerTeleport.SetPosition(-70.17f, 219.09f);
+                if(balanceroomStory == false)
+                {
+                    textWriter.TextNum = 61;
+                    balanceroomStory = true;
+                }
+            }
+
+            if (collision.gameObject.tag == "undergroundtobalanceDoor")
+            {
+                playerTeleport.SetPosition(-10.08f, 232.28f);
+            }
+
+            if(collision.gameObject.tag == "Dial" && inputAction_.Player.Talk.triggered && password2.dontObject == false)
+            {
+                textWriter.TextNum = 59;
+            }
+
+            if(collision.gameObject.tag == "kirakira_miss1" && inputAction_.Player.Talk.triggered && room0FirstFlag == false)
+            {
+                textWriter.TextNum = 66;
+            }
+            if (collision.gameObject.tag == "kirakira_miss2" && inputAction_.Player.Talk.triggered && room0FirstFlag == false)
+            {
+                textWriter.TextNum = 68;
+            }
+            if (collision.gameObject.tag == "kirakira_miss3" && inputAction_.Player.Talk.triggered && room0FirstFlag == false)
+            {
+                textWriter.TextNum = 70;
+            }
+            if (collision.gameObject.tag == "kirakira_miss4" && inputAction_.Player.Talk.triggered && room0FirstFlag == false)
+            {
+                textWriter.TextNum = 72;
+            }
+
+            if (collision.gameObject.tag == "kirakira_hit1" && inputAction_.Player.Talk.triggered && room0FirstFlag == false)
+            {
+                textWriter.TextNum = 74;
+            }
+            if (collision.gameObject.tag == "kirakira_hit2" && inputAction_.Player.Talk.triggered && room0FirstFlag == false)
+            {
+                textWriter.TextNum = 76;
+            }
+            if (collision.gameObject.tag == "kirakira_hit3" && inputAction_.Player.Talk.triggered && room0FirstFlag == false)
+            {
+                textWriter.TextNum = 78;
+            }
+            if (collision.gameObject.tag == "kirakira_hit4" && inputAction_.Player.Talk.triggered && room0FirstFlag == false)
+            {
+                textWriter.TextNum = 80;
             }
 
             if (collision.gameObject.layer == 7 && inputAction_.Player.Talk.triggered)

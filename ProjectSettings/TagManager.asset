@@ -31,6 +31,27 @@ TagManager:
   - 2-3blackBoard
   - operoomGoDoor
   - entrancetoOpeGoDoor
+  - room4goDoor
+  - entrancetoRoom4Door
+  - room6goDoor
+  - room4toRoom6Door
+  - room0goDoor
+  - undergroundgoDoor
+  - room6toRoom0Door
+  - room6toUndergroundDoor
+  - balanceroomGoDoor
+  - undergroundtobalanceDoor
+  - Dial
+  - kirakira_miss1
+  - kirakira_miss2
+  - kirakira_miss3
+  - kirakira_miss4
+  - kirakira_hit1
+  - kirakira_hit2
+  - kirakira_hit3
+  - kirakira_hit4
+  - kirakira_hit5
+  - bigEnemy
   layers:
   - Default
   - TransparentFX

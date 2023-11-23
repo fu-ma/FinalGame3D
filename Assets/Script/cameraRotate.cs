@@ -8,25 +8,38 @@ public class cameraRotate : MonoBehaviour
     int leftNum = 0;
     int rightNum = 0;
     private PlayerInputSystem inputAction_;
+    private Transform playerTransform;
+    private Transform cameraTransform;
+    public bool moveFlag;
+    Vector3 angle;
     // Start is called before the first frame update
     void Start()
     {
         inputAction_ = new PlayerInputSystem();
         inputAction_.Enable();
+        moveFlag = false;
+        cameraTransform = GameObject.Find("CameraPos").GetComponent<Transform>();
+        playerTransform = GameObject.Find("playerShadow").GetComponent<Transform>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 angle = this.transform.eulerAngles;
-        if (Input.GetKeyDown(KeyCode.R))
+
+        if(moveFlag== false)
         {
-            angle.x = 0;
-            angle.y = 0;
-            angle.z = 0;
-            leftNum = 0;
-            rightNum = 0;
-            this.transform.eulerAngles = angle;
+            angle = playerTransform.eulerAngles;
+        }
+        if (moveFlag == true)
+        {
+            angle.y --;
+            if(angle.y <= -90)
+            {
+                moveFlag = false;
+                angle.y = -90;
+            }
+            playerTransform.eulerAngles = angle;
+            cameraTransform.eulerAngles = angle;
         }
         //if (inputAction_.Player.RotateLeft.triggered)
         //{
@@ -41,17 +54,17 @@ public class cameraRotate : MonoBehaviour
         //    this.transform.eulerAngles = angle;
         //}
 
-        if (leftNum == 2)
-        {
-            angle.y -= 90;
-            this.transform.eulerAngles = angle;
-            leftNum = 0;
-        }
-        if (rightNum == 2)
-        {
-            angle.y += 90;
-            this.transform.eulerAngles = angle;
-            rightNum = 0;
-        }
+        //if (leftNum == 2)
+        //{
+        //    angle.y -= 90;
+        //    this.transform.eulerAngles = angle;
+        //    leftNum = 0;
+        //}
+        //if (rightNum == 2)
+        //{
+        //    angle.y += 90;
+        //    this.transform.eulerAngles = angle;
+        //    rightNum = 0;
+        //}
     }
 }

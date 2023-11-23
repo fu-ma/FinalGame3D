@@ -21,7 +21,7 @@ public class playerSpriteMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameStop.stopFlag == false)
+        if (gameStop.stopFlag == false && gameStop.playerDontMoveFlag == false)
         {
             if (inputAction_.Player.MoveLeft.IsPressed())
             {

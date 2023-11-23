@@ -429,7 +429,18 @@
                 {
                     "name": "",
                     "id": "fe47e18d-97d5-4d99-871b-29290fdae49c",
-                    "path": "<Keyboard>/i",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UseItem",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ab0e783b-3038-4bdd-8115-80b5cffc7aae",
+                    "path": "<XInputController>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -441,6 +452,17 @@
                     "name": "",
                     "id": "b6c00700-d128-41b8-b30e-0c8647f47df2",
                     "path": "<Keyboard>/m",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ChangeMenuScreen",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "341552ba-f5b9-411e-9d90-389b8f5edff3",
+                    "path": "<XInputController>/start",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

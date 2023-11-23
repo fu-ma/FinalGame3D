@@ -52,13 +52,13 @@ public class Password2 : MonoBehaviour
 
         inputAction = new PlayerInputSystem();
         inputAction.Enable();
-        imagePasswordPanel = GameObject.Find("IronSlotBord").GetComponent<Image>();
-        imageNumber100 = GameObject.Find("numberIron100").GetComponent<Image>();
-        imageNumber10 = GameObject.Find("numberIron10").GetComponent<Image>();
-        imageNumber1 = GameObject.Find("numberIron1").GetComponent<Image>();
-        imageCirsol100 = GameObject.Find("NowPanelIron100").GetComponent<Image>();
-        imageCirsol10 = GameObject.Find("NowPanelIron10").GetComponent<Image>();
-        imageCirsol1 = GameObject.Find("NowPanelIron1").GetComponent<Image>();
+        imagePasswordPanel = GameObject.Find("IronSlotBord_2").GetComponent<Image>();
+        imageNumber100 = GameObject.Find("numberIron100_2").GetComponent<Image>();
+        imageNumber10 = GameObject.Find("numberIron10_2").GetComponent<Image>();
+        imageNumber1 = GameObject.Find("numberIron1_2").GetComponent<Image>();
+        imageCirsol100 = GameObject.Find("NowPanelIron100_2").GetComponent<Image>();
+        imageCirsol10 = GameObject.Find("NowPanelIron10_2").GetComponent<Image>();
+        imageCirsol1 = GameObject.Find("NowPanelIron1_2").GetComponent<Image>();
         imagePasswordPanel.enabled = false;
         imageNumber100.enabled = false;
         imageNumber10.enabled = false;
