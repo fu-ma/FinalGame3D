@@ -25,6 +25,17 @@ public class TextWriter : MonoBehaviour
     public GameObject room4goDoor;
     public GameObject balanceDoor;
     private GameObject fadeInObj;
+
+    public GameObject kirakira1;
+    public GameObject kirakira2;
+    public GameObject kirakira3;
+    public GameObject kirakira4;
+    public GameObject kirakira5;
+    public GameObject kirakira6;
+    public GameObject kirakira7;
+    public GameObject kirakira8;
+    public GameObject stage0Enemy;
+
     private FadeIn fadeIn;
 
     private storyCameramove1 cameraMove1;
@@ -108,6 +119,15 @@ public class TextWriter : MonoBehaviour
         cameraRotatedFlag = false;
         cameraRotateTimer = 0;
         room0FirstFlag = false;
+
+        kirakira1.SetActive(true);
+        kirakira2.SetActive(true);
+        kirakira3.SetActive(true);
+        kirakira4.SetActive(true);
+        kirakira5.SetActive(true);
+        kirakira6.SetActive(true);
+        kirakira7.SetActive(true);
+        kirakira8.SetActive(true);
     }
 
     IEnumerator Skip()
@@ -1385,6 +1405,7 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         Canbus.SetActive(false);
         gameStop.stopFlag = false;
+        kirakira1.SetActive(false);
     }
 
     IEnumerator wallStory2()
@@ -1399,6 +1420,7 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         Canbus.SetActive(false);
         gameStop.stopFlag = false;
+        kirakira2.SetActive(false);
     }
 
     IEnumerator wallStory3()
@@ -1413,6 +1435,7 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         Canbus.SetActive(false);
         gameStop.stopFlag = false;
+        kirakira3.SetActive(false);
     }
 
     IEnumerator wallStory4()
@@ -1427,6 +1450,7 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         Canbus.SetActive(false);
         gameStop.stopFlag = false;
+        kirakira4.SetActive(false);
     }
 
     IEnumerator wallStory5()
@@ -1441,6 +1465,7 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         Canbus.SetActive(false);
         gameStop.stopFlag = false;
+        kirakira5.SetActive(false);
     }
 
     IEnumerator wallStory6()
@@ -1458,6 +1483,7 @@ public class TextWriter : MonoBehaviour
 
         Canbus.SetActive(false);
         gameStop.stopFlag = false;
+        kirakira6.SetActive(false);
     }
 
     IEnumerator wallStory7()
@@ -1472,6 +1498,7 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         Canbus.SetActive(false);
         gameStop.stopFlag = false;
+        kirakira7.SetActive(false);
     }
 
     IEnumerator wallStory8()
@@ -1486,6 +1513,7 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         Canbus.SetActive(false);
         gameStop.stopFlag = false;
+        kirakira8.SetActive(false);
     }
 
     IEnumerator room0backHomeStory()
@@ -1558,13 +1586,13 @@ public class TextWriter : MonoBehaviour
         if (TextNum == 0)
         {
             gameStop.stopFlag = true;
-            //StartCoroutine("RooftopStory");
-            //TextNum = 1;
+            StartCoroutine("RooftopStory");
+            TextNum = 1;
 
             //Ç†Ç∆Ç≈è¡Ç∑
-            fadeIn.fadeFlag = true;
-            playerTeleport.SetPosition(-6.25f, 156.93f);
-            TextNum = 51;
+            //fadeIn.fadeFlag = true;
+            //playerTeleport.SetPosition(-6.25f, 156.93f);
+            //TextNum = 51;
         }
         if (TextNum == 1 && cameraMove1.endFlag == true)
         {

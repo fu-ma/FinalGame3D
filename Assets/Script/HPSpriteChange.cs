@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HPSpriteChange : MonoBehaviour
 {
@@ -42,6 +43,10 @@ public class HPSpriteChange : MonoBehaviour
         else if(HP == 1)
         {
             image.sprite = HP1Sprite;
+        }
+        else if(HP == 0)
+        {
+            SceneManager.LoadScene("GameOverScene");
         }
     }
 }

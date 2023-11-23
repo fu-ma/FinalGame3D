@@ -69,6 +69,9 @@ public class playerMove : MonoBehaviour
     public GameObject kirakira6;
     public GameObject kirakira7;
     public GameObject kirakira8;
+    public GameObject stage0Enemy;
+
+    private int hitTime;
 
     void Start()
     {
@@ -141,6 +144,9 @@ public class playerMove : MonoBehaviour
         kirakira6.SetActive(true);
         kirakira7.SetActive(true);
         kirakira8.SetActive(true);
+        stage0Enemy.SetActive(true);
+
+        hitTime = 0;
     }
 
     // Update is called once per frame
@@ -215,8 +221,17 @@ public class playerMove : MonoBehaviour
             //    girlObject.SetActive(false);
             //    boyObject.SetActive(true);
             //}
-        }
 
+            if (gameStop.hitFlag == true)
+            {
+                hitTime++;
+                if (hitTime > 30)
+                {
+                    gameStop.hitFlag = false;
+                    hitTime = 0;
+                }
+            }
+        }
         if (inputAction_.Player.Talk.triggered && blackBoard1showFlag == true)
         {
             gameStop.stopFlag = false;
@@ -244,6 +259,7 @@ public class playerMove : MonoBehaviour
             blackBoard3.SetActive(false);
             blackBoard3showFlag = false;
         }
+
     }
     void OnTriggerStay(Collider collision)
     {
@@ -502,6 +518,7 @@ public class playerMove : MonoBehaviour
                 kirakira6.SetActive(false);
                 kirakira7.SetActive(false);
                 kirakira8.SetActive(false);
+                stage0Enemy.SetActive(false);
                 if(room0backHomeFlag == false)
                 {
                     textWriter.TextNum = 82;
@@ -576,10 +593,10 @@ public class playerMove : MonoBehaviour
     }
     void OnTriggerExit(Collider other)
     {
-        if(other.gameObject.layer == 7)
-        {
-            gameStop.hitFlag = false;
-        }
+        //if(other.gameObject.layer == 7)
+        //{
+        //    gameStop.hitFlag = false;
+        //}
         if(other.gameObject.tag == "Enemy")
         {
             enemyHitFlag = false;

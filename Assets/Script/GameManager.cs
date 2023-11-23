@@ -6,17 +6,19 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    private PlayerInputSystem inputAction_;
     // Start is called before the first frame update
     void Start()
     {
-        
+        inputAction_ = new PlayerInputSystem();
+        inputAction_.Enable();
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (inputAction_.Player.Talk.triggered)
         {
             SceneManager.LoadScene("GameScene");
         }
