@@ -392,6 +392,10 @@ public class playerGetItem : MonoBehaviour
                 {
                     isUseOpeKey = true;
                 }
+                else
+                {
+                    isUseOpeKey = false;
+                }
                 //if (inputAction.Player.UseItem.triggered)//if文増やして座標を指定する処理を追加したい
                 //{
                 //    Debug.Log("手術室のカギを使った");
@@ -479,6 +483,10 @@ public class playerGetItem : MonoBehaviour
                             || (itemPhoto9.enabled == true && nowItemNumber == 9))
                 {
                     isUseIronKey = true;
+                }
+                else
+                {
+                    isUseIronKey = false;
                 }
                 //if (inputAction.Player.UseItem.triggered)//if文増やして座標を指定する処理を追加したい
                 //{

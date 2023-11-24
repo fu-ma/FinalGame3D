@@ -363,6 +363,13 @@ public class playerMove : MonoBehaviour
                 getItem.haveOpeKey = false;
                 getItem.itemPhoto1.enabled = false;
                 getItem.itemPhoto2.enabled = false;
+                getItem.itemPhoto3.enabled = false;
+                getItem.itemPhoto4.enabled = false;
+                getItem.itemPhoto5.enabled = false;
+                getItem.itemPhoto6.enabled = false;
+                getItem.itemPhoto7.enabled = false;
+                getItem.itemPhoto8.enabled = false;
+                getItem.itemPhoto9.enabled = false;
             }
             if (collision.gameObject.tag == "ironDoor" && inputAction_.Player.Talk.triggered && boyFlag == false)
             {
@@ -378,6 +385,13 @@ public class playerMove : MonoBehaviour
                 getItem.haveIronKey = false;
                 getItem.itemPhoto1.enabled = false;
                 getItem.itemPhoto2.enabled = false;
+                getItem.itemPhoto3.enabled = false;
+                getItem.itemPhoto4.enabled = false;
+                getItem.itemPhoto5.enabled = false;
+                getItem.itemPhoto6.enabled = false;
+                getItem.itemPhoto7.enabled = false;
+                getItem.itemPhoto8.enabled = false;
+                getItem.itemPhoto9.enabled = false;
             }
 
             if (collision.gameObject.tag == "1-2goDoor")

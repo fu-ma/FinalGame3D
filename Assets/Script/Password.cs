@@ -319,7 +319,7 @@ public class Password : MonoBehaviour
                 imageNumber1.enabled = true;
                 imageNumber1.sprite = numberPhoto9;
             }
-            if (inputAction.Player.PassChange.triggered)
+            if (inputAction.Player.Talk.triggered)
             {
                 if (numberPass100 == 2 && numberPass10 == 4 && numberPass1 == 2)
                 {
