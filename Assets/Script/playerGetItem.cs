@@ -25,6 +25,10 @@ public class playerGetItem : MonoBehaviour
     public bool openMenu = false;
     public bool sowingGet1 = false;
     public bool sowingGet2 = false;
+    public bool isUseOpeKey;
+    public bool isUseIronKey;
+    public bool isUseSowing;
+    public bool isUseSowing2;
     public int nowItemNumber = 1;
     public int nowMenuNumber = 1;
     private bool isOpenedFlag1;
@@ -108,6 +112,10 @@ public class playerGetItem : MonoBehaviour
         isOpenedFlag7 = false;
         isOpenedFlag8 = false;
         isOpenedFlag9 = false;
+        isUseOpeKey = false;
+        isUseIronKey = false;
+        isUseSowing = false;
+        isUseSowing2 = false;
         hpSprite = GameObject.Find("HP").GetComponent<HPSpriteChange>();
 
         gameStop = GameObject.Find("GameManager").GetComponent<publicFlag>();
@@ -372,6 +380,18 @@ public class playerGetItem : MonoBehaviour
                     itemPhoto8.enabled = false;
                     itemPhoto9.enabled = false;
                 }
+                if ((itemPhoto1.enabled == true && nowItemNumber == 1)
+                            || (itemPhoto2.enabled == true && nowItemNumber == 2)
+                            || (itemPhoto3.enabled == true && nowItemNumber == 3)
+                            || (itemPhoto4.enabled == true && nowItemNumber == 4)
+                            || (itemPhoto5.enabled == true && nowItemNumber == 5)
+                            || (itemPhoto6.enabled == true && nowItemNumber == 6)
+                            || (itemPhoto7.enabled == true && nowItemNumber == 7)
+                            || (itemPhoto8.enabled == true && nowItemNumber == 8)
+                            || (itemPhoto9.enabled == true && nowItemNumber == 9))
+                {
+                    isUseOpeKey = true;
+                }
                 //if (inputAction.Player.UseItem.triggered)//if文増やして座標を指定する処理を追加したい
                 //{
                 //    Debug.Log("手術室のカギを使った");
@@ -448,6 +468,18 @@ public class playerGetItem : MonoBehaviour
                     itemPhoto8.enabled = false;
                     itemPhoto9.enabled = false;
                 }
+                if ((itemPhoto1.enabled == true && nowItemNumber == 1)
+                            || (itemPhoto2.enabled == true && nowItemNumber == 2)
+                            || (itemPhoto3.enabled == true && nowItemNumber == 3)
+                            || (itemPhoto4.enabled == true && nowItemNumber == 4)
+                            || (itemPhoto5.enabled == true && nowItemNumber == 5)
+                            || (itemPhoto6.enabled == true && nowItemNumber == 6)
+                            || (itemPhoto7.enabled == true && nowItemNumber == 7)
+                            || (itemPhoto8.enabled == true && nowItemNumber == 8)
+                            || (itemPhoto9.enabled == true && nowItemNumber == 9))
+                {
+                    isUseIronKey = true;
+                }
                 //if (inputAction.Player.UseItem.triggered)//if文増やして座標を指定する処理を追加したい
                 //{
                 //    Debug.Log("手術室のカギを使った");
@@ -512,19 +544,30 @@ public class playerGetItem : MonoBehaviour
                     }
                     if (inputAction.Player.UseItem.triggered)//if文増やして座標を指定する処理を追加したい
                     {
-                        Debug.Log("裁縫道具を使用した");
-                        hpSprite.HP = 5;
-                        //アイテムを使った時の処理を書いてほしい
-                        sowingGet1 = false;
-                        itemPhoto1.enabled = false;
-                        itemPhoto2.enabled = false;
-                        itemPhoto3.enabled = false;
-                        itemPhoto4.enabled = false;
-                        itemPhoto5.enabled = false;
-                        itemPhoto6.enabled = false;
-                        itemPhoto7.enabled = false;
-                        itemPhoto8.enabled = false;
-                        itemPhoto9.enabled = false;
+                        if ((itemPhoto1.enabled == true && nowItemNumber == 1)
+                            || (itemPhoto2.enabled == true && nowItemNumber == 2)
+                            || (itemPhoto3.enabled == true && nowItemNumber == 3)
+                            || (itemPhoto4.enabled == true && nowItemNumber == 4)
+                            || (itemPhoto5.enabled == true && nowItemNumber == 5)
+                            || (itemPhoto6.enabled == true && nowItemNumber == 6)
+                            || (itemPhoto7.enabled == true && nowItemNumber == 7)
+                            || (itemPhoto8.enabled == true && nowItemNumber == 8)
+                            || (itemPhoto9.enabled == true && nowItemNumber == 9))
+                        {
+                            Debug.Log("裁縫道具を使用した");
+                            hpSprite.HP = 5;
+                            //アイテムを使った時の処理を書いてほしい
+                            sowingGet1 = false;
+                            itemPhoto1.enabled = false;
+                            itemPhoto2.enabled = false;
+                            itemPhoto3.enabled = false;
+                            itemPhoto4.enabled = false;
+                            itemPhoto5.enabled = false;
+                            itemPhoto6.enabled = false;
+                            itemPhoto7.enabled = false;
+                            itemPhoto8.enabled = false;
+                            itemPhoto9.enabled = false;
+                        }
                     }
                 }
                 else
@@ -596,19 +639,30 @@ public class playerGetItem : MonoBehaviour
                     }
                     if (inputAction.Player.UseItem.triggered)//if文増やして座標を指定する処理を追加したい
                     {
-                        hpSprite.HP = 5;
-                        Debug.Log("裁縫道具を使用した");
-                        //アイテムを使った時の処理を書いてほしい
-                        sowingGet2 = false;
-                        itemPhoto1.enabled = false;
-                        itemPhoto2.enabled = false;
-                        itemPhoto3.enabled = false;
-                        itemPhoto4.enabled = false;
-                        itemPhoto5.enabled = false;
-                        itemPhoto6.enabled = false;
-                        itemPhoto7.enabled = false;
-                        itemPhoto8.enabled = false;
-                        itemPhoto9.enabled = false;
+                        if ((itemPhoto1.enabled == true && nowItemNumber == 1)
+                            || (itemPhoto2.enabled == true && nowItemNumber == 2)
+                            || (itemPhoto3.enabled == true && nowItemNumber == 3)
+                            || (itemPhoto4.enabled == true && nowItemNumber == 4)
+                            || (itemPhoto5.enabled == true && nowItemNumber == 5)
+                            || (itemPhoto6.enabled == true && nowItemNumber == 6)
+                            || (itemPhoto7.enabled == true && nowItemNumber == 7)
+                            || (itemPhoto8.enabled == true && nowItemNumber == 8)
+                            || (itemPhoto9.enabled == true && nowItemNumber == 9))
+                        {
+                            hpSprite.HP = 5;
+                            Debug.Log("裁縫道具を使用した");
+                            //アイテムを使った時の処理を書いてほしい
+                            sowingGet2 = false;
+                            itemPhoto1.enabled = false;
+                            itemPhoto2.enabled = false;
+                            itemPhoto3.enabled = false;
+                            itemPhoto4.enabled = false;
+                            itemPhoto5.enabled = false;
+                            itemPhoto6.enabled = false;
+                            itemPhoto7.enabled = false;
+                            itemPhoto8.enabled = false;
+                            itemPhoto9.enabled = false;
+                        }
                     }
                 }
                 else
