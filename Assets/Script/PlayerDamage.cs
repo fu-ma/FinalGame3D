@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerDamage : MonoBehaviour
 {
-    public HPSpriteChange hpSprite;
+    private HPSpriteChange hpSprite;
     private PlayerInputSystem inputAction_;
     public GameObject damageEffect;
     private Color hpAlphaColor;

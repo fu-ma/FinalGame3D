@@ -411,7 +411,7 @@ public class TextWriter : MonoBehaviour
         uitext.DrawText("Ù–D“¹‹ï‚ğè‚É“ü‚ê‚½B");
         yield return StartCoroutine("Skip");
         //‚±‚±‚ÉsowingGet‚ğtrue‚É‚·‚é•¶‚ğ‘‚­
-        playergetitem.sowingGet = true;
+        playergetitem.sowingGet1 = true;
 
         deskEffect.SetActive(false);
         sewing.SetActive(false);
@@ -1480,6 +1480,8 @@ public class TextWriter : MonoBehaviour
         uitext.DrawText("Ù–D“¹‹ï‚ğè‚É“ü‚ê‚½B");
         yield return StartCoroutine("Skip");
         sewing.SetActive(false);
+
+        playergetitem.sowingGet2 = true;
 
         Canbus.SetActive(false);
         gameStop.stopFlag = false;
