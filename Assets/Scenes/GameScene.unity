@@ -589,16 +589,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   imageKey: {fileID: 21300000, guid: ec4158f5442e75a4ea0284eea8a1d6f9, type: 3}
-  imageItem: {fileID: 21300000, guid: 2d44e6a56412e094083e911f9fc53af3, type: 3}
-  imageMenu: {fileID: 21300000, guid: 362180a527536b14d8cd02b76c35da51, type: 3}
-  nowItems: {fileID: 0}
+  imageSowing: {fileID: 21300000, guid: 2d44e6a56412e094083e911f9fc53af3, type: 3}
+  imageMenu: {fileID: 21300000, guid: 05f6246d16cbfb140b1bf02264e425ea, type: 3}
+  imageMenuImportant: {fileID: 21300000, guid: 41f40dce44625094daba3c317c8ba35b, type: 3}
+  nowItems: {fileID: 21300000, guid: d6a995c09886cf04d9d495978d5e7bea, type: 3}
   itemPhoto1: {fileID: 1945331010}
   itemPhoto2: {fileID: 33190070}
-  menuPhoto: {fileID: 1179761839}
+  itemPhoto3: {fileID: 0}
+  itemPhoto4: {fileID: 0}
+  itemPhoto5: {fileID: 0}
+  itemPhoto6: {fileID: 0}
+  itemPhoto7: {fileID: 0}
+  itemPhoto8: {fileID: 0}
+  itemPhoto9: {fileID: 0}
   haveOpeKey: 0
   haveIronKey: 0
   openMenu: 0
   sowingGet: 0
+  nowItemNumber: 1
+  nowMenuNumber: 1
+  menuPhoto: {fileID: 1179761839}
+  itemFrame1: {fileID: 0}
+  itemFrame2: {fileID: 0}
+  itemFrame3: {fileID: 0}
+  itemFrame4: {fileID: 0}
+  itemFrame5: {fileID: 0}
+  itemFrame6: {fileID: 0}
+  itemFrame7: {fileID: 0}
+  itemFrame8: {fileID: 0}
+  itemFrame9: {fileID: 0}
 --- !u!114 &123871247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12203,11 +12222,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8664902858208063133, guid: d1d793673eed35544a1267fbeb00dfd8, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -95
+      value: -60
       objectReference: {fileID: 0}
     - target: {fileID: 8664902858208063133, guid: d1d793673eed35544a1267fbeb00dfd8, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 194
+      value: 197
       objectReference: {fileID: 0}
     - target: {fileID: 8664902858208063133, guid: d1d793673eed35544a1267fbeb00dfd8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -14380,11 +14399,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1625590587890173634, guid: 28de55a1c52b28d43b6403b65c37bfb4, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 54
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 1625590587890173634, guid: 28de55a1c52b28d43b6403b65c37bfb4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 192
+      value: 197
       objectReference: {fileID: 0}
     - target: {fileID: 1625590587890173634, guid: 28de55a1c52b28d43b6403b65c37bfb4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
