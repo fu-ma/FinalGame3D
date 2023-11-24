@@ -146,7 +146,7 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""PassChange"",
-                    ""type"": ""Button"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""29efde8f-78e0-4cd5-acfc-049fc02e45bf"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
