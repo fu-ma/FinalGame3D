@@ -1338,6 +1338,8 @@ public class TextWriter : MonoBehaviour
         boy_fear.SetActive(false);
         girl.SetActive(false);
 
+        hospital.behindFlag = true;
+
         girl.SetActive(true);
         uitext.DrawText("ソラ", "入れましたよぉーっ…");
         yield return StartCoroutine("Skip");
@@ -1371,6 +1373,8 @@ public class TextWriter : MonoBehaviour
         boy.SetActive(false);
         boy_fear.SetActive(false);
         girl.SetActive(false);
+
+        hospital.leftFlag = true;
 
         girl_fear.SetActive(true);
         uitext.DrawText("ソラ", "ハカリさん不味いかも。");

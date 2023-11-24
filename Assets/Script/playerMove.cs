@@ -71,8 +71,10 @@ public class playerMove : MonoBehaviour
     public GameObject kirakira8;
     public GameObject stage0Enemy;
 
-    private int hitTime;
+    public GameObject GameOverObj;
 
+    private int hitTime;
+    private bool GameOverFlag;
     void Start()
     {
         inputAction_ = new PlayerInputSystem();
@@ -145,8 +147,10 @@ public class playerMove : MonoBehaviour
         kirakira7.SetActive(true);
         kirakira8.SetActive(true);
         stage0Enemy.SetActive(true);
+        GameOverObj.SetActive(false);
 
         hitTime = 0;
+        GameOverFlag = false;
     }
 
     // Update is called once per frame
@@ -259,7 +263,30 @@ public class playerMove : MonoBehaviour
             blackBoard3.SetActive(false);
             blackBoard3showFlag = false;
         }
-
+        if(GameOverFlag == true)
+        {
+            GameOverObj.SetActive(true);
+            if(inputAction_.Player.Talk.triggered)
+            {
+                enemyTarget.StoryFlag = false;
+                enemyTarget.moveFlag = false;
+                enemyTarget.FirstFlag = false;
+                playerTeleport.SetPosition(36.26f, 157.14f);
+                enemyTarget.moveFlag = false;
+                kirakira1.SetActive(true);
+                kirakira2.SetActive(true);
+                kirakira3.SetActive(true);
+                kirakira4.SetActive(true);
+                kirakira5.SetActive(true);
+                kirakira6.SetActive(true);
+                kirakira7.SetActive(true);
+                kirakira8.SetActive(true);
+                stage0Enemy.SetActive(true);
+                textWriter.TextNum = 63;
+                GameOverObj.SetActive(false);
+                GameOverFlag = false;
+            }
+        }
     }
     void OnTriggerStay(Collider collision)
     {
@@ -508,7 +535,6 @@ public class playerMove : MonoBehaviour
             if (collision.gameObject.tag == "room6toRoom0Door")
             {
                 playerTeleport.SetPosition(-6.23f, 174.86f);
-                enemyTarget.moveFlag = false;
                 room0FirstFlag = true;
                 kirakira1.SetActive(false);
                 kirakira2.SetActive(false);
@@ -585,6 +611,10 @@ public class playerMove : MonoBehaviour
                 textWriter.TextNum = 80;
             }
 
+            if(collision.gameObject.tag == "bigEnemy")
+            {
+                GameOverFlag = true;
+            }
             if (collision.gameObject.layer == 7 && inputAction_.Player.Talk.triggered)
             {
                 gameStop.hitFlag = true;

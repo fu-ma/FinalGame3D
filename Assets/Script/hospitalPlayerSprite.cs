@@ -15,6 +15,9 @@ public class hospitalPlayerSprite : MonoBehaviour
     public bool backFlag;
     private int animationTime;
 
+    public bool behindFlag;
+    public bool leftFlag;
+
     private TextWriter textWriter;
 
     // Start is called before the first frame update
@@ -24,7 +27,8 @@ public class hospitalPlayerSprite : MonoBehaviour
         Flag = false;
         backFlag = false;
         animationTime = 0;
-
+        behindFlag = false;
+        leftFlag = false;
         textWriter = GameObject.Find("Canvas").GetComponent<TextWriter>();
     }
 
@@ -34,6 +38,19 @@ public class hospitalPlayerSprite : MonoBehaviour
         if (backFlag == true)
         {
             image.sprite = backSprite;
+            backFlag = false;
+        }
+
+        if(behindFlag == true)
+        {
+            image.sprite = nowSprite;
+            behindFlag = false;
+        }
+
+        if(leftFlag == true)
+        {
+            image.sprite = leftSprite;
+            leftFlag = false;
         }
 
         if (Flag == true)
