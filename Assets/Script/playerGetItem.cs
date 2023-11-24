@@ -380,15 +380,15 @@ public class playerGetItem : MonoBehaviour
                     itemPhoto8.enabled = false;
                     itemPhoto9.enabled = false;
                 }
-                if ((itemPhoto1.enabled == true && nowItemNumber == 1)
-                            || (itemPhoto2.enabled == true && nowItemNumber == 2)
-                            || (itemPhoto3.enabled == true && nowItemNumber == 3)
-                            || (itemPhoto4.enabled == true && nowItemNumber == 4)
-                            || (itemPhoto5.enabled == true && nowItemNumber == 5)
-                            || (itemPhoto6.enabled == true && nowItemNumber == 6)
-                            || (itemPhoto7.enabled == true && nowItemNumber == 7)
-                            || (itemPhoto8.enabled == true && nowItemNumber == 8)
-                            || (itemPhoto9.enabled == true && nowItemNumber == 9))
+                if ((itemPhoto1.sprite == imageKey && nowItemNumber == 1)
+                            || (itemPhoto2.sprite == imageKey == true && nowItemNumber == 2)
+                            || (itemPhoto3.sprite == imageKey == true && nowItemNumber == 3)
+                            || (itemPhoto4.sprite == imageKey == true && nowItemNumber == 4)
+                            || (itemPhoto5.sprite == imageKey == true && nowItemNumber == 5)
+                            || (itemPhoto6.sprite == imageKey == true && nowItemNumber == 6)
+                            || (itemPhoto7.sprite == imageKey == true && nowItemNumber == 7)
+                            || (itemPhoto8.sprite == imageKey == true && nowItemNumber == 8)
+                            || (itemPhoto9.sprite == imageKey == true && nowItemNumber == 9))
                 {
                     isUseOpeKey = true;
                 }
@@ -472,15 +472,15 @@ public class playerGetItem : MonoBehaviour
                     itemPhoto8.enabled = false;
                     itemPhoto9.enabled = false;
                 }
-                if ((itemPhoto1.enabled == true && nowItemNumber == 1)
-                            || (itemPhoto2.enabled == true && nowItemNumber == 2)
-                            || (itemPhoto3.enabled == true && nowItemNumber == 3)
-                            || (itemPhoto4.enabled == true && nowItemNumber == 4)
-                            || (itemPhoto5.enabled == true && nowItemNumber == 5)
-                            || (itemPhoto6.enabled == true && nowItemNumber == 6)
-                            || (itemPhoto7.enabled == true && nowItemNumber == 7)
-                            || (itemPhoto8.enabled == true && nowItemNumber == 8)
-                            || (itemPhoto9.enabled == true && nowItemNumber == 9))
+                if ((itemPhoto1.sprite == imageKey && nowItemNumber == 1)
+                            || (itemPhoto2.sprite == imageKey == true && nowItemNumber == 2)
+                            || (itemPhoto3.sprite == imageKey == true && nowItemNumber == 3)
+                            || (itemPhoto4.sprite == imageKey == true && nowItemNumber == 4)
+                            || (itemPhoto5.sprite == imageKey == true && nowItemNumber == 5)
+                            || (itemPhoto6.sprite == imageKey == true && nowItemNumber == 6)
+                            || (itemPhoto7.sprite == imageKey == true && nowItemNumber == 7)
+                            || (itemPhoto8.sprite == imageKey == true && nowItemNumber == 8)
+                            || (itemPhoto9.sprite == imageKey == true && nowItemNumber == 9))
                 {
                     isUseIronKey = true;
                 }
@@ -552,15 +552,16 @@ public class playerGetItem : MonoBehaviour
                     }
                     if (inputAction.Player.UseItem.triggered)//if文増やして座標を指定する処理を追加したい
                     {
-                        if ((itemPhoto1.enabled == true && nowItemNumber == 1)
-                            || (itemPhoto2.enabled == true && nowItemNumber == 2)
-                            || (itemPhoto3.enabled == true && nowItemNumber == 3)
-                            || (itemPhoto4.enabled == true && nowItemNumber == 4)
-                            || (itemPhoto5.enabled == true && nowItemNumber == 5)
-                            || (itemPhoto6.enabled == true && nowItemNumber == 6)
-                            || (itemPhoto7.enabled == true && nowItemNumber == 7)
-                            || (itemPhoto8.enabled == true && nowItemNumber == 8)
-                            || (itemPhoto9.enabled == true && nowItemNumber == 9))
+                        if ((itemPhoto1.sprite == imageSowing && nowItemNumber == 1)
+                           || (itemPhoto2.sprite == imageSowing && nowItemNumber == 2)
+                           || (itemPhoto3.sprite == imageSowing && nowItemNumber == 3)
+                           || (itemPhoto4.sprite == imageSowing && nowItemNumber == 4)
+                           || (itemPhoto5.sprite == imageSowing && nowItemNumber == 5)
+                           || (itemPhoto6.sprite == imageSowing && nowItemNumber == 6)
+                           || (itemPhoto7.sprite == imageSowing && nowItemNumber == 7)
+                           || (itemPhoto8.sprite == imageSowing && nowItemNumber == 8)
+                           || (itemPhoto9.sprite == imageSowing && nowItemNumber == 9)
+                           && sowingGet1 == false)
                         {
                             Debug.Log("裁縫道具を使用した");
                             hpSprite.HP = 5;
@@ -647,15 +648,16 @@ public class playerGetItem : MonoBehaviour
                     }
                     if (inputAction.Player.UseItem.triggered)//if文増やして座標を指定する処理を追加したい
                     {
-                        if ((itemPhoto1.enabled == true && nowItemNumber == 1)
-                            || (itemPhoto2.enabled == true && nowItemNumber == 2)
-                            || (itemPhoto3.enabled == true && nowItemNumber == 3)
-                            || (itemPhoto4.enabled == true && nowItemNumber == 4)
-                            || (itemPhoto5.enabled == true && nowItemNumber == 5)
-                            || (itemPhoto6.enabled == true && nowItemNumber == 6)
-                            || (itemPhoto7.enabled == true && nowItemNumber == 7)
-                            || (itemPhoto8.enabled == true && nowItemNumber == 8)
-                            || (itemPhoto9.enabled == true && nowItemNumber == 9))
+                        if ((itemPhoto1.sprite == imageSowing && nowItemNumber == 1)
+                            || (itemPhoto2.sprite == imageSowing && nowItemNumber == 2)
+                            || (itemPhoto3.sprite == imageSowing && nowItemNumber == 3)
+                            || (itemPhoto4.sprite == imageSowing && nowItemNumber == 4)
+                            || (itemPhoto5.sprite == imageSowing && nowItemNumber == 5)
+                            || (itemPhoto6.sprite == imageSowing && nowItemNumber == 6)
+                            || (itemPhoto7.sprite == imageSowing && nowItemNumber == 7)
+                            || (itemPhoto8.sprite == imageSowing && nowItemNumber == 8)
+                            || (itemPhoto9.sprite == imageSowing && nowItemNumber == 9)
+                            && sowingGet1 == false)
                         {
                             hpSprite.HP = 5;
                             Debug.Log("裁縫道具を使用した");
