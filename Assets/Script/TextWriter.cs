@@ -35,6 +35,9 @@ public class TextWriter : MonoBehaviour
     public GameObject kirakira7;
     public GameObject kirakira8;
     public GameObject stage0Enemy;
+    public GameObject config;
+
+    private bool configFlag;
 
     private FadeIn fadeIn;
 
@@ -119,6 +122,8 @@ public class TextWriter : MonoBehaviour
         cameraRotatedFlag = false;
         cameraRotateTimer = 0;
         room0FirstFlag = false;
+        config.SetActive(false);
+        configFlag = false;
 
         kirakira1.SetActive(true);
         kirakira2.SetActive(true);
@@ -195,7 +200,9 @@ public class TextWriter : MonoBehaviour
         uitext.DrawText("そんな恐怖に竦んだ足を真っ先に動かしたのは、ほんの少しの好奇心だった。");
         yield return StartCoroutine("Skip");
         cameraMove1.effectFlag = false;
-        gameStop.stopFlag = false;
+
+        config.SetActive(true);
+        configFlag = true;
         Canbus.SetActive(false);
     }
     IEnumerator doorStory1()
@@ -1918,6 +1925,12 @@ public class TextWriter : MonoBehaviour
             cameraRotatedFlag = false;
         }
 
+        if(configFlag == true && inputAction_.Player.Talk.triggered)
+        {
+            config.SetActive(false);
+            gameStop.stopFlag = false;
+            configFlag = false;
+        }
         if (inputAction_.Player.MoveRight.triggered)
         {
             //StartCoroutine("Syabetarou");
