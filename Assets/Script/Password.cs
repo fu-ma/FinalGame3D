@@ -78,12 +78,12 @@ public class Password : MonoBehaviour
         {
             imagePasswordPanel.enabled = true;
             imagePasswordPanel.sprite = passwordPanel;
-            if (inputAction.Player.NumberChangeLeft.triggered && changePass > 0)
+            if (inputAction.Player.MoveLeft.triggered && changePass > 0)
             {
                 changePass--;
                 audiosource.PlayOneShot(daiyaruSE);
             }
-            else if (inputAction.Player.NumberChangeRight.triggered && changePass < 2)
+            else if (inputAction.Player.MoveRight.triggered && changePass < 2)
             {
                 changePass++;
                 audiosource.PlayOneShot(daiyaruSE);
