@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerDamage : MonoBehaviour
 {
@@ -37,6 +38,10 @@ public class PlayerDamage : MonoBehaviour
             {
                 hpSprite.HP--;
                 damageTimer = 0;
+            }
+            if(hpSprite.HP == 0)
+            {
+                SceneManager.LoadScene("GameOverScene");
             }
             damageFlag = true;
         }
