@@ -95,17 +95,20 @@ public class playerGetItem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (inputAction.Player.ChangeMenuScreen.triggered)
+        if (inputAction.Player.ChangeMenuScreen.triggered && gameStop.stopFlag == false)
+        {
+            if(openMenu == false)
+            {
+                gameStop.stopFlag = true;
+                openMenu = true;
+            }
+        }
+        else if (inputAction.Player.ChangeMenuScreen.triggered)
         {
             if (openMenu == true)
             {
                 gameStop.stopFlag = false;
                 openMenu = false;
-            }
-            else
-            {
-                gameStop.stopFlag = true;
-                openMenu = true;
             }
         }
         if (openMenu == true)
@@ -120,19 +123,19 @@ public class playerGetItem : MonoBehaviour
                 menuPhoto.enabled = true;
                 menuPhoto.sprite = imageMenuImportant;
             }
-            if (nowItemNumber < 9 && inputAction.Player.NumberChangeRight.triggered)
+            if (nowItemNumber < 9 && inputAction.Player.MoveRight.triggered)
             {
                 nowItemNumber++;
             }
-            else if (nowItemNumber == 9 && inputAction.Player.NumberChangeRight.triggered)
+            else if (nowItemNumber == 9 && inputAction.Player.MoveRight.triggered)
             {
                 nowItemNumber = 1;
             }
-            if (nowItemNumber > 1 && inputAction.Player.NumberChangeLeft.triggered)
+            if (nowItemNumber > 1 && inputAction.Player.MoveLeft.triggered)
             {
                 nowItemNumber--;
             }
-            else if (nowItemNumber == 1 && inputAction.Player.NumberChangeLeft.triggered)
+            else if (nowItemNumber == 1 && inputAction.Player.MoveLeft.triggered)
             {
                 nowItemNumber = 9;
             }
@@ -256,6 +259,15 @@ public class playerGetItem : MonoBehaviour
         }
         else
         {
+            itemFrame1.enabled = false;
+            itemFrame2.enabled = false;
+            itemFrame3.enabled = false;
+            itemFrame4.enabled = false;
+            itemFrame5.enabled = false;
+            itemFrame6.enabled = false;
+            itemFrame7.enabled = false;
+            itemFrame8.enabled = false;
+            itemFrame9.enabled = false;
             menuPhoto.enabled = false;
         }
         //アイテムを使うとき
