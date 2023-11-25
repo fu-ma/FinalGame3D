@@ -1184,9 +1184,9 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
-        password2.isIronCommand = true;
         Canbus.SetActive(false);
         gameStop.stopFlag = false;
+        password2.isIronCommand = true;
     }
 
     IEnumerator playerDamageStory2()
