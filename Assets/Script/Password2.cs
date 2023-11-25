@@ -33,6 +33,7 @@ public class Password2 : MonoBehaviour
     [SerializeField] Image imageCirsol10;
     [SerializeField] Image imageCirsol1;
     public bool isIronCommand = false;
+    public bool isIronCommandDeray = false;
     public bool answerPass = false;
     public bool isGetOpeKey = false;
     public bool isGetKeyStory = false;
@@ -42,6 +43,7 @@ public class Password2 : MonoBehaviour
     public int numberPass10 = 0;
     public int numberPass1 = 0;
     public int changePass = 0;
+    public int deray = 0;
     private PlayerInputSystem inputAction;
     // Start is called before the first frame update
     void Start()
@@ -67,15 +69,27 @@ public class Password2 : MonoBehaviour
         imageCirsol10.enabled = false;
         imageCirsol1.enabled = false;
         isIronCommand = false;
+        isIronCommandDeray = false;
         dontObject = false;
         isGetKeyStory = false;
+        deray = 200;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isIronCommand == true)
+        if (isIronCommand == true && deray > 0)
         {
+            deray--;
+        }
+        if (deray == 0)
+        {
+            isIronCommand = false;
+            isIronCommandDeray = true;
+        }
+        if (isIronCommandDeray == true)
+        {
+            deray = 200;
             imagePasswordPanel.enabled = true;
             imagePasswordPanel.sprite = passwordPanel;
             if (inputAction.Player.NumberChangeLeft.triggered && changePass > 0)
@@ -327,6 +341,7 @@ public class Password2 : MonoBehaviour
                     isGetKeyStory = true;
                     gameStop.stopFlag = false;
                     isIronCommand = false;
+                    isIronCommandDeray = false;
                     dontObject = true;
                 }
                 else
@@ -340,6 +355,7 @@ public class Password2 : MonoBehaviour
                 audiosource.PlayOneShot(missSE);
                 //isMiss = false;
                 isIronCommand = false;
+                isIronCommandDeray = false;
             }
         }
         else
