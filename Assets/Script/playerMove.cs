@@ -356,20 +356,48 @@ public class playerMove : MonoBehaviour
                 textWriter.TextNum = 15;
             }
             //持ってるとき
-            if (collision.gameObject.tag == "operatingDoor" && inputAction_.Player.UseItem.triggered && getItem.openMenu == true && getItem.haveOpeKey == true)
+            if (collision.gameObject.tag == "operatingDoor" && inputAction_.Player.UseItem.triggered && getItem.openMenu == true && getItem.haveOpeKey == true && getItem.isUseOpeKey == true)
             {
                 //アイテムを使った時の処理を書いてほしい
                 textWriter.TextNum = 35;
+                if (getItem.itemPhoto1.sprite == getItem.imageKey)
+                {
+                    getItem.itemPhoto1.enabled = false;
+                }
+                if (getItem.itemPhoto2.sprite == getItem.imageKey)
+                {
+                    getItem.itemPhoto2.enabled = false;
+                }
+                if (getItem.itemPhoto3.sprite == getItem.imageKey)
+                {
+                    getItem.itemPhoto3.enabled = false;
+                }
+                if (getItem.itemPhoto4.sprite == getItem.imageKey)
+                {
+                    getItem.itemPhoto4.enabled = false;
+                }
+                if (getItem.itemPhoto5.sprite == getItem.imageKey)
+                {
+                    getItem.itemPhoto5.enabled = false;
+                }
+                if (getItem.itemPhoto6.sprite == getItem.imageKey)
+                {
+                    getItem.itemPhoto6.enabled = false;
+                }
+                if (getItem.itemPhoto7.sprite == getItem.imageKey)
+                {
+                    getItem.itemPhoto7.enabled = false;
+                }
+                if (getItem.itemPhoto8.sprite == getItem.imageKey)
+                {
+                    getItem.itemPhoto8.enabled = false;
+                }
+                if (getItem.itemPhoto9.sprite == getItem.imageKey)
+                {
+                    getItem.itemPhoto9.enabled = false;
+                }
                 getItem.haveOpeKey = false;
-                getItem.itemPhoto1.enabled = false;
-                getItem.itemPhoto2.enabled = false;
-                getItem.itemPhoto3.enabled = false;
-                getItem.itemPhoto4.enabled = false;
-                getItem.itemPhoto5.enabled = false;
-                getItem.itemPhoto6.enabled = false;
-                getItem.itemPhoto7.enabled = false;
-                getItem.itemPhoto8.enabled = false;
-                getItem.itemPhoto9.enabled = false;
+                getItem.openMenu = false;
             }
             if (collision.gameObject.tag == "ironDoor" && inputAction_.Player.Talk.triggered && boyFlag == false)
             {
@@ -379,19 +407,47 @@ public class playerMove : MonoBehaviour
             {
                 textWriter.TextNum = 39;
             }
-            if (collision.gameObject.tag == "ironDoor" && inputAction_.Player.UseItem.triggered && boyFlag == true && getItem.openMenu == true && getItem.haveIronKey == true)
+            if (collision.gameObject.tag == "ironDoor" && inputAction_.Player.UseItem.triggered && boyFlag == true && getItem.openMenu == true && getItem.haveIronKey == true && getItem.isUseIronKey == true)
             {
                 textWriter.TextNum = 47;
+                if (getItem.itemPhoto1.sprite == getItem.imageKey)
+                {
+                    getItem.itemPhoto1.enabled = false;
+                }
+                if (getItem.itemPhoto2.sprite == getItem.imageKey)
+                {
+                    getItem.itemPhoto2.enabled = false;
+                }
+                if (getItem.itemPhoto3.sprite == getItem.imageKey)
+                {
+                    getItem.itemPhoto3.enabled = false;
+                }
+                if (getItem.itemPhoto4.sprite == getItem.imageKey)
+                {
+                    getItem.itemPhoto4.enabled = false;
+                }
+                if (getItem.itemPhoto5.sprite == getItem.imageKey)
+                {
+                    getItem.itemPhoto5.enabled = false;
+                }
+                if (getItem.itemPhoto6.sprite == getItem.imageKey)
+                {
+                    getItem.itemPhoto6.enabled = false;
+                }
+                if (getItem.itemPhoto7.sprite == getItem.imageKey)
+                {
+                    getItem.itemPhoto7.enabled = false;
+                }
+                if (getItem.itemPhoto8.sprite == getItem.imageKey)
+                {
+                    getItem.itemPhoto8.enabled = false;
+                }
+                if (getItem.itemPhoto9.sprite == getItem.imageKey)
+                {
+                    getItem.itemPhoto9.enabled = false;
+                }
+                getItem.openMenu = false;
                 getItem.haveIronKey = false;
-                getItem.itemPhoto1.enabled = false;
-                getItem.itemPhoto2.enabled = false;
-                getItem.itemPhoto3.enabled = false;
-                getItem.itemPhoto4.enabled = false;
-                getItem.itemPhoto5.enabled = false;
-                getItem.itemPhoto6.enabled = false;
-                getItem.itemPhoto7.enabled = false;
-                getItem.itemPhoto8.enabled = false;
-                getItem.itemPhoto9.enabled = false;
             }
 
             if (collision.gameObject.tag == "1-2goDoor")

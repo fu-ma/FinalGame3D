@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class playerGetItem : MonoBehaviour
 {
-    [SerializeField] Sprite imageKey;
+    public Sprite imageKey;
     [SerializeField] Sprite imageSowing;
     [SerializeField] Sprite imageMenu;
     [SerializeField] Sprite imageMenuImportant;
@@ -128,7 +128,7 @@ public class playerGetItem : MonoBehaviour
     {
         if (inputAction.Player.ChangeMenuScreen.triggered && gameStop.stopFlag == false)
         {
-            if(openMenu == false)
+            if (openMenu == false)
             {
                 gameStop.stopFlag = true;
                 openMenu = true;
@@ -380,22 +380,6 @@ public class playerGetItem : MonoBehaviour
                     itemPhoto8.enabled = false;
                     itemPhoto9.enabled = false;
                 }
-                if ((itemPhoto1.sprite == imageKey && nowItemNumber == 1)
-                            || (itemPhoto2.sprite == imageKey == true && nowItemNumber == 2)
-                            || (itemPhoto3.sprite == imageKey == true && nowItemNumber == 3)
-                            || (itemPhoto4.sprite == imageKey == true && nowItemNumber == 4)
-                            || (itemPhoto5.sprite == imageKey == true && nowItemNumber == 5)
-                            || (itemPhoto6.sprite == imageKey == true && nowItemNumber == 6)
-                            || (itemPhoto7.sprite == imageKey == true && nowItemNumber == 7)
-                            || (itemPhoto8.sprite == imageKey == true && nowItemNumber == 8)
-                            || (itemPhoto9.sprite == imageKey == true && nowItemNumber == 9))
-                {
-                    isUseOpeKey = true;
-                }
-                else
-                {
-                    isUseOpeKey = false;
-                }
                 //if (inputAction.Player.UseItem.triggered)//if文増やして座標を指定する処理を追加したい
                 //{
                 //    Debug.Log("手術室のカギを使った");
@@ -472,22 +456,6 @@ public class playerGetItem : MonoBehaviour
                     itemPhoto8.enabled = false;
                     itemPhoto9.enabled = false;
                 }
-                if ((itemPhoto1.sprite == imageKey && nowItemNumber == 1)
-                            || (itemPhoto2.sprite == imageKey == true && nowItemNumber == 2)
-                            || (itemPhoto3.sprite == imageKey == true && nowItemNumber == 3)
-                            || (itemPhoto4.sprite == imageKey == true && nowItemNumber == 4)
-                            || (itemPhoto5.sprite == imageKey == true && nowItemNumber == 5)
-                            || (itemPhoto6.sprite == imageKey == true && nowItemNumber == 6)
-                            || (itemPhoto7.sprite == imageKey == true && nowItemNumber == 7)
-                            || (itemPhoto8.sprite == imageKey == true && nowItemNumber == 8)
-                            || (itemPhoto9.sprite == imageKey == true && nowItemNumber == 9))
-                {
-                    isUseIronKey = true;
-                }
-                else
-                {
-                    isUseIronKey = false;
-                }
                 //if (inputAction.Player.UseItem.triggered)//if文増やして座標を指定する処理を追加したい
                 //{
                 //    Debug.Log("手術室のカギを使った");
@@ -552,30 +520,20 @@ public class playerGetItem : MonoBehaviour
                     }
                     if (inputAction.Player.UseItem.triggered)//if文増やして座標を指定する処理を追加したい
                     {
-                        if ((itemPhoto1.sprite == imageSowing && nowItemNumber == 1)
-                           || (itemPhoto2.sprite == imageSowing && nowItemNumber == 2)
-                           || (itemPhoto3.sprite == imageSowing && nowItemNumber == 3)
-                           || (itemPhoto4.sprite == imageSowing && nowItemNumber == 4)
-                           || (itemPhoto5.sprite == imageSowing && nowItemNumber == 5)
-                           || (itemPhoto6.sprite == imageSowing && nowItemNumber == 6)
-                           || (itemPhoto7.sprite == imageSowing && nowItemNumber == 7)
-                           || (itemPhoto8.sprite == imageSowing && nowItemNumber == 8)
-                           || (itemPhoto9.sprite == imageSowing && nowItemNumber == 9)
-                           && sowingGet1 == false)
+                        if (isUseSowing == true)
                         {
                             Debug.Log("裁縫道具を使用した");
                             hpSprite.HP = 5;
                             //アイテムを使った時の処理を書いてほしい
                             sowingGet1 = false;
-                            itemPhoto1.enabled = false;
-                            itemPhoto2.enabled = false;
-                            itemPhoto3.enabled = false;
-                            itemPhoto4.enabled = false;
-                            itemPhoto5.enabled = false;
-                            itemPhoto6.enabled = false;
-                            itemPhoto7.enabled = false;
-                            itemPhoto8.enabled = false;
-                            itemPhoto9.enabled = false;
+                            if (itemPhoto1.sprite == imageSowing)
+                            {
+                                itemPhoto1.enabled = false;
+                            }
+                            if (itemPhoto2.sprite == imageSowing)
+                            {
+                                itemPhoto2.enabled = false;
+                            }
                         }
                     }
                 }
@@ -648,30 +606,20 @@ public class playerGetItem : MonoBehaviour
                     }
                     if (inputAction.Player.UseItem.triggered)//if文増やして座標を指定する処理を追加したい
                     {
-                        if ((itemPhoto1.sprite == imageSowing && nowItemNumber == 1)
-                            || (itemPhoto2.sprite == imageSowing && nowItemNumber == 2)
-                            || (itemPhoto3.sprite == imageSowing && nowItemNumber == 3)
-                            || (itemPhoto4.sprite == imageSowing && nowItemNumber == 4)
-                            || (itemPhoto5.sprite == imageSowing && nowItemNumber == 5)
-                            || (itemPhoto6.sprite == imageSowing && nowItemNumber == 6)
-                            || (itemPhoto7.sprite == imageSowing && nowItemNumber == 7)
-                            || (itemPhoto8.sprite == imageSowing && nowItemNumber == 8)
-                            || (itemPhoto9.sprite == imageSowing && nowItemNumber == 9)
-                            && sowingGet1 == false)
+                        if (isUseSowing2 == true)
                         {
                             hpSprite.HP = 5;
                             Debug.Log("裁縫道具を使用した");
                             //アイテムを使った時の処理を書いてほしい
                             sowingGet2 = false;
-                            itemPhoto1.enabled = false;
-                            itemPhoto2.enabled = false;
-                            itemPhoto3.enabled = false;
-                            itemPhoto4.enabled = false;
-                            itemPhoto5.enabled = false;
-                            itemPhoto6.enabled = false;
-                            itemPhoto7.enabled = false;
-                            itemPhoto8.enabled = false;
-                            itemPhoto9.enabled = false;
+                            if (itemPhoto1.sprite == imageSowing)
+                            {
+                                itemPhoto1.enabled = false;
+                            }
+                            if (itemPhoto2.sprite == imageSowing)
+                            {
+                                itemPhoto2.enabled = false;
+                            }
                         }
                     }
                 }
@@ -719,6 +667,190 @@ public class playerGetItem : MonoBehaviour
             itemPhoto7.enabled = false;
             itemPhoto8.enabled = false;
             itemPhoto9.enabled = false;
+        }
+
+        if (openMenu == true)
+        {
+            if (nowItemNumber == 1)
+            {
+                if (itemPhoto1.enabled == true)
+                {
+                    if (itemPhoto1.sprite == imageKey)
+                    {
+                        isUseOpeKey = true;
+                        isUseIronKey = true;
+                        isUseSowing = false;
+                        isUseSowing2 = false;
+                    }
+                    else if (itemPhoto1.sprite == imageSowing)
+                    {
+                        isUseOpeKey = false;
+                        isUseIronKey = false;
+                        isUseSowing = true;
+                        isUseSowing2 = true;
+                    }
+                }
+            }
+            else if (nowItemNumber == 2)
+            {
+                if (itemPhoto2.enabled == true)
+                {
+                    if (itemPhoto2.sprite == imageKey)
+                    {
+                        isUseOpeKey = true;
+                        isUseIronKey = true;
+                        isUseSowing = false;
+                        isUseSowing2 = false;
+                    }
+                    else if (itemPhoto2.sprite == imageSowing)
+                    {
+                        isUseOpeKey = false;
+                        isUseIronKey = false;
+                        isUseSowing = true;
+                        isUseSowing2 = true;
+                    }
+                }
+            }
+            else if (nowItemNumber == 3)
+            {
+                if (itemPhoto3.enabled == true)
+                {
+                    if (itemPhoto3.sprite == imageKey)
+                    {
+                        isUseOpeKey = true;
+                        isUseIronKey = true;
+                        isUseSowing = false;
+                        isUseSowing2 = false;
+                    }
+                    else if (itemPhoto3.sprite == imageSowing)
+                    {
+                        isUseOpeKey = false;
+                        isUseIronKey = false;
+                        isUseSowing = true;
+                        isUseSowing2 = true;
+                    }
+                }
+            }
+            else if (nowItemNumber == 4)
+            {
+                if (itemPhoto4.enabled == true)
+                {
+                    if (itemPhoto4.sprite == imageKey)
+                    {
+                        isUseOpeKey = true;
+                        isUseIronKey = true;
+                        isUseSowing = false;
+                        isUseSowing2 = false;
+                    }
+                    else if (itemPhoto4.sprite == imageSowing)
+                    {
+                        isUseOpeKey = false;
+                        isUseIronKey = false;
+                        isUseSowing = true;
+                        isUseSowing2 = true;
+                    }
+                }
+            }
+            else if (nowItemNumber == 5)
+            {
+                if (itemPhoto5.enabled == true)
+                {
+                    if (itemPhoto5.sprite == imageKey)
+                    {
+                        isUseOpeKey = true;
+                        isUseIronKey = true;
+                        isUseSowing = false;
+                        isUseSowing2 = false;
+                    }
+                    else if (itemPhoto5.sprite == imageSowing)
+                    {
+                        isUseOpeKey = false;
+                        isUseIronKey = false;
+                        isUseSowing = true;
+                        isUseSowing2 = true;
+                    }
+                }
+            }
+            else if (nowItemNumber == 6)
+            {
+                if (itemPhoto6.enabled == true)
+                {
+                    if (itemPhoto6.sprite == imageKey)
+                    {
+                        isUseOpeKey = true;
+                        isUseIronKey = true;
+                        isUseSowing = false;
+                        isUseSowing2 = false;
+                    }
+                    else if (itemPhoto6.sprite == imageSowing)
+                    {
+                        isUseOpeKey = false;
+                        isUseIronKey = false;
+                        isUseSowing = true;
+                        isUseSowing2 = true;
+                    }
+                }
+            }
+            else if (nowItemNumber == 7)
+            {
+                if (itemPhoto7.enabled == true)
+                {
+                    if (itemPhoto7.sprite == imageKey)
+                    {
+                        isUseOpeKey = true;
+                        isUseIronKey = true;
+                        isUseSowing = false;
+                        isUseSowing2 = false;
+                    }
+                    else if (itemPhoto7.sprite == imageSowing)
+                    {
+                        isUseOpeKey = false;
+                        isUseIronKey = false;
+                        isUseSowing = true;
+                        isUseSowing2 = true;
+                    }
+                }
+            }
+            else if (nowItemNumber == 8)
+            {
+                if (itemPhoto8.enabled == true)
+                {
+                    if (itemPhoto8.sprite == imageKey)
+                    {
+                        isUseOpeKey = true;
+                        isUseIronKey = true;
+                        isUseSowing = false;
+                        isUseSowing2 = false;
+                    }
+                    else if (itemPhoto8.sprite == imageSowing)
+                    {
+                        isUseOpeKey = false;
+                        isUseIronKey = false;
+                        isUseSowing = true;
+                        isUseSowing2 = true;
+                    }
+                }
+            }
+            else if (nowItemNumber == 9)
+            {
+                if (itemPhoto9.enabled == true)
+                {
+                    if (itemPhoto9.sprite == imageKey)
+                    {
+                        isUseOpeKey = true;
+                        isUseIronKey = true;
+                        isUseSowing = false;
+                        isUseSowing2 = false;
+                    }
+                    else if (itemPhoto9.sprite == imageSowing)
+                    {
+                        isUseOpeKey = false;
+                        isUseIronKey = false;
+                        isUseSowing = true;
+                        isUseSowing2 = true;
+                    }
+                }
+            }
         }
     }
 
