@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TextWriter : MonoBehaviour
 {
@@ -72,6 +73,8 @@ public class TextWriter : MonoBehaviour
     private bool cameraRotateFlag;
     private bool cameraRotatedFlag;
     private int cameraRotateTimer;
+
+    private bool gameEndFlag;
     // Start is called before the first frame update
     void Start()
     {
@@ -133,6 +136,8 @@ public class TextWriter : MonoBehaviour
         kirakira6.SetActive(true);
         kirakira7.SetActive(true);
         kirakira8.SetActive(true);
+
+        gameEndFlag = false;
     }
 
     IEnumerator Skip()
@@ -1334,7 +1339,8 @@ public class TextWriter : MonoBehaviour
         cameraRotateFlag = true;
         Canbus.SetActive(false);
 
-        gameStop.stopFlag = false;
+        //gameStop.stopFlag = false;
+        gameEndFlag = true;
     }
 
     IEnumerator room0Story1()
@@ -1934,6 +1940,12 @@ public class TextWriter : MonoBehaviour
         if (inputAction_.Player.MoveRight.triggered)
         {
             //StartCoroutine("Syabetarou");
+        }
+
+        //ToBeContinue
+        if (inputAction_.Player.Talk.triggered && gameEndFlag == true)
+        {
+            SceneManager.LoadScene("EndScene");
         }
     }
 }
