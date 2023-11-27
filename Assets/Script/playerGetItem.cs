@@ -123,8 +123,6 @@ public class playerGetItem : MonoBehaviour
         gameStop = GameObject.Find("GameManager").GetComponent<publicFlag>();
 
         password = GameObject.Find("player").GetComponent<Password>();
-        sowingGet1 = true;
-        sowingGet2 = true;
         nowSowing = 1;
     }
 
