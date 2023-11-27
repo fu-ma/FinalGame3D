@@ -233,6 +233,7 @@ public class TextWriter : MonoBehaviour
         uitext.DrawText("持っているととても安心する様だ。");
         yield return StartCoroutine("Skip");
         doll.SetActive(true);
+        soundMan.isGetItem = true;
         uitext.DrawText("人形を手に入れた。");
         yield return StartCoroutine("Skip");
         doll.SetActive(false);
