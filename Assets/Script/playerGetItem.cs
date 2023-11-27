@@ -59,6 +59,8 @@ public class playerGetItem : MonoBehaviour
     private Password password;
 
     private PlayerInputSystem inputAction;
+
+    private int nowSowing;
     // Start is called before the first frame update
     void Start()
     {
@@ -121,6 +123,9 @@ public class playerGetItem : MonoBehaviour
         gameStop = GameObject.Find("GameManager").GetComponent<publicFlag>();
 
         password = GameObject.Find("player").GetComponent<Password>();
+        sowingGet1 = true;
+        sowingGet2 = true;
+        nowSowing = 1;
     }
 
     // Update is called once per frame
@@ -525,15 +530,19 @@ public class playerGetItem : MonoBehaviour
                             Debug.Log("裁縫道具を使用した");
                             hpSprite.HP = 5;
                             //アイテムを使った時の処理を書いてほしい
-                            sowingGet1 = false;
                             if (itemPhoto1.sprite == imageSowing)
                             {
                                 itemPhoto1.enabled = false;
                             }
-                            if (itemPhoto2.sprite == imageSowing)
+                            if (sowingGet2 == false)
                             {
-                                itemPhoto2.enabled = false;
+                                if (itemPhoto2.sprite == imageSowing)
+                                {
+                                    itemPhoto2.enabled = false;
+                                }
                             }
+                            sowingGet1 = false;
+                            nowSowing = 2;
                         }
                     }
                 }
@@ -612,9 +621,12 @@ public class playerGetItem : MonoBehaviour
                             Debug.Log("裁縫道具を使用した");
                             //アイテムを使った時の処理を書いてほしい
                             sowingGet2 = false;
-                            if (itemPhoto1.sprite == imageSowing)
+                            if (sowingGet1 == false)
                             {
-                                itemPhoto1.enabled = false;
+                                if (itemPhoto1.sprite == imageSowing)
+                                {
+                                    itemPhoto1.enabled = false;
+                                }
                             }
                             if (itemPhoto2.sprite == imageSowing)
                             {
@@ -679,15 +691,19 @@ public class playerGetItem : MonoBehaviour
                     {
                         isUseOpeKey = true;
                         isUseIronKey = true;
-                        isUseSowing = false;
-                        isUseSowing2 = false;
+                        if (nowSowing == 1)
+                            isUseSowing = false;
+                        if (nowSowing == 2)
+                            isUseSowing2 = false;
                     }
                     else if (itemPhoto1.sprite == imageSowing)
                     {
                         isUseOpeKey = false;
                         isUseIronKey = false;
-                        isUseSowing = true;
-                        isUseSowing2 = true;
+                        if (nowSowing == 1)
+                            isUseSowing = true;
+                        if (nowSowing == 2)
+                            isUseSowing2 = true;
                     }
                 }
             }
@@ -699,15 +715,19 @@ public class playerGetItem : MonoBehaviour
                     {
                         isUseOpeKey = true;
                         isUseIronKey = true;
-                        isUseSowing = false;
-                        isUseSowing2 = false;
+                        if (nowSowing == 1)
+                            isUseSowing = false;
+                        if (nowSowing == 2)
+                            isUseSowing2 = false;
                     }
                     else if (itemPhoto2.sprite == imageSowing)
                     {
                         isUseOpeKey = false;
                         isUseIronKey = false;
-                        isUseSowing = true;
-                        isUseSowing2 = true;
+                        if (nowSowing == 1)
+                            isUseSowing = true;
+                        if (nowSowing == 2)
+                            isUseSowing2 = true;
                     }
                 }
             }
