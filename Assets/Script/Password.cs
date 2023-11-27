@@ -325,7 +325,6 @@ public class Password : MonoBehaviour
                 {
                     isGetOpeKey = true;
                     isGetKeyStory = true;
-                    gameStop.stopFlag = false;
                     isCommand = false;
                     dontObject = true;
                 }
@@ -333,6 +332,7 @@ public class Password : MonoBehaviour
                 {
                     isMiss = true;
                 }
+                gameStop.stopFlag = false;
             }
             if (isMiss == true)
             {

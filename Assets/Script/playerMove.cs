@@ -38,6 +38,8 @@ public class playerMove : MonoBehaviour
 
     private EnemyTargetMove enemyTarget;
 
+    private SoundManager soundMan;
+
     private bool classroomFlag;
     private bool classroomFlag2;
 
@@ -115,6 +117,8 @@ public class playerMove : MonoBehaviour
         getItem = GameObject.Find("player").GetComponent<playerGetItem>();
 
         enemyTarget = GameObject.Find("room0Enemy").GetComponent<EnemyTargetMove>();
+
+        soundMan = GameObject.Find("Canvas").GetComponent<SoundManager>();
 
         classroomFlag = false;
         classroomFlag2 = false;
@@ -687,6 +691,7 @@ public class playerMove : MonoBehaviour
             }
             if (collision.gameObject.layer == 7 && inputAction_.Player.Talk.triggered)
             {
+                //soundMan.isCheckUp = true;
                 gameStop.hitFlag = true;
             }
         }

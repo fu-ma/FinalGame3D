@@ -72,7 +72,7 @@ public class Password2 : MonoBehaviour
         isIronCommandDeray = false;
         dontObject = false;
         isGetKeyStory = false;
-        deray = 200;
+        deray = 10;
     }
 
     // Update is called once per frame
@@ -89,7 +89,7 @@ public class Password2 : MonoBehaviour
         }
         if (isIronCommandDeray == true)
         {
-            deray = 200;
+            deray = 10;
             imagePasswordPanel.enabled = true;
             imagePasswordPanel.sprite = passwordPanel;
             if (inputAction.Player.NumberChangeLeft.triggered && changePass > 0)
@@ -339,7 +339,6 @@ public class Password2 : MonoBehaviour
                 {
                     isGetOpeKey = true;
                     isGetKeyStory = true;
-                    gameStop.stopFlag = false;
                     isIronCommand = false;
                     isIronCommandDeray = false;
                     dontObject = true;
@@ -348,6 +347,7 @@ public class Password2 : MonoBehaviour
                 {
                     isMiss = true;
                 }
+                gameStop.stopFlag = false;
             }
             if (isMiss == true)
             {

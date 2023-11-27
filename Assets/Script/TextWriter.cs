@@ -40,6 +40,10 @@ public class TextWriter : MonoBehaviour
 
     private bool configFlag;
 
+    public GameObject config2;
+
+    private bool config2Flag;
+
     private FadeIn fadeIn;
 
     private storyCameramove1 cameraMove1;
@@ -53,6 +57,8 @@ public class TextWriter : MonoBehaviour
     private hospitalPlayerSprite hospital;
 
     private playerGetItem playergetitem;
+
+    private SoundManager soundMan;
 
     private Password password;
     private Password2 password2;
@@ -105,6 +111,8 @@ public class TextWriter : MonoBehaviour
 
         enemyTarget = GameObject.Find("room0Enemy").GetComponent<EnemyTargetMove>();
 
+        soundMan = GameObject.Find("Canvas").GetComponent<SoundManager>();
+
         TextNum = 0;
         fenceStoryFlag = false;
         boy_fear.SetActive(false);
@@ -127,6 +135,8 @@ public class TextWriter : MonoBehaviour
         room0FirstFlag = false;
         config.SetActive(false);
         configFlag = false;
+        config2.SetActive(false);
+        config2Flag = false;
 
         kirakira1.SetActive(true);
         kirakira2.SetActive(true);
@@ -247,6 +257,7 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         uitext.DrawText("それと同時に人形の右腕が無くなっている事に気づいた。");
         yield return StartCoroutine("Skip");
+        soundMan.isDoorOpen = true;
         playerDamage.isDamage = true;
         gameStop.stopFlag = false;
         fenceStoryFlag = true;
@@ -298,6 +309,7 @@ public class TextWriter : MonoBehaviour
         uitext.DrawText("少女","どうなってるの…");
         yield return StartCoroutine("Skip");
         girl_fear.SetActive(false);
+        soundMan.isDoorClose = true;
         uitext.DrawText("バタン！！！！");
         yield return StartCoroutine("Skip");
         girl_fear.SetActive(true);
@@ -420,6 +432,7 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
         sewing.SetActive(true);
+        soundMan.isGetItem = true;
         uitext.DrawText("裁縫道具を手に入れた。");
         yield return StartCoroutine("Skip");
         //ここにsowingGetをtrueにする文を書く
@@ -458,10 +471,12 @@ public class TextWriter : MonoBehaviour
         girl.SetActive(false);
 
         fadeIn.fadeOutFlag = true;
+
         girl_fear.SetActive(true);
         uitext.DrawText("少女", "何…アレ…");
         yield return StartCoroutine("Skip");
         fadeIn.fadeFlag = true;
+
         girl_fear.SetActive(false);
         uitext.DrawText("黒い人影は教室内を徘徊している様だ。");
         yield return StartCoroutine("Skip");
@@ -537,6 +552,7 @@ public class TextWriter : MonoBehaviour
         boy.SetActive(false);
         girl.SetActive(false);
         girl_fear.SetActive(true);
+        soundMan.isDamage = true;
         uitext.DrawText("少女","痛っ！");
         yield return StartCoroutine("Skip");
 
@@ -554,6 +570,7 @@ public class TextWriter : MonoBehaviour
         girl_fear.SetActive(false);
         boy.SetActive(false);
         girl.SetActive(true);
+        soundMan.isDropKey = true;
         uitext.DrawText("少女", "ん？何か落ちたような…");
         yield return StartCoroutine("Skip");
 
@@ -562,12 +579,14 @@ public class TextWriter : MonoBehaviour
         girl.SetActive(false);
 
         opeKey.SetActive(true);
+        soundMan.isGetItem = true;
         uitext.DrawText("手術室の鍵を入手しました。");
         yield return StartCoroutine("Skip");
         opeKey.SetActive(false);
 
         Canbus.SetActive(false);
-        gameStop.stopFlag = false;
+        config2.SetActive(true);
+        config2Flag = true;
     }
 
     IEnumerator openOperoomStory()
@@ -576,7 +595,7 @@ public class TextWriter : MonoBehaviour
         girl_fear.SetActive(false);
         boy.SetActive(false);
         girl.SetActive(false);
-
+        soundMan.isOpenKey = true;
         uitext.DrawText("ドアが開いた様だ。");
         yield return StartCoroutine("Skip");
 
@@ -596,6 +615,7 @@ public class TextWriter : MonoBehaviour
         girl.SetActive(false);
 
         fadeIn.fadeOutFlag = true;
+
         uitext.DrawText("医師", "最善は…尽くしましたが………");
         yield return StartCoroutine("Skip");
 
@@ -624,6 +644,7 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
 
         fadeIn.fadeFlag = true;
+
         boy.SetActive(true);
         uitext.DrawText("少年", "おい！");
         yield return StartCoroutine("Skip");
@@ -671,10 +692,12 @@ public class TextWriter : MonoBehaviour
         boy.SetActive(false);
 
         fadeIn.fadeOutFlag = true;
+
         uitext.DrawText("少女は少し安堵したように微笑んだ。");
         yield return StartCoroutine("Skip");
         playerTeleport.SetPosition(-9.52f, 48.7f);
         fadeIn.fadeFlag = true;
+
 
         girl.SetActive(true);
         uitext.DrawText("少女", "ということはつまり、あなたも起きたらここに居て、どうにか道を進んで来たら手術室に着いたんですね。");
@@ -822,6 +845,7 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
 
         boy.SetActive(true);
+        soundMan.isGetItem = true;
         uitext.DrawText("少年", "おぉ、鍵だ。");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
@@ -851,6 +875,7 @@ public class TextWriter : MonoBehaviour
         girl.SetActive(false);
 
         room4goDoor.SetActive(false);
+        soundMan.isOpenKey = true;
         uitext.DrawText("鉄柵の扉が開いた。");
         yield return StartCoroutine("Skip");
 
@@ -1185,7 +1210,6 @@ public class TextWriter : MonoBehaviour
         girl.SetActive(false);
 
         Canbus.SetActive(false);
-        gameStop.stopFlag = false;
         password2.isIronCommand = true;
     }
 
@@ -1195,6 +1219,8 @@ public class TextWriter : MonoBehaviour
         boy.SetActive(false);
         girl.SetActive(false);
         girl_fear.SetActive(true);
+        soundMan.isDamage = true;
+
         uitext.DrawText("ソラ", "痛っ！");
         yield return StartCoroutine("Skip");
 
@@ -1257,10 +1283,14 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
+        fadeIn.fadeOutFlag = true;
+
         girl.SetActive(true);
         uitext.DrawText("ソラ", "あ、机に何かあります。それとメモ書きみたいなのも。");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
+        playerTeleport.SetPosition(-70, 223);
+        fadeIn.fadeFlag = true;
 
         boy.SetActive(true);
         uitext.DrawText("ハカリ", "えぇっと…？");
@@ -1310,10 +1340,14 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
+        fadeIn.fadeOutFlag = true;
+
         boy.SetActive(true);
         uitext.DrawText("ハカリ", "試すに丁度いいくらいの願い…か。");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
+        playerTeleport.SetPosition(-70, 227.46f);
+        fadeIn.fadeFlag = true;
 
         boy.SetActive(true);
         uitext.DrawText("ハカリ", "ここから出るのが俺らの目的だとして。");
@@ -1494,6 +1528,7 @@ public class TextWriter : MonoBehaviour
         girl.SetActive(false);
 
         sewing.SetActive(true);
+        soundMan.isGetItem = true;
         uitext.DrawText("裁縫道具を手に入れた。");
         yield return StartCoroutine("Skip");
         sewing.SetActive(false);
@@ -1564,6 +1599,7 @@ public class TextWriter : MonoBehaviour
         girl.SetActive(false);
 
         fadeIn.fadeOutFlag = true;
+
         uitext.DrawText("ソラの呼吸が落ち着くまで、ハカリは背中をさすったー。");
         yield return StartCoroutine("Skip");
         fadeIn.fadeFlag = true;
@@ -1610,8 +1646,8 @@ public class TextWriter : MonoBehaviour
 
             //あとで消す
             //fadeIn.fadeFlag = true;
-            //playerTeleport.SetPosition(-6.25f, 156.93f);
-            //TextNum = 51;
+            //playerTeleport.SetPosition(-9.89f, 219.28f);
+            //TextNum = 53;
         }
         if (TextNum == 1 && cameraMove1.endFlag == true)
         {
@@ -1937,13 +1973,20 @@ public class TextWriter : MonoBehaviour
             gameStop.stopFlag = false;
             configFlag = false;
         }
+        if (config2Flag == true && inputAction_.Player.Talk.triggered)
+        {
+            config2.SetActive(false);
+            gameStop.stopFlag = false;
+            config2Flag = false;
+        }
+
         if (inputAction_.Player.MoveRight.triggered)
         {
             //StartCoroutine("Syabetarou");
         }
 
         //ToBeContinue
-        if (inputAction_.Player.Talk.triggered && gameEndFlag == true)
+        if (gameEndFlag == true && inputAction_.Player.Talk.triggered)
         {
             SceneManager.LoadScene("EndScene");
         }
