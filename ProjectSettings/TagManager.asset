@@ -52,6 +52,8 @@ TagManager:
   - kirakira_hit4
   - kirakira_hit5
   - bigEnemy
+  - Enemy1
+  - Enemy2
   layers:
   - Default
   - TransparentFX

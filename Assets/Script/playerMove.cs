@@ -7,7 +7,6 @@ public class playerMove : MonoBehaviour
 {
     Vector3 moveVelocity;
     public Rigidbody rb;
-    public BoxCollider bc;
     public Transform playerTransform;
     public float maxSpeed;
     public float power;
@@ -39,6 +38,9 @@ public class playerMove : MonoBehaviour
     private EnemyTargetMove enemyTarget;
 
     private SoundManager soundMan;
+
+    private Enemymove1 enemyMove1;
+    private Enemymove2 enemyMove2;
 
     private bool classroomFlag;
     private bool classroomFlag2;
@@ -75,6 +77,9 @@ public class playerMove : MonoBehaviour
 
     public GameObject GameOverObj;
 
+    //UI
+    public GameObject playerUI;
+
     private int hitTime;
     private bool GameOverFlag;
     void Start()
@@ -86,9 +91,6 @@ public class playerMove : MonoBehaviour
         rb.drag = 20;
         rb.angularDrag = 0;
         rb.constraints = RigidbodyConstraints.FreezeRotation;
-
-        bc = GetComponent<BoxCollider>();
-        bc.size = new Vector3(1, 2.36f, 1);
 
         playerTransform = GetComponent<Transform>();
         playerTransform.position = new Vector3(0, 1, -20);
@@ -119,6 +121,9 @@ public class playerMove : MonoBehaviour
         enemyTarget = GameObject.Find("room0Enemy").GetComponent<EnemyTargetMove>();
 
         soundMan = GameObject.Find("Canvas").GetComponent<SoundManager>();
+
+        enemyMove1 = GameObject.FindGameObjectWithTag("Enemy1").GetComponent<Enemymove1>();
+        enemyMove2 = GameObject.FindGameObjectWithTag("Enemy2").GetComponent<Enemymove2>();
 
         classroomFlag = false;
         classroomFlag2 = false;
@@ -153,6 +158,7 @@ public class playerMove : MonoBehaviour
         stage0Enemy.SetActive(true);
         GameOverObj.SetActive(false);
 
+        playerUI.SetActive(false);
         hitTime = 0;
         GameOverFlag = false;
     }
@@ -296,6 +302,23 @@ public class playerMove : MonoBehaviour
     {
         if (gameStop.hitFlag == false)
         {
+            if(collision.gameObject.layer == 7 && collision.gameObject.tag != "door" && collision.gameObject.tag != "fence")
+            {
+                playerUI.SetActive(true);
+            }
+            if (collision.gameObject.tag == "door" && textWriter.dollGetFlag == false)
+            {
+                playerUI.SetActive(true);
+            }
+            if (collision.gameObject.tag == "fence" && textWriter.dollGetFlag == true && textWriter.TextNum == 4)
+            {
+                playerUI.SetActive(true);
+            }
+            if (collision.gameObject.tag == "door" && textWriter.fenceStoryFlag == true)
+            {
+                playerUI.SetActive(true);
+            }
+
             if (collision.gameObject.tag == "door" && inputAction_.Player.Talk.triggered && textWriter.dollGetFlag == false)
             {
                 textWriter.TextNum = 3;
@@ -329,6 +352,7 @@ public class playerMove : MonoBehaviour
             if (collision.gameObject.tag == "2-1goDoor")
             {
                 playerTeleport.SetPosition(83.5f, 39);
+                enemyMove1.counter = 0;
                 if (classroomFlag == false)
                 {
                     textWriter.TextNum = 25;
@@ -359,50 +383,6 @@ public class playerMove : MonoBehaviour
             {
                 textWriter.TextNum = 15;
             }
-            //持ってるとき
-            if (collision.gameObject.tag == "operatingDoor" && inputAction_.Player.UseItem.triggered && getItem.openMenu == true && getItem.haveOpeKey == true && getItem.isUseOpeKey == true)
-            {
-                //アイテムを使った時の処理を書いてほしい
-                textWriter.TextNum = 35;
-                if (getItem.itemPhoto1.sprite == getItem.imageKey)
-                {
-                    getItem.itemPhoto1.enabled = false;
-                }
-                if (getItem.itemPhoto2.sprite == getItem.imageKey)
-                {
-                    getItem.itemPhoto2.enabled = false;
-                }
-                if (getItem.itemPhoto3.sprite == getItem.imageKey)
-                {
-                    getItem.itemPhoto3.enabled = false;
-                }
-                if (getItem.itemPhoto4.sprite == getItem.imageKey)
-                {
-                    getItem.itemPhoto4.enabled = false;
-                }
-                if (getItem.itemPhoto5.sprite == getItem.imageKey)
-                {
-                    getItem.itemPhoto5.enabled = false;
-                }
-                if (getItem.itemPhoto6.sprite == getItem.imageKey)
-                {
-                    getItem.itemPhoto6.enabled = false;
-                }
-                if (getItem.itemPhoto7.sprite == getItem.imageKey)
-                {
-                    getItem.itemPhoto7.enabled = false;
-                }
-                if (getItem.itemPhoto8.sprite == getItem.imageKey)
-                {
-                    getItem.itemPhoto8.enabled = false;
-                }
-                if (getItem.itemPhoto9.sprite == getItem.imageKey)
-                {
-                    getItem.itemPhoto9.enabled = false;
-                }
-                getItem.haveOpeKey = false;
-                getItem.openMenu = false;
-            }
             if (collision.gameObject.tag == "ironDoor" && inputAction_.Player.Talk.triggered && boyFlag == false)
             {
                 textWriter.TextNum = 17;
@@ -410,48 +390,6 @@ public class playerMove : MonoBehaviour
             if (collision.gameObject.tag == "ironDoor" && inputAction_.Player.Talk.triggered && boyFlag == true && getItem.openMenu == false)
             {
                 textWriter.TextNum = 39;
-            }
-            if (collision.gameObject.tag == "ironDoor" && inputAction_.Player.UseItem.triggered && boyFlag == true && getItem.openMenu == true && getItem.haveIronKey == true && getItem.isUseIronKey == true)
-            {
-                textWriter.TextNum = 47;
-                if (getItem.itemPhoto1.sprite == getItem.imageKey)
-                {
-                    getItem.itemPhoto1.enabled = false;
-                }
-                if (getItem.itemPhoto2.sprite == getItem.imageKey)
-                {
-                    getItem.itemPhoto2.enabled = false;
-                }
-                if (getItem.itemPhoto3.sprite == getItem.imageKey)
-                {
-                    getItem.itemPhoto3.enabled = false;
-                }
-                if (getItem.itemPhoto4.sprite == getItem.imageKey)
-                {
-                    getItem.itemPhoto4.enabled = false;
-                }
-                if (getItem.itemPhoto5.sprite == getItem.imageKey)
-                {
-                    getItem.itemPhoto5.enabled = false;
-                }
-                if (getItem.itemPhoto6.sprite == getItem.imageKey)
-                {
-                    getItem.itemPhoto6.enabled = false;
-                }
-                if (getItem.itemPhoto7.sprite == getItem.imageKey)
-                {
-                    getItem.itemPhoto7.enabled = false;
-                }
-                if (getItem.itemPhoto8.sprite == getItem.imageKey)
-                {
-                    getItem.itemPhoto8.enabled = false;
-                }
-                if (getItem.itemPhoto9.sprite == getItem.imageKey)
-                {
-                    getItem.itemPhoto9.enabled = false;
-                }
-                getItem.openMenu = false;
-                getItem.haveIronKey = false;
             }
 
             if (collision.gameObject.tag == "1-2goDoor")
@@ -466,6 +404,7 @@ public class playerMove : MonoBehaviour
             if (collision.gameObject.tag == "2-2goDoor")
             {
                 playerTeleport.SetPosition(96.35f, 99.3f);
+                enemyMove2.counter = 0;
                 if (classroomFlag2 == false)
                 {
                     textWriter.TextNum = 21;
@@ -486,6 +425,7 @@ public class playerMove : MonoBehaviour
             }
             if (collision.gameObject.tag == "2-1leftGoDoor")
             {
+                enemyMove1.counter = 0;
                 playerTeleport.SetPosition(96.35f, 39.3f);
             }
 
@@ -512,9 +452,19 @@ public class playerMove : MonoBehaviour
                 gameStop.stopFlag = true;
                 blackBoard3.SetActive(true);
             }
-            if (collision.gameObject.tag == "Enemy" && enemyHitFlag == false)
+            if ((collision.gameObject.tag == "Enemy1" || collision.gameObject.tag == "Enemy2") && enemyHitFlag == false)
             {
                 textWriter.TextNum = 27;
+                if(collision.gameObject.tag == "Enemy1")
+                {
+                    playerTeleport.SetPosition(83.5f, 39);
+                    enemyMove1.counter = 0;
+                }
+                if (collision.gameObject.tag == "Enemy2")
+                {
+                    playerTeleport.SetPosition(96.35f, 99.3f);
+                    enemyMove2.counter = 0;
+                }
                 enemyHitFlag = true;
             }
             if (collision.gameObject.tag == "2-1blackBoard" && inputAction_.Player.Talk.triggered)
@@ -695,16 +645,107 @@ public class playerMove : MonoBehaviour
                 gameStop.hitFlag = true;
             }
         }
+
+        //持ってるとき
+        if (collision.gameObject.tag == "operatingDoor" && inputAction_.Player.UseItem.triggered && getItem.openMenu == true && getItem.haveOpeKey == true && getItem.isUseOpeKey == true)
+        {
+            //アイテムを使った時の処理を書いてほしい
+            textWriter.TextNum = 35;
+            if (getItem.itemPhoto1.sprite == getItem.imageKey)
+            {
+                getItem.itemPhoto1.enabled = false;
+            }
+            if (getItem.itemPhoto2.sprite == getItem.imageKey)
+            {
+                getItem.itemPhoto2.enabled = false;
+            }
+            if (getItem.itemPhoto3.sprite == getItem.imageKey)
+            {
+                getItem.itemPhoto3.enabled = false;
+            }
+            if (getItem.itemPhoto4.sprite == getItem.imageKey)
+            {
+                getItem.itemPhoto4.enabled = false;
+            }
+            if (getItem.itemPhoto5.sprite == getItem.imageKey)
+            {
+                getItem.itemPhoto5.enabled = false;
+            }
+            if (getItem.itemPhoto6.sprite == getItem.imageKey)
+            {
+                getItem.itemPhoto6.enabled = false;
+            }
+            if (getItem.itemPhoto7.sprite == getItem.imageKey)
+            {
+                getItem.itemPhoto7.enabled = false;
+            }
+            if (getItem.itemPhoto8.sprite == getItem.imageKey)
+            {
+                getItem.itemPhoto8.enabled = false;
+            }
+            if (getItem.itemPhoto9.sprite == getItem.imageKey)
+            {
+                getItem.itemPhoto9.enabled = false;
+            }
+            getItem.haveOpeKey = false;
+            getItem.openMenu = false;
+        }
+
+        if (collision.gameObject.tag == "ironDoor" && inputAction_.Player.UseItem.triggered && boyFlag == true && getItem.openMenu == true && getItem.haveIronKey == true && getItem.isUseIronKey == true)
+        {
+            textWriter.TextNum = 47;
+            if (getItem.itemPhoto1.sprite == getItem.imageKey)
+            {
+                getItem.itemPhoto1.enabled = false;
+            }
+            if (getItem.itemPhoto2.sprite == getItem.imageKey)
+            {
+                getItem.itemPhoto2.enabled = false;
+            }
+            if (getItem.itemPhoto3.sprite == getItem.imageKey)
+            {
+                getItem.itemPhoto3.enabled = false;
+            }
+            if (getItem.itemPhoto4.sprite == getItem.imageKey)
+            {
+                getItem.itemPhoto4.enabled = false;
+            }
+            if (getItem.itemPhoto5.sprite == getItem.imageKey)
+            {
+                getItem.itemPhoto5.enabled = false;
+            }
+            if (getItem.itemPhoto6.sprite == getItem.imageKey)
+            {
+                getItem.itemPhoto6.enabled = false;
+            }
+            if (getItem.itemPhoto7.sprite == getItem.imageKey)
+            {
+                getItem.itemPhoto7.enabled = false;
+            }
+            if (getItem.itemPhoto8.sprite == getItem.imageKey)
+            {
+                getItem.itemPhoto8.enabled = false;
+            }
+            if (getItem.itemPhoto9.sprite == getItem.imageKey)
+            {
+                getItem.itemPhoto9.enabled = false;
+            }
+            getItem.openMenu = false;
+            getItem.haveIronKey = false;
+        }
+
     }
     void OnTriggerExit(Collider other)
     {
-        //if(other.gameObject.layer == 7)
-        //{
-        //    gameStop.hitFlag = false;
-        //}
-        if(other.gameObject.tag == "Enemy")
+        if(other.gameObject.layer == 7)
+        {
+            playerUI.SetActive(false);
+        }
+        if(other.gameObject.tag == "Enemy1" || other.gameObject.tag == "Enemy2")
         {
             enemyHitFlag = false;
+            enemyMove1.counter = 0;
+            enemyMove2.counter = 0;
         }
     }
 }

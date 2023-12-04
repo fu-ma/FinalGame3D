@@ -134,6 +134,7 @@ public class playerGetItem : MonoBehaviour
             if (openMenu == false)
             {
                 gameStop.stopFlag = true;
+                gameStop.hitFlag = true;
                 openMenu = true;
             }
         }
@@ -142,6 +143,7 @@ public class playerGetItem : MonoBehaviour
             if (openMenu == true)
             {
                 gameStop.stopFlag = false;
+                gameStop.hitFlag = false;
                 openMenu = false;
             }
         }

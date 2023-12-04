@@ -495,7 +495,7 @@ public class TextWriter : MonoBehaviour
         uitext.DrawText("少女", "！！！！！");
         yield return StartCoroutine("Skip");
         girl_fear.SetActive(false);
-        playerTeleport.SetPosition(5, 30);
+        //playerTeleport.SetPosition(5, 30);
 
         gameStop.stopFlag = false;
         Canbus.SetActive(false);
