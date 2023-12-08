@@ -8,6 +8,10 @@ public class playerSpriteMove : MonoBehaviour
     private Animator anim;
     private PlayerInputSystem inputAction_;
     private publicFlag gameStop;
+    public bool fowordFlag;
+    public bool backFlag;
+    public bool leftFlag;
+    public bool rightFlag;
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +20,10 @@ public class playerSpriteMove : MonoBehaviour
         inputAction_ = new PlayerInputSystem();
         inputAction_.Enable();
         gameStop = GameObject.Find("GameManager").GetComponent<publicFlag>();
+        fowordFlag = false;
+        backFlag = false;
+        leftFlag = false;
+        rightFlag = false;
     }
 
     // Update is called once per frame
@@ -25,6 +33,7 @@ public class playerSpriteMove : MonoBehaviour
         {
             if (inputAction_.Player.MoveLeft.IsPressed())
             {
+                leftFlag = true;
                 anim.enabled = true;
                 if (inputAction_.Player.SpeedUp.IsPressed())
                 {
@@ -39,6 +48,7 @@ public class playerSpriteMove : MonoBehaviour
             }
             else if (inputAction_.Player.MoveRight.IsPressed())
             {
+                rightFlag = true;
                 anim.enabled = true;
                 if (inputAction_.Player.SpeedUp.IsPressed())
                 {
@@ -52,6 +62,7 @@ public class playerSpriteMove : MonoBehaviour
             }
             else if (inputAction_.Player.MoveDown.IsPressed())
             {
+                backFlag = true;
                 anim.enabled = true;
                 if (inputAction_.Player.SpeedUp.IsPressed())
                 {
@@ -66,6 +77,7 @@ public class playerSpriteMove : MonoBehaviour
             }
             else if (inputAction_.Player.MoveUp.IsPressed())
             {
+                fowordFlag = true;
                 anim.enabled = true;
                 if (inputAction_.Player.SpeedUp.IsPressed())
                 {

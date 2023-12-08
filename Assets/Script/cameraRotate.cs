@@ -10,8 +10,9 @@ public class cameraRotate : MonoBehaviour
     private PlayerInputSystem inputAction_;
     private Transform playerTransform;
     private Transform cameraTransform;
+    private Transform boyTransform;
     public bool moveFlag;
-    Vector3 angle;
+    public Vector3 angle;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,7 @@ public class cameraRotate : MonoBehaviour
         moveFlag = false;
         cameraTransform = GameObject.Find("CameraPos").GetComponent<Transform>();
         playerTransform = GameObject.Find("playerShadow").GetComponent<Transform>();
+        boyTransform = GameObject.Find("boy").GetComponent<Transform>();
     }
 
     // Update is called once per frame
@@ -40,6 +42,7 @@ public class cameraRotate : MonoBehaviour
             }
             playerTransform.eulerAngles = angle;
             cameraTransform.eulerAngles = angle;
+            boyTransform.eulerAngles = angle;
         }
         //if (inputAction_.Player.RotateLeft.triggered)
         //{

@@ -54,6 +54,7 @@ TagManager:
   - bigEnemy
   - Enemy1
   - Enemy2
+  - girl
   layers:
   - Default
   - TransparentFX

@@ -76,7 +76,7 @@ public class TextWriter : MonoBehaviour
     public bool room0FirstFlag;
 
     //ÉJÉÅÉââÒì]
-    private bool cameraRotateFlag;
+    public bool cameraRotateFlag;
     private bool cameraRotatedFlag;
     private int cameraRotateTimer;
 
@@ -1374,8 +1374,8 @@ public class TextWriter : MonoBehaviour
         cameraRotateFlag = true;
         Canbus.SetActive(false);
 
-        //gameStop.stopFlag = false;
-        gameEndFlag = true;
+        gameStop.stopFlag = false;
+        //gameEndFlag = true;
     }
 
     IEnumerator room0Story1()
@@ -1534,7 +1534,7 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         sewing.SetActive(false);
 
-        playergetitem.sowingGet2 = true;
+        playergetitem.sowingGet1 = true;
 
         Canbus.SetActive(false);
         gameStop.stopFlag = false;
@@ -1647,8 +1647,8 @@ public class TextWriter : MonoBehaviour
 
             //Ç†Ç∆Ç≈è¡Ç∑
             //fadeIn.fadeFlag = true;
-            //playerTeleport.SetPosition(-9.89f, 219.28f);
-            //TextNum = 53;
+            //playerTeleport.SetPosition(-70.17f, 219.09f);
+            //TextNum = 61;
         }
         if (TextNum == 1 && cameraMove1.endFlag == true)
         {

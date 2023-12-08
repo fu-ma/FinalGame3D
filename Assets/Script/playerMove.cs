@@ -42,6 +42,8 @@ public class playerMove : MonoBehaviour
     private Enemymove1 enemyMove1;
     private Enemymove2 enemyMove2;
 
+    private Transform girlTransform;
+
     private bool classroomFlag;
     private bool classroomFlag2;
 
@@ -98,7 +100,7 @@ public class playerMove : MonoBehaviour
         Application.targetFrameRate = 60;
         Screen.SetResolution(1280, 720, FullScreenMode.FullScreenWindow, 60);
         girlObject.SetActive(true);
-        boyObject.SetActive(false);
+        boyObject.SetActive(true);
 
         blackBoard1.SetActive(false);
         blackBoard1showFlag = false;
@@ -124,6 +126,8 @@ public class playerMove : MonoBehaviour
 
         enemyMove1 = GameObject.FindGameObjectWithTag("Enemy1").GetComponent<Enemymove1>();
         enemyMove2 = GameObject.FindGameObjectWithTag("Enemy2").GetComponent<Enemymove2>();
+
+        girlTransform = GameObject.Find("playerShadow").GetComponent<Transform>();
 
         classroomFlag = false;
         classroomFlag2 = false;
@@ -180,7 +184,7 @@ public class playerMove : MonoBehaviour
                     power = -12.0f;
                     maxSpeed = 24.0f;
                 }
-                rb.AddForce(transform.right * ((maxSpeed - rb.velocity.x) * power), ForceMode.Force);
+                rb.AddForce(girlTransform.right * ((maxSpeed - rb.velocity.x) * power), ForceMode.Force);
             }
             if (inputAction_.Player.MoveRight.IsPressed())
             {
@@ -194,7 +198,7 @@ public class playerMove : MonoBehaviour
                     power = 16.0f;
                     maxSpeed = 24.0f;
                 }
-                rb.AddForce(transform.right * ((maxSpeed - rb.velocity.x) * power), ForceMode.Force);
+                rb.AddForce(girlTransform.right * ((maxSpeed - rb.velocity.x) * power), ForceMode.Force);
             }
             if (inputAction_.Player.MoveUp.IsPressed())
             {
@@ -208,7 +212,7 @@ public class playerMove : MonoBehaviour
                     power = 16.0f;
                     maxSpeed = 24.0f;
                 }
-                rb.AddForce(transform.forward * ((maxSpeed - rb.velocity.z) * power), ForceMode.Force);
+                rb.AddForce(girlTransform.forward * ((maxSpeed - rb.velocity.z) * power), ForceMode.Force);
             }
             if (inputAction_.Player.MoveDown.IsPressed())
             {
@@ -222,7 +226,7 @@ public class playerMove : MonoBehaviour
                     power = -12.0f;
                     maxSpeed = 24.0f;
                 }
-                rb.AddForce(transform.forward * ((maxSpeed - rb.velocity.z) * power), ForceMode.Force);
+                rb.AddForce(girlTransform.forward * ((maxSpeed - rb.velocity.z) * power), ForceMode.Force);
             }
             //キャラクター切り替え
             //if(inputAction_.Player.CharacterChangeGirl.triggered)
@@ -486,6 +490,7 @@ public class playerMove : MonoBehaviour
                 {
                     textWriter.TextNum = 37;
                     boyFlag = true;
+                    boyObject.SetActive(true);
                     boyClassroomFlag1 = true;
                     operoomFlag = true;
                 }
