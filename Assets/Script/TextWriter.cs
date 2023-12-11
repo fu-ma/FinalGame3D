@@ -53,6 +53,7 @@ public class TextWriter : MonoBehaviour
     private PlayerDamage playerDamage;
 
     private PlayerTeleport playerTeleport;
+    private boyTeleport boyTeleport;
 
     private hospitalPlayerSprite hospital;
 
@@ -99,6 +100,7 @@ public class TextWriter : MonoBehaviour
         playerDamage = GameObject.Find("player").GetComponent<PlayerDamage>();
 
         playerTeleport = GameObject.Find("player").GetComponent<PlayerTeleport>();
+        boyTeleport = GameObject.Find("boyObject").GetComponent<boyTeleport>();
 
         hospital = GameObject.Find("playerShadow").GetComponent<hospitalPlayerSprite>();
 
@@ -276,6 +278,7 @@ public class TextWriter : MonoBehaviour
         uitext.DrawText("中に入ろう。");
         yield return StartCoroutine("Skip");
         playerTeleport.SetPosition(5, 30);
+        boyTeleport.SetPosition(7, 30);
         TextNum = 9;
         Canbus.SetActive(false);
     }
@@ -601,6 +604,7 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
 
         playerTeleport.SetPosition(-9.52f, 48.7f);
+        boyTeleport.SetPosition(-7.52f, 48.7f);
 
         operoomDoor.SetActive(false);
         Canbus.SetActive(false);
@@ -697,6 +701,7 @@ public class TextWriter : MonoBehaviour
         uitext.DrawText("少女は少し安堵したように微笑んだ。");
         yield return StartCoroutine("Skip");
         playerTeleport.SetPosition(-9.52f, 48.7f);
+        boyTeleport.SetPosition(-7.52f, 48.7f);
         fadeIn.fadeFlag = true;
 
 
@@ -881,6 +886,7 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
 
         playerTeleport.SetPosition(19.36f, 48.51f);
+        boyTeleport.SetPosition(21.36f, 48.51f);
 
         boy.SetActive(true);
         uitext.DrawText("少年", "そーいや、俺がこっちに来るまでの部屋に小さい抜け道があったんだけどよ。");
@@ -1170,6 +1176,8 @@ public class TextWriter : MonoBehaviour
         Canbus.SetActive(false);
         gameStop.stopFlag = false;
         playerTeleport.SetPosition(36.26f, 157.14f);
+        boyTeleport.SetPosition(38.26f, 157.14f);
+
         room0FirstFlag = true;
         TextNum = 63;
     }
@@ -1291,6 +1299,8 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
         playerTeleport.SetPosition(-70, 223);
+        boyTeleport.SetPosition(-68, 223);
+
         fadeIn.fadeFlag = true;
 
         boy.SetActive(true);
@@ -1348,6 +1358,8 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
         playerTeleport.SetPosition(-70, 227.46f);
+        boyTeleport.SetPosition(-68, 227.46f);
+
         fadeIn.fadeFlag = true;
 
         boy.SetActive(true);
