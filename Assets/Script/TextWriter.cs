@@ -54,6 +54,7 @@ public class TextWriter : MonoBehaviour
 
     private PlayerTeleport playerTeleport;
     private boyTeleport boyTeleport;
+    private boyTarget boyTarget;
 
     private hospitalPlayerSprite hospital;
 
@@ -76,6 +77,7 @@ public class TextWriter : MonoBehaviour
     //room0を一回でも通ったことがあるか
     public bool room0FirstFlag;
 
+    public bool underground45Flag;
     //カメラ回転
     public bool cameraRotateFlag;
     private bool cameraRotatedFlag;
@@ -101,6 +103,8 @@ public class TextWriter : MonoBehaviour
 
         playerTeleport = GameObject.Find("player").GetComponent<PlayerTeleport>();
         boyTeleport = GameObject.Find("boyObject").GetComponent<boyTeleport>();
+
+        boyTarget = GameObject.Find("boyObject").GetComponent<boyTarget>();
 
         hospital = GameObject.Find("playerShadow").GetComponent<hospitalPlayerSprite>();
 
@@ -150,6 +154,8 @@ public class TextWriter : MonoBehaviour
         kirakira8.SetActive(true);
 
         gameEndFlag = false;
+
+        underground45Flag = false;
     }
 
     IEnumerator Skip()
@@ -587,6 +593,8 @@ public class TextWriter : MonoBehaviour
         uitext.DrawText("手術室の鍵を入手しました。");
         yield return StartCoroutine("Skip");
         opeKey.SetActive(false);
+
+        playergetitem.haveOpeKey = true;
 
         Canbus.SetActive(false);
         config2.SetActive(true);
@@ -1172,11 +1180,12 @@ public class TextWriter : MonoBehaviour
         uitext.DrawText("ハカリ", "………");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
-
+        boyTarget.followFlag2 = false;
+        
         Canbus.SetActive(false);
         gameStop.stopFlag = false;
         playerTeleport.SetPosition(36.26f, 157.14f);
-        boyTeleport.SetPosition(38.26f, 157.14f);
+        //boyTeleport.SetPosition(38.26f, 157.14f);
 
         room0FirstFlag = true;
         TextNum = 63;
@@ -1386,6 +1395,7 @@ public class TextWriter : MonoBehaviour
         cameraRotateFlag = true;
         Canbus.SetActive(false);
 
+        underground45Flag = true;
         gameStop.stopFlag = false;
         //gameEndFlag = true;
     }
@@ -1590,6 +1600,7 @@ public class TextWriter : MonoBehaviour
         boy.SetActive(false);
         boy_fear.SetActive(false);
         girl.SetActive(false);
+        boyTarget.followFlag2 = true;
 
         boy.SetActive(true);
         uitext.DrawText("ハカリ", "大丈夫かっ？！");
@@ -1648,6 +1659,124 @@ public class TextWriter : MonoBehaviour
         gameStop.playerDontMoveFlag = false;
     }
 
+    IEnumerator undergroundStory2()
+    {
+        Canbus.SetActive(true);
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        boy_fear.SetActive(false);
+        girl.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "・　・　・");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "　・　・　・　");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "なんか…何も変化無く感じるな。");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "そう、ですね。さっきのセリフが恥ずかしく感じてきました。");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "ま、まぁほら、願ったら叶うなんてこと自体普通はおかしいからな。");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "俺ら随分長い事この変な空間に居るからちと期待しちまったなｗ");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "よしっ、まだ見てねぇ場所あるかもだ。探しに行k……？");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "ハカリさん…不思議です。");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "どうした？");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "ハカリさんってさっきまで私の後ろに居ましたよね？");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "え…そりゃ……");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "！");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "今、私の左に居ませんか…？");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "変なことを言っている自覚はあります。");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "部屋に変化は無いですし、私たちも動いたりしてません。");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "でも確かに、ハカリさんがさっきと違う場所に居るって思うんです。");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "…本当だ。俺もソラが右にズレた様に感じる。");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "多分本当にお願い事が叶って、何かしらの効果を発揮したのかもしれません。");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "方向感覚っつーか、東西南北がずれたような…");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "部屋の外に出てみましょう。きっと何か新しい発見があるはずです。");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "そーだな。行ってみるしかねぇな。");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        Canbus.SetActive(false);
+        gameStop.stopFlag = false;
+    }
+
+
     // Update is called once per frame
     void Update()
     {
@@ -1659,8 +1788,8 @@ public class TextWriter : MonoBehaviour
 
             //あとで消す
             //fadeIn.fadeFlag = true;
-            //playerTeleport.SetPosition(-70.17f, 219.09f);
-            //TextNum = 61;
+            //playerTeleport.SetPosition(-6.25f, 156.93f);
+            //boyTeleport.SetPosition(-4.25f, 156.93f);
         }
         if (TextNum == 1 && cameraMove1.endFlag == true)
         {
@@ -1933,7 +2062,12 @@ public class TextWriter : MonoBehaviour
             StartCoroutine("room0backHomeStory");
             TextNum = 83;
         }
-
+        if(TextNum == 84)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("undergroundStory2");
+            TextNum = 85;
+        }
 
         //ダメージを受けたときの処理
         if (password.isMiss == true)

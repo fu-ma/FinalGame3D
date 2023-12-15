@@ -5,6 +5,7 @@ using UnityEngine;
 public class boyTarget : MonoBehaviour
 {
     bool followFlag;
+    public bool followFlag2;
     Transform Target;
     public float EnemySpeed;
     private PlayerInputSystem inputAction_;
@@ -17,6 +18,7 @@ public class boyTarget : MonoBehaviour
     {
         Target = GameObject.Find("player").GetComponent<Transform>();
         followFlag = true;
+        followFlag2 = true;
         inputAction_ = new PlayerInputSystem();
         inputAction_.Enable();
 
@@ -31,7 +33,7 @@ public class boyTarget : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(followFlag == true)
+        if(followFlag == true && followFlag2 == true)
         {
             if (inputAction_.Player.SpeedUp.IsPressed())
             {

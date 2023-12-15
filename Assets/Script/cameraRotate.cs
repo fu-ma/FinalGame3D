@@ -21,7 +21,7 @@ public class cameraRotate : MonoBehaviour
         moveFlag = false;
         cameraTransform = GameObject.Find("CameraPos").GetComponent<Transform>();
         playerTransform = GameObject.Find("playerShadow").GetComponent<Transform>();
-        boyTransform = GameObject.Find("boy").GetComponent<Transform>();
+        boyTransform = GameObject.Find("boyObject").GetComponent<Transform>();
     }
 
     // Update is called once per frame

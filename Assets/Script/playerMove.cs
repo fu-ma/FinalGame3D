@@ -626,6 +626,11 @@ public class playerMove : MonoBehaviour
             {
                 playerTeleport.SetPosition(-10.08f, 232.28f);
                 boyTeleport.SetPosition(-8.08f, 232.28f);
+                if(textWriter.underground45Flag == true)
+                {
+                    textWriter.TextNum = 84;
+                    textWriter.underground45Flag = false;
+                }
             }
 
             if (collision.gameObject.tag == "Dial" && inputAction_.Player.Talk.triggered && password2.dontObject == false)
