@@ -12,6 +12,7 @@ public class playerMove : MonoBehaviour
     public float power;
     public GameObject girlObject;
     public GameObject boyObject;
+    public bool changeCharaFlag;
 
     public GameObject blackBoard1;
     private bool blackBoard1showFlag;
@@ -30,6 +31,7 @@ public class playerMove : MonoBehaviour
 
     private PlayerTeleport playerTeleport;
     private boyTeleport boyTeleport;
+    private boyTarget boyTarget;
 
     private Password password;
     private Password2 password2;
@@ -101,7 +103,7 @@ public class playerMove : MonoBehaviour
         Application.targetFrameRate = 60;
         Screen.SetResolution(1280, 720, FullScreenMode.FullScreenWindow, 60);
         girlObject.SetActive(true);
-        boyObject.SetActive(false);
+        boyObject.SetActive(true);
 
         blackBoard1.SetActive(false);
         blackBoard1showFlag = false;
@@ -116,6 +118,7 @@ public class playerMove : MonoBehaviour
 
         playerTeleport = GameObject.Find("player").GetComponent<PlayerTeleport>();
         boyTeleport = GameObject.Find("boyObject").GetComponent<boyTeleport>();
+        boyTarget = GameObject.Find("boyObject").GetComponent<boyTarget>();
 
         password = GameObject.Find("player").GetComponent<Password>();
         password2 = GameObject.Find("player").GetComponent<Password2>();
@@ -167,6 +170,7 @@ public class playerMove : MonoBehaviour
         playerUI.SetActive(false);
         hitTime = 0;
         GameOverFlag = false;
+        changeCharaFlag = false;
     }
 
     // Update is called once per frame
@@ -186,7 +190,10 @@ public class playerMove : MonoBehaviour
                     power = -12.0f;
                     maxSpeed = 24.0f;
                 }
-                rb.AddForce(girlTransform.right * ((maxSpeed - rb.velocity.x) * power), ForceMode.Force);
+                if (changeCharaFlag == false)
+                {
+                    rb.AddForce(girlTransform.right * ((maxSpeed - rb.velocity.x) * power), ForceMode.Force);
+                }
             }
             if (inputAction_.Player.MoveRight.IsPressed())
             {
@@ -200,7 +207,10 @@ public class playerMove : MonoBehaviour
                     power = 16.0f;
                     maxSpeed = 24.0f;
                 }
-                rb.AddForce(girlTransform.right * ((maxSpeed - rb.velocity.x) * power), ForceMode.Force);
+                if (changeCharaFlag == false)
+                {
+                    rb.AddForce(girlTransform.right * ((maxSpeed - rb.velocity.x) * power), ForceMode.Force);
+                }
             }
             if (inputAction_.Player.MoveUp.IsPressed())
             {
@@ -214,7 +224,10 @@ public class playerMove : MonoBehaviour
                     power = 16.0f;
                     maxSpeed = 24.0f;
                 }
-                rb.AddForce(girlTransform.forward * ((maxSpeed - rb.velocity.z) * power), ForceMode.Force);
+                if (changeCharaFlag == false)
+                {
+                    rb.AddForce(girlTransform.forward * ((maxSpeed - rb.velocity.z) * power), ForceMode.Force);
+                }
             }
             if (inputAction_.Player.MoveDown.IsPressed())
             {
@@ -228,7 +241,10 @@ public class playerMove : MonoBehaviour
                     power = -12.0f;
                     maxSpeed = 24.0f;
                 }
-                rb.AddForce(girlTransform.forward * ((maxSpeed - rb.velocity.z) * power), ForceMode.Force);
+                if (changeCharaFlag == false)
+                {
+                    rb.AddForce(girlTransform.forward * ((maxSpeed - rb.velocity.z) * power), ForceMode.Force);
+                }
             }
             //キャラクター切り替え
             //if(inputAction_.Player.CharacterChangeGirl.triggered)
@@ -288,7 +304,10 @@ public class playerMove : MonoBehaviour
                 enemyTarget.moveFlag = false;
                 enemyTarget.FirstFlag = false;
                 playerTeleport.SetPosition(36.26f, 157.14f);
-                boyTeleport.SetPosition(38.26f, 157.14f);
+                if (boyTarget.followFlag2 == true)
+                {
+                    boyTeleport.SetPosition(38.26f, 157.14f);
+                }
                 enemyTarget.moveFlag = false;
                 kirakira1.SetActive(true);
                 kirakira2.SetActive(true);
@@ -345,7 +364,10 @@ public class playerMove : MonoBehaviour
             if (collision.gameObject.tag == "1-1goDoor")
             {
                 playerTeleport.SetPosition(-64, 39.5f);
-                boyTeleport.SetPosition(-62, 39.5f);
+                if (boyTarget.followFlag2 == true)
+                {
+                    boyTeleport.SetPosition(-62, 39.5f);
+                }
                 if (classroomFlag == false)
                 {
                     textWriter.TextNum = 19;
@@ -360,7 +382,10 @@ public class playerMove : MonoBehaviour
             if (collision.gameObject.tag == "2-1goDoor")
             {
                 playerTeleport.SetPosition(83.5f, 39);
-                boyTeleport.SetPosition(85.5f, 39);
+                if (boyTarget.followFlag2 == true)
+                {
+                    boyTeleport.SetPosition(85.5f, 39);
+                }
                 enemyMove1.counter = 0;
                 if (classroomFlag == false)
                 {
@@ -382,12 +407,18 @@ public class playerMove : MonoBehaviour
             if (collision.gameObject.tag == "entrancegoDoor1")
             {
                 playerTeleport.SetPosition(-17.2f, 38.85f);
-                boyTeleport.SetPosition(-15.2f, 38.85f);
+                if (boyTarget.followFlag2 == true)
+                {
+                    boyTeleport.SetPosition(-15.2f, 38.85f);
+                }
             }
             if (collision.gameObject.tag == "entrancegoDoor2")
             {
                 playerTeleport.SetPosition(27.1f, 38.85f);
-                boyTeleport.SetPosition(29.1f, 38.85f);
+                if (boyTarget.followFlag2 == true)
+                {
+                    boyTeleport.SetPosition(29.1f, 38.85f);
+                }
             }
             //カギを持ってないとき
             if (collision.gameObject.tag == "operatingDoor" && inputAction_.Player.Talk.triggered && getItem.openMenu == false)
@@ -406,7 +437,10 @@ public class playerMove : MonoBehaviour
             if (collision.gameObject.tag == "1-2goDoor")
             {
                 playerTeleport.SetPosition(-76.1f, 99.3f);
-                boyTeleport.SetPosition(-74.1f, 99.3f);
+                if (boyTarget.followFlag2 == true)
+                {
+                    boyTeleport.SetPosition(-74.1f, 99.3f);
+                }
                 if (classroomFlag2 == false)
                 {
                     textWriter.TextNum = 21;
@@ -416,7 +450,10 @@ public class playerMove : MonoBehaviour
             if (collision.gameObject.tag == "2-2goDoor")
             {
                 playerTeleport.SetPosition(96.35f, 99.3f);
-                boyTeleport.SetPosition(98.35f, 99.3f);
+                if (boyTarget.followFlag2 == true)
+                {
+                    boyTeleport.SetPosition(98.35f, 99.3f);
+                }
                 enemyMove2.counter = 0;
                 if (classroomFlag2 == false)
                 {
@@ -427,23 +464,35 @@ public class playerMove : MonoBehaviour
             if (collision.gameObject.tag == "1-3goDoor")
             {
                 playerTeleport.SetPosition(-76.1f, 159.3f);
-                boyTeleport.SetPosition(-74.1f, 159.3f);
+                if (boyTarget.followFlag2 == true)
+                {
+                    boyTeleport.SetPosition(-74.1f, 159.3f);
+                }
             }
             if (collision.gameObject.tag == "2-3goDoor")
             {
                 playerTeleport.SetPosition(96.35f, 159.3f);
-                boyTeleport.SetPosition(98.35f, 159.3f);
+                if (boyTarget.followFlag2 == true)
+                {
+                    boyTeleport.SetPosition(98.35f, 159.3f);
+                }
             }
             if (collision.gameObject.tag == "1-1leftGoDoor")
             {
                 playerTeleport.SetPosition(-76.1f, 39.3f);
-                boyTeleport.SetPosition(-74.1f, 39.3f);
+                if (boyTarget.followFlag2 == true)
+                {
+                    boyTeleport.SetPosition(-74.1f, 39.3f);
+                }
             }
             if (collision.gameObject.tag == "2-1leftGoDoor")
             {
                 enemyMove1.counter = 0;
                 playerTeleport.SetPosition(96.35f, 39.3f);
-                boyTeleport.SetPosition(98.35f, 39.3f);
+                if (boyTarget.followFlag2 == true)
+                {
+                    boyTeleport.SetPosition(98.35f, 39.3f);
+                }
             }
 
             if (collision.gameObject.tag == "1-1desk" && inputAction_.Player.Talk.triggered && desk1Flag == false)
@@ -475,13 +524,19 @@ public class playerMove : MonoBehaviour
                 if(collision.gameObject.tag == "Enemy1")
                 {
                     playerTeleport.SetPosition(83.5f, 39);
-                    boyTeleport.SetPosition(85.5f, 39);
+                    if (boyTarget.followFlag2 == true)
+                    {
+                        boyTeleport.SetPosition(85.5f, 39);
+                    }
                     enemyMove1.counter = 0;
                 }
                 if (collision.gameObject.tag == "Enemy2")
                 {
                     playerTeleport.SetPosition(96.35f, 99.3f);
-                    boyTeleport.SetPosition(98.35f, 99.3f);
+                    if (boyTarget.followFlag2 == true)
+                    {
+                        boyTeleport.SetPosition(98.35f, 99.3f);
+                    }
                     enemyMove2.counter = 0;
                 }
                 enemyHitFlag = true;
@@ -500,8 +555,11 @@ public class playerMove : MonoBehaviour
             }
             if(collision.gameObject.tag == "operoomGoDoor")
             {
-                playerTeleport.SetPosition(-10, 100);
-                boyTeleport.SetPosition(-8, 100);
+                playerTeleport.SetPosition(-9.52f, 101.8f);
+                if (boyTarget.followFlag2 == true)
+                {
+                    boyTeleport.SetPosition(-8, 100);
+                }
                 if (operoomFlag == false)
                 {
                     textWriter.TextNum = 37;
@@ -514,13 +572,19 @@ public class playerMove : MonoBehaviour
             if (collision.gameObject.tag == "entrancetoOpeGoDoor")
             {
                 playerTeleport.SetPosition(-9.52f, 48.7f);
-                boyTeleport.SetPosition(-7.52f, 48.7f);
+                if (boyTarget.followFlag2 == true)
+                {
+                    boyTeleport.SetPosition(-7.52f, 48.7f);
+                }
             }
 
             if (collision.gameObject.tag == "room4goDoor")
             {
                 playerTeleport.SetPosition(37, 96.8f);
-                boyTeleport.SetPosition(39, 96.8f);
+                if (boyTarget.followFlag2 == true)
+                {
+                    boyTeleport.SetPosition(39, 96.8f);
+                }
                 if (room4StoryFlag == false)
                 {
                     textWriter.TextNum = 49;
@@ -531,13 +595,19 @@ public class playerMove : MonoBehaviour
             if(collision.gameObject.tag == "entrancetoRoom4Door")
             {
                 playerTeleport.SetPosition(19.36f, 48.51f);
-                boyTeleport.SetPosition(21.36f, 48.51f);
+                if (boyTarget.followFlag2 == true)
+                {
+                    boyTeleport.SetPosition(21.36f, 48.51f);
+                }
             }
 
             if (collision.gameObject.tag == "room6goDoor")
             {
                 playerTeleport.SetPosition(-6.25f, 156.93f);
-                boyTeleport.SetPosition(-4.25f, 156.93f);
+                if (boyTarget.followFlag2 == true)
+                {
+                    boyTeleport.SetPosition(-4.25f, 156.93f);
+                }
                 if (room6StoryFlag == false)
                 {
                     textWriter.TextNum = 51;
@@ -548,7 +618,10 @@ public class playerMove : MonoBehaviour
             if (collision.gameObject.tag == "room4toRoom6Door")
             {
                 playerTeleport.SetPosition(28.85f, 115.63f);
-                boyTeleport.SetPosition(30.85f, 115.63f);
+                if (boyTarget.followFlag2 == true)
+                {
+                    boyTeleport.SetPosition(30.85f, 115.63f);
+                }
             }
 
             if (collision.gameObject.tag == "room0goDoor")
@@ -561,7 +634,10 @@ public class playerMove : MonoBehaviour
                 if(room0StoryFlag2 == true && textWriter.room0FirstFlag == true)
                 {
                     playerTeleport.SetPosition(36.26f, 157.14f);
-                    boyTeleport.SetPosition(38.26f, 157.14f);
+                    if (boyTarget.followFlag2 == true)
+                    {
+                        boyTeleport.SetPosition(38.26f, 157.14f);
+                    }
                     enemyTarget.moveFlag = true;
                 }
                 if (room0StoryFlag == true && nameFlag == true && room0StoryFlag2 == false)
@@ -575,7 +651,10 @@ public class playerMove : MonoBehaviour
             if (collision.gameObject.tag == "undergroundgoDoor")
             {
                 playerTeleport.SetPosition(-9.89f, 219.28f);
-                boyTeleport.SetPosition(-7.89f, 219.28f);
+                if (boyTarget.followFlag2 == true)
+                {
+                    boyTeleport.SetPosition(-7.89f, 219.28f);
+                }
                 if (undergroundStoryFlag == false)
                 {
                     textWriter.TextNum = 53;
@@ -587,7 +666,10 @@ public class playerMove : MonoBehaviour
             if (collision.gameObject.tag == "room6toRoom0Door")
             {
                 playerTeleport.SetPosition(-6.23f, 174.86f);
-                boyTeleport.SetPosition(-4.23f, 174.86f);
+                if (boyTarget.followFlag2 == true)
+                {
+                    boyTeleport.SetPosition(-4.23f, 174.86f);
+                }
                 room0FirstFlag = true;
                 kirakira1.SetActive(false);
                 kirakira2.SetActive(false);
@@ -608,13 +690,19 @@ public class playerMove : MonoBehaviour
             if (collision.gameObject.tag == "room6toUndergroundDoor")
             {
                 playerTeleport.SetPosition(-13.63f, 174.86f);
-                boyTeleport.SetPosition(-11.63f, 174.86f);
+                if (boyTarget.followFlag2 == true)
+                {
+                    boyTeleport.SetPosition(-11.63f, 174.86f);
+                }
             }
 
             if (collision.gameObject.tag == "balanceroomGoDoor")
             {
                 playerTeleport.SetPosition(-70.17f, 219.09f);
-                boyTeleport.SetPosition(-68.17f, 219.09f);
+                if (boyTarget.followFlag2 == true)
+                {
+                    boyTeleport.SetPosition(-68.17f, 219.09f);
+                }
                 if (balanceroomStory == false)
                 {
                     textWriter.TextNum = 61;
@@ -625,7 +713,10 @@ public class playerMove : MonoBehaviour
             if (collision.gameObject.tag == "undergroundtobalanceDoor")
             {
                 playerTeleport.SetPosition(-10.08f, 232.28f);
-                boyTeleport.SetPosition(-8.08f, 232.28f);
+                if (boyTarget.followFlag2 == true)
+                {
+                    boyTeleport.SetPosition(-8.08f, 232.28f);
+                }
                 if(textWriter.underground45Flag == true)
                 {
                     textWriter.TextNum = 84;

@@ -105,6 +105,7 @@ public class TextWriter : MonoBehaviour
         boyTeleport = GameObject.Find("boyObject").GetComponent<boyTeleport>();
 
         boyTarget = GameObject.Find("boyObject").GetComponent<boyTarget>();
+        boyTarget.followFlag2 = false;
 
         hospital = GameObject.Find("playerShadow").GetComponent<hospitalPlayerSprite>();
 
@@ -284,7 +285,10 @@ public class TextWriter : MonoBehaviour
         uitext.DrawText("中に入ろう。");
         yield return StartCoroutine("Skip");
         playerTeleport.SetPosition(5, 30);
-        boyTeleport.SetPosition(7, 30);
+        if (boyTarget.followFlag2 == true)
+        {
+            boyTeleport.SetPosition(7, 30);
+        }
         TextNum = 9;
         Canbus.SetActive(false);
     }
@@ -612,7 +616,10 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
 
         playerTeleport.SetPosition(-9.52f, 48.7f);
-        boyTeleport.SetPosition(-7.52f, 48.7f);
+        if (boyTarget.followFlag2 == true)
+        {
+            boyTeleport.SetPosition(-7.52f, 48.7f);
+        }
 
         operoomDoor.SetActive(false);
         Canbus.SetActive(false);
@@ -709,6 +716,7 @@ public class TextWriter : MonoBehaviour
         uitext.DrawText("少女は少し安堵したように微笑んだ。");
         yield return StartCoroutine("Skip");
         playerTeleport.SetPosition(-9.52f, 48.7f);
+        boyTarget.followFlag2 = true;
         boyTeleport.SetPosition(-7.52f, 48.7f);
         fadeIn.fadeFlag = true;
 
@@ -894,7 +902,10 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
 
         playerTeleport.SetPosition(19.36f, 48.51f);
-        boyTeleport.SetPosition(21.36f, 48.51f);
+        if (boyTarget.followFlag2 == true)
+        {
+            boyTeleport.SetPosition(21.36f, 48.51f);
+        }
 
         boy.SetActive(true);
         uitext.DrawText("少年", "そーいや、俺がこっちに来るまでの部屋に小さい抜け道があったんだけどよ。");
@@ -1308,7 +1319,10 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
         playerTeleport.SetPosition(-70, 223);
-        boyTeleport.SetPosition(-68, 223);
+        if (boyTarget.followFlag2 == true)
+        {
+            boyTeleport.SetPosition(-68, 223);
+        }
 
         fadeIn.fadeFlag = true;
 
@@ -1367,7 +1381,10 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
         playerTeleport.SetPosition(-70, 227.46f);
-        boyTeleport.SetPosition(-68, 227.46f);
+        if (boyTarget.followFlag2 == true)
+        {
+            boyTeleport.SetPosition(-68, 227.46f);
+        }
 
         fadeIn.fadeFlag = true;
 
