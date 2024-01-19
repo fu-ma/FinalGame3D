@@ -68,6 +68,7 @@ public class TextWriter : MonoBehaviour
 
     private EnemyTargetMove enemyTarget;
 
+    private operoomMove operoommove;
     //人形を持っているか
     public bool dollGetFlag;
     public bool fenceStoryFlag;
@@ -78,6 +79,11 @@ public class TextWriter : MonoBehaviour
     public bool room0FirstFlag;
 
     public bool underground45Flag;
+
+    public bool operoom45Flag;
+
+    public bool equilibriumGoDoorFlag;
+
     //カメラ回転
     public bool cameraRotateFlag;
     private bool cameraRotatedFlag;
@@ -120,6 +126,7 @@ public class TextWriter : MonoBehaviour
 
         soundMan = GameObject.Find("Canvas").GetComponent<SoundManager>();
 
+        operoommove = GameObject.Find("boyObject").GetComponent<operoomMove>();
         TextNum = 0;
         fenceStoryFlag = false;
         boy_fear.SetActive(false);
@@ -157,6 +164,8 @@ public class TextWriter : MonoBehaviour
         gameEndFlag = false;
 
         underground45Flag = false;
+        operoom45Flag = false;
+        equilibriumGoDoorFlag = false;
     }
 
     IEnumerator Skip()
@@ -1413,6 +1422,7 @@ public class TextWriter : MonoBehaviour
         Canbus.SetActive(false);
 
         underground45Flag = true;
+        operoom45Flag = true;
         gameStop.stopFlag = false;
         //gameEndFlag = true;
     }
@@ -1793,6 +1803,111 @@ public class TextWriter : MonoBehaviour
         gameStop.stopFlag = false;
     }
 
+    IEnumerator operoom45Story()
+    {
+        Canbus.SetActive(true);
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        boy_fear.SetActive(false);
+        girl.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "え…ここ、左側にドアなんてありましたか？");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "無かったハズ……いや…見えてなかったのか…？");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "死角だったって言うのか、変な感じだな。");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "ちょっと、改めてここが異質な空間なんだなと感じました。");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "そうだな…");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "ちょっと待ってろよ。");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        fadeIn.fadeOutFlag = true;
+        operoommove.moveFlag = true;
+
+        Canbus.SetActive(false);
+        gameStop.stopFlag = false;
+    }
+
+    IEnumerator operoom45Story2()
+    {
+        Canbus.SetActive(true);
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        boy_fear.SetActive(false);
+        girl.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "よし。");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "流石ですっ、頼りになりますね。");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "ま、肉体労働ばっかしてたからな。");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "お仕事大変だったんですね。");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        Canbus.SetActive(false);
+        gameStop.stopFlag = false;
+    }
+
+    IEnumerator operoom45Story3()
+    {
+        Canbus.SetActive(true);
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        boy_fear.SetActive(false);
+        girl.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "鍵はかかって無いみたいですね。");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        fadeIn.fadeOutFlag = true;
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "なら、入ってみるか。");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        playerTeleport.SetPosition(-123.8f, 106f);
+        if (boyTarget.followFlag2 == true)
+        {
+            boyTeleport.SetPosition(-121.8f, 106f);
+        }
+        fadeIn.fadeFlag = true;
+        Canbus.SetActive(false);
+        gameStop.stopFlag = false;
+    }
 
     // Update is called once per frame
     void Update()
@@ -2085,7 +2200,24 @@ public class TextWriter : MonoBehaviour
             StartCoroutine("undergroundStory2");
             TextNum = 85;
         }
-
+        if(TextNum == 86)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("operoom45Story");
+            TextNum = 87;
+        }
+        if(TextNum == 88)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("operoom45Story2");
+            TextNum = 89;
+        }
+        if(TextNum == 90)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("operoom45Story3");
+            TextNum = 91;
+        }
         //ダメージを受けたときの処理
         if (password.isMiss == true)
         {

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraChange : MonoBehaviour
 {
+    public bool moveFlag;
     public GameObject mainCamera;
     public GameObject subCamera;
     private PlayerInputSystem inputAction_;
@@ -13,6 +14,7 @@ public class CameraChange : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        moveFlag = false;
         inputAction_ = new PlayerInputSystem();
         inputAction_.Enable();
 
@@ -28,7 +30,7 @@ public class CameraChange : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(inputAction_.Player.Talk.triggered)
+        if(moveFlag)
         {
             playermove.changeCharaFlag = !playermove.changeCharaFlag;
             boySprite1.moveFlag = !boySprite1.moveFlag;

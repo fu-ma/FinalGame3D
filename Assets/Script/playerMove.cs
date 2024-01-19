@@ -7,6 +7,7 @@ public class playerMove : MonoBehaviour
 {
     Vector3 moveVelocity;
     public Rigidbody rb;
+    public Rigidbody operoomRb;
     public Transform playerTransform;
     public float maxSpeed;
     public float power;
@@ -96,6 +97,9 @@ public class playerMove : MonoBehaviour
         rb.drag = 20;
         rb.angularDrag = 0;
         rb.constraints = RigidbodyConstraints.FreezeRotation;
+
+        operoomRb = GameObject.Find("ading platformrm").GetComponent<Rigidbody>();
+        operoomRb.isKinematic = true;
 
         playerTransform = GetComponent<Transform>();
         playerTransform.position = new Vector3(0, 1, -20);
@@ -568,6 +572,11 @@ public class playerMove : MonoBehaviour
                     boyClassroomFlag1 = true;
                     operoomFlag = true;
                 }
+                if(textWriter.operoom45Flag == true)
+                {
+                    textWriter.TextNum = 86;
+                    textWriter.operoom45Flag = false;
+                }
             }
             if (collision.gameObject.tag == "entrancetoOpeGoDoor")
             {
@@ -720,7 +729,25 @@ public class playerMove : MonoBehaviour
                 if(textWriter.underground45Flag == true)
                 {
                     textWriter.TextNum = 84;
+                    operoomRb.isKinematic = false;
                     textWriter.underground45Flag = false;
+                }
+            }
+
+            if(collision.gameObject.tag == "equilibriumGoDoor")
+            {
+                if (textWriter.equilibriumGoDoorFlag == true)
+                {
+                    playerTeleport.SetPosition(-123.8f, 106f);
+                    if (boyTarget.followFlag2 == true)
+                    {
+                        boyTeleport.SetPosition(-121.8f, 106f);
+                    }
+                }
+                if(textWriter.equilibriumGoDoorFlag == false)
+                {
+                    textWriter.TextNum = 90;
+                    textWriter.equilibriumGoDoorFlag = true;
                 }
             }
 

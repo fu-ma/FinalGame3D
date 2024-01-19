@@ -1,0 +1,54 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class operoomMove : MonoBehaviour
+{
+    private bool moveFlag2;
+    private FadeIn fadeIn;
+    private GameObject fadeInObj;
+    private TextWriter textwriter;
+
+    public bool moveFlag;
+    public Transform boyTransform;
+    public Transform descTransfrom;
+    // Start is called before the first frame update
+    void Start()
+    {
+        moveFlag = false;
+        moveFlag2 = false;
+
+        fadeInObj = GameObject.Find("fadeIn");
+        fadeIn = fadeInObj.GetComponent<FadeIn>();
+        textwriter = GameObject.Find("Canvas").GetComponent<TextWriter>();
+
+        boyTransform = GetComponent<Transform>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if(moveFlag)
+        {
+            if (moveFlag2 == false)
+            {
+                boyTransform.position = new Vector3(-16.93f, 1.511f, 109.5f);
+                moveFlag2 = true;
+                fadeIn.fadeOutFlag = false;
+                fadeIn.fadeFlag = true;
+            }
+            if (moveFlag2 == true)
+            {
+                boyTransform.position -= new Vector3(0, 0, 0.01f);
+                descTransfrom.position -= new Vector3(0, 0, 0.01f);
+
+                if(boyTransform.position.z <= 105)
+                {
+                    moveFlag2 = false;
+                    moveFlag = false;
+                    textwriter.TextNum = 88;
+                }
+            }
+        }
+    }
+}
