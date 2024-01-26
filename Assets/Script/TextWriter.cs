@@ -13,6 +13,7 @@ public class TextWriter : MonoBehaviour
     public GameObject girl_fear;
     public GameObject boy;
     public GameObject boy_fear;
+    public GameObject boyObject;
     public GameObject Canbus;
     public GameObject HP;
     public GameObject doll;
@@ -37,6 +38,11 @@ public class TextWriter : MonoBehaviour
     public GameObject kirakira8;
     public GameObject stage0Enemy;
     public GameObject config;
+    public GameObject investigate;
+    public GameObject blueRoomDoor1;
+    public GameObject blueRoomDoor2;
+    public GameObject blueRoomDoor3;
+    public GameObject blueRoomDoor4;
 
     private bool configFlag;
 
@@ -47,6 +53,7 @@ public class TextWriter : MonoBehaviour
     private FadeIn fadeIn;
 
     private storyCameramove1 cameraMove1;
+    private storyCameramove2 cameraMove2;
 
     private publicFlag gameStop;
 
@@ -69,6 +76,8 @@ public class TextWriter : MonoBehaviour
     private EnemyTargetMove enemyTarget;
 
     private operoomMove operoommove;
+
+    private playerMove playermove;
     //人形を持っているか
     public bool dollGetFlag;
     public bool fenceStoryFlag;
@@ -102,6 +111,7 @@ public class TextWriter : MonoBehaviour
         fadeIn = fadeInObj.GetComponent<FadeIn>();
 
         cameraMove1 = GameObject.Find("CameraPos").GetComponent<storyCameramove1>();
+        cameraMove2 = GameObject.Find("GameManager").GetComponent<storyCameramove2>();
 
         gameStop = GameObject.Find("GameManager").GetComponent<publicFlag>();
 
@@ -127,9 +137,13 @@ public class TextWriter : MonoBehaviour
         soundMan = GameObject.Find("Canvas").GetComponent<SoundManager>();
 
         operoommove = GameObject.Find("boyObject").GetComponent<operoomMove>();
+
+        playermove = GameObject.Find("player").GetComponent<playerMove>();
+
         TextNum = 0;
         fenceStoryFlag = false;
         boy_fear.SetActive(false);
+        boyObject.SetActive(false);
         Canbus.SetActive(true);
         HP.SetActive(false);
         doll.SetActive(false);
@@ -151,6 +165,11 @@ public class TextWriter : MonoBehaviour
         configFlag = false;
         config2.SetActive(false);
         config2Flag = false;
+        investigate.SetActive(false);
+        blueRoomDoor1.SetActive(false);
+        blueRoomDoor2.SetActive(false);
+        blueRoomDoor3.SetActive(false);
+        blueRoomDoor3.SetActive(true);
 
         kirakira1.SetActive(true);
         kirakira2.SetActive(true);
@@ -181,6 +200,7 @@ public class TextWriter : MonoBehaviour
         Canbus.SetActive(true);
         boy.SetActive(false);
         girl.SetActive(true);
+        investigate.SetActive(false);
         uitext.DrawText("少女", "あれ...?");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
@@ -206,6 +226,8 @@ public class TextWriter : MonoBehaviour
         Canbus.SetActive(true);
         girl.SetActive(false);
         girl_fear.SetActive(true);
+        investigate.SetActive(false);
+
         uitext.DrawText("少女", "！");
         yield return StartCoroutine("Skip");
         girl_fear.SetActive(false);
@@ -232,7 +254,7 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         uitext.DrawText("そんな恐怖に竦んだ足を真っ先に動かしたのは、ほんの少しの好奇心だった。");
         yield return StartCoroutine("Skip");
-        cameraMove1.effectFlag = false;
+        cameraMove1.effectFlag2 = true;
 
         config.SetActive(true);
         configFlag = true;
@@ -244,6 +266,8 @@ public class TextWriter : MonoBehaviour
         girl.SetActive(false);
         girl_fear.SetActive(false);
         boy.SetActive(false);
+        investigate.SetActive(false);
+
         uitext.DrawText("ドアは閉まっている。");
         yield return StartCoroutine("Skip");
         uitext.DrawText("ドアの近くに、何処か既視感のある人形が置いてある。");
@@ -268,6 +292,8 @@ public class TextWriter : MonoBehaviour
         girl.SetActive(false);
         girl_fear.SetActive(false);
         boy.SetActive(false);
+        investigate.SetActive(false);
+
         uitext.DrawText("下をのぞくと黒い影がバラバラになって散らばっている。");
         yield return StartCoroutine("Skip");
         uitext.DrawText("その光景を見た瞬間に恐怖と吐き気に襲われた。");
@@ -289,6 +315,8 @@ public class TextWriter : MonoBehaviour
         girl.SetActive(false);
         girl_fear.SetActive(false);
         boy.SetActive(false);
+        investigate.SetActive(false);
+
         uitext.DrawText("ドアが開いている。");
         yield return StartCoroutine("Skip");
         uitext.DrawText("中に入ろう。");
@@ -309,6 +337,8 @@ public class TextWriter : MonoBehaviour
         girl_fear.SetActive(false);
         boy.SetActive(false);
         girl_fear.SetActive(true);
+        investigate.SetActive(false);
+
         uitext.DrawText("少女", "え…………?");
         yield return StartCoroutine("Skip");
         girl_fear.SetActive(false);
@@ -323,6 +353,8 @@ public class TextWriter : MonoBehaviour
         girl.SetActive(false);
         girl_fear.SetActive(false);
         boy.SetActive(false);
+        investigate.SetActive(false);
+
         uitext.DrawText("目の前に広がっているのは、病院のエントランスだろうか。");
         yield return StartCoroutine("Skip");
         hospital.backFlag = true;
@@ -352,6 +384,8 @@ public class TextWriter : MonoBehaviour
         girl.SetActive(false);
         girl_fear.SetActive(false);
         boy.SetActive(false);
+        investigate.SetActive(false);
+
         uitext.DrawText("ドアは閉まっている。");
         yield return StartCoroutine("Skip");
         gameStop.stopFlag = false;
@@ -364,6 +398,8 @@ public class TextWriter : MonoBehaviour
         girl.SetActive(false);
         girl_fear.SetActive(false);
         boy.SetActive(false);
+        investigate.SetActive(false);
+
         uitext.DrawText("手術室と書かれている。");
         yield return StartCoroutine("Skip");
         fadeIn.fadeOutFlag = true;
@@ -397,6 +433,8 @@ public class TextWriter : MonoBehaviour
         girl.SetActive(false);
         girl_fear.SetActive(false);
         boy.SetActive(false);
+        investigate.SetActive(false);
+
         uitext.DrawText("鉄柵のゲートだ。");
         yield return StartCoroutine("Skip");
         uitext.DrawText("更に奥にはドアが見える。");
@@ -418,6 +456,8 @@ public class TextWriter : MonoBehaviour
         girl_fear.SetActive(false);
         boy.SetActive(false);
         girl.SetActive(true);
+        investigate.SetActive(false);
+
         uitext.DrawText("少女", "今度は…学校？");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
@@ -432,6 +472,8 @@ public class TextWriter : MonoBehaviour
         girl_fear.SetActive(false);
         boy.SetActive(false);
         girl.SetActive(true);
+        investigate.SetActive(false);
+
         uitext.DrawText("少女", "あれ？さっきとおなじ？");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
@@ -446,6 +488,8 @@ public class TextWriter : MonoBehaviour
         girl_fear.SetActive(false);
         boy.SetActive(false);
         girl.SetActive(false);
+        investigate.SetActive(false);
+
         uitext.DrawText("机の中に何か入っている。");
         yield return StartCoroutine("Skip");
         girl.SetActive(true);
@@ -479,6 +523,8 @@ public class TextWriter : MonoBehaviour
         boy.SetActive(false);
         girl.SetActive(false);
         girl.SetActive(true);
+        investigate.SetActive(false);
+
         uitext.DrawText("少女", "今度は…学校？");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
@@ -492,6 +538,7 @@ public class TextWriter : MonoBehaviour
         girl_fear.SetActive(false);
         boy.SetActive(false);
         girl.SetActive(false);
+        investigate.SetActive(false);
 
         fadeIn.fadeOutFlag = true;
 
@@ -514,6 +561,8 @@ public class TextWriter : MonoBehaviour
         boy.SetActive(false);
         girl.SetActive(false);
         girl_fear.SetActive(true);
+        investigate.SetActive(false);
+
         uitext.DrawText("少女", "！！！！！");
         yield return StartCoroutine("Skip");
         girl_fear.SetActive(false);
@@ -529,6 +578,8 @@ public class TextWriter : MonoBehaviour
         girl_fear.SetActive(false);
         boy.SetActive(false);
         girl.SetActive(false);
+        investigate.SetActive(false);
+
         uitext.DrawText("綺麗な黒板だ。");
         yield return StartCoroutine("Skip");
 
@@ -542,6 +593,8 @@ public class TextWriter : MonoBehaviour
         girl_fear.SetActive(false);
         boy.SetActive(false);
         girl.SetActive(false);
+        investigate.SetActive(false);
+
         uitext.DrawText("How many chalk?");
         yield return StartCoroutine("Skip");
 
@@ -562,6 +615,8 @@ public class TextWriter : MonoBehaviour
         girl_fear.SetActive(false);
         boy.SetActive(false);
         girl.SetActive(false);
+        investigate.SetActive(false);
+
         uitext.DrawText("answer the question");
         yield return StartCoroutine("Skip");
 
@@ -576,6 +631,8 @@ public class TextWriter : MonoBehaviour
         girl.SetActive(false);
         girl_fear.SetActive(true);
         soundMan.isDamage = true;
+        investigate.SetActive(false);
+
         uitext.DrawText("少女","痛っ！");
         yield return StartCoroutine("Skip");
 
@@ -594,6 +651,8 @@ public class TextWriter : MonoBehaviour
         boy.SetActive(false);
         girl.SetActive(true);
         soundMan.isDropKey = true;
+        investigate.SetActive(false);
+
         uitext.DrawText("少女", "ん？何か落ちたような…");
         yield return StartCoroutine("Skip");
 
@@ -621,6 +680,8 @@ public class TextWriter : MonoBehaviour
         boy.SetActive(false);
         girl.SetActive(false);
         soundMan.isOpenKey = true;
+        investigate.SetActive(false);
+
         uitext.DrawText("ドアが開いた様だ。");
         yield return StartCoroutine("Skip");
 
@@ -642,6 +703,7 @@ public class TextWriter : MonoBehaviour
         boy.SetActive(false);
         boy_fear.SetActive(false);
         girl.SetActive(false);
+        investigate.SetActive(false);
 
         fadeIn.fadeOutFlag = true;
 
@@ -671,6 +733,9 @@ public class TextWriter : MonoBehaviour
         girl_fear.SetActive(false);
         uitext.DrawText("？？", "だ……ぶか…");
         yield return StartCoroutine("Skip");
+
+        playermove.boyFlag = true;
+        boyObject.SetActive(true);
 
         fadeIn.fadeFlag = true;
 
@@ -783,6 +848,7 @@ public class TextWriter : MonoBehaviour
         boy.SetActive(false);
         boy_fear.SetActive(false);
         girl.SetActive(false);
+        investigate.SetActive(false);
 
         girl.SetActive(true);
         uitext.DrawText("少女", "ところで、私が探索した限り他に行ける場所が無いように思えたのですが、何処から来たんですか？");
@@ -810,6 +876,7 @@ public class TextWriter : MonoBehaviour
         boy.SetActive(false);
         boy_fear.SetActive(false);
         girl.SetActive(false);
+        investigate.SetActive(false);
 
         boy.SetActive(true);
         uitext.DrawText("少年", "あーここか。");
@@ -841,6 +908,7 @@ public class TextWriter : MonoBehaviour
         girl_fear.SetActive(false);
         boy.SetActive(false);
         girl.SetActive(false);
+        investigate.SetActive(false);
 
         uitext.DrawText("黒板の上に何か光るものが見える");
         yield return StartCoroutine("Skip");
@@ -861,6 +929,7 @@ public class TextWriter : MonoBehaviour
         boy.SetActive(false);
         boy_fear.SetActive(false);
         girl.SetActive(false);
+        investigate.SetActive(false);
 
         girl.SetActive(true);
         uitext.DrawText("少女", "ここです。この黒板の上に、何かありませんか？");
@@ -904,6 +973,7 @@ public class TextWriter : MonoBehaviour
         boy.SetActive(false);
         boy_fear.SetActive(false);
         girl.SetActive(false);
+        investigate.SetActive(false);
 
         room4goDoor.SetActive(false);
         soundMan.isOpenKey = true;
@@ -952,6 +1022,7 @@ public class TextWriter : MonoBehaviour
         boy.SetActive(false);
         boy_fear.SetActive(false);
         girl.SetActive(false);
+        investigate.SetActive(false);
 
         girl.SetActive(true);
         uitext.DrawText("少女", "長い通路、ですね。");
@@ -1009,6 +1080,7 @@ public class TextWriter : MonoBehaviour
         boy.SetActive(false);
         boy_fear.SetActive(false);
         girl.SetActive(false);
+        investigate.SetActive(false);
 
         girl.SetActive(true);
         uitext.DrawText("少女", "随分長い廊下ですね…");
@@ -1036,6 +1108,7 @@ public class TextWriter : MonoBehaviour
         boy.SetActive(false);
         boy_fear.SetActive(false);
         girl.SetActive(false);
+        investigate.SetActive(false);
 
         boy.SetActive(true);
         uitext.DrawText("少年", "ここが俺の初期スポーンってとこだな。");
@@ -1143,6 +1216,7 @@ public class TextWriter : MonoBehaviour
         boy.SetActive(false);
         boy_fear.SetActive(false);
         girl.SetActive(false);
+        investigate.SetActive(false);
 
         boy.SetActive(true);
         uitext.DrawText("少年", "ここだここ、この小せぇ通路、お前なら通れないか？");
@@ -1180,6 +1254,7 @@ public class TextWriter : MonoBehaviour
         boy.SetActive(false);
         boy_fear.SetActive(false);
         girl.SetActive(false);
+        investigate.SetActive(false);
 
         girl.SetActive(true);
         uitext.DrawText("ソラ", "頑張って、入ってみます…");
@@ -1218,6 +1293,7 @@ public class TextWriter : MonoBehaviour
         boy.SetActive(false);
         boy_fear.SetActive(false);
         girl.SetActive(false);
+        investigate.SetActive(false);
 
         uitext.DrawText("三桁のダイヤル");
         yield return StartCoroutine("Skip");
@@ -1258,6 +1334,7 @@ public class TextWriter : MonoBehaviour
         girl.SetActive(false);
         girl_fear.SetActive(true);
         soundMan.isDamage = true;
+        investigate.SetActive(false);
 
         uitext.DrawText("ソラ", "痛っ！");
         yield return StartCoroutine("Skip");
@@ -1277,6 +1354,7 @@ public class TextWriter : MonoBehaviour
         boy.SetActive(false);
         boy_fear.SetActive(false);
         girl.SetActive(false);
+        investigate.SetActive(false);
 
         balanceDoor.SetActive(false);
         boy.SetActive(true);
@@ -1310,6 +1388,7 @@ public class TextWriter : MonoBehaviour
         boy.SetActive(false);
         boy_fear.SetActive(false);
         girl.SetActive(false);
+        investigate.SetActive(false);
 
         girl.SetActive(true);
         uitext.DrawText("ソラ", "ここは…？");
@@ -1434,6 +1513,7 @@ public class TextWriter : MonoBehaviour
         boy.SetActive(false);
         boy_fear.SetActive(false);
         girl.SetActive(false);
+        investigate.SetActive(false);
 
         hospital.behindFlag = true;
 
@@ -1470,6 +1550,7 @@ public class TextWriter : MonoBehaviour
         boy.SetActive(false);
         boy_fear.SetActive(false);
         girl.SetActive(false);
+        investigate.SetActive(false);
 
         hospital.leftFlag = true;
 
@@ -1501,6 +1582,7 @@ public class TextWriter : MonoBehaviour
         boy.SetActive(false);
         boy_fear.SetActive(false);
         girl.SetActive(false);
+        investigate.SetActive(false);
 
         uitext.DrawText("お前は忘れている。");
         yield return StartCoroutine("Skip");
@@ -1516,6 +1598,7 @@ public class TextWriter : MonoBehaviour
         boy.SetActive(false);
         boy_fear.SetActive(false);
         girl.SetActive(false);
+        investigate.SetActive(false);
 
         uitext.DrawText("お前は死に損ない。");
         yield return StartCoroutine("Skip");
@@ -1531,6 +1614,7 @@ public class TextWriter : MonoBehaviour
         boy.SetActive(false);
         boy_fear.SetActive(false);
         girl.SetActive(false);
+        investigate.SetActive(false);
 
         uitext.DrawText("お前のせいだ。");
         yield return StartCoroutine("Skip");
@@ -1546,6 +1630,7 @@ public class TextWriter : MonoBehaviour
         boy.SetActive(false);
         boy_fear.SetActive(false);
         girl.SetActive(false);
+        investigate.SetActive(false);
 
         uitext.DrawText("お前が居るから。");
         yield return StartCoroutine("Skip");
@@ -1561,6 +1646,7 @@ public class TextWriter : MonoBehaviour
         boy.SetActive(false);
         boy_fear.SetActive(false);
         girl.SetActive(false);
+        investigate.SetActive(false);
 
         uitext.DrawText("床の色。");
         yield return StartCoroutine("Skip");
@@ -1576,6 +1662,7 @@ public class TextWriter : MonoBehaviour
         boy.SetActive(false);
         boy_fear.SetActive(false);
         girl.SetActive(false);
+        investigate.SetActive(false);
 
         sewing.SetActive(true);
         soundMan.isGetItem = true;
@@ -1597,6 +1684,7 @@ public class TextWriter : MonoBehaviour
         boy.SetActive(false);
         boy_fear.SetActive(false);
         girl.SetActive(false);
+        investigate.SetActive(false);
 
         uitext.DrawText("部屋の形。");
         yield return StartCoroutine("Skip");
@@ -1612,6 +1700,7 @@ public class TextWriter : MonoBehaviour
         boy.SetActive(false);
         boy_fear.SetActive(false);
         girl.SetActive(false);
+        investigate.SetActive(false);
 
         uitext.DrawText("反転。");
         yield return StartCoroutine("Skip");
@@ -1628,6 +1717,7 @@ public class TextWriter : MonoBehaviour
         boy_fear.SetActive(false);
         girl.SetActive(false);
         boyTarget.followFlag2 = true;
+        investigate.SetActive(false);
 
         boy.SetActive(true);
         uitext.DrawText("ハカリ", "大丈夫かっ？！");
@@ -1693,6 +1783,7 @@ public class TextWriter : MonoBehaviour
         boy.SetActive(false);
         boy_fear.SetActive(false);
         girl.SetActive(false);
+        investigate.SetActive(false);
 
         boy.SetActive(true);
         uitext.DrawText("ハカリ", "・　・　・");
@@ -1805,16 +1896,22 @@ public class TextWriter : MonoBehaviour
 
     IEnumerator operoom45Story()
     {
+        boyTarget.followFlag2 = false;
+
         Canbus.SetActive(true);
         girl_fear.SetActive(false);
         boy.SetActive(false);
         boy_fear.SetActive(false);
         girl.SetActive(false);
+        investigate.SetActive(false);
 
+        fadeIn.fadeOutFlag = true;
         girl.SetActive(true);
         uitext.DrawText("ソラ", "え…ここ、左側にドアなんてありましたか？");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
+
+        cameraMove2.effectFlag = true;
 
         boy.SetActive(true);
         uitext.DrawText("ハカリ", "無かったハズ……いや…見えてなかったのか…？");
@@ -1841,11 +1938,9 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
-        fadeIn.fadeOutFlag = true;
         operoommove.moveFlag = true;
 
         Canbus.SetActive(false);
-        gameStop.stopFlag = false;
     }
 
     IEnumerator operoom45Story2()
@@ -1855,6 +1950,7 @@ public class TextWriter : MonoBehaviour
         boy.SetActive(false);
         boy_fear.SetActive(false);
         girl.SetActive(false);
+        investigate.SetActive(false);
 
         boy.SetActive(true);
         uitext.DrawText("ハカリ", "よし。");
@@ -1876,6 +1972,9 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
+        boyTarget.followFlag2 = true;
+        cameraMove2.effectFlag = true;
+
         Canbus.SetActive(false);
         gameStop.stopFlag = false;
     }
@@ -1887,6 +1986,7 @@ public class TextWriter : MonoBehaviour
         boy.SetActive(false);
         boy_fear.SetActive(false);
         girl.SetActive(false);
+        investigate.SetActive(false);
 
         girl.SetActive(true);
         uitext.DrawText("ソラ", "鍵はかかって無いみたいですね。");
@@ -1905,6 +2005,201 @@ public class TextWriter : MonoBehaviour
             boyTeleport.SetPosition(-121.8f, 106f);
         }
         fadeIn.fadeFlag = true;
+        Canbus.SetActive(false);
+
+        TextNum = 92;
+    }
+
+    IEnumerator blueButtonRoom()
+    {
+        Canbus.SetActive(true);
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        boy_fear.SetActive(false);
+        girl.SetActive(false);
+        investigate.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "え………");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "ここ……私の部屋です。");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "（女の子の部屋初めて入った…）");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "なにボーっとしてるんですかハカリさん。");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "ここが現実の場所じゃないことは分かってます。");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "早く進みましょ。");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "あ、一応、クローゼットは絶対開けないでくださいね。");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "お、おう。");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "（入っては良いのか…）");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        Canbus.SetActive(false);
+        gameStop.stopFlag = false;
+    }
+
+    IEnumerator blueButtonRoomStory1()
+    {
+        Canbus.SetActive(true);
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        boy_fear.SetActive(false);
+        girl.SetActive(false);
+        investigate.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "うへぇ、またですか。");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "あー、そうみたいだな。");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "ハカリさんちょっと笑ってません？？");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "いや？ｗ");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        uitext.DrawText("ソラはハカリの足を踏みつけた");
+        yield return StartCoroutine("Skip");
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "いっ！っつーー。");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "行ってきます。");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "お、おう…気をつけてな……");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+        boyTarget.followFlag2 = false;
+
+        playerTeleport.SetPosition(-183.98f, 106f);
+
+        Canbus.SetActive(false);
+        TextNum = 96;
+    }
+
+    IEnumerator blueButtonRoomStory2()
+    {
+        Canbus.SetActive(true);
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        boy_fear.SetActive(false);
+        girl.SetActive(false);
+        investigate.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "えっ……");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "大丈夫か？！");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "大丈夫…なんですけど、どうやら同じような部屋ですね。");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "同じような？");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "はい。そっちの部屋と同じ私の自室です。");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "でもなんだか、少しだけ違和感というか……");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        soundMan.isDoorClose = true;
+        uitext.DrawText("バタン！");
+        yield return StartCoroutine("Skip");
+
+        blueRoomDoor1.SetActive(true);
+        blueRoomDoor2.SetActive(true);
+        blueRoomDoor3.SetActive(true);
+        blueRoomDoor4.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "？！");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "通路が塞がれた？！");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "ハカリさんっ！");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "ハカリさんっ？！");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "返事がない…");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "どうにかここから出ないと…");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
         Canbus.SetActive(false);
         gameStop.stopFlag = false;
     }
@@ -2218,6 +2513,24 @@ public class TextWriter : MonoBehaviour
             StartCoroutine("operoom45Story3");
             TextNum = 91;
         }
+        if(TextNum == 92)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("blueButtonRoom");
+            TextNum = 93;
+        }
+        if(TextNum == 94)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("blueButtonRoomStory1");
+            TextNum = 95;
+        }
+        if(TextNum == 96)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("blueButtonRoomStory2");
+            TextNum = 97;
+        }
         //ダメージを受けたときの処理
         if (password.isMiss == true)
         {
@@ -2274,11 +2587,6 @@ public class TextWriter : MonoBehaviour
             config2.SetActive(false);
             gameStop.stopFlag = false;
             config2Flag = false;
-        }
-
-        if (inputAction_.Player.MoveRight.triggered)
-        {
-            //StartCoroutine("Syabetarou");
         }
 
         //ToBeContinue

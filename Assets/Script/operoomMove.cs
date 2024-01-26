@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class operoomMove : MonoBehaviour
 {
@@ -8,16 +9,18 @@ public class operoomMove : MonoBehaviour
     private FadeIn fadeIn;
     private GameObject fadeInObj;
     private TextWriter textwriter;
+    private publicFlag gameStop;
 
     public bool moveFlag;
     public Transform boyTransform;
     public Transform descTransfrom;
+
     // Start is called before the first frame update
     void Start()
     {
         moveFlag = false;
         moveFlag2 = false;
-
+        gameStop = GameObject.Find("GameManager").GetComponent<publicFlag>();
         fadeInObj = GameObject.Find("fadeIn");
         fadeIn = fadeInObj.GetComponent<FadeIn>();
         textwriter = GameObject.Find("Canvas").GetComponent<TextWriter>();
@@ -32,10 +35,10 @@ public class operoomMove : MonoBehaviour
         {
             if (moveFlag2 == false)
             {
-                boyTransform.position = new Vector3(-16.93f, 1.511f, 109.5f);
+                gameStop.stopFlag = true;
+                boyTransform.position = new Vector3(-16.14f, 1.511f, 109.5f);
+
                 moveFlag2 = true;
-                fadeIn.fadeOutFlag = false;
-                fadeIn.fadeFlag = true;
             }
             if (moveFlag2 == true)
             {
@@ -46,6 +49,7 @@ public class operoomMove : MonoBehaviour
                 {
                     moveFlag2 = false;
                     moveFlag = false;
+                    gameStop.stopFlag = false;
                     textwriter.TextNum = 88;
                 }
             }

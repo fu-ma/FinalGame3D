@@ -58,6 +58,10 @@ TagManager:
   - SubCamera
   - equilibriumGoDoor
   - operoomtoEquilibriumDoor
+  - equilibriumGoDoor2
+  - blueButtonRoom2GoDoor
+  - blueButtonRoom2Go
+  - blueButtonRoomGo
   layers:
   - Default
   - TransparentFX

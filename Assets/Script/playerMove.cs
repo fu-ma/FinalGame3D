@@ -56,7 +56,7 @@ public class playerMove : MonoBehaviour
     private bool enemyHitFlag;
     private bool operoomFlag;
 
-    private bool boyFlag;
+    public bool boyFlag;
     private bool boyClassroomFlag1;
     private bool boyClassroomFlag2;
     private bool room4StoryFlag;
@@ -69,6 +69,7 @@ public class playerMove : MonoBehaviour
     private bool enemyShowFlag;
     private bool room0FirstFlag;
     private bool room0backHomeFlag;
+    private bool blueButtonRoomFlag;
 
     //ƒLƒ‰ƒLƒ‰
     public GameObject kirakira1;
@@ -159,6 +160,7 @@ public class playerMove : MonoBehaviour
         enemyShowFlag = false;
         room0FirstFlag = false;
         room0backHomeFlag = false;
+        blueButtonRoomFlag = false;
 
         kirakira1.SetActive(true);
         kirakira2.SetActive(true);
@@ -567,8 +569,6 @@ public class playerMove : MonoBehaviour
                 if (operoomFlag == false)
                 {
                     textWriter.TextNum = 37;
-                    boyFlag = true;
-                    boyObject.SetActive(true);
                     boyClassroomFlag1 = true;
                     operoomFlag = true;
                 }
@@ -592,7 +592,7 @@ public class playerMove : MonoBehaviour
                 playerTeleport.SetPosition(37, 96.8f);
                 if (boyTarget.followFlag2 == true)
                 {
-                    boyTeleport.SetPosition(39, 96.8f);
+                    boyTeleport.SetPosition(37, 94.8f);
                 }
                 if (room4StoryFlag == false)
                 {
@@ -615,7 +615,7 @@ public class playerMove : MonoBehaviour
                 playerTeleport.SetPosition(-6.25f, 156.93f);
                 if (boyTarget.followFlag2 == true)
                 {
-                    boyTeleport.SetPosition(-4.25f, 156.93f);
+                    boyTeleport.SetPosition(-6.25f, 154.93f);
                 }
                 if (room6StoryFlag == false)
                 {
@@ -629,7 +629,7 @@ public class playerMove : MonoBehaviour
                 playerTeleport.SetPosition(28.85f, 115.63f);
                 if (boyTarget.followFlag2 == true)
                 {
-                    boyTeleport.SetPosition(30.85f, 115.63f);
+                    boyTeleport.SetPosition(28.85f, 117.63f);
                 }
             }
 
@@ -645,7 +645,7 @@ public class playerMove : MonoBehaviour
                     playerTeleport.SetPosition(36.26f, 157.14f);
                     if (boyTarget.followFlag2 == true)
                     {
-                        boyTeleport.SetPosition(38.26f, 157.14f);
+                        boyTeleport.SetPosition(36.26f, 155.14f);
                     }
                     enemyTarget.moveFlag = true;
                 }
@@ -677,7 +677,7 @@ public class playerMove : MonoBehaviour
                 playerTeleport.SetPosition(-6.23f, 174.86f);
                 if (boyTarget.followFlag2 == true)
                 {
-                    boyTeleport.SetPosition(-4.23f, 174.86f);
+                    boyTeleport.SetPosition(-6.23f, 176.86f);
                 }
                 room0FirstFlag = true;
                 kirakira1.SetActive(false);
@@ -701,7 +701,7 @@ public class playerMove : MonoBehaviour
                 playerTeleport.SetPosition(-13.63f, 174.86f);
                 if (boyTarget.followFlag2 == true)
                 {
-                    boyTeleport.SetPosition(-11.63f, 174.86f);
+                    boyTeleport.SetPosition(-13.63f, 176.86f);
                 }
             }
 
@@ -734,7 +734,7 @@ public class playerMove : MonoBehaviour
                 }
             }
 
-            if(collision.gameObject.tag == "equilibriumGoDoor")
+            if(collision.gameObject.tag == "equilibriumGoDoor" && inputAction_.Player.Talk.triggered)
             {
                 if (textWriter.equilibriumGoDoorFlag == true)
                 {
@@ -751,6 +751,47 @@ public class playerMove : MonoBehaviour
                 }
             }
 
+            if (collision.gameObject.tag == "equilibriumGoDoor2")
+            {
+                playerTeleport.SetPosition(-123.8f, 106f);
+                if (boyTarget.followFlag2 == true)
+                {
+                    boyTeleport.SetPosition(-121.8f, 106f);
+                }
+            }
+
+            if(collision.gameObject.tag == "blueButtonRoom2GoDoor" && inputAction_.Player.Talk.triggered && blueButtonRoomFlag == false)
+            {
+                textWriter.TextNum = 94;
+                blueButtonRoomFlag = true;
+            }
+
+            if(collision.gameObject.tag == "blueButtonRoom2Go")
+            {
+                playerTeleport.SetPosition(-183.98f, 106f);
+                if (boyTarget.followFlag2 == true)
+                {
+                    boyTeleport.SetPosition(-183.98f, 104f);
+                }
+            }
+
+            if (collision.gameObject.tag == "blueButtonRoomGo")
+            {
+                playerTeleport.SetPosition(-135f, 106f);
+                if (boyTarget.followFlag2 == true)
+                {
+                    boyTeleport.SetPosition(-137f, 104f);
+                }
+            }
+
+            if(collision.gameObject.tag == "operoomtoEqilibriumDoor")
+            {
+                playerTeleport.SetPosition(-15.73f, 107.07f);
+                if (boyTarget.followFlag2 == true)
+                {
+                    boyTeleport.SetPosition(-15.73f, 109.07f);
+                }
+            }
             if (collision.gameObject.tag == "Dial" && inputAction_.Player.Talk.triggered && password2.dontObject == false)
             {
                 textWriter.TextNum = 59;

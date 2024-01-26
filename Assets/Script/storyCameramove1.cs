@@ -7,6 +7,7 @@ public class storyCameramove1 : MonoBehaviour
     public Transform cameraPos;
     public Transform shadowPos;
     public bool effectFlag;
+    public bool effectFlag2;
     Vector3 position2;
     Vector3 shadowPos2;
     Vector3 shadowRot2;
@@ -23,6 +24,8 @@ public class storyCameramove1 : MonoBehaviour
         shadowPos2 = new Vector3(0,2,-12);
         shadowRot2 = new Vector3(0, 0, 0);
         effectFlag = false;
+        effectFlag2 = false;
+
         endFlag = false;
         timer = 0;
     }
@@ -55,12 +58,14 @@ public class storyCameramove1 : MonoBehaviour
             if(timer > 60)
             {
                 timer = 61;
+                effectFlag = false;
                 endFlag = true;
             }
         }
-        if(effectFlag == false)
+        if(effectFlag2 == true)
         {
             cameraPos.localPosition = new Vector3(0, 0, 0);
+            effectFlag2 = false;
         }
     }
 }
