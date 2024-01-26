@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PlayerTeleport : MonoBehaviour
 {
-    private Transform playerPos;
+    public Transform playerPos;
     // Start is called before the first frame update
     void Start()
     {
-        playerPos = GameObject.Find("player").GetComponent<Transform>();
+        //playerPos = GameObject.Find("player").GetComponent<Transform>();
 
     }
 

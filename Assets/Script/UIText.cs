@@ -14,6 +14,8 @@ public class UIText : MonoBehaviour
 
     private PlayerInputSystem inputAction_;
 
+    private publicFlag gameStop;
+
     //テキストの表示音
     public AudioClip sound1;
     AudioSource audioSource;
@@ -24,14 +26,18 @@ public class UIText : MonoBehaviour
         inputAction_ = new PlayerInputSystem();
         inputAction_.Enable();
         audioSource = GetComponent<AudioSource>();
+        gameStop = GameObject.Find("GameManager").GetComponent<publicFlag>();
     }
 
     public bool IsClicked()
     {
-        if (inputAction_.Player.Talk.triggered)
+        if (gameStop.notSkipFlag == false)
         {
-            audioSource.PlayOneShot(sound1);
-            return true;
+            if (inputAction_.Player.Talk.triggered)
+            {
+                audioSource.PlayOneShot(sound1);
+                return true;
+            }
         }
         return false;
     }

@@ -11,6 +11,57 @@ TagManager:
   - entranceDoor
   - 1-1goDoor
   - 2-1goDoor
+  - entrancegoDoor1
+  - entrancegoDoor2
+  - operatingDoor
+  - ironDoor
+  - 1-2goDoor
+  - 2-2goDoor
+  - 1-3goDoor
+  - 2-3goDoor
+  - 1-1leftGoDoor
+  - 2-1leftGoDoor
+  - 1-1desk
+  - 1-1blackBoard
+  - 1-2blackBoard
+  - 1-3blackBoard
+  - Enemy
+  - 2-1blackBoard
+  - 2-2blackBoard
+  - 2-3blackBoard
+  - operoomGoDoor
+  - entrancetoOpeGoDoor
+  - room4goDoor
+  - entrancetoRoom4Door
+  - room6goDoor
+  - room4toRoom6Door
+  - room0goDoor
+  - undergroundgoDoor
+  - room6toRoom0Door
+  - room6toUndergroundDoor
+  - balanceroomGoDoor
+  - undergroundtobalanceDoor
+  - Dial
+  - kirakira_miss1
+  - kirakira_miss2
+  - kirakira_miss3
+  - kirakira_miss4
+  - kirakira_hit1
+  - kirakira_hit2
+  - kirakira_hit3
+  - kirakira_hit4
+  - kirakira_hit5
+  - bigEnemy
+  - Enemy1
+  - Enemy2
+  - girl
+  - SubCamera
+  - equilibriumGoDoor
+  - operoomtoEquilibriumDoor
+  - equilibriumGoDoor2
+  - blueButtonRoom2GoDoor
+  - blueButtonRoom2Go
+  - blueButtonRoomGo
   layers:
   - Default
   - TransparentFX
@@ -19,7 +70,7 @@ TagManager:
   - Water
   - UI
   - 1-A KEY
-  - 
+  - ActionObject
   - 
   - 
   - 

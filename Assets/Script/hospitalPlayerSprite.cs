@@ -8,10 +8,15 @@ public class hospitalPlayerSprite : MonoBehaviour
     public Sprite nowSprite;
     public Sprite leftSprite;
     public Sprite rightSprite;
+    public Sprite backSprite;
     private SpriteRenderer image;
 
     public bool Flag;
+    public bool backFlag;
     private int animationTime;
+
+    public bool behindFlag;
+    public bool leftFlag;
 
     private TextWriter textWriter;
 
@@ -20,15 +25,35 @@ public class hospitalPlayerSprite : MonoBehaviour
     {
         image = GetComponent<SpriteRenderer>();
         Flag = false;
+        backFlag = false;
         animationTime = 0;
-
+        behindFlag = false;
+        leftFlag = false;
         textWriter = GameObject.Find("Canvas").GetComponent<TextWriter>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Flag == true)
+        if (backFlag == true)
+        {
+            image.sprite = backSprite;
+            backFlag = false;
+        }
+
+        if(behindFlag == true)
+        {
+            image.sprite = nowSprite;
+            behindFlag = false;
+        }
+
+        if(leftFlag == true)
+        {
+            image.sprite = leftSprite;
+            leftFlag = false;
+        }
+
+        if (Flag == true)
         {
             animationTime++;
             if (animationTime < 30)
@@ -50,8 +75,8 @@ public class hospitalPlayerSprite : MonoBehaviour
             else
             {
                 image.sprite = nowSprite;
-                textWriter.TextNum = 11;
                 Flag = false;
+                textWriter.TextNum = 11;
             }
         }
     }

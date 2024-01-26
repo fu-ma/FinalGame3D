@@ -143,6 +143,33 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""PassChange"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""29efde8f-78e0-4cd5-acfc-049fc02e45bf"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NumberChangeRight"",
+                    ""type"": ""Button"",
+                    ""id"": ""5f14a341-7eb4-4ed4-87fc-2f53b0ee9594"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NumberChangeLeft"",
+                    ""type"": ""Button"",
+                    ""id"": ""17305657-7aee-47d8-bfb7-7f822af3c710"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -424,7 +451,18 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""fe47e18d-97d5-4d99-871b-29290fdae49c"",
-                    ""path"": ""<Keyboard>/i"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UseItem"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ab0e783b-3038-4bdd-8115-80b5cffc7aae"",
+                    ""path"": ""<XInputController>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -440,6 +478,105 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""ChangeMenuScreen"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""341552ba-f5b9-411e-9d90-389b8f5edff3"",
+                    ""path"": ""<XInputController>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeMenuScreen"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9cf156e2-9fb6-4489-bfa6-2f7b8a25221d"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PassChange"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""38582a6e-f60f-47de-98e4-174e35d602be"",
+                    ""path"": ""<XInputController>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PassChange"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d639b419-96bd-418d-b190-a6fc90fa1d83"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NumberChangeRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8d8dcbc7-7dad-4746-9557-3d2f60803246"",
+                    ""path"": ""<XInputController>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NumberChangeRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2eb49096-365e-4060-8c2d-44df8dc8af2c"",
+                    ""path"": ""<XInputController>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NumberChangeRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""52f33909-9c3d-45e1-bc7f-76d6f514890f"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NumberChangeLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f2b226ec-5271-4fe7-937a-1be0ee2d995d"",
+                    ""path"": ""<XInputController>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NumberChangeLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""84a245ba-e777-4f59-b478-733485a2e113"",
+                    ""path"": ""<XInputController>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NumberChangeLeft"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1040,6 +1177,9 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
         m_Player_CharacterChangeBoy = m_Player.FindAction("CharacterChangeBoy", throwIfNotFound: true);
         m_Player_UseItem = m_Player.FindAction("UseItem", throwIfNotFound: true);
         m_Player_ChangeMenuScreen = m_Player.FindAction("ChangeMenuScreen", throwIfNotFound: true);
+        m_Player_PassChange = m_Player.FindAction("PassChange", throwIfNotFound: true);
+        m_Player_NumberChangeRight = m_Player.FindAction("NumberChangeRight", throwIfNotFound: true);
+        m_Player_NumberChangeLeft = m_Player.FindAction("NumberChangeLeft", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1126,6 +1266,9 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_CharacterChangeBoy;
     private readonly InputAction m_Player_UseItem;
     private readonly InputAction m_Player_ChangeMenuScreen;
+    private readonly InputAction m_Player_PassChange;
+    private readonly InputAction m_Player_NumberChangeRight;
+    private readonly InputAction m_Player_NumberChangeLeft;
     public struct PlayerActions
     {
         private @PlayerInputSystem m_Wrapper;
@@ -1143,6 +1286,9 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
         public InputAction @CharacterChangeBoy => m_Wrapper.m_Player_CharacterChangeBoy;
         public InputAction @UseItem => m_Wrapper.m_Player_UseItem;
         public InputAction @ChangeMenuScreen => m_Wrapper.m_Player_ChangeMenuScreen;
+        public InputAction @PassChange => m_Wrapper.m_Player_PassChange;
+        public InputAction @NumberChangeRight => m_Wrapper.m_Player_NumberChangeRight;
+        public InputAction @NumberChangeLeft => m_Wrapper.m_Player_NumberChangeLeft;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1191,6 +1337,15 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
             @ChangeMenuScreen.started += instance.OnChangeMenuScreen;
             @ChangeMenuScreen.performed += instance.OnChangeMenuScreen;
             @ChangeMenuScreen.canceled += instance.OnChangeMenuScreen;
+            @PassChange.started += instance.OnPassChange;
+            @PassChange.performed += instance.OnPassChange;
+            @PassChange.canceled += instance.OnPassChange;
+            @NumberChangeRight.started += instance.OnNumberChangeRight;
+            @NumberChangeRight.performed += instance.OnNumberChangeRight;
+            @NumberChangeRight.canceled += instance.OnNumberChangeRight;
+            @NumberChangeLeft.started += instance.OnNumberChangeLeft;
+            @NumberChangeLeft.performed += instance.OnNumberChangeLeft;
+            @NumberChangeLeft.canceled += instance.OnNumberChangeLeft;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1234,6 +1389,15 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
             @ChangeMenuScreen.started -= instance.OnChangeMenuScreen;
             @ChangeMenuScreen.performed -= instance.OnChangeMenuScreen;
             @ChangeMenuScreen.canceled -= instance.OnChangeMenuScreen;
+            @PassChange.started -= instance.OnPassChange;
+            @PassChange.performed -= instance.OnPassChange;
+            @PassChange.canceled -= instance.OnPassChange;
+            @NumberChangeRight.started -= instance.OnNumberChangeRight;
+            @NumberChangeRight.performed -= instance.OnNumberChangeRight;
+            @NumberChangeRight.canceled -= instance.OnNumberChangeRight;
+            @NumberChangeLeft.started -= instance.OnNumberChangeLeft;
+            @NumberChangeLeft.performed -= instance.OnNumberChangeLeft;
+            @NumberChangeLeft.canceled -= instance.OnNumberChangeLeft;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1429,6 +1593,9 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
         void OnCharacterChangeBoy(InputAction.CallbackContext context);
         void OnUseItem(InputAction.CallbackContext context);
         void OnChangeMenuScreen(InputAction.CallbackContext context);
+        void OnPassChange(InputAction.CallbackContext context);
+        void OnNumberChangeRight(InputAction.CallbackContext context);
+        void OnNumberChangeLeft(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerDamage : MonoBehaviour
 {
-    public HPSpriteChange hpSprite;
+    private HPSpriteChange hpSprite;
     private PlayerInputSystem inputAction_;
     public GameObject damageEffect;
     private Color hpAlphaColor;
@@ -13,6 +14,7 @@ public class PlayerDamage : MonoBehaviour
     private bool damageFlag;
 
     public bool isDamage;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +37,11 @@ public class PlayerDamage : MonoBehaviour
             if (hpSprite.HP > 0)
             {
                 hpSprite.HP--;
+                damageTimer = 0;
+            }
+            if(hpSprite.HP == 0)
+            {
+                SceneManager.LoadScene("GameOverScene");
             }
             damageFlag = true;
         }
