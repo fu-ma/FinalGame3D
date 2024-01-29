@@ -20,8 +20,8 @@ public class storyCameramove2 : MonoBehaviour
     void Start()
     {
         effectFlag = false;
-        mainCamera = GameObject.Find("Main Camera");
-        subCamera = GameObject.Find("Sub Camera");
+        //mainCamera = GameObject.Find("Main Camera");
+        //subCamera = GameObject.Find("Sub Camera");
         fadeInObj = GameObject.Find("fadeIn");
         fadeIn = fadeInObj.GetComponent<FadeIn>();
         image = GameObject.Find("boy").GetComponent<SpriteRenderer>();

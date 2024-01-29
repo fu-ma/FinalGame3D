@@ -39,10 +39,18 @@ public class TextWriter : MonoBehaviour
     public GameObject stage0Enemy;
     public GameObject config;
     public GameObject investigate;
+    public GameObject investigate2;
     public GameObject blueRoomDoor1;
     public GameObject blueRoomDoor2;
     public GameObject blueRoomDoor3;
     public GameObject blueRoomDoor4;
+    public GameObject blueRoomDoor5;
+    public GameObject blueRoomBook;
+    public GameObject vase1;
+    public GameObject vase2;
+
+    public StatueCollision statueCollision;
+    public ChairCollision chairCollision;
 
     private bool configFlag;
 
@@ -166,10 +174,15 @@ public class TextWriter : MonoBehaviour
         config2.SetActive(false);
         config2Flag = false;
         investigate.SetActive(false);
+        investigate2.SetActive(false);
         blueRoomDoor1.SetActive(false);
         blueRoomDoor2.SetActive(false);
         blueRoomDoor3.SetActive(false);
-        blueRoomDoor3.SetActive(true);
+        blueRoomDoor4.SetActive(true);
+        blueRoomDoor5.SetActive(false);
+        blueRoomBook.SetActive(false);
+        vase1.SetActive(true);
+        vase2.SetActive(false);
 
         kirakira1.SetActive(true);
         kirakira2.SetActive(true);
@@ -2169,6 +2182,7 @@ public class TextWriter : MonoBehaviour
         blueRoomDoor2.SetActive(true);
         blueRoomDoor3.SetActive(true);
         blueRoomDoor4.SetActive(false);
+        blueRoomDoor5.SetActive(true);
 
         girl.SetActive(true);
         uitext.DrawText("ソラ", "？！");
@@ -2199,6 +2213,385 @@ public class TextWriter : MonoBehaviour
         uitext.DrawText("ソラ", "どうにかここから出ないと…");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
+
+        Canbus.SetActive(false);
+        gameStop.stopFlag = false;
+    }
+
+    IEnumerator blueRoomDeskStory()
+    {
+        Canbus.SetActive(true);
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        boy_fear.SetActive(false);
+        girl.SetActive(false);
+        investigate.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "不自然な跡がある");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        Canbus.SetActive(false);
+        gameStop.stopFlag = false;
+    }
+
+    IEnumerator blueRoomBedStory1()
+    {
+        Canbus.SetActive(true);
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        boy_fear.SetActive(false);
+        girl.SetActive(false);
+        investigate.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "不自然な所は無い");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        Canbus.SetActive(false);
+        gameStop.stopFlag = false;
+    }
+
+    IEnumerator blueRoomBedStory2()
+    {
+        Canbus.SetActive(true);
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        boy_fear.SetActive(false);
+        girl.SetActive(false);
+        investigate.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "不自然な所は無いよね");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        Canbus.SetActive(false);
+        gameStop.stopFlag = false;
+    }
+
+    IEnumerator blueRoomBedStory3()
+    {
+        Canbus.SetActive(true);
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        boy_fear.SetActive(false);
+        girl.SetActive(false);
+        investigate.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "不自然な所は無い…ん…？");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        Canbus.SetActive(false);
+        gameStop.stopFlag = false;
+    }
+
+    IEnumerator blueRoomBedStory4()
+    {
+        Canbus.SetActive(true);
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        boy_fear.SetActive(false);
+        girl.SetActive(false);
+        investigate.SetActive(false);
+
+        fadeIn.fadeOutFlag = true;
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "よく見たらベッドの下に…ノート？");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        blueRoomBook.SetActive(true);
+        fadeIn.fadeFlag = true;
+
+        Canbus.SetActive(false);
+        gameStop.stopFlag = false;
+    }
+
+    IEnumerator blueRoomBedStory5()
+    {
+        Canbus.SetActive(true);
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        boy_fear.SetActive(false);
+        girl.SetActive(false);
+        investigate.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "不自然な所は無い");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        Canbus.SetActive(false);
+        gameStop.stopFlag = false;
+    }
+
+    IEnumerator blueRoomBookShefStory()
+    {
+        Canbus.SetActive(true);
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        boy_fear.SetActive(false);
+        girl.SetActive(false);
+        investigate.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "背の高い本棚だな");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        Canbus.SetActive(false);
+        gameStop.stopFlag = false;
+    }
+
+    IEnumerator blueRoomLeverStory()
+    {
+        Canbus.SetActive(true);
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        boy_fear.SetActive(false);
+        girl.SetActive(false);
+        investigate.SetActive(false);
+
+        uitext.DrawText("サユウノキンコウヲタモテ");
+        yield return StartCoroutine("Skip");
+
+        Canbus.SetActive(false);
+        gameStop.stopFlag = false;
+    }
+
+    IEnumerator blueRoomChairStory()
+    {
+        Canbus.SetActive(true);
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        boy_fear.SetActive(false);
+        girl.SetActive(false);
+        investigate.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "不自然な所は無い");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        Canbus.SetActive(false);
+        gameStop.stopFlag = false;
+    }
+
+    IEnumerator blueRoomRoundDeskStory()
+    {
+        Canbus.SetActive(true);
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        boy_fear.SetActive(false);
+        girl.SetActive(false);
+        investigate.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "不自然な所は無い");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        Canbus.SetActive(false);
+        gameStop.stopFlag = false;
+    }
+
+    IEnumerator blueRoomStatueStory()
+    {
+        Canbus.SetActive(true);
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        boy_fear.SetActive(false);
+        girl.SetActive(false);
+        investigate.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "不自然な所は無い");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        Canbus.SetActive(false);
+        gameStop.stopFlag = false;
+    }
+
+    IEnumerator blueRoom2RoundDeskStory()
+    {
+        Canbus.SetActive(true);
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        boy_fear.SetActive(false);
+        girl.SetActive(false);
+        investigate2.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "不自然な跡がある");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        Canbus.SetActive(false);
+        gameStop.stopFlag = false;
+    }
+
+    IEnumerator blueRoom2BedStory()
+    {
+        Canbus.SetActive(true);
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        boy_fear.SetActive(false);
+        girl.SetActive(false);
+        investigate2.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "不自然な所は無い");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        Canbus.SetActive(false);
+        gameStop.stopFlag = false;
+    }
+
+    IEnumerator blueRoom2LeverStory()
+    {
+        Canbus.SetActive(true);
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        boy_fear.SetActive(false);
+        girl.SetActive(false);
+        investigate2.SetActive(false);
+
+        fadeIn.fadeOutFlag = true;
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "…戻った？");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+        vase1.SetActive(true);
+        vase2.SetActive(false);
+        statueCollision.Init();
+        chairCollision.Init();
+        playermove.blueRoomBedCount = 0;
+
+        fadeIn.fadeFlag = true;
+
+        Canbus.SetActive(false);
+        gameStop.stopFlag = false;
+    }
+
+    IEnumerator blueRoom2StatueStory()
+    {
+        Canbus.SetActive(true);
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        boy_fear.SetActive(false);
+        girl.SetActive(false);
+        investigate2.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "んぁ、これ動かせんのか…おっも……");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        Canbus.SetActive(false);
+        gameStop.stopFlag = false;
+    }
+
+    IEnumerator blueRoom2ChairStory()
+    {
+        Canbus.SetActive(true);
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        boy_fear.SetActive(false);
+        girl.SetActive(false);
+        investigate2.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "これも動くなぁ");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        Canbus.SetActive(false);
+        gameStop.stopFlag = false;
+    }
+
+    IEnumerator blueRoom2DeskStory()
+    {
+        Canbus.SetActive(true);
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        boy_fear.SetActive(false);
+        girl.SetActive(false);
+        investigate2.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "不自然な所は無い");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        Canbus.SetActive(false);
+        gameStop.stopFlag = false;
+    }
+    IEnumerator blueRoom2BookShefStory()
+    {
+        Canbus.SetActive(true);
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        boy_fear.SetActive(false);
+        girl.SetActive(false);
+        investigate2.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "でっけぇ本棚だな…");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "俺でも上部に手が届かねぇ");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        Canbus.SetActive(false);
+        gameStop.stopFlag = false;
+    }
+
+    IEnumerator blueRoom2StatueStory2()
+    {
+        Canbus.SetActive(true);
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        boy_fear.SetActive(false);
+        girl.SetActive(false);
+        investigate2.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "ここでいいのか…？");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        Canbus.SetActive(false);
+        gameStop.stopFlag = false;
+    }
+
+    IEnumerator blueRoom2ChairStory2()
+    {
+        Canbus.SetActive(true);
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        boy_fear.SetActive(false);
+        girl.SetActive(false);
+        investigate2.SetActive(false);
+
+        fadeIn.fadeOutFlag = true;
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "これで届くか…？");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+        vase1.SetActive(false);
+        vase2.SetActive(true);
+
+        fadeIn.fadeFlag = true;
 
         Canbus.SetActive(false);
         gameStop.stopFlag = false;
@@ -2530,6 +2923,126 @@ public class TextWriter : MonoBehaviour
             gameStop.stopFlag = true;
             StartCoroutine("blueButtonRoomStory2");
             TextNum = 97;
+        }
+        if(TextNum == 98)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("blueRoomDeskStory");
+            TextNum = 99;
+        }
+        if(TextNum == 100)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("blueRoomBedStory1");
+            TextNum = 101;
+        }
+        if (TextNum == 102)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("blueRoomBedStory2");
+            TextNum = 103;
+        }
+        if (TextNum == 104)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("blueRoomBedStory3");
+            TextNum = 105;
+        }
+        if (TextNum == 106)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("blueRoomBedStory4");
+            TextNum = 107;
+        }
+        if (TextNum == 108)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("blueRoomBedStory5");
+            TextNum = 109;
+        }
+        if(TextNum == 110)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("blueRoomBookShefStory");
+            TextNum = 111;
+        }
+        if(TextNum == 112)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("blueRoomLeverStory");
+            TextNum = 113;
+        }
+        if(TextNum == 114)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("blueRoomChairStory");
+            TextNum = 115;
+        }
+        if(TextNum == 116)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("blueRoomRoundDeskStory");
+            TextNum = 117;
+        }
+        if(TextNum == 118)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("blueRoomStatueStory");
+            TextNum = 119;
+        }
+        if (TextNum == 120)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("blueRoom2RoundDeskStory");
+            TextNum = 121;
+        }
+        if (TextNum == 122)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("blueRoom2BedStory");
+            TextNum = 123;
+        }
+        if (TextNum == 124)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("blueRoom2LeverStory");
+            TextNum = 125;
+        }
+        if (TextNum == 126)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("blueRoom2StatueStory");
+            TextNum = 127;
+        }
+        if (TextNum == 128)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("blueRoom2ChairStory");
+            TextNum = 129;
+        }
+        if (TextNum == 130)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("blueRoom2DeskStory");
+            TextNum = 131;
+        }
+        if (TextNum == 132)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("blueRoom2BookShefStory");
+            TextNum = 133;
+        }
+        if(TextNum == 134)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("blueRoom2StatueStory2");
+            TextNum = 135;
+        }
+        if(TextNum == 136)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("blueRoom2ChairStory2");
+            TextNum = 137;
         }
         //ダメージを受けたときの処理
         if (password.isMiss == true)

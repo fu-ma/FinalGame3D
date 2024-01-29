@@ -48,6 +48,8 @@ public class playerMove : MonoBehaviour
 
     private Transform girlTransform;
 
+    private CameraChange playerChange;
+
     private bool classroomFlag;
     private bool classroomFlag2;
 
@@ -89,6 +91,9 @@ public class playerMove : MonoBehaviour
 
     private int hitTime;
     private bool GameOverFlag;
+    public int blueRoomBedCount;
+    public bool blueRoomFlag;
+
     void Start()
     {
         inputAction_ = new PlayerInputSystem();
@@ -139,6 +144,8 @@ public class playerMove : MonoBehaviour
 
         girlTransform = GameObject.Find("playerShadow").GetComponent<Transform>();
 
+        playerChange = GameObject.Find("GameManager").GetComponent<CameraChange>();
+
         classroomFlag = false;
         classroomFlag2 = false;
 
@@ -177,6 +184,8 @@ public class playerMove : MonoBehaviour
         hitTime = 0;
         GameOverFlag = false;
         changeCharaFlag = false;
+        blueRoomBedCount = 0;
+        blueRoomFlag = false;
     }
 
     // Update is called once per frame
@@ -792,6 +801,70 @@ public class playerMove : MonoBehaviour
                     boyTeleport.SetPosition(-15.73f, 109.07f);
                 }
             }
+
+            if(collision.gameObject.tag == "ChangeButton" && inputAction_.Player.Talk.triggered)
+            {
+                playerChange.moveFlag = true;
+            }
+
+            if(collision.gameObject.tag == "blueRoomDesk" && inputAction_.Player.Talk.triggered)
+            {
+                textWriter.TextNum = 98;
+            }
+
+            if(collision.gameObject.tag == "blueRoomBed" && inputAction_.Player.Talk.triggered)
+            {
+                if (blueRoomBedCount == 0)
+                {
+                    textWriter.TextNum = 100;
+                }
+                if(blueRoomBedCount == 1)
+                {
+                    textWriter.TextNum = 102;
+                }
+                if(blueRoomBedCount == 2)
+                {
+                    textWriter.TextNum = 104;
+                }
+                if (blueRoomBedCount == 3)
+                {
+                    textWriter.TextNum = 106;
+                }
+                if (blueRoomBedCount >= 4)
+                {
+                    textWriter.TextNum = 108;
+                }
+                if (blueRoomBedCount < 5)
+                {
+                    blueRoomBedCount++;
+                }
+            }
+
+            if (collision.gameObject.tag == "blueRoomBookShef" && inputAction_.Player.Talk.triggered)
+            {
+                textWriter.TextNum = 110;
+            }
+
+            if (collision.gameObject.tag == "blueRoomLever" && inputAction_.Player.Talk.triggered)
+            {
+                textWriter.TextNum = 112;
+            }
+
+            if (collision.gameObject.tag == "blueRoomChair1" && inputAction_.Player.Talk.triggered)
+            {
+                textWriter.TextNum = 114;
+            }
+
+            if (collision.gameObject.tag == "blueRoomRoundDesk" && inputAction_.Player.Talk.triggered)
+            {
+                textWriter.TextNum = 116;
+            }
+
+            if (collision.gameObject.tag == "blueRoomStatue" && inputAction_.Player.Talk.triggered)
+            {
+                textWriter.TextNum = 118;
+            }
+
             if (collision.gameObject.tag == "Dial" && inputAction_.Player.Talk.triggered && password2.dontObject == false)
             {
                 textWriter.TextNum = 59;

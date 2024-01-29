@@ -18,9 +18,6 @@ public class CameraChange : MonoBehaviour
         inputAction_ = new PlayerInputSystem();
         inputAction_.Enable();
 
-        mainCamera = GameObject.Find("Main Camera");
-        subCamera = GameObject.Find("Sub Camera");
-
         playermove = GameObject.Find("player").GetComponent<playerMove>();
         boySprite1 = GameObject.Find("boy").GetComponent<boySpriteMove1>();
 
@@ -33,9 +30,10 @@ public class CameraChange : MonoBehaviour
         if(moveFlag)
         {
             playermove.changeCharaFlag = !playermove.changeCharaFlag;
-            boySprite1.moveFlag = !boySprite1.moveFlag;
+            //boySprite1.moveFlag = !boySprite1.moveFlag;
             mainCamera.SetActive(!mainCamera.activeSelf);
             subCamera.SetActive(!subCamera.activeSelf);
+            moveFlag = false;
         }
         Debug.Log(playermove.changeCharaFlag);
     }

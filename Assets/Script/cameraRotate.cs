@@ -12,6 +12,8 @@ public class cameraRotate : MonoBehaviour
     private Transform cameraTransform;
     private Transform boyTransform;
     public Transform bikkuriTransform;
+    public Transform bikkuriTransform2;
+
     public bool moveFlag;
     public Vector3 angle;
     // Start is called before the first frame update
@@ -45,6 +47,7 @@ public class cameraRotate : MonoBehaviour
             cameraTransform.eulerAngles = angle;
             boyTransform.eulerAngles = angle;
             bikkuriTransform.eulerAngles = angle;
+            bikkuriTransform2.eulerAngles = angle;
         }
     }
 }

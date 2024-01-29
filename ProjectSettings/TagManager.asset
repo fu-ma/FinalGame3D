@@ -62,6 +62,24 @@ TagManager:
   - blueButtonRoom2GoDoor
   - blueButtonRoom2Go
   - blueButtonRoomGo
+  - ChangeButton
+  - ChangeButton2
+  - blueRoomDesk
+  - blueRoomBed
+  - blueRoomBookShef
+  - blueRoomLever
+  - blueRoomChair1
+  - blueRoomRoundDesk
+  - blueRoomStatue
+  - blueRoomRoundDesk2
+  - blueRoomBed2
+  - blueRoomLever2
+  - blueRoomStatue2
+  - blueRoomChair2
+  - blueRoomDesk2
+  - blueRoomBookShef2
+  - statueCollision
+  - chairCollision
   layers:
   - Default
   - TransparentFX
@@ -71,7 +89,7 @@ TagManager:
   - UI
   - 1-A KEY
   - ActionObject
-  - 
+  - ActionObject2
   - 
   - 
   - 
