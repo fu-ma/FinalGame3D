@@ -27,7 +27,7 @@ public class ResetRoom : MonoBehaviour
         if (gameStart == true)
         {
             hakariRoomFirst = hakariRoom;
-            hakariRoomFirst = soraRoom;
+            soraRoomFirst = soraRoom;
             gameStart = false;
         }
         if (resetButtonPushed == true)
