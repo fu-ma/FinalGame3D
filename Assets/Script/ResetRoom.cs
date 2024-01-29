@@ -34,10 +34,15 @@ public class ResetRoom : MonoBehaviour
         {
             isReset = true;
         }
+        else
+        {
+            isReset = false;
+        }
         if (isReset == true)
         {
             soraRoom = soraRoomFirst;
             hakariRoom = hakariRoomFirst;
+            resetButtonPushed = false;
         }
     }
 }
