@@ -20,6 +20,6 @@ public class boyTeleport : MonoBehaviour
 
     public void SetPosition(float x, float y)
     {
-        boyPos.position = new Vector3(x, 1.511f, y);
+        boyPos.position = new Vector3(x, 2.17f, y);
     }
 }

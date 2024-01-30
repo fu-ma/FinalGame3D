@@ -80,6 +80,9 @@ TagManager:
   - blueRoomBookShef2
   - statueCollision
   - chairCollision
+  - whiteMist
+  - opeRoomDesk
+  - classRoom1TeacherDesk
   layers:
   - Default
   - TransparentFX

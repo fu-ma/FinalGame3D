@@ -6,17 +6,20 @@ using UnityEngine.UI;
 
 public class ResetRoom : MonoBehaviour
 {
-    public bool gameStart;
     public bool resetButtonPushed;
     public bool isReset;
     public GameObject soraRoom;
     public GameObject hakariRoom;
-    private GameObject soraRoomFirst;
-    private GameObject hakariRoomFirst;
+    private Vector3 soraRoomFirst;
+    private Vector3 hakariRoomFirst;
     // Start is called before the first frame update
     void Start()
     {
-        gameStart = true;
+        soraRoomFirst = new Vector3();
+        hakariRoomFirst = new Vector3();
+        hakariRoomFirst = hakariRoom.transform.position;
+        soraRoomFirst = soraRoom.transform.position;
+
         isReset = false;
         resetButtonPushed = false;
     }
@@ -24,12 +27,6 @@ public class ResetRoom : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameStart == true)
-        {
-            hakariRoomFirst = hakariRoom;
-            soraRoomFirst = soraRoom;
-            gameStart = false;
-        }
         if (resetButtonPushed == true)
         {
             isReset = true;
@@ -40,8 +37,8 @@ public class ResetRoom : MonoBehaviour
         }
         if (isReset == true)
         {
-            soraRoom = soraRoomFirst;
-            hakariRoom = hakariRoomFirst;
+            soraRoom.transform.position = soraRoomFirst;
+            hakariRoom.transform.position = hakariRoomFirst;
             resetButtonPushed = false;
         }
     }

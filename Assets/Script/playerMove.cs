@@ -72,7 +72,8 @@ public class playerMove : MonoBehaviour
     private bool room0FirstFlag;
     private bool room0backHomeFlag;
     private bool blueButtonRoomFlag;
-
+    private bool firstWhiteMistFlag;
+    
     //ƒLƒ‰ƒLƒ‰
     public GameObject kirakira1;
     public GameObject kirakira2;
@@ -93,6 +94,7 @@ public class playerMove : MonoBehaviour
     private bool GameOverFlag;
     public int blueRoomBedCount;
     public bool blueRoomFlag;
+    public bool classRoom1StoryFlag;
 
     void Start()
     {
@@ -102,6 +104,7 @@ public class playerMove : MonoBehaviour
         rb.mass = 10;
         rb.drag = 20;
         rb.angularDrag = 0;
+        rb.useGravity = true;
         rb.constraints = RigidbodyConstraints.FreezeRotation;
 
         operoomRb = GameObject.Find("ading platformrm").GetComponent<Rigidbody>();
@@ -168,6 +171,7 @@ public class playerMove : MonoBehaviour
         room0FirstFlag = false;
         room0backHomeFlag = false;
         blueButtonRoomFlag = false;
+        firstWhiteMistFlag = false;
 
         kirakira1.SetActive(true);
         kirakira2.SetActive(true);
@@ -186,6 +190,7 @@ public class playerMove : MonoBehaviour
         changeCharaFlag = false;
         blueRoomBedCount = 0;
         blueRoomFlag = false;
+        classRoom1StoryFlag = false;
     }
 
     // Update is called once per frame
@@ -341,7 +346,7 @@ public class playerMove : MonoBehaviour
     }
     void OnTriggerStay(Collider collision)
     {
-        if (gameStop.hitFlag == false)
+        if (gameStop.hitFlag == false && changeCharaFlag == false)
         {
             if(collision.gameObject.layer == 7 && collision.gameObject.tag != "door" && collision.gameObject.tag != "fence")
             {
@@ -417,6 +422,11 @@ public class playerMove : MonoBehaviour
                     textWriter.TextNum = 41;
                     boyClassroomFlag1 = false;
                 }
+                if(classRoom1StoryFlag == true)
+                {
+                    textWriter.TextNum = 146;
+                    classRoom1StoryFlag = false;
+                }
 
             }
             if (collision.gameObject.tag == "entrancegoDoor1")
@@ -424,7 +434,7 @@ public class playerMove : MonoBehaviour
                 playerTeleport.SetPosition(-17.2f, 38.85f);
                 if (boyTarget.followFlag2 == true)
                 {
-                    boyTeleport.SetPosition(-15.2f, 38.85f);
+                    boyTeleport.SetPosition(-17.2f, 36.85f);
                 }
             }
             if (collision.gameObject.tag == "entrancegoDoor2")
@@ -598,10 +608,10 @@ public class playerMove : MonoBehaviour
 
             if (collision.gameObject.tag == "room4goDoor")
             {
-                playerTeleport.SetPosition(37, 96.8f);
+                playerTeleport.SetPosition(37, 98.8f);
                 if (boyTarget.followFlag2 == true)
                 {
-                    boyTeleport.SetPosition(37, 94.8f);
+                    boyTeleport.SetPosition(37, 96.8f);
                 }
                 if (room4StoryFlag == false)
                 {
@@ -621,10 +631,10 @@ public class playerMove : MonoBehaviour
 
             if (collision.gameObject.tag == "room6goDoor")
             {
-                playerTeleport.SetPosition(-6.25f, 156.93f);
+                playerTeleport.SetPosition(-6.25f, 158.93f);
                 if (boyTarget.followFlag2 == true)
                 {
-                    boyTeleport.SetPosition(-6.25f, 154.93f);
+                    boyTeleport.SetPosition(-6.25f, 156.93f);
                 }
                 if (room6StoryFlag == false)
                 {
@@ -635,10 +645,10 @@ public class playerMove : MonoBehaviour
 
             if (collision.gameObject.tag == "room4toRoom6Door")
             {
-                playerTeleport.SetPosition(28.85f, 115.63f);
+                playerTeleport.SetPosition(28.85f, 113.63f);
                 if (boyTarget.followFlag2 == true)
                 {
-                    boyTeleport.SetPosition(28.85f, 117.63f);
+                    boyTeleport.SetPosition(28.85f, 115.63f);
                 }
             }
 
@@ -707,10 +717,10 @@ public class playerMove : MonoBehaviour
 
             if (collision.gameObject.tag == "room6toUndergroundDoor")
             {
-                playerTeleport.SetPosition(-13.63f, 174.86f);
+                playerTeleport.SetPosition(-13.63f, 172.86f);
                 if (boyTarget.followFlag2 == true)
                 {
-                    boyTeleport.SetPosition(-13.63f, 176.86f);
+                    boyTeleport.SetPosition(-13.63f, 174.86f);
                 }
             }
 
@@ -793,7 +803,7 @@ public class playerMove : MonoBehaviour
                 }
             }
 
-            if(collision.gameObject.tag == "operoomtoEqilibriumDoor")
+            if(collision.gameObject.tag == "operoomtoEquilibriumDoor")
             {
                 playerTeleport.SetPosition(-15.73f, 107.07f);
                 if (boyTarget.followFlag2 == true)
@@ -865,6 +875,31 @@ public class playerMove : MonoBehaviour
                 textWriter.TextNum = 118;
             }
 
+            if(collision.gameObject.tag == "whiteMist" && inputAction_.Player.Talk.triggered)
+            {
+                if (firstWhiteMistFlag == false)
+                {
+                    textWriter.TextNum = 140;
+                    firstWhiteMistFlag = true;
+                }
+                if(firstWhiteMistFlag == true)
+                {
+                    textWriter.TextNum = 142;
+                }
+            }
+
+            if(collision.gameObject.tag == "opeRoomDesk" && inputAction_.Player.Talk.triggered)
+            {
+                if (firstWhiteMistFlag == true)
+                {
+                    textWriter.TextNum = 144;
+                }
+            }
+
+            if(collision.gameObject.tag == "classRoom1TeacherDesk" && inputAction_.Player.Talk.triggered)
+            {
+                textWriter.TextNum = 148;
+            }
             if (collision.gameObject.tag == "Dial" && inputAction_.Player.Talk.triggered && password2.dontObject == false)
             {
                 textWriter.TextNum = 59;

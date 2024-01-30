@@ -20,7 +20,9 @@ public class boyMove : MonoBehaviour
 
     public bool statueFlag;
     public bool chairFlag;
-
+    public bool blueRoomFlag;
+    public bool blueStatueFlag;
+    public bool blueChairFlag;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,11 +46,18 @@ public class boyMove : MonoBehaviour
 
         statueFlag = false;
         chairFlag = false;
+        blueRoomFlag = false;
+        blueStatueFlag = false;
+        blueChairFlag = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(blueChairFlag && blueStatueFlag)
+        {
+            blueRoomFlag = true;
+        }
         if (gameStop.stopFlag == false && gameStop.playerDontMoveFlag == false && playermove.changeCharaFlag == true)
         {
             if (inputAction_.Player.MoveLeft.IsPressed())
@@ -136,7 +145,7 @@ public class boyMove : MonoBehaviour
     {
         if (gameStop.hitFlag == false && playermove.changeCharaFlag == true)
         {
-            if (collision.gameObject.layer == 8 && collision.gameObject.tag != "door" && collision.gameObject.tag != "fence")
+            if (collision.gameObject.layer == 8)
             {
                 playerUI.SetActive(true);
             }
@@ -146,41 +155,44 @@ public class boyMove : MonoBehaviour
                 playerChange.moveFlag = true;
             }
 
-            if (collision.gameObject.tag == "blueRoomRoundDesk2" && inputAction_.Player.Talk.triggered)
+            if (blueRoomFlag == false)
             {
-                textWriter.TextNum = 120;
-            }
+                if (collision.gameObject.tag == "blueRoomRoundDesk2" && inputAction_.Player.Talk.triggered && chairFlag == false)
+                {
+                    textWriter.TextNum = 120;
+                }
 
-            if (collision.gameObject.tag == "blueRoomBed2" && inputAction_.Player.Talk.triggered)
-            {
-                textWriter.TextNum = 122;
-            }
+                if (collision.gameObject.tag == "blueRoomBed2" && inputAction_.Player.Talk.triggered && statueFlag == false)
+                {
+                    textWriter.TextNum = 122;
+                }
 
-            if (collision.gameObject.tag == "blueRoomLever2" && inputAction_.Player.Talk.triggered)
-            {
-                textWriter.TextNum = 124;
-            }
+                if (collision.gameObject.tag == "blueRoomLever2" && inputAction_.Player.Talk.triggered)
+                {
+                    textWriter.TextNum = 124;
+                }
 
-            if (collision.gameObject.tag == "blueRoomStatue2" && inputAction_.Player.Talk.triggered && statueFlag == false)
-            {
-                textWriter.TextNum = 126;
-            }
+                if (collision.gameObject.tag == "blueRoomStatue2" && inputAction_.Player.Talk.triggered && statueFlag == false)
+                {
+                    textWriter.TextNum = 126;
+                }
 
-            if (collision.gameObject.tag == "blueRoomChair2" && inputAction_.Player.Talk.triggered && chairFlag == false)
-            {
-                textWriter.TextNum = 128;
-            }
+                if (collision.gameObject.tag == "blueRoomChair2" && inputAction_.Player.Talk.triggered && chairFlag == false)
+                {
+                    textWriter.TextNum = 128;
+                }
 
-            if (collision.gameObject.tag == "blueRoomDesk2" && inputAction_.Player.Talk.triggered)
-            {
-                textWriter.TextNum = 130;
-            }
+                if (collision.gameObject.tag == "blueRoomDesk2" && inputAction_.Player.Talk.triggered)
+                {
+                    textWriter.TextNum = 130;
+                }
 
-            if (collision.gameObject.tag == "blueRoomBookShef2" && inputAction_.Player.Talk.triggered)
-            {
-                textWriter.TextNum = 132;
-            }
+                if (collision.gameObject.tag == "blueRoomBookShef2" && inputAction_.Player.Talk.triggered && chairFlag == false)
+                {
+                    textWriter.TextNum = 132;
+                }
 
+            }
             if (collision.gameObject.layer == 8 && inputAction_.Player.Talk.triggered)
             {
                 //soundMan.isCheckUp = true;
