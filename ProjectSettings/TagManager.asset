@@ -83,6 +83,10 @@ TagManager:
   - whiteMist
   - opeRoomDesk
   - classRoom1TeacherDesk
+  - A_Desk
+  - B_Desk
+  - C_Desk
+  - D_Desk
   layers:
   - Default
   - TransparentFX

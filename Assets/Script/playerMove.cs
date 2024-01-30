@@ -693,10 +693,10 @@ public class playerMove : MonoBehaviour
 
             if (collision.gameObject.tag == "room6toRoom0Door")
             {
-                playerTeleport.SetPosition(-6.23f, 174.86f);
+                playerTeleport.SetPosition(-8.23f, 174.86f);
                 if (boyTarget.followFlag2 == true)
                 {
-                    boyTeleport.SetPosition(-6.23f, 176.86f);
+                    boyTeleport.SetPosition(-6.23f, 174.86f);
                 }
                 room0FirstFlag = true;
                 kirakira1.SetActive(false);
@@ -877,14 +877,14 @@ public class playerMove : MonoBehaviour
 
             if(collision.gameObject.tag == "whiteMist" && inputAction_.Player.Talk.triggered)
             {
+                if(firstWhiteMistFlag == true)
+                {
+                    textWriter.TextNum = 142;
+                }
                 if (firstWhiteMistFlag == false)
                 {
                     textWriter.TextNum = 140;
                     firstWhiteMistFlag = true;
-                }
-                if(firstWhiteMistFlag == true)
-                {
-                    textWriter.TextNum = 142;
                 }
             }
 
@@ -900,6 +900,24 @@ public class playerMove : MonoBehaviour
             {
                 textWriter.TextNum = 148;
             }
+
+            if(collision.gameObject.tag == "A_Desk" && inputAction_.Player.Talk.triggered)
+            {
+                textWriter.TextNum = 150;
+            }
+            if (collision.gameObject.tag == "B_Desk" && inputAction_.Player.Talk.triggered)
+            {
+                textWriter.TextNum = 152;
+            }
+            if (collision.gameObject.tag == "C_Desk" && inputAction_.Player.Talk.triggered)
+            {
+                textWriter.TextNum = 154;
+            }
+            if (collision.gameObject.tag == "D_Desk" && inputAction_.Player.Talk.triggered)
+            {
+                textWriter.TextNum = 156;
+            }
+
             if (collision.gameObject.tag == "Dial" && inputAction_.Player.Talk.triggered && password2.dontObject == false)
             {
                 textWriter.TextNum = 59;
