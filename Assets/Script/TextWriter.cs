@@ -1549,7 +1549,7 @@ public class TextWriter : MonoBehaviour
         girl.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ソラ", "進むべき道を教えて下さい。");
+        uitext.DrawText("ソラ", "天秤さん、どうか進むべき道を教えて下さい。");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
@@ -3004,7 +3004,7 @@ public class TextWriter : MonoBehaviour
         girl.SetActive(false);
         investigate.SetActive(false);
 
-        uitext.DrawText("頭に言葉が流れ込んでくる");
+        uitext.DrawText("頭にAの言葉が流れ込んでくる");
         yield return StartCoroutine("Skip");
 
         uitext.DrawText("「C君はいっつも皆の人気者。」");
@@ -3038,7 +3038,7 @@ public class TextWriter : MonoBehaviour
         girl.SetActive(false);
         investigate.SetActive(false);
 
-        uitext.DrawText("頭に言葉が流れ込んでくる");
+        uitext.DrawText("頭にBの言葉が流れ込んでくる");
         yield return StartCoroutine("Skip");
 
         uitext.DrawText("「C君って凄いよね。なんて言うか、文武両道？」");
@@ -3107,7 +3107,7 @@ public class TextWriter : MonoBehaviour
         girl.SetActive(false);
         investigate.SetActive(false);
 
-        uitext.DrawText("頭に言葉が流れ込んでくる");
+        uitext.DrawText("頭にCの言葉が流れ込んでくる");
         yield return StartCoroutine("Skip");
 
         uitext.DrawText("「この前助けた子から告白をされたんだ。」");
@@ -3146,7 +3146,7 @@ public class TextWriter : MonoBehaviour
         girl.SetActive(false);
         investigate.SetActive(false);
 
-        uitext.DrawText("頭に言葉が流れ込んでくる");
+        uitext.DrawText("頭にDの言葉が流れ込んでくる");
         yield return StartCoroutine("Skip");
 
         uitext.DrawText("「この前、いきなり先生に押し倒されて…。」");
