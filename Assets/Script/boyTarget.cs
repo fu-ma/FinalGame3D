@@ -53,19 +53,25 @@ public class boyTarget : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (followFlag2 == true)
         {
-            followFlag = false;
-            boySprite1.moveFlag = false;
+            if (other.gameObject.tag == "Player")
+            {
+                followFlag = false;
+                boySprite1.moveFlag = false;
+            }
         }
     }
 
     void OnTriggerExit(Collider other)
     {
-        if(other.gameObject.tag == "Player")
+        if (followFlag2 == true)
         {
-            followFlag = true;
-            boySprite1.moveFlag = true;
+            if (other.gameObject.tag == "Player")
+            {
+                followFlag = true;
+                boySprite1.moveFlag = true;
+            }
         }
     }
 }
