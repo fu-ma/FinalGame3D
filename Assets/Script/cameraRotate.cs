@@ -11,6 +11,7 @@ public class cameraRotate : MonoBehaviour
 
     public bool moveFlag;
     public Vector3 angle;
+    private int count;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,7 @@ public class cameraRotate : MonoBehaviour
         cameraTransform = GameObject.Find("CameraPos").GetComponent<Transform>();
         playerTransform = GameObject.Find("playerShadow").GetComponent<Transform>();
         boyTransform = GameObject.Find("boyObject").GetComponent<Transform>();
+        count = 0;
     }
 
     // Update is called once per frame
@@ -33,10 +35,17 @@ public class cameraRotate : MonoBehaviour
         if (moveFlag == true)
         {
             angle.y --;
-            if(angle.y <= -90)
+            if(angle.y <= (int)(180) && count == 1)
             {
+                angle.y = (int)(180);
                 moveFlag = false;
-                angle.y = -90;
+                count = 2;
+            }
+            if (angle.y <= (int)(-90) && count == 0)
+            {
+                angle.y = (int)(-90);
+                moveFlag = false;
+                count = 1;
             }
             playerTransform.eulerAngles = angle;
             cameraTransform.eulerAngles = angle;

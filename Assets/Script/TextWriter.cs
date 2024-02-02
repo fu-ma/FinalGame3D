@@ -53,6 +53,7 @@ public class TextWriter : MonoBehaviour
     public GameObject classRoom1C;
     public GameObject classRoom1D;
     public GameObject teacherRoomDoor;
+    public GameObject girlObject;
 
     public StatueCollision statueCollision;
     public ChairCollision chairCollision;
@@ -93,6 +94,8 @@ public class TextWriter : MonoBehaviour
     private playerMove playermove;
     private boyMove boymove;
     private ResetRoom resetroom;
+
+    private CameraChange playerChange;
 
     public GameObject mainCamera;
     public GameObject subCamera;
@@ -175,6 +178,8 @@ public class TextWriter : MonoBehaviour
 
         resetroom = GameObject.Find("GameManager").GetComponent<ResetRoom>();
 
+        playerChange = GameObject.Find("GameManager").GetComponent<CameraChange>();
+
         blueRoomStatue.isKinematic = true;
         blueRoomChair.isKinematic = true;
 
@@ -220,6 +225,7 @@ public class TextWriter : MonoBehaviour
         classRoom1C.SetActive(false);
         classRoom1D.SetActive(false);
         teacherRoomDoor.SetActive(true);
+        girlObject.SetActive(true);
 
         kirakira1.SetActive(true);
         kirakira2.SetActive(true);
@@ -3831,8 +3837,295 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
+        fadeIn.fadeOutFlag = true;
+
         boy.SetActive(true);
         uitext.DrawText("ハカリ", "………");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        fadeIn.fadeFlag = true;
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "もう大丈夫なのか…？");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "はい…もう大丈夫です。");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "……薄々気づいては居たんです。");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "きっと私はいくつかの記憶を失っています。");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "記憶を失って、何故かここに居ます…");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "進みましょう。ここに居ても始まらないですから。");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "そう…だな。");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "さっきこれを貰ったんです。");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        uitext.DrawText("ーーー天秤についての研究メモーーー");
+        yield return StartCoroutine("Skip");
+
+        uitext.DrawText("「この天秤、何かおかしいと思ってたんだ。どうやらこの天秤は願いを叶える対価を要求している。」");
+        yield return StartCoroutine("Skip");
+
+        uitext.DrawText("「間違っても死者蘇生なんて望むんじゃない、誰かが死ぬことになる。」");
+        yield return StartCoroutine("Skip");
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "やっぱり…");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "あの天秤に私が願ったから。");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "新しい場所に行ける様になった対価として、前に行けた場所に行けないんですね…");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "なるほどなぁ…、でもなんであれは天秤なんだ？");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "天秤ってーと、左右に置いたものの重さを比べるものだろ。");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "そうですね。もしかしたらそれが対価を要求している意味なのかも知れないですね。");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "？？？");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "深くは私もわかりません。");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "兎に角、先に進むにしろ次に出来る手立てが無くなっちゃいましたね。");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "かくなるうえはもう一度天秤か……");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "………そうですね。");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "どんな対価を要求されるか事前には分かりませんが、少なくとも対等なものを要求している様に感じます。");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "前回と同じように、当たり障りなく、多少の変化を望める様な。");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "そのくらいのお願いをしに、行ってみるしか無いですね。");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        fadeIn.fadeOutFlag = true;
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "行くかぁ。天秤のあった部屋。");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        playerTeleport.SetPosition(-70.17f, 219.09f);
+        boyTeleport.SetPosition(-68.17f, 219.09f);
+
+        fadeIn.fadeFlag = true;
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "さてと……");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "当たり障りのない願い事ねぇ…");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        fadeIn.fadeOutFlag = true;
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "どうする？ソラ。");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "そうですね………");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "………");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "んぁ～、あんま難しく考えんな。");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "お前の率直な意見でいい。");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "わかり……ました。");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        fadeIn.fadeFlag = true;
+        
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "今まで見えていた場所が、また見えなくなったとしても。");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ソラ", "私たちは………先に進みたい。");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        Canbus.SetActive(false);
+        fadeIn.fadeInOutFlag = true;
+        cameraRotateFlag = true;
+        Canbus.SetActive(true);
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "そうだな………");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+        fadeIn.fadeOutFlag = true;
+
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "俺たちは先に進むしかねぇ。");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        boyTarget.followFlag2 = false;
+        playerChange.moveFlag = true;
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "行こ―ぜ、ソラ。");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        girlObject.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "…ソラ？");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+
+        fadeIn.fadeFlag = true;
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "そう来たかよ天秤……");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "………");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "いや…ソラの存在が消えちまった可能性は低い。");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "天秤の要求する対価が対等な物だとして。");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "ソラの存在が消えるほどの要求を俺たちはしていない。");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "そもそも俺ではなくソラが消えたことを考えると…");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "お互いが、見えなくなっている可能性が高いか…");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "くっそ、ソラ…");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "無事でいてくれ……");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        fadeIn.fadeOutFlag = true;
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "お前の過去も痛みも俺が………");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        fadeIn.fadeFlag = true;
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "ソラの為にも、何か脱出の糸口を見つけねぇとな。");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ハカリ", "さてと、他に行ける場所はどこだ～");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
