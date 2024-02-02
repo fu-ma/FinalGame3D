@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class playerMove : MonoBehaviour
 {
@@ -73,7 +70,9 @@ public class playerMove : MonoBehaviour
     private bool room0backHomeFlag;
     private bool blueButtonRoomFlag;
     private bool firstWhiteMistFlag;
-    
+    private bool firstTeacherRoomFlag;
+    private bool firstTeacherDeskFlag;
+
     //ƒLƒ‰ƒLƒ‰
     public GameObject kirakira1;
     public GameObject kirakira2;
@@ -172,6 +171,8 @@ public class playerMove : MonoBehaviour
         room0backHomeFlag = false;
         blueButtonRoomFlag = false;
         firstWhiteMistFlag = false;
+        firstTeacherRoomFlag = false;
+        firstTeacherDeskFlag = false;
 
         kirakira1.SetActive(true);
         kirakira2.SetActive(true);
@@ -877,7 +878,7 @@ public class playerMove : MonoBehaviour
 
             if(collision.gameObject.tag == "whiteMist" && inputAction_.Player.Talk.triggered)
             {
-                if(firstWhiteMistFlag == true)
+                if(firstWhiteMistFlag == true && firstTeacherDeskFlag == false)
                 {
                     textWriter.TextNum = 142;
                 }
@@ -885,6 +886,10 @@ public class playerMove : MonoBehaviour
                 {
                     textWriter.TextNum = 140;
                     firstWhiteMistFlag = true;
+                }
+                if(firstTeacherDeskFlag == true)
+                {
+                    textWriter.TextNum = 170;
                 }
             }
 
@@ -916,6 +921,51 @@ public class playerMove : MonoBehaviour
             if (collision.gameObject.tag == "D_Desk" && inputAction_.Player.Talk.triggered)
             {
                 textWriter.TextNum = 156;
+            }
+
+            if(collision.gameObject.tag == "teacherRoomGoDoor")
+            {
+                playerTeleport.SetPosition(-135.62f, 36.03f);
+                if (boyTarget.followFlag2 == true)
+                {
+                    boyTeleport.SetPosition(-137.62f, 36.03f);
+                }
+
+                if(firstTeacherRoomFlag == false)
+                {
+                    textWriter.TextNum = 160;
+                    firstTeacherRoomFlag = true;
+                }
+            }
+
+            if(collision.gameObject.tag == "classRoom1ToTeacherRoom")
+            {
+                playerTeleport.SetPosition(-66.21f, 52.02f);
+                if (boyTarget.followFlag2 == true)
+                {
+                    boyTeleport.SetPosition(-64.21f, 52.02f);
+                }
+            }
+
+            if (collision.gameObject.tag == "teacherDesk1" && inputAction_.Player.Talk.triggered)
+            {
+                textWriter.TextNum = 162;
+            }
+
+            if (collision.gameObject.tag == "teacherDesk2" && inputAction_.Player.Talk.triggered)
+            {
+                textWriter.TextNum = 164;
+            }
+
+            if (collision.gameObject.tag == "teacherDesk3" && inputAction_.Player.Talk.triggered)
+            {
+                textWriter.TextNum = 166;
+            }
+
+            if (collision.gameObject.tag == "teacherDesk4" && inputAction_.Player.Talk.triggered && firstTeacherDeskFlag == false)
+            {
+                textWriter.TextNum = 168;
+                firstTeacherDeskFlag = true;
             }
 
             if (collision.gameObject.tag == "Dial" && inputAction_.Player.Talk.triggered && password2.dontObject == false)

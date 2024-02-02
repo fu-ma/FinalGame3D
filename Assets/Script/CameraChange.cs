@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraChange : MonoBehaviour
@@ -35,6 +33,5 @@ public class CameraChange : MonoBehaviour
             subCamera.SetActive(!subCamera.activeSelf);
             moveFlag = false;
         }
-        Debug.Log(playermove.changeCharaFlag);
     }
 }

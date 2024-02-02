@@ -1,12 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class cameraRotate : MonoBehaviour
 {
-    int leftNum = 0;
-    int rightNum = 0;
     private PlayerInputSystem inputAction_;
     private Transform playerTransform;
     private Transform cameraTransform;

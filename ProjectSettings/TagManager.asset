@@ -87,6 +87,12 @@ TagManager:
   - B_Desk
   - C_Desk
   - D_Desk
+  - teacherRoomGoDoor
+  - classRoom1ToTeacherRoom
+  - teacherDesk1
+  - teacherDesk2
+  - teacherDesk3
+  - teacherDesk4
   layers:
   - Default
   - TransparentFX

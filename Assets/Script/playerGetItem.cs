@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class playerGetItem : MonoBehaviour
@@ -519,7 +516,6 @@ public class playerGetItem : MonoBehaviour
                     {
                         if (isUseSowing == true)
                         {
-                            Debug.Log("裁縫道具を使用した");
                             hpSprite.HP = 5;
                             //アイテムを使った時の処理を書いてほしい
                             if (itemPhoto1.sprite == imageSowing)
