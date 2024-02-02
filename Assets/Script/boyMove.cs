@@ -15,6 +15,7 @@ public class boyMove : MonoBehaviour
     private int hitTime;
     private CameraChange playerChange;
     private TextWriter textWriter;
+    private boyTeleport boyTeleport;
 
     public bool statueFlag;
     public bool chairFlag;
@@ -41,6 +42,7 @@ public class boyMove : MonoBehaviour
         hitTime = 0;
         playerChange = GameObject.Find("GameManager").GetComponent<CameraChange>();
         textWriter = GameObject.Find("Canvas").GetComponent<TextWriter>();
+        boyTeleport = GameObject.Find("boyObject").GetComponent<boyTeleport>();
 
         statueFlag = false;
         chairFlag = false;
@@ -151,6 +153,125 @@ public class boyMove : MonoBehaviour
             if (collision.gameObject.tag == "ChangeButton2" && inputAction_.Player.Talk.triggered)
             {
                 playerChange.moveFlag = true;
+            }
+
+            if (collision.gameObject.tag == "1-1goDoor")
+            {
+                boyTeleport.SetPosition(-64, 39.5f);
+            }
+            if (collision.gameObject.tag == "2-1goDoor")
+            {
+                boyTeleport.SetPosition(83.5f, 39);
+            }
+            if (collision.gameObject.tag == "entrancegoDoor1")
+            {
+                boyTeleport.SetPosition(-17.2f, 38.85f);
+            }
+            if (collision.gameObject.tag == "entrancegoDoor2")
+            {
+                boyTeleport.SetPosition(27.1f, 38.85f);
+            }
+
+            if (collision.gameObject.tag == "1-2goDoor")
+            {
+                boyTeleport.SetPosition(-76.1f, 99.3f);
+            }
+
+            if (collision.gameObject.tag == "2-2goDoor")
+            {
+                boyTeleport.SetPosition(96.35f, 99.3f);
+            }
+            if (collision.gameObject.tag == "1-3goDoor")
+            {
+                boyTeleport.SetPosition(-76.1f, 159.3f);
+            }
+            if (collision.gameObject.tag == "2-3goDoor")
+            {
+                boyTeleport.SetPosition(96.35f, 159.3f);
+            }
+            if (collision.gameObject.tag == "1-1leftGoDoor")
+            {
+                boyTeleport.SetPosition(-76.1f, 39.3f);
+            }
+            if (collision.gameObject.tag == "2-1leftGoDoor")
+            {
+                boyTeleport.SetPosition(96.35f, 39.3f);
+            }
+            if (collision.gameObject.tag == "operoomGoDoor")
+            {
+                boyTeleport.SetPosition(-9.52f, 101.8f);
+            }
+            if (collision.gameObject.tag == "entrancetoOpeGoDoor")
+            {
+                boyTeleport.SetPosition(-9.52f, 48.7f);
+            }
+            if (collision.gameObject.tag == "room4goDoor")
+            {
+                boyTeleport.SetPosition(37, 98.8f);
+            }
+            if (collision.gameObject.tag == "entrancetoRoom4Door")
+            {
+                boyTeleport.SetPosition(19.36f, 48.51f);
+            }
+            if (collision.gameObject.tag == "room6goDoor")
+            {
+                boyTeleport.SetPosition(-6.25f, 158.93f);
+            }
+            if (collision.gameObject.tag == "room4toRoom6Door")
+            {
+                boyTeleport.SetPosition(28.85f, 113.63f);
+            }
+            if (collision.gameObject.tag == "room0goDoor")
+            {
+                boyTeleport.SetPosition(36.26f, 157.14f);
+            }
+            if (collision.gameObject.tag == "undergroundgoDoor")
+            {
+                boyTeleport.SetPosition(-9.89f, 219.28f);
+            }
+            if (collision.gameObject.tag == "room6toRoom0Door")
+            {
+                boyTeleport.SetPosition(-8.23f, 174.86f);
+            }
+            if (collision.gameObject.tag == "room6toUndergroundDoor")
+            {
+                boyTeleport.SetPosition(-13.63f, 172.86f);
+            }
+            if (collision.gameObject.tag == "balanceroomGoDoor")
+            {
+                boyTeleport.SetPosition(-70.17f, 219.09f);
+            }
+            if (collision.gameObject.tag == "undergroundtobalanceDoor")
+            {
+                boyTeleport.SetPosition(-10.08f, 232.28f);
+            }
+            if (collision.gameObject.tag == "equilibriumGoDoor" && inputAction_.Player.Talk.triggered)
+            {
+                boyTeleport.SetPosition(-123.8f, 106f);
+            }
+            if (collision.gameObject.tag == "equilibriumGoDoor2")
+            {
+                boyTeleport.SetPosition(-123.8f, 106f);
+            }
+            if (collision.gameObject.tag == "blueButtonRoom2Go")
+            {
+                boyTeleport.SetPosition(-183.98f, 106f);
+            }
+            if (collision.gameObject.tag == "blueButtonRoomGo")
+            {
+                boyTeleport.SetPosition(-135f, 106f);
+            }
+            if (collision.gameObject.tag == "operoomtoEquilibriumDoor")
+            {
+                boyTeleport.SetPosition(-15.73f, 107.07f);
+            }
+            if (collision.gameObject.tag == "teacherRoomGoDoor")
+            {
+                boyTeleport.SetPosition(-135.62f, 36.03f);
+            }
+            if (collision.gameObject.tag == "classRoom1ToTeacherRoom")
+            {
+                boyTeleport.SetPosition(-66.21f, 52.02f);
             }
 
             if (blueRoomFlag == false)
