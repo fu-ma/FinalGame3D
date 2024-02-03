@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -54,6 +54,25 @@ public class TextWriter : MonoBehaviour
     public GameObject classRoom1D;
     public GameObject teacherRoomDoor;
     public GameObject girlObject;
+    public GameObject roomWarp;
+    public GameObject light1;
+    public GameObject light2;
+    public GameObject light3;
+    public GameObject light4;
+    public GameObject button1;
+    public GameObject button2;
+    public GameObject button3;
+    public GameObject button4;
+    public GameObject desk1;
+    public GameObject desk2;
+    public GameObject lostObject1;
+    public GameObject lostObject2;
+    public GameObject lostObject3;
+    public GameObject lostObject4;
+    public GameObject lostObject5;
+    public GameObject lostObject6;
+    public GameObject lostObject7;
+    public GameObject kirakira10;
 
     public StatueCollision statueCollision;
     public ChairCollision chairCollision;
@@ -105,13 +124,13 @@ public class TextWriter : MonoBehaviour
 
     public GameObject whiteMistObject;
 
-    //lŒ`‚ğ‚Á‚Ä‚¢‚é‚©
+    //äººå½¢ã‚’æŒã£ã¦ã„ã‚‹ã‹
     public bool dollGetFlag;
     public bool fenceStoryFlag;
 
     public int TextNum;
 
-    //room0‚ğˆê‰ñ‚Å‚à’Ê‚Á‚½‚±‚Æ‚ª‚ ‚é‚©
+    //room0ã‚’ä¸€å›ã§ã‚‚é€šã£ãŸã“ã¨ãŒã‚ã‚‹ã‹
     public bool room0FirstFlag;
 
     public bool underground45Flag;
@@ -128,7 +147,7 @@ public class TextWriter : MonoBehaviour
     private bool D_DeskStoryFlag;
     private bool DeskStoryFlag;
 
-    //ƒJƒƒ‰‰ñ“]
+    //ã‚«ãƒ¡ãƒ©å›è»¢
     public bool cameraRotateFlag;
     private bool cameraRotatedFlag;
     private int cameraRotateTimer;
@@ -226,6 +245,24 @@ public class TextWriter : MonoBehaviour
         classRoom1D.SetActive(false);
         teacherRoomDoor.SetActive(true);
         girlObject.SetActive(true);
+        roomWarp.SetActive(false);
+        light1.SetActive(false);
+        light2.SetActive(false);
+        light3.SetActive(false);
+        light4.SetActive(false);
+        button1.SetActive(false);
+        button2.SetActive(false);
+        button3.SetActive(false);
+        button4.SetActive(false);
+        desk1.SetActive(true);
+        desk2.SetActive(true);
+        lostObject1.SetActive(true);
+        lostObject2.SetActive(true);
+        lostObject3.SetActive(true);
+        lostObject4.SetActive(true);
+        lostObject5.SetActive(true);
+        lostObject6.SetActive(true);
+        lostObject7.SetActive(true);
 
         kirakira1.SetActive(true);
         kirakira2.SetActive(true);
@@ -235,6 +272,7 @@ public class TextWriter : MonoBehaviour
         kirakira6.SetActive(true);
         kirakira7.SetActive(true);
         kirakira8.SetActive(true);
+        kirakira10.SetActive(false);
 
         gameEndFlag = false;
 
@@ -257,27 +295,27 @@ public class TextWriter : MonoBehaviour
 
     IEnumerator RooftopStory()
     {
-        //uitext.DrawText("ƒiƒŒ[ƒVƒ‡ƒ“‚¾‚Á‚½‚ç‚±‚Ì‚Ü‚Ü‘‚¯‚ÎOK");
+        //uitext.DrawText("ãƒŠãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã ã£ãŸã‚‰ã“ã®ã¾ã¾æ›¸ã‘ã°OK");
         //yield return StartCoroutine("Skip");
         Canbus.SetActive(true);
         boy.SetActive(false);
         girl.SetActive(true);
         investigate.SetActive(false);
-        uitext.DrawText("­—", "‚ ‚ê...?");
+        uitext.DrawText("å°‘å¥³", "ã‚ã‚Œ...?");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
-        uitext.DrawText( "‹C‚ª•t‚­‚ÆAŒ©’m‚ç‚ÊêŠ‚É“|‚ê‚Ä‚¢‚½B");
+        uitext.DrawText( "æ°—ãŒä»˜ãã¨ã€è¦‹çŸ¥ã‚‰ã¬å ´æ‰€ã«å€’ã‚Œã¦ã„ãŸã€‚");
         yield return StartCoroutine("Skip");
-        uitext.DrawText( "ü‚è‚ğŒ©“n‚µ‚Ä‚İ‚é‚à^‚ÁˆÃ‚ÅA‚Ú‚ñ‚â‚è‚ÆŒõ‚é“dü‚¾‚¯‚ªA“ªã‚©‚ç•Ó‚è‚ğ‚¤‚Á‚·‚çÆ‚ç‚µ‚Ä‚¢‚éB");
+        uitext.DrawText( "å‘¨ã‚Šã‚’è¦‹æ¸¡ã—ã¦ã¿ã‚‹ã‚‚çœŸã£æš—ã§ã€ã¼ã‚“ã‚„ã‚Šã¨å…‰ã‚‹é›»é£¾ã ã‘ãŒã€é ­ä¸Šã‹ã‚‰è¾ºã‚Šã‚’ã†ã£ã™ã‚‰ç…§ã‚‰ã—ã¦ã„ã‚‹ã€‚");
         yield return StartCoroutine("Skip");
-        uitext.DrawText("”ƒ[ƒgƒ‹æ‚ÌˆÃˆÅ‚É”÷‚©‚Éò‚ªŒ©‚¦‚½B");
+        uitext.DrawText("æ•°ãƒ¡ãƒ¼ãƒˆãƒ«å…ˆã®æš—é—‡ã«å¾®ã‹ã«æŸµãŒè¦‹ãˆãŸã€‚");
         yield return StartCoroutine("Skip");
         fadeIn.fadeFlag = true;
         girl.SetActive(true);
-        uitext.DrawText("­—", "‰½‚µ‚Ä‚½‚ñ‚¾‚Á‚¯...");
+        uitext.DrawText("å°‘å¥³", "ä½•ã—ã¦ãŸã‚“ã ã£ã‘...");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
-        uitext.DrawText("‚Ç‚¤‚â‚çA‚±‚±‚É—ˆ‚é‚Ü‚Å‚Ì‹L‰¯‚ª”²‚¯—‚¿‚Ä‚¢‚é‚İ‚½‚¢‚¾B");
+        uitext.DrawText("ã©ã†ã‚„ã‚‰ã€ã“ã“ã«æ¥ã‚‹ã¾ã§ã®è¨˜æ†¶ãŒæŠœã‘è½ã¡ã¦ã„ã‚‹ã¿ãŸã„ã ã€‚");
         yield return StartCoroutine("Skip");
         cameraMove1.effectFlag = true;
         Canbus.SetActive(false);
@@ -290,31 +328,31 @@ public class TextWriter : MonoBehaviour
         girl_fear.SetActive(true);
         investigate.SetActive(false);
 
-        uitext.DrawText("­—", "I");
+        uitext.DrawText("å°‘å¥³", "ï¼");
         yield return StartCoroutine("Skip");
         girl_fear.SetActive(false);
         girl.SetActive(false);
-        uitext.DrawText("Šm‚©‚É¡Al‚ª”ò‚Ñ~‚è‚½B•‚­‚Ä‰e‚Ì—l‚ÈB");
+        uitext.DrawText("ç¢ºã‹ã«ä»Šã€äººãŒé£›ã³é™ã‚ŠãŸã€‚é»’ãã¦å½±ã®æ§˜ãªã€‚");
         yield return StartCoroutine("Skip");
-        uitext.DrawText("ˆêu‚Å‚àŒ©‚¦‚½hƒ\ƒŒh‚ÍŒ`—e‚µ‚ª‚½‚­A‘ˆ«‚ğŒÅ‚ß‚½—l‚ÈA‚»‚ñ‚È‘¶İŠ´‚É“f‚«‹C‚ª‚µ‚½B");
+        uitext.DrawText("ä¸€ç¬ã§ã‚‚è¦‹ãˆãŸâ€ã‚½ãƒ¬â€ã¯å½¢å®¹ã—ãŒãŸãã€æ†æ‚ªã‚’å›ºã‚ãŸæ§˜ãªã€ãã‚“ãªå­˜åœ¨æ„Ÿã«åãæ°—ãŒã—ãŸã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
         girl_fear.SetActive(true);
-        uitext.DrawText("­—", "‚ ‚Ác");
+        uitext.DrawText("å°‘å¥³", "ã‚ã£â€¦");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
         girl_fear.SetActive(false);
-        uitext.DrawText("—©‚ê‚½—l‚Éº‚ğ˜R‚ç‚µA‚µ‚©‚µ‚È‚ª‚ç‹­‚­H‚¢‚µ‚Î‚éB");
+        uitext.DrawText("æ ã‚ŒãŸæ§˜ã«å£°ã‚’æ¼ã‚‰ã—ã€ã—ã‹ã—ãªãŒã‚‰å¼·ãé£Ÿã„ã—ã°ã‚‹ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(true);
-        uitext.DrawText("­—", "‚±‚±‚É‹‚½‚Ü‚Ü‚¶‚á‚Ü‚¸‚¢B");
+        uitext.DrawText("å°‘å¥³", "ã“ã“ã«å±…ãŸã¾ã¾ã˜ã‚ƒã¾ãšã„ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
-        uitext.DrawText("‚»‚¤Š´‚¶‚½‚Ì‚ÍŠë‹@Š´‚©A–{”\‚©B");
+        uitext.DrawText("ãã†æ„Ÿã˜ãŸã®ã¯å±æ©Ÿæ„Ÿã‹ã€æœ¬èƒ½ã‹ã€‚");
         yield return StartCoroutine("Skip");
-        uitext.DrawText("‚ ‚ÌŒ¾‚¢‚æ‚¤‚Ì‚È‚¢–Û‚ªAŒ»À‚Å‚Í‚È‚¢‚±‚Æ‚¾‚¯‚ğŠm‚©‚Ém’è‚·‚éB");
+        uitext.DrawText("ã‚ã®è¨€ã„ã‚ˆã†ã®ãªã„äº‹è±¡ãŒã€ç¾å®Ÿã§ã¯ãªã„ã“ã¨ã ã‘ã‚’ç¢ºã‹ã«è‚¯å®šã™ã‚‹ã€‚");
         yield return StartCoroutine("Skip");
-        uitext.DrawText("‚»‚ñ‚È‹°•|‚Éâ‚ñ‚¾‘«‚ğ^‚Áæ‚É“®‚©‚µ‚½‚Ì‚ÍA‚Ù‚ñ‚Ì­‚µ‚ÌDŠïS‚¾‚Á‚½B");
+        uitext.DrawText("ãã‚“ãªææ€–ã«ç«¦ã‚“ã è¶³ã‚’çœŸã£å…ˆã«å‹•ã‹ã—ãŸã®ã¯ã€ã»ã‚“ã®å°‘ã—ã®å¥½å¥‡å¿ƒã ã£ãŸã€‚");
         yield return StartCoroutine("Skip");
         cameraMove1.effectFlag2 = true;
 
@@ -330,15 +368,15 @@ public class TextWriter : MonoBehaviour
         boy.SetActive(false);
         investigate.SetActive(false);
 
-        uitext.DrawText("ƒhƒA‚Í•Â‚Ü‚Á‚Ä‚¢‚éB");
+        uitext.DrawText("ãƒ‰ã‚¢ã¯é–‰ã¾ã£ã¦ã„ã‚‹ã€‚");
         yield return StartCoroutine("Skip");
-        uitext.DrawText("ƒhƒA‚Ì‹ß‚­‚ÉA‰½ˆ‚©Šù‹Š´‚Ì‚ ‚élŒ`‚ª’u‚¢‚Ä‚ ‚éB");
+        uitext.DrawText("ãƒ‰ã‚¢ã®è¿‘ãã«ã€ä½•å‡¦ã‹æ—¢è¦–æ„Ÿã®ã‚ã‚‹äººå½¢ãŒç½®ã„ã¦ã‚ã‚‹ã€‚");
         yield return StartCoroutine("Skip");
-        uitext.DrawText("‚Á‚Ä‚¢‚é‚Æ‚Æ‚Ä‚àˆÀS‚·‚é—l‚¾B");
+        uitext.DrawText("æŒã£ã¦ã„ã‚‹ã¨ã¨ã¦ã‚‚å®‰å¿ƒã™ã‚‹æ§˜ã ã€‚");
         yield return StartCoroutine("Skip");
         doll.SetActive(true);
         soundMan.isGetItem = true;
-        uitext.DrawText("lŒ`‚ğè‚É“ü‚ê‚½B");
+        uitext.DrawText("äººå½¢ã‚’æ‰‹ã«å…¥ã‚ŒãŸã€‚");
         yield return StartCoroutine("Skip");
         doll.SetActive(false);
         HP.SetActive(true);
@@ -356,13 +394,13 @@ public class TextWriter : MonoBehaviour
         boy.SetActive(false);
         investigate.SetActive(false);
 
-        uitext.DrawText("‰º‚ğ‚Ì‚¼‚­‚Æ•‚¢‰e‚ªƒoƒ‰ƒoƒ‰‚É‚È‚Á‚ÄU‚ç‚Î‚Á‚Ä‚¢‚éB");
+        uitext.DrawText("ä¸‹ã‚’ã®ããã¨é»’ã„å½±ãŒãƒãƒ©ãƒãƒ©ã«ãªã£ã¦æ•£ã‚‰ã°ã£ã¦ã„ã‚‹ã€‚");
         yield return StartCoroutine("Skip");
-        uitext.DrawText("‚»‚ÌŒõŒi‚ğŒ©‚½uŠÔ‚É‹°•|‚Æ“f‚«‹C‚ÉP‚í‚ê‚½B");
+        uitext.DrawText("ãã®å…‰æ™¯ã‚’è¦‹ãŸç¬é–“ã«ææ€–ã¨åãæ°—ã«è¥²ã‚ã‚ŒãŸã€‚");
         yield return StartCoroutine("Skip");
-        uitext.DrawText("‚µ‚©‚µA•sˆÓ‚ÉlŒ`‚ğ•ø‚«‚µ‚ß‚½‚ç•sˆÀ‚Í”–‚ê‚Ä‚¢‚Á‚½B");
+        uitext.DrawText("ã—ã‹ã—ã€ä¸æ„ã«äººå½¢ã‚’æŠ±ãã—ã‚ãŸã‚‰ä¸å®‰ã¯è–„ã‚Œã¦ã„ã£ãŸã€‚");
         yield return StartCoroutine("Skip");
-        uitext.DrawText("‚»‚ê‚Æ“¯‚ÉlŒ`‚Ì‰E˜r‚ª–³‚­‚È‚Á‚Ä‚¢‚é–‚É‹C‚Ã‚¢‚½B");
+        uitext.DrawText("ãã‚Œã¨åŒæ™‚ã«äººå½¢ã®å³è…•ãŒç„¡ããªã£ã¦ã„ã‚‹äº‹ã«æ°—ã¥ã„ãŸã€‚");
         yield return StartCoroutine("Skip");
         soundMan.isDoorOpen = true;
         playerDamage.isDamage = true;
@@ -379,9 +417,9 @@ public class TextWriter : MonoBehaviour
         boy.SetActive(false);
         investigate.SetActive(false);
 
-        uitext.DrawText("ƒhƒA‚ªŠJ‚¢‚Ä‚¢‚éB");
+        uitext.DrawText("ãƒ‰ã‚¢ãŒé–‹ã„ã¦ã„ã‚‹ã€‚");
         yield return StartCoroutine("Skip");
-        uitext.DrawText("’†‚É“ü‚ë‚¤B");
+        uitext.DrawText("ä¸­ã«å…¥ã‚ã†ã€‚");
         yield return StartCoroutine("Skip");
         playerTeleport.SetPosition(5, 30);
         if (boyTarget.followFlag2 == true)
@@ -401,7 +439,7 @@ public class TextWriter : MonoBehaviour
         girl_fear.SetActive(true);
         investigate.SetActive(false);
 
-        uitext.DrawText("­—", "‚¦cccc?");
+        uitext.DrawText("å°‘å¥³", "ãˆâ€¦â€¦â€¦â€¦?");
         yield return StartCoroutine("Skip");
         girl_fear.SetActive(false);
 
@@ -417,23 +455,23 @@ public class TextWriter : MonoBehaviour
         boy.SetActive(false);
         investigate.SetActive(false);
 
-        uitext.DrawText("–Ú‚Ì‘O‚ÉL‚ª‚Á‚Ä‚¢‚é‚Ì‚ÍA•a‰@‚ÌƒGƒ“ƒgƒ‰ƒ“ƒX‚¾‚ë‚¤‚©B");
+        uitext.DrawText("ç›®ã®å‰ã«åºƒãŒã£ã¦ã„ã‚‹ã®ã¯ã€ç—…é™¢ã®ã‚¨ãƒ³ãƒˆãƒ©ãƒ³ã‚¹ã ã‚ã†ã‹ã€‚");
         yield return StartCoroutine("Skip");
         hospital.backFlag = true;
-        uitext.DrawText("‚µ‚©‚µŒã‚ë‚ğU‚èŒü‚¯‚ÎAƒhƒA‚Ìæ‚É‚Í‰®ã‚ªL‚ª‚Á‚Ä‚¢‚éB");
+        uitext.DrawText("ã—ã‹ã—å¾Œã‚ã‚’æŒ¯ã‚Šå‘ã‘ã°ã€ãƒ‰ã‚¢ã®å…ˆã«ã¯å±‹ä¸ŠãŒåºƒãŒã£ã¦ã„ã‚‹ã€‚");
         yield return StartCoroutine("Skip");
         girl_fear.SetActive(true);
-        uitext.DrawText("­—","‚Ç‚¤‚È‚Á‚Ä‚é‚Ìc");
+        uitext.DrawText("å°‘å¥³","ã©ã†ãªã£ã¦ã‚‹ã®â€¦");
         yield return StartCoroutine("Skip");
         girl_fear.SetActive(false);
         soundMan.isDoorClose = true;
-        uitext.DrawText("ƒoƒ^ƒ“IIII");
+        uitext.DrawText("ãƒã‚¿ãƒ³ï¼ï¼ï¼ï¼");
         yield return StartCoroutine("Skip");
         girl_fear.SetActive(true);
-        uitext.DrawText("­—", "‚Ácc");
+        uitext.DrawText("å°‘å¥³", "ã£â€¦â€¦");
         yield return StartCoroutine("Skip");
         hospital.backFlag = false;
-        uitext.DrawText("­—", "æ‚Éi‚Ş‚µ‚©‚È‚¢c‚æ‚Ëc");
+        uitext.DrawText("å°‘å¥³", "å…ˆã«é€²ã‚€ã—ã‹ãªã„â€¦ã‚ˆã­â€¦");
         yield return StartCoroutine("Skip");
         girl_fear.SetActive(false);
         gameStop.stopFlag = false;
@@ -448,7 +486,7 @@ public class TextWriter : MonoBehaviour
         boy.SetActive(false);
         investigate.SetActive(false);
 
-        uitext.DrawText("ƒhƒA‚Í•Â‚Ü‚Á‚Ä‚¢‚éB");
+        uitext.DrawText("ãƒ‰ã‚¢ã¯é–‰ã¾ã£ã¦ã„ã‚‹ã€‚");
         yield return StartCoroutine("Skip");
         gameStop.stopFlag = false;
         Canbus.SetActive(false);
@@ -462,26 +500,26 @@ public class TextWriter : MonoBehaviour
         boy.SetActive(false);
         investigate.SetActive(false);
 
-        uitext.DrawText("èpº‚Æ‘‚©‚ê‚Ä‚¢‚éB");
+        uitext.DrawText("æ‰‹è¡“å®¤ã¨æ›¸ã‹ã‚Œã¦ã„ã‚‹ã€‚");
         yield return StartCoroutine("Skip");
         fadeIn.fadeOutFlag = true;
-        uitext.DrawText("­—", "‚¢‚âI");
+        uitext.DrawText("å°‘å¥³", "ã„ã‚„ï¼");
         yield return StartCoroutine("Skip");
-        uitext.DrawText("­—", "‚¾‚ß‚ÁI");
+        uitext.DrawText("å°‘å¥³", "ã ã‚ã£ï¼");
         yield return StartCoroutine("Skip");
-        uitext.DrawText("­—", "€‚È‚È‚¢‚Å‚ÁII");
+        uitext.DrawText("å°‘å¥³", "æ­»ãªãªã„ã§ã£ï¼ï¼");
         yield return StartCoroutine("Skip");
-        uitext.DrawText("­—", "’u‚¢‚Ä‚©‚È‚¢‚Åcc");
+        uitext.DrawText("å°‘å¥³", "ç½®ã„ã¦ã‹ãªã„ã§â€¦â€¦");
         yield return StartCoroutine("Skip");
         fadeIn.fadeFlag = true;
         girl_fear.SetActive(true);
-        uitext.DrawText("­—", "‚¤‚Ác“ª’É‚¢c");
+        uitext.DrawText("å°‘å¥³", "ã†ã£â€¦é ­ç—›ã„â€¦");
         yield return StartCoroutine("Skip");
         girl_fear.SetActive(true);
-        uitext.DrawText("­—", "‚»‚ê‚É‰½‚©c‘åØ‚Èc");
+        uitext.DrawText("å°‘å¥³", "ãã‚Œã«ä½•ã‹â€¦å¤§åˆ‡ãªâ€¦");
         yield return StartCoroutine("Skip");
         girl_fear.SetActive(true);
-        uitext.DrawText("­—", "v‚¢o‚¹‚È‚¢c");
+        uitext.DrawText("å°‘å¥³", "æ€ã„å‡ºã›ãªã„â€¦");
         yield return StartCoroutine("Skip");
         girl_fear.SetActive(false);
 
@@ -497,14 +535,14 @@ public class TextWriter : MonoBehaviour
         boy.SetActive(false);
         investigate.SetActive(false);
 
-        uitext.DrawText("“Sò‚ÌƒQ[ƒg‚¾B");
+        uitext.DrawText("é‰„æŸµã®ã‚²ãƒ¼ãƒˆã ã€‚");
         yield return StartCoroutine("Skip");
-        uitext.DrawText("X‚É‰œ‚É‚ÍƒhƒA‚ªŒ©‚¦‚éB");
+        uitext.DrawText("æ›´ã«å¥¥ã«ã¯ãƒ‰ã‚¢ãŒè¦‹ãˆã‚‹ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(true);
-        uitext.DrawText("­—", "‚±‚Ì“SòAƒAƒCƒc‚Ìg’·‚È‚ç“o‚ê‚½‚©‚ÈB");
+        uitext.DrawText("å°‘å¥³", "ã“ã®é‰„æŸµã€ã‚¢ã‚¤ãƒ„ã®èº«é•·ãªã‚‰ç™»ã‚ŒãŸã‹ãªã€‚");
         yield return StartCoroutine("Skip");
-        uitext.DrawText("­—", "c‚ ‚êAƒAƒCƒc‚Á‚Äc’N‚Ì‚±‚Æ‚¾‚ë‚¤c");
+        uitext.DrawText("å°‘å¥³", "â€¦ã‚ã‚Œã€ã‚¢ã‚¤ãƒ„ã£ã¦â€¦èª°ã®ã“ã¨ã ã‚ã†â€¦");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
@@ -520,7 +558,7 @@ public class TextWriter : MonoBehaviour
         girl.SetActive(true);
         investigate.SetActive(false);
 
-        uitext.DrawText("­—", "¡“x‚ÍcŠwZH");
+        uitext.DrawText("å°‘å¥³", "ä»Šåº¦ã¯â€¦å­¦æ ¡ï¼Ÿ");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
@@ -536,7 +574,7 @@ public class TextWriter : MonoBehaviour
         girl.SetActive(true);
         investigate.SetActive(false);
 
-        uitext.DrawText("­—", "‚ ‚êH‚³‚Á‚«‚Æ‚¨‚È‚¶H");
+        uitext.DrawText("å°‘å¥³", "ã‚ã‚Œï¼Ÿã•ã£ãã¨ãŠãªã˜ï¼Ÿ");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
@@ -552,26 +590,26 @@ public class TextWriter : MonoBehaviour
         girl.SetActive(false);
         investigate.SetActive(false);
 
-        uitext.DrawText("Š÷‚Ì’†‚É‰½‚©“ü‚Á‚Ä‚¢‚éB");
+        uitext.DrawText("æœºã®ä¸­ã«ä½•ã‹å…¥ã£ã¦ã„ã‚‹ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(true);
-        uitext.DrawText("­—", "‚±‚ê‚ÍcÙ–D“¹‹ïcH");
+        uitext.DrawText("å°‘å¥³", "ã“ã‚Œã¯â€¦è£ç¸«é“å…·â€¦ï¼Ÿ");
         yield return StartCoroutine("Skip");
-        uitext.DrawText("­—", "‚±‚ê‚ª‚ ‚ê‚Î‚¨lŒ`‚ğ¡‚¹‚é‚©‚àB");
+        uitext.DrawText("å°‘å¥³", "ã“ã‚ŒãŒã‚ã‚Œã°ãŠäººå½¢ã‚’æ²»ã›ã‚‹ã‹ã‚‚ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
         sewing.SetActive(true);
         soundMan.isGetItem = true;
-        uitext.DrawText("Ù–D“¹‹ï‚ğè‚É“ü‚ê‚½B");
+        uitext.DrawText("è£ç¸«é“å…·ã‚’æ‰‹ã«å…¥ã‚ŒãŸã€‚");
         yield return StartCoroutine("Skip");
-        //‚±‚±‚ÉsowingGet‚ğtrue‚É‚·‚é•¶‚ğ‘‚­
+        //ã“ã“ã«sowingGetã‚’trueã«ã™ã‚‹æ–‡ã‚’æ›¸ã
         playergetitem.sowingGet1 = true;
 
         deskEffect.SetActive(false);
         sewing.SetActive(false);
-        uitext.DrawText("¦ƒAƒCƒeƒ€—“‚©‚çhÙ–D“¹‹ïh‚ğg—p‚·‚é‚ÆAHP‚ğ‘S‰ñ•œ‚·‚é‚±‚Æ‚ªo—ˆ‚Ü‚·B");
+        uitext.DrawText("â€»ã‚¢ã‚¤ãƒ†ãƒ æ¬„ã‹ã‚‰â€è£ç¸«é“å…·â€ã‚’ä½¿ç”¨ã™ã‚‹ã¨ã€HPã‚’å…¨å›å¾©ã™ã‚‹ã“ã¨ãŒå‡ºæ¥ã¾ã™ã€‚");
         yield return StartCoroutine("Skip");
-        uitext.DrawText("ˆê“xg—p‚µ‚½Ù–D“¹‹ï‚Í¸‚í‚ê‚Ü‚·B");
+        uitext.DrawText("ä¸€åº¦ä½¿ç”¨ã—ãŸè£ç¸«é“å…·ã¯å¤±ã‚ã‚Œã¾ã™ã€‚");
         yield return StartCoroutine("Skip");
 
         gameStop.stopFlag = false;
@@ -587,7 +625,7 @@ public class TextWriter : MonoBehaviour
         girl.SetActive(true);
         investigate.SetActive(false);
 
-        uitext.DrawText("­—", "¡“x‚ÍcŠwZH");
+        uitext.DrawText("å°‘å¥³", "ä»Šåº¦ã¯â€¦å­¦æ ¡ï¼Ÿ");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
@@ -605,12 +643,12 @@ public class TextWriter : MonoBehaviour
         fadeIn.fadeOutFlag = true;
 
         girl_fear.SetActive(true);
-        uitext.DrawText("­—", "‰½cƒAƒŒc");
+        uitext.DrawText("å°‘å¥³", "ä½•â€¦ã‚¢ãƒ¬â€¦");
         yield return StartCoroutine("Skip");
         fadeIn.fadeFlag = true;
 
         girl_fear.SetActive(false);
-        uitext.DrawText("•‚¢l‰e‚Í‹³º“à‚ğœpœj‚µ‚Ä‚¢‚é—l‚¾B");
+        uitext.DrawText("é»’ã„äººå½±ã¯æ•™å®¤å†…ã‚’å¾˜å¾Šã—ã¦ã„ã‚‹æ§˜ã ã€‚");
         yield return StartCoroutine("Skip");
 
         gameStop.stopFlag = false;
@@ -625,7 +663,7 @@ public class TextWriter : MonoBehaviour
         girl_fear.SetActive(true);
         investigate.SetActive(false);
 
-        uitext.DrawText("­—", "IIIII");
+        uitext.DrawText("å°‘å¥³", "ï¼ï¼ï¼ï¼ï¼");
         yield return StartCoroutine("Skip");
         girl_fear.SetActive(false);
         //playerTeleport.SetPosition(5, 30);
@@ -642,7 +680,7 @@ public class TextWriter : MonoBehaviour
         girl.SetActive(false);
         investigate.SetActive(false);
 
-        uitext.DrawText("ãY—í‚È•”Â‚¾B");
+        uitext.DrawText("ç¶ºéº—ãªé»’æ¿ã ã€‚");
         yield return StartCoroutine("Skip");
 
         gameStop.stopFlag = false;
@@ -661,9 +699,9 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
 
         girl.SetActive(true);
-        uitext.DrawText("­—", "ƒ`ƒ‡[ƒN‚Ì”H");
+        uitext.DrawText("å°‘å¥³", "ãƒãƒ§ãƒ¼ã‚¯ã®æ•°ï¼Ÿ");
         yield return StartCoroutine("Skip");
-        uitext.DrawText("­—", "‚Å‚à‚±‚±‚Éƒ`ƒ‡[ƒN‚Í–³‚¢‚æ‚ËB");
+        uitext.DrawText("å°‘å¥³", "ã§ã‚‚ã“ã“ã«ãƒãƒ§ãƒ¼ã‚¯ã¯ç„¡ã„ã‚ˆã­ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
@@ -695,10 +733,10 @@ public class TextWriter : MonoBehaviour
         soundMan.isDamage = true;
         investigate.SetActive(false);
 
-        uitext.DrawText("­—","’É‚ÁI");
+        uitext.DrawText("å°‘å¥³","ç—›ã£ï¼");
         yield return StartCoroutine("Skip");
 
-        uitext.DrawText("­—", "ŠÔˆá‚Á‚½‚Á‚Ä‚±‚ÆcH");
+        uitext.DrawText("å°‘å¥³", "é–“é•ã£ãŸã£ã¦ã“ã¨â€¦ï¼Ÿ");
         yield return StartCoroutine("Skip");
         girl_fear.SetActive(false);
 
@@ -715,16 +753,16 @@ public class TextWriter : MonoBehaviour
         soundMan.isDropKey = true;
         investigate.SetActive(false);
 
-        uitext.DrawText("­—", "‚ñH‰½‚©—‚¿‚½‚æ‚¤‚Èc");
+        uitext.DrawText("å°‘å¥³", "ã‚“ï¼Ÿä½•ã‹è½ã¡ãŸã‚ˆã†ãªâ€¦");
         yield return StartCoroutine("Skip");
 
-        uitext.DrawText("­—", "‚±‚êcŒ®‚¾B");
+        uitext.DrawText("å°‘å¥³", "ã“ã‚Œâ€¦éµã ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         opeKey.SetActive(true);
         soundMan.isGetItem = true;
-        uitext.DrawText("èpº‚ÌŒ®‚ğ“üè‚µ‚Ü‚µ‚½B");
+        uitext.DrawText("æ‰‹è¡“å®¤ã®éµã‚’å…¥æ‰‹ã—ã¾ã—ãŸã€‚");
         yield return StartCoroutine("Skip");
         opeKey.SetActive(false);
 
@@ -744,7 +782,7 @@ public class TextWriter : MonoBehaviour
         soundMan.isOpenKey = true;
         investigate.SetActive(false);
 
-        uitext.DrawText("ƒhƒA‚ªŠJ‚¢‚½—l‚¾B");
+        uitext.DrawText("ãƒ‰ã‚¢ãŒé–‹ã„ãŸæ§˜ã ã€‚");
         yield return StartCoroutine("Skip");
 
         playerTeleport.SetPosition(-9.52f, 48.7f);
@@ -769,31 +807,31 @@ public class TextWriter : MonoBehaviour
 
         fadeIn.fadeOutFlag = true;
 
-        uitext.DrawText("ˆãt", "Å‘P‚Ícs‚­‚µ‚Ü‚µ‚½‚ªccc");
+        uitext.DrawText("åŒ»å¸«", "æœ€å–„ã¯â€¦å°½ãã—ã¾ã—ãŸãŒâ€¦â€¦â€¦");
         yield return StartCoroutine("Skip");
 
         girl_fear.SetActive(true);
-        uitext.DrawText("­—", "”Ş‚ªc");
+        uitext.DrawText("å°‘å¥³", "å½¼ãŒâ€¦");
         yield return StartCoroutine("Skip");
-        uitext.DrawText("­—", "„‚ğ”İ‚Á‚Äcc");
+        uitext.DrawText("å°‘å¥³", "ç§ã‚’åº‡ã£ã¦â€¦â€¦");
         yield return StartCoroutine("Skip");
-        uitext.DrawText("­—", "„‚¾‚¯¶‚«‚Äccc");
+        uitext.DrawText("å°‘å¥³", "ç§ã ã‘ç”Ÿãã¦â€¦â€¦â€¦");
         yield return StartCoroutine("Skip");
-        uitext.DrawText("­—", "‚Ç‚¤‚µ‚Äc");
+        uitext.DrawText("å°‘å¥³", "ã©ã†ã—ã¦â€¦");
         yield return StartCoroutine("Skip");
-        uitext.DrawText("­—", "‚Ç‚¤‚µ‚Äcc");
+        uitext.DrawText("å°‘å¥³", "ã©ã†ã—ã¦â€¦â€¦");
         yield return StartCoroutine("Skip");
 
         girl_fear.SetActive(false);
-        uitext.DrawText("HH", "c‚¢cc");
+        uitext.DrawText("ï¼Ÿï¼Ÿ", "â€¦ã„â€¦â€¦");
         yield return StartCoroutine("Skip");
 
         girl_fear.SetActive(true);
-        uitext.DrawText("­—", "‚Ç‚¤‚µ‚Äccc");
+        uitext.DrawText("å°‘å¥³", "ã©ã†ã—ã¦â€¦â€¦â€¦");
         yield return StartCoroutine("Skip");
 
         girl_fear.SetActive(false);
-        uitext.DrawText("HH", "‚¾cc‚Ô‚©c");
+        uitext.DrawText("ï¼Ÿï¼Ÿ", "ã â€¦â€¦ã¶ã‹â€¦");
         yield return StartCoroutine("Skip");
 
         playermove.boyFlag = true;
@@ -802,54 +840,54 @@ public class TextWriter : MonoBehaviour
         fadeIn.fadeFlag = true;
 
         boy.SetActive(true);
-        uitext.DrawText("­”N", "‚¨‚¢I");
+        uitext.DrawText("å°‘å¹´", "ãŠã„ï¼");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("­—", "IIII");
+        uitext.DrawText("å°‘å¥³", "ï¼ï¼ï¼ï¼");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("­”N", "‚ ‚¢‚âAƒrƒr‚ç‚¹‚é‚Â‚à‚è‚Í–³‚©‚Á‚½‚ñ‚¾‚ªB");
+        uitext.DrawText("å°‘å¹´", "ã‚ã„ã‚„ã€ãƒ“ãƒ“ã‚‰ã›ã‚‹ã¤ã‚‚ã‚Šã¯ç„¡ã‹ã£ãŸã‚“ã ãŒã€‚");
         yield return StartCoroutine("Skip");
-        uitext.DrawText("­”N", "•ª‚ÆAv‚¢”Y‚ñ‚Å‚½‚Á‚Â[‚©B");
+        uitext.DrawText("å°‘å¹´", "éšåˆ†ã¨ã€æ€ã„æ‚©ã‚“ã§ãŸã£ã¤ãƒ¼ã‹ã€‚");
         yield return StartCoroutine("Skip");
-        uitext.DrawText("­”N", "ŠëŒ¯‚ÈŠ´‚¶‚µ‚½‚©‚ç‚æc‚»‚ÌA‘åä•v‚©H");
+        uitext.DrawText("å°‘å¹´", "å±é™ºãªæ„Ÿã˜ã—ãŸã‹ã‚‰ã‚ˆâ€¦ãã®ã€å¤§ä¸ˆå¤«ã‹ï¼Ÿ");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
-        uitext.DrawText("­”N‚ªS”z‚»‚¤‚É‚µ‚Ä‚¢‚éB");
+        uitext.DrawText("å°‘å¹´ãŒå¿ƒé…ãã†ã«ã—ã¦ã„ã‚‹ã€‚");
         yield return StartCoroutine("Skip");
 
         girl.SetActive(true);
-        uitext.DrawText("­—", "‚·‚İ‚Ü‚¹‚ñcc‘åä•vc‚Å‚·B");
+        uitext.DrawText("å°‘å¥³", "ã™ã¿ã¾ã›ã‚“â€¦â€¦å¤§ä¸ˆå¤«â€¦ã§ã™ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("­”N", "c‚»‚¤‚©B‚È‚ñ‚¾A‚¨‘O‚à‹N‚«‚½‚ç‚±‚±‚É‹‚½Œû‚©H‚»‚ê‚Æ‚àc");
+        uitext.DrawText("å°‘å¹´", "â€¦ãã†ã‹ã€‚ãªã‚“ã ã€ãŠå‰ã‚‚èµ·ããŸã‚‰ã“ã“ã«å±…ãŸå£ã‹ï¼Ÿãã‚Œã¨ã‚‚â€¦");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("­—", "II");
+        uitext.DrawText("å°‘å¥³", "ï¼ï¼");
         yield return StartCoroutine("Skip");
-        uitext.DrawText("­—", "‚ A‚ ‚È‚½‚à‚»‚¤‚È‚ñ‚Å‚·‚©IH");
+        uitext.DrawText("å°‘å¥³", "ã‚ã€ã‚ãªãŸã‚‚ãã†ãªã‚“ã§ã™ã‹ï¼ï¼Ÿ");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("­”N", "‚¨‚§A‚â‚Á‚Ï‚è‚»‚¤‚È‚Ì‚©B‚È‚ñ‚©“¯‚¶“õ‚¢‚µ‚½‚©‚ç‚æB");
+        uitext.DrawText("å°‘å¹´", "ãŠã‰ã€ã‚„ã£ã±ã‚Šãã†ãªã®ã‹ã€‚ãªã‚“ã‹åŒã˜åŒ‚ã„ã—ãŸã‹ã‚‰ã‚ˆã€‚");
         yield return StartCoroutine("Skip");
-        uitext.DrawText("­”N", "‚ ‚âA“õ‚¢‚Á‚Â[‚©‹C”z“I‚ÈA‚³B");
+        uitext.DrawText("å°‘å¹´", "ã‚ã‚„ã€åŒ‚ã„ã£ã¤ãƒ¼ã‹æ°—é…çš„ãªã€ã•ã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         fadeIn.fadeOutFlag = true;
 
-        uitext.DrawText("­—‚Í­‚µˆÀ“g‚µ‚½‚æ‚¤‚É”÷Î‚ñ‚¾B");
+        uitext.DrawText("å°‘å¥³ã¯å°‘ã—å®‰å µã—ãŸã‚ˆã†ã«å¾®ç¬‘ã‚“ã ã€‚");
         yield return StartCoroutine("Skip");
         playerTeleport.SetPosition(-9.52f, 48.7f);
         boyTarget.followFlag2 = true;
@@ -858,44 +896,44 @@ public class TextWriter : MonoBehaviour
 
 
         girl.SetActive(true);
-        uitext.DrawText("­—", "‚Æ‚¢‚¤‚±‚Æ‚Í‚Â‚Ü‚èA‚ ‚È‚½‚à‹N‚«‚½‚ç‚±‚±‚É‹‚ÄA‚Ç‚¤‚É‚©“¹‚ği‚ñ‚Å—ˆ‚½‚çèpº‚É’…‚¢‚½‚ñ‚Å‚·‚ËB");
+        uitext.DrawText("å°‘å¥³", "ã¨ã„ã†ã“ã¨ã¯ã¤ã¾ã‚Šã€ã‚ãªãŸã‚‚èµ·ããŸã‚‰ã“ã“ã«å±…ã¦ã€ã©ã†ã«ã‹é“ã‚’é€²ã‚“ã§æ¥ãŸã‚‰æ‰‹è¡“å®¤ã«ç€ã„ãŸã‚“ã§ã™ã­ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("­”N", "‚¨‚¤A‚»‚¤‚¾‚ÈB‚»‚µ‚½‚ç‚¨‘O‚ªƒp“ñƒN‚Á‚Ä‚éŠ‚Éo‚­‚í‚µ‚½‚Á‚Ä–ó‚¾B");
+        uitext.DrawText("å°‘å¹´", "ãŠã†ã€ãã†ã ãªã€‚ãã—ãŸã‚‰ãŠå‰ãŒãƒ‘äºŒã‚¯ã£ã¦ã‚‹æ‰€ã«å‡ºãã‚ã—ãŸã£ã¦è¨³ã ã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("­—", "‚·‚İ‚Ü‚¹‚ñBŒ©‹ê‚µ‚¢‚Æ‚±‚ë‚ğB");
+        uitext.DrawText("å°‘å¥³", "ã™ã¿ã¾ã›ã‚“ã€‚è¦‹è‹¦ã—ã„ã¨ã“ã‚ã‚’ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("­”N", "‚ ‚â‚Ác‚¢‚âA‚Ç‚¤‚Á‚Ä‚±‚Æ‚È‚¢‚º(H)");
+        uitext.DrawText("å°‘å¹´", "ã‚ã‚„ã£â€¦ã„ã‚„ã€ã©ã†ã£ã¦ã“ã¨ãªã„ãœ(ï¼Ÿ)");
         yield return StartCoroutine("Skip");
-        uitext.DrawText("­”N", "‚»‚ê‚Å‚Ç[‚·‚é‚æB");
+        uitext.DrawText("å°‘å¹´", "ãã‚Œã§ã©ãƒ¼ã™ã‚‹ã‚ˆã€‚");
         yield return StartCoroutine("Skip");
-        uitext.DrawText("­”N", "‰´‚à’T‚µ‚Ä‚±‚±‚Ü‚Å—ˆ‚½‚í‚¯‚¾‚ªA‚±‚Á‚¿‘¤‚Ì•”‰®‚ğ‚¨‘O‚ª’Tõ‚µ‚«‚Á‚½‚Á‚Ä‚ñ‚È‚ç‘¼‚Éi‚Ş“¹‚Í–³‚¢‚æ‚Èc");
+        uitext.DrawText("å°‘å¹´", "ä¿ºã‚‚æ¢ã—ã¦ã“ã“ã¾ã§æ¥ãŸã‚ã‘ã ãŒã€ã“ã£ã¡å´ã®éƒ¨å±‹ã‚’ãŠå‰ãŒæ¢ç´¢ã—ãã£ãŸã£ã¦ã‚“ãªã‚‰ä»–ã«é€²ã‚€é“ã¯ç„¡ã„ã‚ˆãªâ€¦");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("­—", "‚ A‚»‚ê‚È‚çB");
+        uitext.DrawText("å°‘å¥³", "ã‚ã€ãã‚Œãªã‚‰ã€‚");
         yield return StartCoroutine("Skip");
-        uitext.DrawText("­—", "Œü‚±‚¤‚Ì‹³º‚ÌA‚‚­‚Äè‚ª“Í‚©‚È‚¢êŠ‚É‰½‚©‚ ‚é‚İ‚½‚¢‚È‚ñ‚Å‚·B");
+        uitext.DrawText("å°‘å¥³", "å‘ã“ã†ã®æ•™å®¤ã®ã€é«˜ãã¦æ‰‹ãŒå±Šã‹ãªã„å ´æ‰€ã«ä½•ã‹ã‚ã‚‹ã¿ãŸã„ãªã‚“ã§ã™ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("­”N", "‚È‚é‚Ù‚Ç‚ËA‚»‚ê‚ªŒ®‚Æ‚©‚È‚çƒTƒCƒR[‚¾‚ÈB");
+        uitext.DrawText("å°‘å¹´", "ãªã‚‹ã»ã©ã­ã€ãã‚ŒãŒéµã¨ã‹ãªã‚‰ã‚µã‚¤ã‚³ãƒ¼ã ãªã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
-        uitext.DrawText("¦‚±‚±‚©‚ç‚Í­”N‚ª‹¤‚És“®‚µ‚Ä‚­‚ê‚Ü‚·B");
+        uitext.DrawText("â€»ã“ã“ã‹ã‚‰ã¯å°‘å¹´ãŒå…±ã«è¡Œå‹•ã—ã¦ãã‚Œã¾ã™ã€‚");
         yield return StartCoroutine("Skip");
-        uitext.DrawText("ˆÈ‘O’Tõ‚µ‚½êŠ‚ğ­”N‚É•‚¯‚Ä‚à‚ç‚¤‚±‚Æ‚ÅAV‚½‚ÈèŠ|‚©‚è‚ªŒ©‚Â‚©‚é‚©‚à‚µ‚ê‚Ü‚¹‚ñB");
+        uitext.DrawText("ä»¥å‰æ¢ç´¢ã—ãŸå ´æ‰€ã‚’å°‘å¹´ã«åŠ©ã‘ã¦ã‚‚ã‚‰ã†ã“ã¨ã§ã€æ–°ãŸãªæ‰‹æ›ã‹ã‚ŠãŒè¦‹ã¤ã‹ã‚‹ã‹ã‚‚ã—ã‚Œã¾ã›ã‚“ã€‚");
         yield return StartCoroutine("Skip");
         
 
@@ -913,17 +951,17 @@ public class TextWriter : MonoBehaviour
         investigate.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("­—", "‚Æ‚±‚ë‚ÅA„‚ª’Tõ‚µ‚½ŒÀ‚è‘¼‚És‚¯‚éêŠ‚ª–³‚¢‚æ‚¤‚Év‚¦‚½‚Ì‚Å‚·‚ªA‰½ˆ‚©‚ç—ˆ‚½‚ñ‚Å‚·‚©H");
+        uitext.DrawText("å°‘å¥³", "ã¨ã“ã‚ã§ã€ç§ãŒæ¢ç´¢ã—ãŸé™ã‚Šä»–ã«è¡Œã‘ã‚‹å ´æ‰€ãŒç„¡ã„ã‚ˆã†ã«æ€ãˆãŸã®ã§ã™ãŒã€ä½•å‡¦ã‹ã‚‰æ¥ãŸã‚“ã§ã™ã‹ï¼Ÿ");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("­”N", "‚ ‚ŸA‚±‚±‚ğ‚æ‚¶“o‚Á‚Ä‚«‚½‚ñ‚¾B");
+        uitext.DrawText("å°‘å¹´", "ã‚ãã€ã“ã“ã‚’ã‚ˆã˜ç™»ã£ã¦ããŸã‚“ã ã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("­—", "‚ÈA‚È‚é‚Ù‚ÇB");
+        uitext.DrawText("å°‘å¥³", "ãªã€ãªã‚‹ã»ã©ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
@@ -941,22 +979,22 @@ public class TextWriter : MonoBehaviour
         investigate.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("­”N", "‚ [‚±‚±‚©B");
+        uitext.DrawText("å°‘å¹´", "ã‚ãƒ¼ã“ã“ã‹ã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("­—", "HI‚±‚±‚É‚Íˆê“x—ˆ‚Ä‚½‚ñ‚Å‚·‚©‚Á");
+        uitext.DrawText("å°‘å¥³", "ï¼Ÿï¼ã“ã“ã«ã¯ä¸€åº¦æ¥ã¦ãŸã‚“ã§ã™ã‹ã£");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("­”N", "‚ [‚¢‚âA‚È‚ñ‚Å‚à‚Ë[B–Y‚ê‚Ä‚­‚êB");
+        uitext.DrawText("å°‘å¹´", "ã‚ãƒ¼ã„ã‚„ã€ãªã‚“ã§ã‚‚ã­ãƒ¼ã€‚å¿˜ã‚Œã¦ãã‚Œã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("­—", "‚¦ccc‚»‚¤‚Å‚·‚©c");
+        uitext.DrawText("å°‘å¥³", "ãˆâ€¦â€¦â€¦ãã†ã§ã™ã‹â€¦");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
@@ -972,11 +1010,11 @@ public class TextWriter : MonoBehaviour
         girl.SetActive(false);
         investigate.SetActive(false);
 
-        uitext.DrawText("•”Â‚Ìã‚É‰½‚©Œõ‚é‚à‚Ì‚ªŒ©‚¦‚é");
+        uitext.DrawText("é»’æ¿ã®ä¸Šã«ä½•ã‹å…‰ã‚‹ã‚‚ã®ãŒè¦‹ãˆã‚‹");
         yield return StartCoroutine("Skip");
 
         girl.SetActive(true);
-        uitext.DrawText("­—", "‚‚­‚Äæ‚ê‚È‚¢‚Èc");
+        uitext.DrawText("å°‘å¥³", "é«˜ãã¦å–ã‚Œãªã„ãªâ€¦");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
@@ -994,33 +1032,33 @@ public class TextWriter : MonoBehaviour
         investigate.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("­—", "‚±‚±‚Å‚·B‚±‚Ì•”Â‚Ìã‚ÉA‰½‚©‚ ‚è‚Ü‚¹‚ñ‚©H");
+        uitext.DrawText("å°‘å¥³", "ã“ã“ã§ã™ã€‚ã“ã®é»’æ¿ã®ä¸Šã«ã€ä½•ã‹ã‚ã‚Šã¾ã›ã‚“ã‹ï¼Ÿ");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("­”N", "‚ [A‚È‚ñ‚©Œ©‚¦‚é‚È‚ŸB");
+        uitext.DrawText("å°‘å¹´", "ã‚ãƒ¼ã€ãªã‚“ã‹è¦‹ãˆã‚‹ãªãã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
-        uitext.DrawText("‚»‚¤‚¢‚Á‚Ä­”N‚Í‘å‚«‚­è‚ğL‚Î‚·B");
+        uitext.DrawText("ãã†ã„ã£ã¦å°‘å¹´ã¯å¤§ããæ‰‹ã‚’ä¼¸ã°ã™ã€‚");
         yield return StartCoroutine("Skip");
 
         boy.SetActive(true);
         soundMan.isGetItem = true;
-        uitext.DrawText("­”N", "‚¨‚§AŒ®‚¾B");
+        uitext.DrawText("å°‘å¹´", "ãŠã‰ã€éµã ã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         ironKey.SetActive(true);
-        uitext.DrawText("“Sò‚ÌŒ®‚ğè‚É“ü‚ê‚½B");
+        uitext.DrawText("é‰„æŸµã®éµã‚’æ‰‹ã«å…¥ã‚ŒãŸã€‚");
         yield return StartCoroutine("Skip");
         ironKey.SetActive(false);
         playergetitem.haveIronKey = true;
         ironKeyEffect.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("­”N", "æ‚è‡‚¦‚¸‚±‚ê‚Å‰´‚ª—ˆ‚½•û‚ÆŒq‚ª‚Á‚½‚Á‚ÄŠ‚©B");
+        uitext.DrawText("å°‘å¹´", "å–ã‚Šåˆãˆãšã“ã‚Œã§ä¿ºãŒæ¥ãŸæ–¹ã¨ç¹‹ãŒã£ãŸã£ã¦æ‰€ã‹ã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
@@ -1039,7 +1077,7 @@ public class TextWriter : MonoBehaviour
 
         room4goDoor.SetActive(false);
         soundMan.isOpenKey = true;
-        uitext.DrawText("“Sò‚Ì”à‚ªŠJ‚¢‚½B");
+        uitext.DrawText("é‰„æŸµã®æ‰‰ãŒé–‹ã„ãŸã€‚");
         yield return StartCoroutine("Skip");
 
         playerTeleport.SetPosition(19.36f, 48.51f);
@@ -1049,27 +1087,27 @@ public class TextWriter : MonoBehaviour
         }
 
         boy.SetActive(true);
-        uitext.DrawText("­”N", "‚»[‚¢‚âA‰´‚ª‚±‚Á‚¿‚É—ˆ‚é‚Ü‚Å‚Ì•”‰®‚É¬‚³‚¢”²‚¯“¹‚ª‚ ‚Á‚½‚ñ‚¾‚¯‚Ç‚æB");
+        uitext.DrawText("å°‘å¹´", "ããƒ¼ã„ã‚„ã€ä¿ºãŒã“ã£ã¡ã«æ¥ã‚‹ã¾ã§ã®éƒ¨å±‹ã«å°ã•ã„æŠœã‘é“ãŒã‚ã£ãŸã‚“ã ã‘ã©ã‚ˆã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("­”N", "‚¢‚©‚ñ‚¹‚ñ‰´‚¶‚á’Ê‚ê‚È‚­‚Ä‚ÈB");
+        uitext.DrawText("å°‘å¹´", "ã„ã‹ã‚“ã›ã‚“ä¿ºã˜ã‚ƒé€šã‚Œãªãã¦ãªã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("­”N", "‚¨‘O‚Ì”wŠiD‚È‚ç’Ê‚ê‚½‚è‚µ‚Ë‚¥‚©H");
+        uitext.DrawText("å°‘å¹´", "ãŠå‰ã®èƒŒæ ¼å¥½ãªã‚‰é€šã‚ŒãŸã‚Šã—ã­ã‡ã‹ï¼Ÿ");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("­—", "Ÿ‚Í„‚ªŠˆ–ô‚·‚é”Ô‚Á‚Ä‚±‚Æ‚Å‚·‚ËB");
+        uitext.DrawText("å°‘å¥³", "æ¬¡ã¯ç§ãŒæ´»èºã™ã‚‹ç•ªã£ã¦ã“ã¨ã§ã™ã­ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("­”N", "‚ñ‚ŸA‚»‚¤‚¾‚ÈB•‚©‚é‚ºB");
+        uitext.DrawText("å°‘å¹´", "ã‚“ãã€ãã†ã ãªã€‚åŠ©ã‹ã‚‹ãœã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
@@ -1087,47 +1125,47 @@ public class TextWriter : MonoBehaviour
         investigate.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("­—", "’·‚¢’Ê˜HA‚Å‚·‚ËB");
+        uitext.DrawText("å°‘å¥³", "é•·ã„é€šè·¯ã€ã§ã™ã­ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("­”N", "‚»‚¤‚È‚ñ‚¾‚æ‚ÈB‚È‚ñ‚Å‚©‰´‚ª—ˆ‚½•û‚ÌêŠ‚Í‚Ç‚±‚à’Ê˜H‚Î‚Á‚©‚è‚È‚ñ‚¾‚æB");
+        uitext.DrawText("å°‘å¹´", "ãã†ãªã‚“ã ã‚ˆãªã€‚ãªã‚“ã§ã‹ä¿ºãŒæ¥ãŸæ–¹ã®å ´æ‰€ã¯ã©ã“ã‚‚é€šè·¯ã°ã£ã‹ã‚Šãªã‚“ã ã‚ˆã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("­”N", "•”‰®‚¾‚Á‚½‚Ì‚È‚ñ‚Ä’n‰ºº‚­‚ç‚¢‚¾‚Á‚½‚©‚ÈB");
+        uitext.DrawText("å°‘å¹´", "éƒ¨å±‹ã ã£ãŸã®ãªã‚“ã¦åœ°ä¸‹å®¤ãã‚‰ã„ã ã£ãŸã‹ãªã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("­—", "’n‰ººc‚Å‚·‚©H");
+        uitext.DrawText("å°‘å¥³", "åœ°ä¸‹å®¤â€¦ã§ã™ã‹ï¼Ÿ");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("­”N", "‚ñ‚ŸA‰´‚ªÅ‰‚É‹‚½‚Æ‚±B‚¨‘O‚à‰®ã‚É‹‚½‚ñ‚¾‚ëH—‚½‚æ‚¤‚Èƒ‚ƒ“‚¶‚á‚ËH");
+        uitext.DrawText("å°‘å¹´", "ã‚“ãã€ä¿ºãŒæœ€åˆã«å±…ãŸã¨ã“ã€‚ãŠå‰ã‚‚å±‹ä¸Šã«å±…ãŸã‚“ã ã‚ï¼Ÿä¼¼ãŸã‚ˆã†ãªãƒ¢ãƒ³ã˜ã‚ƒã­ï¼Ÿ");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("­—", "‚»‚ê‚Íc‚»‚¤‚È‚ñ‚Å‚·‚¯‚ÇB");
+        uitext.DrawText("å°‘å¥³", "ãã‚Œã¯â€¦ãã†ãªã‚“ã§ã™ã‘ã©ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("­—", "‚ ‚êA„‰®ã‚Á‚ÄŒ¾‚¢‚Ü‚µ‚½‚Á‚¯H");
+        uitext.DrawText("å°‘å¥³", "ã‚ã‚Œã€ç§å±‹ä¸Šã£ã¦è¨€ã„ã¾ã—ãŸã£ã‘ï¼Ÿ");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("­”N", "‚ H‚ [[AŒ¾‚Á‚Ä‚½[B");
+        uitext.DrawText("å°‘å¹´", "ã‚ï¼Ÿã‚ãƒ¼ãƒ¼ã€è¨€ã£ã¦ãŸãƒ¼ã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("­—", "‚»‚¤‚Å‚µ‚½‚©cc");
+        uitext.DrawText("å°‘å¥³", "ãã†ã§ã—ãŸã‹â€¦â€¦");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
@@ -1145,17 +1183,17 @@ public class TextWriter : MonoBehaviour
         investigate.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("­—", "•ª’·‚¢˜L‰º‚Å‚·‚Ëc");
+        uitext.DrawText("å°‘å¥³", "éšåˆ†é•·ã„å»Šä¸‹ã§ã™ã­â€¦");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("­”N", "‚»‚¤‚¾‚ÈA‚µ‚©‚à‚È‚ñ‚Â[‚©A‚¿‚å‚Á‚Æ–À‚¢‚»‚¤‚É‚È‚éB");
+        uitext.DrawText("å°‘å¹´", "ãã†ã ãªã€ã—ã‹ã‚‚ãªã‚“ã¤ãƒ¼ã‹ã€ã¡ã‚‡ã£ã¨è¿·ã„ãã†ã«ãªã‚‹ã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("­—", "­‚µ•¡G‚ÉŠ´‚¶‚Ü‚·‚à‚ñ‚ËB");
+        uitext.DrawText("å°‘å¥³", "å°‘ã—è¤‡é›‘ã«æ„Ÿã˜ã¾ã™ã‚‚ã‚“ã­ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
@@ -1173,97 +1211,97 @@ public class TextWriter : MonoBehaviour
         investigate.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("­”N", "‚±‚±‚ª‰´‚Ì‰ŠúƒXƒ|[ƒ“‚Á‚Ä‚Æ‚±‚¾‚ÈB");
+        uitext.DrawText("å°‘å¹´", "ã“ã“ãŒä¿ºã®åˆæœŸã‚¹ãƒãƒ¼ãƒ³ã£ã¦ã¨ã“ã ãªã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("­—", "‰ŠúƒXƒ|[ƒ“H");
+        uitext.DrawText("å°‘å¥³", "åˆæœŸã‚¹ãƒãƒ¼ãƒ³ï¼Ÿ");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("­”N", "‚¨‘O‚ÅŒ¾‚¤‰®ã‚Á‚Ä‚±‚ÆB");
+        uitext.DrawText("å°‘å¹´", "ãŠå‰ã§è¨€ã†å±‹ä¸Šã£ã¦ã“ã¨ã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("­—", "‚ ‚ŸAÅ‰‚É‹‚½‚Æ‚±‚ë‚Á‚Ä˜b‚Å‚·‚©B");
+        uitext.DrawText("å°‘å¥³", "ã‚ãã€æœ€åˆã«å±…ãŸã¨ã“ã‚ã£ã¦è©±ã§ã™ã‹ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("­—", "‚Ä‚©A‚³‚Á‚«‚©‚çv‚Á‚Ä‚½‚ñ‚Å‚·‚ªA‚¨‘O‚Á‚ÄŒÄ‚Ñ•û‚â‚ß‚Ä‚­‚¾‚³‚¢B");
+        uitext.DrawText("å°‘å¥³", "ã¦ã‹ã€ã•ã£ãã‹ã‚‰æ€ã£ã¦ãŸã‚“ã§ã™ãŒã€ãŠå‰ã£ã¦å‘¼ã³æ–¹ã‚„ã‚ã¦ãã ã•ã„ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("­”N", "‚ñ‚ŸH‚ [A‚Å‚à‰´‚¨‘O‚Ì–¼‘O’m‚ç‚Ë‚¥‚©‚ç‚Èc");
+        uitext.DrawText("å°‘å¹´", "ã‚“ãï¼Ÿã‚ãƒ¼ã€ã§ã‚‚ä¿ºãŠå‰ã®åå‰çŸ¥ã‚‰ã­ã‡ã‹ã‚‰ãªâ€¦");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("­—", "‚¶‚á‚ •·‚¢‚Ä‚­‚¾‚³‚¢B");
+        uitext.DrawText("å°‘å¥³", "ã˜ã‚ƒã‚èã„ã¦ãã ã•ã„ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("­”N", "‚ ‚Ÿc");
+        uitext.DrawText("å°‘å¹´", "ã‚ãâ€¦");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("­—", "ccc");
+        uitext.DrawText("å°‘å¥³", "â€¦â€¦â€¦");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("­”N", "Hcc");
+        uitext.DrawText("å°‘å¹´", "ï¼Ÿâ€¦â€¦");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("­”N", "cc–¼‘Occ‚ ‚âA‰´‚ÍAƒnƒJƒŠc‚¨‘O‚ÍH");
-        yield return StartCoroutine("Skip");
-        boy.SetActive(false);
-
-        girl.SetActive(true);
-        uitext.DrawText("­—", "‚»‚êc•cš‚Å‚·‚©H");
-        yield return StartCoroutine("Skip");
-        girl.SetActive(false);
-
-        boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "–¼‘O‚Ì•û‚¾‚æB");
+        uitext.DrawText("å°‘å¹´", "â€¦â€¦åå‰â€¦â€¦ã‚ã‚„ã€ä¿ºã¯ã€ãƒã‚«ãƒªâ€¦ãŠå‰ã¯ï¼Ÿ");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("­—", "‚»‚¤‚È‚ñ‚Å‚·‚ËcƒnƒJƒŠ‚³‚ñcc");
+        uitext.DrawText("å°‘å¥³", "ãã‚Œâ€¦è‹—å­—ã§ã™ã‹ï¼Ÿ");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚ÅH‚¨‘O‚ÍH");
+        uitext.DrawText("ãƒã‚«ãƒª", "åå‰ã®æ–¹ã ã‚ˆã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("­—", "ƒ\ƒ‰‚Å‚·cc");
+        uitext.DrawText("å°‘å¥³", "ãã†ãªã‚“ã§ã™ã­â€¦ãƒã‚«ãƒªã•ã‚“â€¦â€¦");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "ƒ\ƒ‰‚Á‚ÄAÀ‚Í’jcH");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã§ï¼ŸãŠå‰ã¯ï¼Ÿ");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "¸—ç‚Å‚·‚Ë‚Ô‚Á”ò‚Î‚µ‚Ü‚·‚æH");
+        uitext.DrawText("å°‘å¥³", "ã‚½ãƒ©ã§ã™â€¦â€¦");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚¨‘O‚à—‚½‚æ‚¤‚Èƒ‚ƒ“‚¾‚ëcc");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã‚½ãƒ©ã£ã¦ã€å®Ÿã¯ç”·â€¦ï¼Ÿ");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ã‚½ãƒ©", "å¤±ç¤¼ã§ã™ã­ã¶ã£é£›ã°ã—ã¾ã™ã‚ˆï¼Ÿ");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ãƒã‚«ãƒª", "ãŠå‰ã‚‚ä¼¼ãŸã‚ˆã†ãªãƒ¢ãƒ³ã ã‚â€¦â€¦");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
@@ -1281,27 +1319,27 @@ public class TextWriter : MonoBehaviour
         investigate.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("­”N", "‚±‚±‚¾‚±‚±A‚±‚Ì¬‚¹‚¥’Ê˜HA‚¨‘O‚È‚ç’Ê‚ê‚È‚¢‚©H");
+        uitext.DrawText("å°‘å¹´", "ã“ã“ã ã“ã“ã€ã“ã®å°ã›ã‡é€šè·¯ã€ãŠå‰ãªã‚‰é€šã‚Œãªã„ã‹ï¼Ÿ");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("­—", "‚¤‚¥A‚±‚±’Ê‚ê‚Á‚Ä‚¢‚¤‚ñ‚Å‚·‚©cc");
+        uitext.DrawText("å°‘å¥³", "ã†ã‡ã€ã“ã“é€šã‚Œã£ã¦ã„ã†ã‚“ã§ã™ã‹â€¦â€¦");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("­”N", "‚ ‚âA‚Ü‚ŸA–³—‚É‚Æ‚ÍŒ¾‚í‚Ë[‚ªB”@‰½‚¹‚ñ‚±‚±ˆÈŠO‚Í’TõÏ‚İ‚È‚ñ‚¾‚æ‚Èc");
+        uitext.DrawText("å°‘å¹´", "ã‚ã‚„ã€ã¾ãã€ç„¡ç†ã«ã¨ã¯è¨€ã‚ã­ãƒ¼ãŒã€‚å¦‚ä½•ã›ã‚“ã“ã“ä»¥å¤–ã¯æ¢ç´¢æ¸ˆã¿ãªã‚“ã ã‚ˆãªâ€¦");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("­—", "‚¤[ccŒã‚Å‚à‚¢‚¢‚Å‚·‚©cc");
+        uitext.DrawText("å°‘å¥³", "ã†ãƒ¼â€¦â€¦å¾Œã§ã‚‚ã„ã„ã§ã™ã‹â€¦â€¦");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("­”N", "‚¨[A–³—‚Í‚·‚ñ‚ÈB");
+        uitext.DrawText("å°‘å¹´", "ãŠãƒ¼ã€ç„¡ç†ã¯ã™ã‚“ãªã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
@@ -1319,22 +1357,22 @@ public class TextWriter : MonoBehaviour
         investigate.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "Šæ’£‚Á‚ÄA“ü‚Á‚Ä‚İ‚Ü‚·c");
+        uitext.DrawText("ã‚½ãƒ©", "é ‘å¼µã£ã¦ã€å…¥ã£ã¦ã¿ã¾ã™â€¦");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‰½‚©‚ ‚Á‚½‚ç‚·‚®–ß‚Á‚Ä—ˆ‚¢‚æB‰´‚Íˆê‚És‚¯‚È‚¢‚ªA‚±‚±‚Å‘Ò‹@‚µ‚Ä‚é‚©‚ç‚æB");
+        uitext.DrawText("ãƒã‚«ãƒª", "ä½•ã‹ã‚ã£ãŸã‚‰ã™ãæˆ»ã£ã¦æ¥ã„ã‚ˆã€‚ä¿ºã¯ä¸€ç·’ã«è¡Œã‘ãªã„ãŒã€ã“ã“ã§å¾…æ©Ÿã—ã¦ã‚‹ã‹ã‚‰ã‚ˆã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "ƒnƒJƒŠ‚³‚ñ‚ÍŠy‚Å‚¢‚¢‚Å‚·‚ËB");
+        uitext.DrawText("ã‚½ãƒ©", "ãƒã‚«ãƒªã•ã‚“ã¯æ¥½ã§ã„ã„ã§ã™ã­ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "ccc");
+        uitext.DrawText("ãƒã‚«ãƒª", "â€¦â€¦â€¦");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
         boyTarget.followFlag2 = false;
@@ -1357,31 +1395,31 @@ public class TextWriter : MonoBehaviour
         girl.SetActive(false);
         investigate.SetActive(false);
 
-        uitext.DrawText("OŒ…‚Ìƒ_ƒCƒ„ƒ‹");
+        uitext.DrawText("ä¸‰æ¡ã®ãƒ€ã‚¤ãƒ¤ãƒ«");
         yield return StartCoroutine("Skip");
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚Ü‚½ƒ_ƒCƒ„ƒ‹‚Å‚·‚©c");
+        uitext.DrawText("ã‚½ãƒ©", "ã¾ãŸãƒ€ã‚¤ãƒ¤ãƒ«ã§ã™ã‹â€¦");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚±‚Ìƒ_ƒCƒ„ƒ‹‚ÍÅ‰‚Á‚©‚çŒ©‚Â‚¯‚Ä‚Í‹‚½‚ñ‚¾‚ªA‚»‚ê‚ç‚µ‚¢”Ô†‚Í‚Ç‚±‚É‚à–³‚¢‚ñ‚¾‚æ‚ÈB");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã“ã®ãƒ€ã‚¤ãƒ¤ãƒ«ã¯æœ€åˆã£ã‹ã‚‰è¦‹ã¤ã‘ã¦ã¯å±…ãŸã‚“ã ãŒã€ãã‚Œã‚‰ã—ã„ç•ªå·ã¯ã©ã“ã«ã‚‚ç„¡ã„ã‚“ã ã‚ˆãªã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "Šm‚©‚ÉA•ªE•—Œi‚È˜L‰º‚ÅA‚»‚ê‚ç‚µ‚¢‚à‚Ì‚ÍŒ©‚Ü‚¹‚ñ‚Å‚µ‚½‚ËB");
+        uitext.DrawText("ã‚½ãƒ©", "ç¢ºã‹ã«ã€éšåˆ†æ®ºé¢¨æ™¯ãªå»Šä¸‹ã§ã€ãã‚Œã‚‰ã—ã„ã‚‚ã®ã¯è¦‹ã¾ã›ã‚“ã§ã—ãŸã­ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚¾‚ëH‚¾‚©‚ç‚Ü‚ŸA‚ ‚»‚±‚É“ü‚é‚µ‚©‚Ë‚¥‚©‚È‚Á‚ÄB");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã ã‚ï¼Ÿã ã‹ã‚‰ã¾ãã€ã‚ãã“ã«å…¥ã‚‹ã—ã‹ã­ã‡ã‹ãªã£ã¦ã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚í‚©‚è‚Ü‚µ‚½‚æc");
+        uitext.DrawText("ã‚½ãƒ©", "ã‚ã‹ã‚Šã¾ã—ãŸã‚ˆâ€¦");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
@@ -1398,10 +1436,10 @@ public class TextWriter : MonoBehaviour
         soundMan.isDamage = true;
         investigate.SetActive(false);
 
-        uitext.DrawText("ƒ\ƒ‰", "’É‚ÁI");
+        uitext.DrawText("ã‚½ãƒ©", "ç—›ã£ï¼");
         yield return StartCoroutine("Skip");
 
-        uitext.DrawText("ƒ\ƒ‰", "ŠÔˆá‚Á‚½‚Á‚Ä‚±‚ÆcH");
+        uitext.DrawText("ã‚½ãƒ©", "é–“é•ã£ãŸã£ã¦ã“ã¨â€¦ï¼Ÿ");
         yield return StartCoroutine("Skip");
         girl_fear.SetActive(false);
 
@@ -1420,22 +1458,22 @@ public class TextWriter : MonoBehaviour
 
         balanceDoor.SetActive(false);
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚¨‚¢‚¨‚¢A‚±‚Ì•”‰®‚É‚Ü‚¾æ‚ª‚ ‚Á‚½‚Ì‚©‚æB");
+        uitext.DrawText("ãƒã‚«ãƒª", "ãŠã„ãŠã„ã€ã“ã®éƒ¨å±‹ã«ã¾ã å…ˆãŒã‚ã£ãŸã®ã‹ã‚ˆã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "¡“x‚±‚»i“W‚Á‚ÄŠ´‚¶‚Å‚·‚ËB");
+        uitext.DrawText("ã‚½ãƒ©", "ä»Šåº¦ã“ãé€²å±•ã£ã¦æ„Ÿã˜ã§ã™ã­ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "ƒ\ƒ‰‚Ì‚¨è•¿‚¾‚ÈB");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã‚½ãƒ©ã®ãŠæ‰‹æŸ„ã ãªã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "s‚«‚Ü‚µ‚å‚¤B");
+        uitext.DrawText("ã‚½ãƒ©", "è¡Œãã¾ã—ã‚‡ã†ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
@@ -1453,19 +1491,19 @@ public class TextWriter : MonoBehaviour
         investigate.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚±‚±‚ÍcH");
+        uitext.DrawText("ã‚½ãƒ©", "ã“ã“ã¯â€¦ï¼Ÿ");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "ï‚Ì‚ ‚éŠ‚¾‚Èc‘Ö‚©H");
+        uitext.DrawText("ãƒã‚«ãƒª", "è¶£ã®ã‚ã‚‹æ‰€ã ãªâ€¦æ›¸æ–ã‹ï¼Ÿ");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         fadeIn.fadeOutFlag = true;
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚ AŠ÷‚É‰½‚©‚ ‚è‚Ü‚·B‚»‚ê‚Æƒƒ‚‘‚«‚İ‚½‚¢‚È‚Ì‚àB");
+        uitext.DrawText("ã‚½ãƒ©", "ã‚ã€æœºã«ä½•ã‹ã‚ã‚Šã¾ã™ã€‚ãã‚Œã¨ãƒ¡ãƒ¢æ›¸ãã¿ãŸã„ãªã®ã‚‚ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
         playerTeleport.SetPosition(-70, 223);
@@ -1477,57 +1515,57 @@ public class TextWriter : MonoBehaviour
         fadeIn.fadeFlag = true;
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚¦‚¥‚Á‚ÆcH");
+        uitext.DrawText("ãƒã‚«ãƒª", "ãˆã‡ã£ã¨â€¦ï¼Ÿ");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
-        uitext.DrawText("‚±‚ê‚ÍhŠè‚¢‚Ì“V”‰hB‰½‚©‚ğŠè‚¦‚ÎA‚±‚Ì“V”‰‚ªŠ‚¦‚Ä‚­‚ê‚éB");
+        uitext.DrawText("ã“ã‚Œã¯â€é¡˜ã„ã®å¤©ç§¤â€ã€‚ä½•ã‹ã‚’é¡˜ãˆã°ã€ã“ã®å¤©ç§¤ãŒå¶ãˆã¦ãã‚Œã‚‹ã€‚");
         yield return StartCoroutine("Skip");
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "Šè‚¢‚Ìc");
+        uitext.DrawText("ãƒã‚«ãƒª", "é¡˜ã„ã®â€¦");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "“V”‰c");
+        uitext.DrawText("ã‚½ãƒ©", "å¤©ç§¤â€¦");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "ccc");
+        uitext.DrawText("ã‚½ãƒ©", "â€¦â€¦â€¦");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "“ï‚µ‚­l‚¦‚ñ‚Èc—v‚Í‰´‚ç‚ÌŠè‚¢‚ğŠ‚¦‚Ä‚­‚ê‚é‚ñ‚¾‚ëH");
+        uitext.DrawText("ãƒã‚«ãƒª", "é›£ã—ãè€ƒãˆã‚“ãªâ€¦è¦ã¯ä¿ºã‚‰ã®é¡˜ã„ã‚’å¶ãˆã¦ãã‚Œã‚‹ã‚“ã ã‚ï¼Ÿ");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚»‚¤‘‚¢‚Ä‚ ‚è‚Ü‚·‚¯‚ÇA‚»‚ñ‚È‚½‚¾Šè‚¢‚ğŠ‚¦‚Ä‚­‚ê‚é‚à‚Ì‚È‚ñ‚Ä‚ ‚é‚ñ‚Å‚µ‚å‚¤‚©B");
+        uitext.DrawText("ã‚½ãƒ©", "ãã†æ›¸ã„ã¦ã‚ã‚Šã¾ã™ã‘ã©ã€ãã‚“ãªãŸã é¡˜ã„ã‚’å¶ãˆã¦ãã‚Œã‚‹ã‚‚ã®ãªã‚“ã¦ã‚ã‚‹ã‚“ã§ã—ã‚‡ã†ã‹ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚ñ``H“ï‚µ‚¢‚±‚Æ‚Í‚í‚©‚ñ‚Ë‚¥‚¯‚ÇAçSçO‚·‚é‹C‚¿‚Í‚í‚©‚éB");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã‚“ï½ï½ï¼Ÿé›£ã—ã„ã“ã¨ã¯ã‚ã‹ã‚“ã­ã‡ã‘ã©ã€èºŠèº‡ã™ã‚‹æ°—æŒã¡ã¯ã‚ã‹ã‚‹ã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "æ‚è‡‚¦‚¸‚ ‚ñ‚Ü‘å‚«‚È—v‹‚Í‚µ‚È‚¢•û‚ª—Ç‚¢B‚Á‚ÄŠ‚©B");
+        uitext.DrawText("ãƒã‚«ãƒª", "å–ã‚Šåˆãˆãšã‚ã‚“ã¾å¤§ããªè¦æ±‚ã¯ã—ãªã„æ–¹ãŒè‰¯ã„ã€‚ã£ã¦æ‰€ã‹ã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚»‚¤‚Å‚·‚ËB");
+        uitext.DrawText("ã‚½ãƒ©", "ãã†ã§ã™ã­ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         fadeIn.fadeOutFlag = true;
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚·‚É’š“x‚¢‚¢‚­‚ç‚¢‚ÌŠè‚¢c‚©B");
+        uitext.DrawText("ãƒã‚«ãƒª", "è©¦ã™ã«ä¸åº¦ã„ã„ãã‚‰ã„ã®é¡˜ã„â€¦ã‹ã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
         playerTeleport.SetPosition(-70, 227.46f);
@@ -1539,22 +1577,22 @@ public class TextWriter : MonoBehaviour
         fadeIn.fadeFlag = true;
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚±‚±‚©‚ço‚é‚Ì‚ª‰´‚ç‚Ì–Ú“I‚¾‚Æ‚µ‚ÄB");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã“ã“ã‹ã‚‰å‡ºã‚‹ã®ãŒä¿ºã‚‰ã®ç›®çš„ã ã¨ã—ã¦ã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚Ü‚ŸA‚È‚ñ‚¾H‚±‚Ì•”‰®‚Ås‚¯‚éêŠ‚Í‘S•”s‚Á‚½–ó‚¾‚µ‚ÈB");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã¾ãã€ãªã‚“ã ï¼Ÿã“ã®éƒ¨å±‹ã§è¡Œã‘ã‚‹å ´æ‰€ã¯å…¨éƒ¨è¡Œã£ãŸè¨³ã ã—ãªã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚»‚¤‚Å‚·‚ËB‚È‚çA‚±‚Ì‚­‚ç‚¢‚Å‚µ‚Ä‚İ‚Ü‚µ‚å‚¤‚©B");
+        uitext.DrawText("ã‚½ãƒ©", "ãã†ã§ã™ã­ã€‚ãªã‚‰ã€ã“ã®ãã‚‰ã„ã§è©¦ã—ã¦ã¿ã¾ã—ã‚‡ã†ã‹ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "“V”‰‚³‚ñA‚Ç‚¤‚©i‚Ş‚×‚«“¹‚ğ‹³‚¦‚Ä‰º‚³‚¢B");
+        uitext.DrawText("ã‚½ãƒ©", "å¤©ç§¤ã•ã‚“ã€ã©ã†ã‹é€²ã‚€ã¹ãé“ã‚’æ•™ãˆã¦ä¸‹ã•ã„ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
@@ -1580,22 +1618,22 @@ public class TextWriter : MonoBehaviour
         hospital.behindFlag = true;
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "“ü‚ê‚Ü‚µ‚½‚æ‚§[‚Ác");
+        uitext.DrawText("ã‚½ãƒ©", "å…¥ã‚Œã¾ã—ãŸã‚ˆã‰ãƒ¼ã£â€¦");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚±‚±‚à‚Ü‚½’·‚¢’Ê˜H‚Á‚ÄŠ´‚¶‚Å‚·B");
+        uitext.DrawText("ã‚½ãƒ©", "ã“ã“ã‚‚ã¾ãŸé•·ã„é€šè·¯ã£ã¦æ„Ÿã˜ã§ã™ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚¨‚§A‚Ç‚¤‚¾A‚»‚±‚É‰½‚©”Ô†‚ÌèŠ|‚©‚è‚ª‚ ‚ê‚Î‚¢‚¢‚ñ‚¾‚ª‚ÈB");
+        uitext.DrawText("ãƒã‚«ãƒª", "ãŠã‰ã€ã©ã†ã ã€ãã“ã«ä½•ã‹ç•ªå·ã®æ‰‹æ›ã‹ã‚ŠãŒã‚ã‚Œã°ã„ã„ã‚“ã ãŒãªã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "’T‚µ‚Ä‚İ‚Ü‚·‚ËB");
+        uitext.DrawText("ã‚½ãƒ©", "æ¢ã—ã¦ã¿ã¾ã™ã­ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
@@ -1617,17 +1655,17 @@ public class TextWriter : MonoBehaviour
         hospital.leftFlag = true;
 
         girl_fear.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "ƒnƒJƒŠ‚³‚ñ•s–¡‚¢‚©‚àB");
+        uitext.DrawText("ã‚½ãƒ©", "ãƒã‚«ãƒªã•ã‚“ä¸å‘³ã„ã‹ã‚‚ã€‚");
         yield return StartCoroutine("Skip");
         girl_fear.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "I‚Ç‚¤‚µ‚½H");
+        uitext.DrawText("ãƒã‚«ãƒª", "ï¼ã©ã†ã—ãŸï¼Ÿ");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl_fear.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "¶‚«‚Ä‚½‚ç‚Ü‚½Œã‚Å‰ï‚¢‚Ü‚µ‚åc");
+        uitext.DrawText("ã‚½ãƒ©", "ç”Ÿãã¦ãŸã‚‰ã¾ãŸå¾Œã§ä¼šã„ã¾ã—ã‚‡â€¦");
         yield return StartCoroutine("Skip");
         girl_fear.SetActive(false);
 
@@ -1646,7 +1684,7 @@ public class TextWriter : MonoBehaviour
         girl.SetActive(false);
         investigate.SetActive(false);
 
-        uitext.DrawText("‚¨‘O‚Í–Y‚ê‚Ä‚¢‚éB");
+        uitext.DrawText("ãŠå‰ã¯å¿˜ã‚Œã¦ã„ã‚‹ã€‚");
         yield return StartCoroutine("Skip");
         Canbus.SetActive(false);
         gameStop.stopFlag = false;
@@ -1662,7 +1700,7 @@ public class TextWriter : MonoBehaviour
         girl.SetActive(false);
         investigate.SetActive(false);
 
-        uitext.DrawText("‚¨‘O‚Í€‚É‘¹‚È‚¢B");
+        uitext.DrawText("ãŠå‰ã¯æ­»ã«æãªã„ã€‚");
         yield return StartCoroutine("Skip");
         Canbus.SetActive(false);
         gameStop.stopFlag = false;
@@ -1678,7 +1716,7 @@ public class TextWriter : MonoBehaviour
         girl.SetActive(false);
         investigate.SetActive(false);
 
-        uitext.DrawText("‚¨‘O‚Ì‚¹‚¢‚¾B");
+        uitext.DrawText("ãŠå‰ã®ã›ã„ã ã€‚");
         yield return StartCoroutine("Skip");
         Canbus.SetActive(false);
         gameStop.stopFlag = false;
@@ -1694,7 +1732,7 @@ public class TextWriter : MonoBehaviour
         girl.SetActive(false);
         investigate.SetActive(false);
 
-        uitext.DrawText("‚¨‘O‚ª‹‚é‚©‚çB");
+        uitext.DrawText("ãŠå‰ãŒå±…ã‚‹ã‹ã‚‰ã€‚");
         yield return StartCoroutine("Skip");
         Canbus.SetActive(false);
         gameStop.stopFlag = false;
@@ -1710,7 +1748,7 @@ public class TextWriter : MonoBehaviour
         girl.SetActive(false);
         investigate.SetActive(false);
 
-        uitext.DrawText("°‚ÌFB");
+        uitext.DrawText("åºŠã®è‰²ã€‚");
         yield return StartCoroutine("Skip");
         Canbus.SetActive(false);
         gameStop.stopFlag = false;
@@ -1728,7 +1766,7 @@ public class TextWriter : MonoBehaviour
 
         sewing.SetActive(true);
         soundMan.isGetItem = true;
-        uitext.DrawText("Ù–D“¹‹ï‚ğè‚É“ü‚ê‚½B");
+        uitext.DrawText("è£ç¸«é“å…·ã‚’æ‰‹ã«å…¥ã‚ŒãŸã€‚");
         yield return StartCoroutine("Skip");
         sewing.SetActive(false);
 
@@ -1748,7 +1786,7 @@ public class TextWriter : MonoBehaviour
         girl.SetActive(false);
         investigate.SetActive(false);
 
-        uitext.DrawText("•”‰®‚ÌŒ`B");
+        uitext.DrawText("éƒ¨å±‹ã®å½¢ã€‚");
         yield return StartCoroutine("Skip");
         Canbus.SetActive(false);
         gameStop.stopFlag = false;
@@ -1764,7 +1802,7 @@ public class TextWriter : MonoBehaviour
         girl.SetActive(false);
         investigate.SetActive(false);
 
-        uitext.DrawText("”½“]B");
+        uitext.DrawText("åè»¢ã€‚");
         yield return StartCoroutine("Skip");
         Canbus.SetActive(false);
         gameStop.stopFlag = false;
@@ -1785,53 +1823,53 @@ public class TextWriter : MonoBehaviour
         enemyTarget.moveFlag = false;
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‘åä•v‚©‚ÁHI");
+        uitext.DrawText("ãƒã‚«ãƒª", "å¤§ä¸ˆå¤«ã‹ã£ï¼Ÿï¼");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl_fear.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚Í‚ŸA‚Í‚ŸA‚Í‚ŸA‚Í‚ŸB");
+        uitext.DrawText("ã‚½ãƒ©", "ã¯ãã€ã¯ãã€ã¯ãã€ã¯ãã€‚");
         yield return StartCoroutine("Skip");
         girl_fear.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "cc‚È‚ñ‚Æ‚©cc");
+        uitext.DrawText("ã‚½ãƒ©", "â€¦â€¦ãªã‚“ã¨ã‹â€¦â€¦");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‘S•”‚¶‚á‚È‚¢‚©‚à‚µ‚ê‚Ü‚¹‚ñ‚ªc‚¢‚­‚Â‚©èŠ|‚©‚è‚È‚ÇAŒ©‚Â‚¯‚Ü‚µ‚½c");
+        uitext.DrawText("ã‚½ãƒ©", "å…¨éƒ¨ã˜ã‚ƒãªã„ã‹ã‚‚ã—ã‚Œã¾ã›ã‚“ãŒâ€¦ã„ãã¤ã‹æ‰‹æ›ã‹ã‚Šãªã©ã€è¦‹ã¤ã‘ã¾ã—ãŸâ€¦");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         fadeIn.fadeOutFlag = true;
 
-        uitext.DrawText("ƒ\ƒ‰‚ÌŒÄ‹z‚ª—‚¿’…‚­‚Ü‚ÅAƒnƒJƒŠ‚Í”w’†‚ğ‚³‚·‚Á‚½[B");
+        uitext.DrawText("ã‚½ãƒ©ã®å‘¼å¸ãŒè½ã¡ç€ãã¾ã§ã€ãƒã‚«ãƒªã¯èƒŒä¸­ã‚’ã•ã™ã£ãŸãƒ¼ã€‚");
         yield return StartCoroutine("Skip");
         fadeIn.fadeFlag = true;
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "—‚¿’…‚¢‚Ä‚«‚Ü‚µ‚½B‚à‚¤‘åä•v‚Å‚·B");
+        uitext.DrawText("ã‚½ãƒ©", "è½ã¡ç€ã„ã¦ãã¾ã—ãŸã€‚ã‚‚ã†å¤§ä¸ˆå¤«ã§ã™ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚ ‚è‚ª‚Æ‚¤‚ÈB");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã‚ã‚ŠãŒã¨ã†ãªã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚»‚¤‚Å‚·‚ËB‚à‚Á‚ÆŠ´Ó‚µ‚Ä‚­‚¾‚³‚¢B");
+        uitext.DrawText("ã‚½ãƒ©", "ãã†ã§ã™ã­ã€‚ã‚‚ã£ã¨æ„Ÿè¬ã—ã¦ãã ã•ã„ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚ ‚ŸAƒ\ƒ‰‚ª‹‚Ä‚­‚ê‚Ä•‚©‚Á‚½B");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã‚ãã€ã‚½ãƒ©ãŒå±…ã¦ãã‚Œã¦åŠ©ã‹ã£ãŸã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚»‚µ‚½‚çA‚±‚±‚©‚ç‚Í”Ô†‚ğ“±‚­“ä‰ğ‚«‚Á‚ÄŠ‚Å‚·‚©‚ËB");
+        uitext.DrawText("ã‚½ãƒ©", "ãã—ãŸã‚‰ã€ã“ã“ã‹ã‚‰ã¯ç•ªå·ã‚’å°ãè¬è§£ãã£ã¦æ‰€ã§ã™ã‹ã­ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
@@ -1850,107 +1888,107 @@ public class TextWriter : MonoBehaviour
         investigate.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "E@E@E");
+        uitext.DrawText("ãƒã‚«ãƒª", "ãƒ»ã€€ãƒ»ã€€ãƒ»");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "@E@E@E@");
+        uitext.DrawText("ã‚½ãƒ©", "ã€€ãƒ»ã€€ãƒ»ã€€ãƒ»ã€€");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚È‚ñ‚©c‰½‚à•Ï‰»–³‚­Š´‚¶‚é‚ÈB");
+        uitext.DrawText("ãƒã‚«ãƒª", "ãªã‚“ã‹â€¦ä½•ã‚‚å¤‰åŒ–ç„¡ãæ„Ÿã˜ã‚‹ãªã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚»‚¤A‚Å‚·‚ËB‚³‚Á‚«‚ÌƒZƒŠƒt‚ª’p‚¸‚©‚µ‚­Š´‚¶‚Ä‚«‚Ü‚µ‚½B");
+        uitext.DrawText("ã‚½ãƒ©", "ãã†ã€ã§ã™ã­ã€‚ã•ã£ãã®ã‚»ãƒªãƒ•ãŒæ¥ãšã‹ã—ãæ„Ÿã˜ã¦ãã¾ã—ãŸã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚ÜA‚Ü‚Ÿ‚Ù‚çAŠè‚Á‚½‚çŠ‚¤‚È‚ñ‚Ä‚±‚Æ©‘Ì•’Ê‚Í‚¨‚©‚µ‚¢‚©‚ç‚ÈB");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã¾ã€ã¾ãã»ã‚‰ã€é¡˜ã£ãŸã‚‰å¶ã†ãªã‚“ã¦ã“ã¨è‡ªä½“æ™®é€šã¯ãŠã‹ã—ã„ã‹ã‚‰ãªã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‰´‚ç•ª’·‚¢–‚±‚Ì•Ï‚È‹óŠÔ‚É‹‚é‚©‚ç‚¿‚ÆŠú‘Ò‚µ‚¿‚Ü‚Á‚½‚È‚—");
+        uitext.DrawText("ãƒã‚«ãƒª", "ä¿ºã‚‰éšåˆ†é•·ã„äº‹ã“ã®å¤‰ãªç©ºé–“ã«å±…ã‚‹ã‹ã‚‰ã¡ã¨æœŸå¾…ã—ã¡ã¾ã£ãŸãªï½—");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚æ‚µ‚ÁA‚Ü‚¾Œ©‚Ä‚Ë‚¥êŠ‚ ‚é‚©‚à‚¾B’T‚µ‚ÉskccH");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã‚ˆã—ã£ã€ã¾ã è¦‹ã¦ã­ã‡å ´æ‰€ã‚ã‚‹ã‹ã‚‚ã ã€‚æ¢ã—ã«è¡Œkâ€¦â€¦ï¼Ÿ");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "ƒnƒJƒŠ‚³‚ñc•sv‹c‚Å‚·B");
+        uitext.DrawText("ã‚½ãƒ©", "ãƒã‚«ãƒªã•ã‚“â€¦ä¸æ€è­°ã§ã™ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚Ç‚¤‚µ‚½H");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã©ã†ã—ãŸï¼Ÿ");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "ƒnƒJƒŠ‚³‚ñ‚Á‚Ä‚³‚Á‚«‚Ü‚Å„‚ÌŒã‚ë‚É‹‚Ü‚µ‚½‚æ‚ËH");
+        uitext.DrawText("ã‚½ãƒ©", "ãƒã‚«ãƒªã•ã‚“ã£ã¦ã•ã£ãã¾ã§ç§ã®å¾Œã‚ã«å±…ã¾ã—ãŸã‚ˆã­ï¼Ÿ");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚¦c‚»‚è‚ácc");
+        uitext.DrawText("ãƒã‚«ãƒª", "ãˆâ€¦ãã‚Šã‚ƒâ€¦â€¦");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "I");
+        uitext.DrawText("ãƒã‚«ãƒª", "ï¼");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "¡A„‚Ì¶‚É‹‚Ü‚¹‚ñ‚©cH");
+        uitext.DrawText("ã‚½ãƒ©", "ä»Šã€ç§ã®å·¦ã«å±…ã¾ã›ã‚“ã‹â€¦ï¼Ÿ");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "•Ï‚È‚±‚Æ‚ğŒ¾‚Á‚Ä‚¢‚é©Šo‚Í‚ ‚è‚Ü‚·B");
+        uitext.DrawText("ã‚½ãƒ©", "å¤‰ãªã“ã¨ã‚’è¨€ã£ã¦ã„ã‚‹è‡ªè¦šã¯ã‚ã‚Šã¾ã™ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "•”‰®‚É•Ï‰»‚Í–³‚¢‚Å‚·‚µA„‚½‚¿‚à“®‚¢‚½‚è‚µ‚Ä‚Ü‚¹‚ñB");
+        uitext.DrawText("ã‚½ãƒ©", "éƒ¨å±‹ã«å¤‰åŒ–ã¯ç„¡ã„ã§ã™ã—ã€ç§ãŸã¡ã‚‚å‹•ã„ãŸã‚Šã—ã¦ã¾ã›ã‚“ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚Å‚àŠm‚©‚ÉAƒnƒJƒŠ‚³‚ñ‚ª‚³‚Á‚«‚Æˆá‚¤êŠ‚É‹‚é‚Á‚Äv‚¤‚ñ‚Å‚·B");
+        uitext.DrawText("ã‚½ãƒ©", "ã§ã‚‚ç¢ºã‹ã«ã€ãƒã‚«ãƒªã•ã‚“ãŒã•ã£ãã¨é•ã†å ´æ‰€ã«å±…ã‚‹ã£ã¦æ€ã†ã‚“ã§ã™ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "c–{“–‚¾B‰´‚àƒ\ƒ‰‚ª‰E‚ÉƒYƒŒ‚½—l‚ÉŠ´‚¶‚éB");
+        uitext.DrawText("ãƒã‚«ãƒª", "â€¦æœ¬å½“ã ã€‚ä¿ºã‚‚ã‚½ãƒ©ãŒå³ã«ã‚ºãƒ¬ãŸæ§˜ã«æ„Ÿã˜ã‚‹ã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‘½•ª–{“–‚É‚¨Šè‚¢–‚ªŠ‚Á‚ÄA‰½‚©‚µ‚ç‚ÌŒø‰Ê‚ğ”­Šö‚µ‚½‚Ì‚©‚à‚µ‚ê‚Ü‚¹‚ñB");
+        uitext.DrawText("ã‚½ãƒ©", "å¤šåˆ†æœ¬å½“ã«ãŠé¡˜ã„äº‹ãŒå¶ã£ã¦ã€ä½•ã‹ã—ã‚‰ã®åŠ¹æœã‚’ç™ºæ®ã—ãŸã®ã‹ã‚‚ã—ã‚Œã¾ã›ã‚“ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "•ûŒüŠ´Šo‚Á‚Â[‚©A“Œ¼“ì–k‚ª‚¸‚ê‚½‚æ‚¤‚Èc");
+        uitext.DrawText("ãƒã‚«ãƒª", "æ–¹å‘æ„Ÿè¦šã£ã¤ãƒ¼ã‹ã€æ±è¥¿å—åŒ—ãŒãšã‚ŒãŸã‚ˆã†ãªâ€¦");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "•”‰®‚ÌŠO‚Éo‚Ä‚İ‚Ü‚µ‚å‚¤B‚«‚Á‚Æ‰½‚©V‚µ‚¢”­Œ©‚ª‚ ‚é‚Í‚¸‚Å‚·B");
+        uitext.DrawText("ã‚½ãƒ©", "éƒ¨å±‹ã®å¤–ã«å‡ºã¦ã¿ã¾ã—ã‚‡ã†ã€‚ãã£ã¨ä½•ã‹æ–°ã—ã„ç™ºè¦‹ãŒã‚ã‚‹ã¯ãšã§ã™ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚»[‚¾‚ÈBs‚Á‚Ä‚İ‚é‚µ‚©‚Ë‚¥‚ÈB");
+        uitext.DrawText("ãƒã‚«ãƒª", "ããƒ¼ã ãªã€‚è¡Œã£ã¦ã¿ã‚‹ã—ã‹ã­ã‡ãªã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
@@ -1969,7 +2007,7 @@ public class TextWriter : MonoBehaviour
 
         fadeIn.fadeOutFlag = true;
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚¦c‚±‚±A¶‘¤‚ÉƒhƒA‚È‚ñ‚Ä‚ ‚è‚Ü‚µ‚½‚©H");
+        uitext.DrawText("ã‚½ãƒ©", "ãˆâ€¦ã“ã“ã€å·¦å´ã«ãƒ‰ã‚¢ãªã‚“ã¦ã‚ã‚Šã¾ã—ãŸã‹ï¼Ÿ");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
@@ -1977,27 +2015,27 @@ public class TextWriter : MonoBehaviour
         boyTarget.followFlag2 = false;
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "–³‚©‚Á‚½ƒnƒYcc‚¢‚âcŒ©‚¦‚Ä‚È‚©‚Á‚½‚Ì‚©cH");
+        uitext.DrawText("ãƒã‚«ãƒª", "ç„¡ã‹ã£ãŸãƒã‚ºâ€¦â€¦ã„ã‚„â€¦è¦‹ãˆã¦ãªã‹ã£ãŸã®ã‹â€¦ï¼Ÿ");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "€Šp‚¾‚Á‚½‚Á‚ÄŒ¾‚¤‚Ì‚©A•Ï‚ÈŠ´‚¶‚¾‚ÈB");
+        uitext.DrawText("ãƒã‚«ãƒª", "æ­»è§’ã ã£ãŸã£ã¦è¨€ã†ã®ã‹ã€å¤‰ãªæ„Ÿã˜ã ãªã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚¿‚å‚Á‚ÆA‰ü‚ß‚Ä‚±‚±‚ªˆÙ¿‚È‹óŠÔ‚È‚ñ‚¾‚È‚ÆŠ´‚¶‚Ü‚µ‚½B");
+        uitext.DrawText("ã‚½ãƒ©", "ã¡ã‚‡ã£ã¨ã€æ”¹ã‚ã¦ã“ã“ãŒç•°è³ªãªç©ºé–“ãªã‚“ã ãªã¨æ„Ÿã˜ã¾ã—ãŸã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚»‚¤‚¾‚Èc");
+        uitext.DrawText("ãƒã‚«ãƒª", "ãã†ã ãªâ€¦");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚¿‚å‚Á‚Æ‘Ò‚Á‚Ä‚ë‚æB");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã¡ã‚‡ã£ã¨å¾…ã£ã¦ã‚ã‚ˆã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
@@ -2016,22 +2054,22 @@ public class TextWriter : MonoBehaviour
         investigate.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚æ‚µB");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã‚ˆã—ã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "—¬Î‚Å‚·‚ÁA—Š‚è‚É‚È‚è‚Ü‚·‚ËB");
+        uitext.DrawText("ã‚½ãƒ©", "æµçŸ³ã§ã™ã£ã€é ¼ã‚Šã«ãªã‚Šã¾ã™ã­ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚ÜA“÷‘Ì˜J“­‚Î‚Á‚©‚µ‚Ä‚½‚©‚ç‚ÈB");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã¾ã€è‚‰ä½“åŠ´åƒã°ã£ã‹ã—ã¦ãŸã‹ã‚‰ãªã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚¨d–‘å•Ï‚¾‚Á‚½‚ñ‚Å‚·‚ËB");
+        uitext.DrawText("ã‚½ãƒ©", "ãŠä»•äº‹å¤§å¤‰ã ã£ãŸã‚“ã§ã™ã­ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
@@ -2052,13 +2090,13 @@ public class TextWriter : MonoBehaviour
         investigate.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "Œ®‚Í‚©‚©‚Á‚Ä–³‚¢‚İ‚½‚¢‚Å‚·‚ËB");
+        uitext.DrawText("ã‚½ãƒ©", "éµã¯ã‹ã‹ã£ã¦ç„¡ã„ã¿ãŸã„ã§ã™ã­ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         fadeIn.fadeOutFlag = true;
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚È‚çA“ü‚Á‚Ä‚İ‚é‚©B");
+        uitext.DrawText("ãƒã‚«ãƒª", "ãªã‚‰ã€å…¥ã£ã¦ã¿ã‚‹ã‹ã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
@@ -2083,47 +2121,47 @@ public class TextWriter : MonoBehaviour
         investigate.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚¦ccc");
+        uitext.DrawText("ã‚½ãƒ©", "ãˆâ€¦â€¦â€¦");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚±‚±cc„‚Ì•”‰®‚Å‚·B");
+        uitext.DrawText("ã‚½ãƒ©", "ã“ã“â€¦â€¦ç§ã®éƒ¨å±‹ã§ã™ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "i—‚Ìq‚Ì•”‰®‰‚ß‚Ä“ü‚Á‚½cj");
+        uitext.DrawText("ãƒã‚«ãƒª", "ï¼ˆå¥³ã®å­ã®éƒ¨å±‹åˆã‚ã¦å…¥ã£ãŸâ€¦ï¼‰");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚È‚Éƒ{[‚Á‚Æ‚µ‚Ä‚é‚ñ‚Å‚·‚©ƒnƒJƒŠ‚³‚ñB");
+        uitext.DrawText("ã‚½ãƒ©", "ãªã«ãƒœãƒ¼ã£ã¨ã—ã¦ã‚‹ã‚“ã§ã™ã‹ãƒã‚«ãƒªã•ã‚“ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚±‚±‚ªŒ»À‚ÌêŠ‚¶‚á‚È‚¢‚±‚Æ‚Í•ª‚©‚Á‚Ä‚Ü‚·B");
+        uitext.DrawText("ã‚½ãƒ©", "ã“ã“ãŒç¾å®Ÿã®å ´æ‰€ã˜ã‚ƒãªã„ã“ã¨ã¯åˆ†ã‹ã£ã¦ã¾ã™ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‘‚­i‚İ‚Ü‚µ‚åB");
+        uitext.DrawText("ã‚½ãƒ©", "æ—©ãé€²ã¿ã¾ã—ã‚‡ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚ Aˆê‰AƒNƒ[ƒ[ƒbƒg‚Íâ‘ÎŠJ‚¯‚È‚¢‚Å‚­‚¾‚³‚¢‚ËB");
+        uitext.DrawText("ã‚½ãƒ©", "ã‚ã€ä¸€å¿œã€ã‚¯ãƒ­ãƒ¼ã‚¼ãƒƒãƒˆã¯çµ¶å¯¾é–‹ã‘ãªã„ã§ãã ã•ã„ã­ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚¨A‚¨‚¤B");
+        uitext.DrawText("ãƒã‚«ãƒª", "ãŠã€ãŠã†ã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "i“ü‚Á‚Ä‚Í—Ç‚¢‚Ì‚©cj");
+        uitext.DrawText("ãƒã‚«ãƒª", "ï¼ˆå…¥ã£ã¦ã¯è‰¯ã„ã®ã‹â€¦ï¼‰");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
@@ -2141,40 +2179,40 @@ public class TextWriter : MonoBehaviour
         investigate.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚¤‚Ö‚¥A‚Ü‚½‚Å‚·‚©B");
+        uitext.DrawText("ã‚½ãƒ©", "ã†ã¸ã‡ã€ã¾ãŸã§ã™ã‹ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚ [A‚»‚¤‚İ‚½‚¢‚¾‚ÈB");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã‚ãƒ¼ã€ãã†ã¿ãŸã„ã ãªã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "ƒnƒJƒŠ‚³‚ñ‚¿‚å‚Á‚ÆÎ‚Á‚Ä‚Ü‚¹‚ñHH");
+        uitext.DrawText("ã‚½ãƒ©", "ãƒã‚«ãƒªã•ã‚“ã¡ã‚‡ã£ã¨ç¬‘ã£ã¦ã¾ã›ã‚“ï¼Ÿï¼Ÿ");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚¢‚âH‚—");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã„ã‚„ï¼Ÿï½—");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
-        uitext.DrawText("ƒ\ƒ‰‚ÍƒnƒJƒŠ‚Ì‘«‚ğ“¥‚İ‚Â‚¯‚½");
+        uitext.DrawText("ã‚½ãƒ©ã¯ãƒã‚«ãƒªã®è¶³ã‚’è¸ã¿ã¤ã‘ãŸ");
         yield return StartCoroutine("Skip");
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚¢‚ÁI‚Á‚Â[[B");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã„ã£ï¼ã£ã¤ãƒ¼ãƒ¼ã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "s‚Á‚Ä‚«‚Ü‚·B");
+        uitext.DrawText("ã‚½ãƒ©", "è¡Œã£ã¦ãã¾ã™ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚¨A‚¨‚¤c‹C‚ğ‚Â‚¯‚Ä‚Ècc");
+        uitext.DrawText("ãƒã‚«ãƒª", "ãŠã€ãŠã†â€¦æ°—ã‚’ã¤ã‘ã¦ãªâ€¦â€¦");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
         boyTarget.followFlag2 = false;
@@ -2196,37 +2234,37 @@ public class TextWriter : MonoBehaviour
         investigate.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚¦‚Ácc");
+        uitext.DrawText("ã‚½ãƒ©", "ãˆã£â€¦â€¦");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‘åä•v‚©HI");
+        uitext.DrawText("ãƒã‚«ãƒª", "å¤§ä¸ˆå¤«ã‹ï¼Ÿï¼");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‘åä•vc‚È‚ñ‚Å‚·‚¯‚ÇA‚Ç‚¤‚â‚ç“¯‚¶‚æ‚¤‚È•”‰®‚Å‚·‚ËB");
+        uitext.DrawText("ã‚½ãƒ©", "å¤§ä¸ˆå¤«â€¦ãªã‚“ã§ã™ã‘ã©ã€ã©ã†ã‚„ã‚‰åŒã˜ã‚ˆã†ãªéƒ¨å±‹ã§ã™ã­ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "“¯‚¶‚æ‚¤‚ÈH");
+        uitext.DrawText("ãƒã‚«ãƒª", "åŒã˜ã‚ˆã†ãªï¼Ÿ");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚Í‚¢B‚»‚Á‚¿‚Ì•”‰®‚Æ“¯‚¶„‚Ì©º‚Å‚·B");
+        uitext.DrawText("ã‚½ãƒ©", "ã¯ã„ã€‚ãã£ã¡ã®éƒ¨å±‹ã¨åŒã˜ç§ã®è‡ªå®¤ã§ã™ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚Å‚à‚È‚ñ‚¾‚©A­‚µ‚¾‚¯ˆá˜aŠ´‚Æ‚¢‚¤‚©cc");
+        uitext.DrawText("ã‚½ãƒ©", "ã§ã‚‚ãªã‚“ã ã‹ã€å°‘ã—ã ã‘é•å’Œæ„Ÿã¨ã„ã†ã‹â€¦â€¦");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         soundMan.isDoorClose = true;
-        uitext.DrawText("ƒoƒ^ƒ“I");
+        uitext.DrawText("ãƒã‚¿ãƒ³ï¼");
         yield return StartCoroutine("Skip");
 
         blueRoomDoor1.SetActive(true);
@@ -2236,32 +2274,32 @@ public class TextWriter : MonoBehaviour
         blueRoomDoor5.SetActive(true);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "HI");
+        uitext.DrawText("ã‚½ãƒ©", "ï¼Ÿï¼");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "’Ê˜H‚ªÇ‚ª‚ê‚½HI");
+        uitext.DrawText("ã‚½ãƒ©", "é€šè·¯ãŒå¡ãŒã‚ŒãŸï¼Ÿï¼");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "ƒnƒJƒŠ‚³‚ñ‚ÁI");
+        uitext.DrawText("ã‚½ãƒ©", "ãƒã‚«ãƒªã•ã‚“ã£ï¼");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "ƒnƒJƒŠ‚³‚ñ‚ÁHI");
+        uitext.DrawText("ã‚½ãƒ©", "ãƒã‚«ãƒªã•ã‚“ã£ï¼Ÿï¼");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "•Ô–‚ª‚È‚¢c");
+        uitext.DrawText("ã‚½ãƒ©", "è¿”äº‹ãŒãªã„â€¦");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚Ç‚¤‚É‚©‚±‚±‚©‚ço‚È‚¢‚Æc");
+        uitext.DrawText("ã‚½ãƒ©", "ã©ã†ã«ã‹ã“ã“ã‹ã‚‰å‡ºãªã„ã¨â€¦");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
@@ -2282,7 +2320,7 @@ public class TextWriter : MonoBehaviour
         investigate.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "•s©‘R‚ÈÕ‚ª‚ ‚é");
+        uitext.DrawText("ã‚½ãƒ©", "ä¸è‡ªç„¶ãªè·¡ãŒã‚ã‚‹");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
@@ -2300,7 +2338,7 @@ public class TextWriter : MonoBehaviour
         investigate.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "•s©‘R‚ÈŠ‚Í–³‚¢");
+        uitext.DrawText("ã‚½ãƒ©", "ä¸è‡ªç„¶ãªæ‰€ã¯ç„¡ã„");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
@@ -2318,7 +2356,7 @@ public class TextWriter : MonoBehaviour
         investigate.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "•s©‘R‚ÈŠ‚Í–³‚¢‚æ‚Ë");
+        uitext.DrawText("ã‚½ãƒ©", "ä¸è‡ªç„¶ãªæ‰€ã¯ç„¡ã„ã‚ˆã­");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
@@ -2336,7 +2374,7 @@ public class TextWriter : MonoBehaviour
         investigate.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "•s©‘R‚ÈŠ‚Í–³‚¢c‚ñcH");
+        uitext.DrawText("ã‚½ãƒ©", "ä¸è‡ªç„¶ãªæ‰€ã¯ç„¡ã„â€¦ã‚“â€¦ï¼Ÿ");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
@@ -2355,7 +2393,7 @@ public class TextWriter : MonoBehaviour
 
         fadeIn.fadeOutFlag = true;
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚æ‚­Œ©‚½‚çƒxƒbƒh‚Ì‰º‚Écƒm[ƒgH");
+        uitext.DrawText("ã‚½ãƒ©", "ã‚ˆãè¦‹ãŸã‚‰ãƒ™ãƒƒãƒ‰ã®ä¸‹ã«â€¦ãƒãƒ¼ãƒˆï¼Ÿ");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
@@ -2378,7 +2416,7 @@ public class TextWriter : MonoBehaviour
         investigate.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "•s©‘R‚ÈŠ‚Í–³‚¢");
+        uitext.DrawText("ã‚½ãƒ©", "ä¸è‡ªç„¶ãªæ‰€ã¯ç„¡ã„");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
@@ -2396,7 +2434,7 @@ public class TextWriter : MonoBehaviour
         investigate.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "”w‚Ì‚‚¢–{’I‚¾‚È");
+        uitext.DrawText("ã‚½ãƒ©", "èƒŒã®é«˜ã„æœ¬æ£šã ãª");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
@@ -2413,7 +2451,7 @@ public class TextWriter : MonoBehaviour
         girl.SetActive(false);
         investigate.SetActive(false);
 
-        uitext.DrawText("ƒTƒ†ƒEƒmƒLƒ“ƒRƒEƒ’ƒ^ƒ‚ƒe");
+        uitext.DrawText("ã‚µãƒ¦ã‚¦ãƒã‚­ãƒ³ã‚³ã‚¦ãƒ²ã‚¿ãƒ¢ãƒ†");
         yield return StartCoroutine("Skip");
 
         Canbus.SetActive(false);
@@ -2430,7 +2468,7 @@ public class TextWriter : MonoBehaviour
         investigate.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "•s©‘R‚ÈŠ‚Í–³‚¢");
+        uitext.DrawText("ã‚½ãƒ©", "ä¸è‡ªç„¶ãªæ‰€ã¯ç„¡ã„");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
@@ -2448,7 +2486,7 @@ public class TextWriter : MonoBehaviour
         investigate.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "•s©‘R‚ÈŠ‚Í–³‚¢");
+        uitext.DrawText("ã‚½ãƒ©", "ä¸è‡ªç„¶ãªæ‰€ã¯ç„¡ã„");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
@@ -2466,7 +2504,7 @@ public class TextWriter : MonoBehaviour
         investigate.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "•s©‘R‚ÈŠ‚Í–³‚¢");
+        uitext.DrawText("ã‚½ãƒ©", "ä¸è‡ªç„¶ãªæ‰€ã¯ç„¡ã„");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
@@ -2484,7 +2522,7 @@ public class TextWriter : MonoBehaviour
         investigate2.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "•s©‘R‚ÈÕ‚ª‚ ‚é");
+        uitext.DrawText("ãƒã‚«ãƒª", "ä¸è‡ªç„¶ãªè·¡ãŒã‚ã‚‹");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
@@ -2502,7 +2540,7 @@ public class TextWriter : MonoBehaviour
         investigate2.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "•s©‘R‚ÈŠ‚Í–³‚¢");
+        uitext.DrawText("ãƒã‚«ãƒª", "ä¸è‡ªç„¶ãªæ‰€ã¯ç„¡ã„");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
@@ -2521,7 +2559,7 @@ public class TextWriter : MonoBehaviour
 
         fadeIn.fadeOutFlag = true;
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "c–ß‚Á‚½H");
+        uitext.DrawText("ãƒã‚«ãƒª", "â€¦æˆ»ã£ãŸï¼Ÿ");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
         boyTeleport.SetPosition(-123.8f, 106f);
@@ -2554,7 +2592,7 @@ public class TextWriter : MonoBehaviour
         investigate2.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚ñ‚ŸA‚±‚ê“®‚©‚¹‚ñ‚Ì‚©c‚¨‚Á‚àcc");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã‚“ãã€ã“ã‚Œå‹•ã‹ã›ã‚“ã®ã‹â€¦ãŠã£ã‚‚â€¦â€¦");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
@@ -2572,7 +2610,7 @@ public class TextWriter : MonoBehaviour
         investigate2.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚±‚ê‚à“®‚­‚È‚Ÿ");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã“ã‚Œã‚‚å‹•ããªã");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
@@ -2590,7 +2628,7 @@ public class TextWriter : MonoBehaviour
         investigate2.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "•s©‘R‚ÈŠ‚Í–³‚¢");
+        uitext.DrawText("ãƒã‚«ãƒª", "ä¸è‡ªç„¶ãªæ‰€ã¯ç„¡ã„");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
@@ -2607,12 +2645,12 @@ public class TextWriter : MonoBehaviour
         investigate2.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚Å‚Á‚¯‚¥–{’I‚¾‚Èc");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã§ã£ã‘ã‡æœ¬æ£šã ãªâ€¦");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‰´‚Å‚àã•”‚Éè‚ª“Í‚©‚Ë‚¥");
+        uitext.DrawText("ãƒã‚«ãƒª", "ä¿ºã§ã‚‚ä¸Šéƒ¨ã«æ‰‹ãŒå±Šã‹ã­ã‡");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
@@ -2630,7 +2668,7 @@ public class TextWriter : MonoBehaviour
         investigate2.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚±‚±‚Å‚¢‚¢‚Ì‚©cH");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã“ã“ã§ã„ã„ã®ã‹â€¦ï¼Ÿ");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
@@ -2650,7 +2688,7 @@ public class TextWriter : MonoBehaviour
 
         fadeIn.fadeOutFlag = true;
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚±‚ê‚Å“Í‚­‚©cH");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã“ã‚Œã§å±Šãã‹â€¦ï¼Ÿ");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
         vase1.SetActive(false);
@@ -2674,7 +2712,7 @@ public class TextWriter : MonoBehaviour
         investigate2.SetActive(false);
 
         fadeIn.fadeOutFlag = true;
-        uitext.DrawText("ƒKƒ`ƒƒƒ“I");
+        uitext.DrawText("ã‚¬ãƒãƒ£ãƒ³ï¼");
         yield return StartCoroutine("Skip");
         blueRoomDoor1.SetActive(false);
         blueRoomDoor2.SetActive(false);
@@ -2697,22 +2735,22 @@ public class TextWriter : MonoBehaviour
         fadeIn.fadeFlag = true;
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "ƒ\ƒ‰I–³–‚¾‚Á‚½‚©HI");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã‚½ãƒ©ï¼ç„¡äº‹ã ã£ãŸã‹ï¼Ÿï¼");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "—Ç‚©‚Á‚½IƒnƒJƒŠ‚³‚ñ‚à–³–‚Å‚·‚Ë‚Á");
+        uitext.DrawText("ã‚½ãƒ©", "è‰¯ã‹ã£ãŸï¼ãƒã‚«ãƒªã•ã‚“ã‚‚ç„¡äº‹ã§ã™ã­ã£");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚É‚µ‚Ä‚àc‚â‚Á‚©‚¢‚È•”‰®‚¾‚Á‚½‚È");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã«ã—ã¦ã‚‚â€¦ã‚„ã£ã‹ã„ãªéƒ¨å±‹ã ã£ãŸãª");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚Å‚àA‚Ç‚¤‚É‚©æ‚Éi‚ß‚»‚¤‚Å‚·‚Ë");
+        uitext.DrawText("ã‚½ãƒ©", "ã§ã‚‚ã€ã©ã†ã«ã‹å…ˆã«é€²ã‚ãã†ã§ã™ã­");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
@@ -2732,71 +2770,73 @@ public class TextWriter : MonoBehaviour
         investigate.SetActive(false);
         investigate2.SetActive(false);
 
-        uitext.DrawText("”’‚¢ƒ‚ƒ„", "‚â‚ŸA‚¨“ñl‚³‚ñB‚¿‚å‚Á‚Æ‚¢‚¢‚©‚ÈH");
+        uitext.DrawText("ç™½ã„ãƒ¢ãƒ¤", "ã‚„ãã€ãŠäºŒäººã•ã‚“ã€‚ã¡ã‚‡ã£ã¨ã„ã„ã‹ãªï¼Ÿ");
         yield return StartCoroutine("Skip");
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚Ó‚¥‚ÁA‚ÈA‚È‚ñ‚Å‚·‚©c");
+        uitext.DrawText("ã‚½ãƒ©", "ãµã‡ã£ã€ãªã€ãªã‚“ã§ã™ã‹â€¦");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
-        uitext.DrawText("”’‚¢ƒ‚ƒ„", "—Š‚İ‚½‚¢‚±‚Æ‚ª‚ ‚é‚ñ‚¾‚¯‚Ç‚¨Šè‚¢o—ˆ‚È‚¢‚©‚ÈH");
+        uitext.DrawText("ç™½ã„ãƒ¢ãƒ¤", "é ¼ã¿ãŸã„ã“ã¨ãŒã‚ã‚‹ã‚“ã ã‘ã©ãŠé¡˜ã„å‡ºæ¥ãªã„ã‹ãªï¼Ÿ");
         yield return StartCoroutine("Skip");
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚¨‘O‚ÍclA‚È‚Ì‚©H");
+        uitext.DrawText("ãƒã‚«ãƒª", "ãŠå‰ã¯â€¦äººã€ãªã®ã‹ï¼Ÿ");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
-        uitext.DrawText("”’‚¢ƒ‚ƒ„", "‚ ‚ŸA„H‚Ç‚¤‚¾‚ë‚¤‚ËB‚ ‚ñ‚Ü‚èŠo‚¦‚Ä‚¢‚È‚¢‚ñ‚¾B");
+        uitext.DrawText("ç™½ã„ãƒ¢ãƒ¤", "ã‚ãã€ç§ï¼Ÿã©ã†ã ã‚ã†ã­ã€‚ã‚ã‚“ã¾ã‚Šè¦šãˆã¦ã„ãªã„ã‚“ã ã€‚");
         yield return StartCoroutine("Skip");
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‘f«‚Ì’m‚ê‚È‚¢“z‚Ì—Š‚İ‚Í‚È‚Ÿc");
+        uitext.DrawText("ãƒã‚«ãƒª", "ç´ æ€§ã®çŸ¥ã‚Œãªã„å¥´ã®é ¼ã¿ã¯ãªãâ€¦");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "ƒnƒJƒŠ‚³‚ñA“GˆÓ‚Í–³‚¢‚æ‚¤‚ÉŠ´‚¶‚é‚Ì‚ÅA•·‚¢‚Ä‚ ‚°‚Ü‚¹‚ñ‚©H");
+        uitext.DrawText("ã‚½ãƒ©", "ãƒã‚«ãƒªã•ã‚“ã€æ•µæ„ã¯ç„¡ã„ã‚ˆã†ã«æ„Ÿã˜ã‚‹ã®ã§ã€èã„ã¦ã‚ã’ã¾ã›ã‚“ã‹ï¼Ÿ");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚ñ‚ŸA‚Ü‚Ÿ—Ç‚¢‚©B");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã‚“ãã€ã¾ãè‰¯ã„ã‹ã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
-        uitext.DrawText("”’‚¢ƒ‚ƒ„", "‚ ‚è‚ª‚Æ‚¤B‚»‚ê‚Å‚ËB");
+        uitext.DrawText("ç™½ã„ãƒ¢ãƒ¤", "ã‚ã‚ŠãŒã¨ã†ã€‚ãã‚Œã§ã­ã€‚");
         yield return StartCoroutine("Skip");
 
-        uitext.DrawText("”’‚¢ƒ‚ƒ„", "„‚Í‚Ç‚¤‚â‚çA‚Æ‚Ä‚à‘åØ‚È‚±‚Æ‚ğ–Y‚ê‚Ä‚¢‚é‚İ‚½‚¢‚Å‚ËB");
+        uitext.DrawText("ç™½ã„ãƒ¢ãƒ¤", "ç§ã¯ã©ã†ã‚„ã‚‰ã€ã¨ã¦ã‚‚å¤§åˆ‡ãªã“ã¨ã‚’å¿˜ã‚Œã¦ã„ã‚‹ã¿ãŸã„ã§ã­ã€‚");
         yield return StartCoroutine("Skip");
 
-        uitext.DrawText("”’‚¢ƒ‚ƒ„", "’N‚©‚Éˆ§‚¢‚½‚©‚Á‚½‚Á‚Ä‚±‚Æ‚¾‚¯‚Í•ª‚©‚Á‚Ä‚¢‚é‚ñ‚¾‚¯‚ÇA‚»‚Ìl‚Ì–¼‘O‚àA‚»‚ê‚Ç‚±‚ë‚©©•ª‚Ì–¼‘O‚·‚ç‚à–Y‚ê‚Ä‚µ‚Ü‚Á‚Ä‚ËB");
+        uitext.DrawText("ç™½ã„ãƒ¢ãƒ¤", "èª°ã‹ã«é€¢ã„ãŸã‹ã£ãŸã£ã¦ã“ã¨ã ã‘ã¯åˆ†ã‹ã£ã¦ã„ã‚‹ã‚“ã ã‘ã©ã€ãã®äººã®åå‰ã‚‚ã€ãã‚Œã©ã“ã‚ã‹è‡ªåˆ†ã®åå‰ã™ã‚‰ã‚‚å¿˜ã‚Œã¦ã—ã¾ã£ã¦ã­ã€‚");
         yield return StartCoroutine("Skip");
 
-        uitext.DrawText("”’‚¢ƒ‚ƒ„", "‚µ‚©‚µ‚È‚ª‚ç„‚Í‚±‚Ìèpº‚©‚ç“®‚¯‚È‚¢‚İ‚½‚¢‚È‚ñ‚¾B");
+        uitext.DrawText("ç™½ã„ãƒ¢ãƒ¤", "ã—ã‹ã—ãªãŒã‚‰ç§ã¯ã“ã®æ‰‹è¡“å®¤ã‹ã‚‰å‹•ã‘ãªã„ã¿ãŸã„ãªã‚“ã ã€‚");
         yield return StartCoroutine("Skip");
 
-        uitext.DrawText("”’‚¢ƒ‚ƒ„", "‚¾‚©‚çŒN‚½‚¿‚É‚¨è“`‚¢‚ğ—Š‚ñ‚¾‚ñ‚¾B");
+        uitext.DrawText("ç™½ã„ãƒ¢ãƒ¤", "ã ã‹ã‚‰å›ãŸã¡ã«ãŠæ‰‹ä¼ã„ã‚’é ¼ã‚“ã ã‚“ã ã€‚");
         yield return StartCoroutine("Skip");
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "’n”›—ì“I‚ÈŠ´‚¶‚©H");
+        uitext.DrawText("ãƒã‚«ãƒª", "åœ°ç¸›éœŠçš„ãªæ„Ÿã˜ã‹ï¼Ÿ");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
-        uitext.DrawText("”’‚¢ƒ‚ƒ„", "‚»‚¤‚È‚Ì‚©‚ÈH‚æ‚­‚í‚©‚ñ‚È‚¢‚âB");
+        uitext.DrawText("ç™½ã„ãƒ¢ãƒ¤", "ãã†ãªã®ã‹ãªï¼Ÿã‚ˆãã‚ã‹ã‚“ãªã„ã‚„ã€‚");
         yield return StartCoroutine("Skip");
 
-        uitext.DrawText("”’‚¢ƒ‚ƒ„", "‚»‚ê‚Å‚ËA‚»‚±‚ÌŠ÷‚É•K—v‚È•¨‚ª“ü‚Á‚Ä‚é‚Æv‚¤‚©‚çB");
+        uitext.DrawText("ç™½ã„ãƒ¢ãƒ¤", "ãã‚Œã§ã­ã€ãã“ã®æœºã«å¿…è¦ãªç‰©ãŒå…¥ã£ã¦ã‚‹ã¨æ€ã†ã‹ã‚‰ã€‚");
         yield return StartCoroutine("Skip");
 
-        uitext.DrawText("”’‚¢ƒ‚ƒ„", "‚»‚±‚É‘‚¢‚Ä‚ ‚éî•ñ‚ğ—Š‚è‚É–l‚ª‰½Ò‚È‚Ì‚©’T‚Á‚Ä—~‚µ‚¢‚ñ‚¾B");
+        uitext.DrawText("ç™½ã„ãƒ¢ãƒ¤", "ãã“ã«æ›¸ã„ã¦ã‚ã‚‹æƒ…å ±ã‚’é ¼ã‚Šã«åƒ•ãŒä½•è€…ãªã®ã‹æ¢ã£ã¦æ¬²ã—ã„ã‚“ã ã€‚");
         yield return StartCoroutine("Skip");
 
-        uitext.DrawText("”’‚¢ƒ‚ƒ„", "‚à‚µ‰½‚à–³‚­‚Ä‚à‹C‚É‚µ‚È‚¢‚©‚ç‚³A–Ü˜_‚¨—ç‚à‚·‚é‚æB");
+        uitext.DrawText("ç™½ã„ãƒ¢ãƒ¤", "ã‚‚ã—ä½•ã‚‚ç„¡ãã¦ã‚‚æ°—ã«ã—ãªã„ã‹ã‚‰ã•ã€å‹¿è«–ãŠç¤¼ã‚‚ã™ã‚‹ã‚ˆã€‚");
         yield return StartCoroutine("Skip");
+
+        kirakira10.SetActive(true);
 
         Canbus.SetActive(false);
         gameStop.stopFlag = false;
@@ -2811,33 +2851,33 @@ public class TextWriter : MonoBehaviour
         girl.SetActive(false);
         investigate.SetActive(false);
 
-        uitext.DrawText("”’‚¢ƒ‚ƒ„", "„‚Í‚Ç‚¤‚â‚çA‚Æ‚Ä‚à‘åØ‚È‚±‚Æ‚ğ–Y‚ê‚Ä‚¢‚é‚İ‚½‚¢‚Å‚ËB");
+        uitext.DrawText("ç™½ã„ãƒ¢ãƒ¤", "ç§ã¯ã©ã†ã‚„ã‚‰ã€ã¨ã¦ã‚‚å¤§åˆ‡ãªã“ã¨ã‚’å¿˜ã‚Œã¦ã„ã‚‹ã¿ãŸã„ã§ã­ã€‚");
         yield return StartCoroutine("Skip");
 
-        uitext.DrawText("”’‚¢ƒ‚ƒ„", "’N‚©‚Éˆ§‚¢‚½‚©‚Á‚½‚Á‚Ä‚±‚Æ‚¾‚¯‚Í•ª‚©‚Á‚Ä‚¢‚é‚ñ‚¾‚¯‚ÇA‚»‚Ìl‚Ì–¼‘O‚àA‚»‚ê‚Ç‚±‚ë‚©©•ª‚Ì–¼‘O‚·‚ç‚à–Y‚ê‚Ä‚µ‚Ü‚Á‚Ä‚ËB");
+        uitext.DrawText("ç™½ã„ãƒ¢ãƒ¤", "èª°ã‹ã«é€¢ã„ãŸã‹ã£ãŸã£ã¦ã“ã¨ã ã‘ã¯åˆ†ã‹ã£ã¦ã„ã‚‹ã‚“ã ã‘ã©ã€ãã®äººã®åå‰ã‚‚ã€ãã‚Œã©ã“ã‚ã‹è‡ªåˆ†ã®åå‰ã™ã‚‰ã‚‚å¿˜ã‚Œã¦ã—ã¾ã£ã¦ã­ã€‚");
         yield return StartCoroutine("Skip");
 
-        uitext.DrawText("”’‚¢ƒ‚ƒ„", "‚µ‚©‚µ‚È‚ª‚ç„‚Í‚±‚Ìèpº‚©‚ç“®‚¯‚È‚¢‚İ‚½‚¢‚È‚ñ‚¾B");
+        uitext.DrawText("ç™½ã„ãƒ¢ãƒ¤", "ã—ã‹ã—ãªãŒã‚‰ç§ã¯ã“ã®æ‰‹è¡“å®¤ã‹ã‚‰å‹•ã‘ãªã„ã¿ãŸã„ãªã‚“ã ã€‚");
         yield return StartCoroutine("Skip");
 
-        uitext.DrawText("”’‚¢ƒ‚ƒ„", "‚¾‚©‚çŒN‚½‚¿‚É‚¨è“`‚¢‚ğ—Š‚ñ‚¾‚ñ‚¾B");
+        uitext.DrawText("ç™½ã„ãƒ¢ãƒ¤", "ã ã‹ã‚‰å›ãŸã¡ã«ãŠæ‰‹ä¼ã„ã‚’é ¼ã‚“ã ã‚“ã ã€‚");
         yield return StartCoroutine("Skip");
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "’n”›—ì“I‚ÈŠ´‚¶‚©H");
+        uitext.DrawText("ãƒã‚«ãƒª", "åœ°ç¸›éœŠçš„ãªæ„Ÿã˜ã‹ï¼Ÿ");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
-        uitext.DrawText("”’‚¢ƒ‚ƒ„", "‚»‚¤‚È‚Ì‚©‚ÈH‚æ‚­‚í‚©‚ñ‚È‚¢‚âB");
+        uitext.DrawText("ç™½ã„ãƒ¢ãƒ¤", "ãã†ãªã®ã‹ãªï¼Ÿã‚ˆãã‚ã‹ã‚“ãªã„ã‚„ã€‚");
         yield return StartCoroutine("Skip");
 
-        uitext.DrawText("”’‚¢ƒ‚ƒ„", "‚»‚ê‚Å‚ËA‚»‚±‚ÌŠ÷‚É•K—v‚È•¨‚ª“ü‚Á‚Ä‚é‚Æv‚¤‚©‚çB");
+        uitext.DrawText("ç™½ã„ãƒ¢ãƒ¤", "ãã‚Œã§ã­ã€ãã“ã®æœºã«å¿…è¦ãªç‰©ãŒå…¥ã£ã¦ã‚‹ã¨æ€ã†ã‹ã‚‰ã€‚");
         yield return StartCoroutine("Skip");
 
-        uitext.DrawText("”’‚¢ƒ‚ƒ„", "‚»‚±‚É‘‚¢‚Ä‚ ‚éî•ñ‚ğ—Š‚è‚É–l‚ª‰½Ò‚È‚Ì‚©’T‚Á‚Ä—~‚µ‚¢‚ñ‚¾B");
+        uitext.DrawText("ç™½ã„ãƒ¢ãƒ¤", "ãã“ã«æ›¸ã„ã¦ã‚ã‚‹æƒ…å ±ã‚’é ¼ã‚Šã«åƒ•ãŒä½•è€…ãªã®ã‹æ¢ã£ã¦æ¬²ã—ã„ã‚“ã ã€‚");
         yield return StartCoroutine("Skip");
 
-        uitext.DrawText("”’‚¢ƒ‚ƒ„", "‚à‚µ‰½‚à–³‚­‚Ä‚à‹C‚É‚µ‚È‚¢‚©‚ç‚³A–Ü˜_‚¨—ç‚à‚·‚é‚æB");
+        uitext.DrawText("ç™½ã„ãƒ¢ãƒ¤", "ã‚‚ã—ä½•ã‚‚ç„¡ãã¦ã‚‚æ°—ã«ã—ãªã„ã‹ã‚‰ã•ã€å‹¿è«–ãŠç¤¼ã‚‚ã™ã‚‹ã‚ˆã€‚");
         yield return StartCoroutine("Skip");
 
         Canbus.SetActive(false);
@@ -2854,22 +2894,22 @@ public class TextWriter : MonoBehaviour
         investigate.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚±‚êAŠw¶Ø‚©H");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã“ã‚Œã€å­¦ç”Ÿè¨¼ã‹ï¼Ÿ");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚»‚¤‚İ‚½‚¢‚Å‚·‚ËB–¼‘O‚Íc•“h‚è‚³‚ê‚Ä‚é‚İ‚½‚¢‚Å‚·B");
+        uitext.DrawText("ã‚½ãƒ©", "ãã†ã¿ãŸã„ã§ã™ã­ã€‚åå‰ã¯â€¦é»’å¡—ã‚Šã•ã‚Œã¦ã‚‹ã¿ãŸã„ã§ã™ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "A-1H‚¿å‚ÌƒNƒ‰ƒX‚Æ‚©‚©H");
+        uitext.DrawText("ãƒã‚«ãƒª", "A-1ï¼ŸæŒã¡ä¸»ã®ã‚¯ãƒ©ã‚¹ã¨ã‹ã‹ï¼Ÿ");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚Æ‚¢‚¤‚±‚Æ‚ÍAˆê“x‹³º‚É–ß‚Á‚Ä‚İ‚½‚Ù‚¤‚ª‚¢‚¢‚Å‚·‚ËB");
+        uitext.DrawText("ã‚½ãƒ©", "ã¨ã„ã†ã“ã¨ã¯ã€ä¸€åº¦æ•™å®¤ã«æˆ»ã£ã¦ã¿ãŸã»ã†ãŒã„ã„ã§ã™ã­ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
@@ -2890,12 +2930,12 @@ public class TextWriter : MonoBehaviour
         investigate.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚ [A‚±‚±‚ªA-1‚¾‚Á‚½‚Ì‚©B");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã‚ãƒ¼ã€ã“ã“ãŒA-1ã ã£ãŸã®ã‹ã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚©A‰e‚É‚Í\•ª’ˆÓ‚µ‚Ä‚­‚¾‚³‚¢‚ËH");
+        uitext.DrawText("ã‚½ãƒ©", "ã‹ã€å½±ã«ã¯ååˆ†æ³¨æ„ã—ã¦ãã ã•ã„ã­ï¼Ÿ");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
@@ -2913,81 +2953,81 @@ public class TextWriter : MonoBehaviour
         investigate.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚¢‚¶‚ß‚ÉŠÖ‚·‚é’²¸c");
+        uitext.DrawText("ã‚½ãƒ©", "ã„ã˜ã‚ã«é–¢ã™ã‚‹èª¿æŸ»â€¦");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚¨‚¢‚¨‚¢A‚È‚ñ‚¾‚©ˆÅ‚ª[‚»‚¤‚¾‚Èc");
+        uitext.DrawText("ãƒã‚«ãƒª", "ãŠã„ãŠã„ã€ãªã‚“ã ã‹é—‡ãŒæ·±ãã†ã ãªâ€¦");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
-        uitext.DrawText("A-1’S”C››‚Ì‚¢‚¶‚ß’²¸ƒƒ‚");
+        uitext.DrawText("A-1æ‹…ä»»â—‹â—‹ã®ã„ã˜ã‚èª¿æŸ»ãƒ¡ãƒ¢");
         yield return StartCoroutine("Skip");
 
-        uitext.DrawText("AFuCŒN‚Í‰R‚ğ•t‚¢‚Ä‚¢‚Ü‚·Bv");
+        uitext.DrawText("Aï¼šã€ŒCå›ã¯å˜˜ã‚’ä»˜ã„ã¦ã„ã¾ã™ã€‚ã€");
         yield return StartCoroutine("Skip");
 
-        uitext.DrawText("BFuA‚³‚ñ‚Í–{“–‚Ì‚±‚Æ‚ğŒ¾‚Á‚Ä‚¢‚Ü‚·Bv");
+        uitext.DrawText("Bï¼šã€ŒAã•ã‚“ã¯æœ¬å½“ã®ã“ã¨ã‚’è¨€ã£ã¦ã„ã¾ã™ã€‚ã€");
         yield return StartCoroutine("Skip");
 
-        uitext.DrawText("CFu‚±‚ÌƒNƒ‰ƒX‚É‚¢‚¶‚ß‚Í–³‚¢‚Æv‚¢‚Ü‚·Bv");
+        uitext.DrawText("Cï¼šã€Œã“ã®ã‚¯ãƒ©ã‚¹ã«ã„ã˜ã‚ã¯ç„¡ã„ã¨æ€ã„ã¾ã™ã€‚ã€");
         yield return StartCoroutine("Skip");
 
-        uitext.DrawText("DFuCŒN‚ª‚¢‚¶‚ß‚Ä‚¢‚éŒ»ê‚ğ–ÚŒ‚‚µ‚Ü‚µ‚½Bv");
+        uitext.DrawText("Dï¼šã€ŒCå›ãŒã„ã˜ã‚ã¦ã„ã‚‹ç¾å ´ã‚’ç›®æ’ƒã—ã¾ã—ãŸã€‚ã€");
         yield return StartCoroutine("Skip");
 
-        uitext.DrawText("–{l‚Í”Û”F‚µ‚Ä‚¢‚é‚ªAC‚ª‚¢‚¶‚ß‚ğ‚µ‚Ä‚¢‚½‰Â”\«‚Í”ñí‚É‚‚¢‚Æv‚¤B");
+        uitext.DrawText("æœ¬äººã¯å¦èªã—ã¦ã„ã‚‹ãŒã€CãŒã„ã˜ã‚ã‚’ã—ã¦ã„ãŸå¯èƒ½æ€§ã¯éå¸¸ã«é«˜ã„ã¨æ€ã†ã€‚");
         yield return StartCoroutine("Skip");
 
-        uitext.DrawText("C‚É‚Í‘R‚é‚×‚«ˆ”±‚ğl‚¦‚æ‚¤B");
+        uitext.DrawText("Cã«ã¯ç„¶ã‚‹ã¹ãå‡¦ç½°ã‚’è€ƒãˆã‚ˆã†ã€‚");
         yield return StartCoroutine("Skip");
 
-        uitext.DrawText("‚µ‚©‚µ‚È‚ª‚çA„‚Ì’S“–‚·‚éƒNƒ‰ƒX‚Å‚±‚Ì—l‚È–‘Ô‚Í‹–‚µ‚ª‚½‚¢B");
+        uitext.DrawText("ã—ã‹ã—ãªãŒã‚‰ã€ç§ã®æ‹…å½“ã™ã‚‹ã‚¯ãƒ©ã‚¹ã§ã“ã®æ§˜ãªäº‹æ…‹ã¯è¨±ã—ãŒãŸã„ã€‚");
         yield return StartCoroutine("Skip");
 
-        uitext.DrawText("‘¼ƒNƒ‰ƒX‚Ì’S“–‹³ˆõ‚ÉƒoƒŒ‚é‚ÆFX‚ÆŒ™–¡‚ğŒ¾‚í‚ê‚é‚¾‚ë‚¤B");
+        uitext.DrawText("ä»–ã‚¯ãƒ©ã‚¹ã®æ‹…å½“æ•™å“¡ã«ãƒãƒ¬ã‚‹ã¨è‰²ã€…ã¨å«Œå‘³ã‚’è¨€ã‚ã‚Œã‚‹ã ã‚ã†ã€‚");
         yield return StartCoroutine("Skip");
 
-        uitext.DrawText("‚±‚Ì˜b‚Í„‚Ì“Æ’f‚Å‰ğŒˆ‚µ‚½•û‚ª“¾ô‚©[B");
+        uitext.DrawText("ã“ã®è©±ã¯ç§ã®ç‹¬æ–­ã§è§£æ±ºã—ãŸæ–¹ãŒå¾—ç­–ã‹ãƒ¼ã€‚");
         yield return StartCoroutine("Skip");
 
-        uitext.DrawText("‚­‚ê‚®‚ê‚à‚ ‚Ì‚±‚Æ‚ªƒoƒŒ‚È‚¢—l‚É„‚ÌƒfƒXƒN‚ÉcA");
+        uitext.DrawText("ãã‚Œãã‚Œã‚‚ã‚ã®ã“ã¨ãŒãƒãƒ¬ãªã„æ§˜ã«ç§ã®ãƒ‡ã‚¹ã‚¯ã«â€¦ã€");
         yield return StartCoroutine("Skip");
 
-        uitext.DrawText("‚¢‚âAEˆõº‚Å‚Íl–Ú‚É•t‚«‰ß‚¬‚é‚©H");
+        uitext.DrawText("ã„ã‚„ã€è·å“¡å®¤ã§ã¯äººç›®ã«ä»˜ãéãã‚‹ã‹ï¼Ÿ");
         yield return StartCoroutine("Skip");
 
-        uitext.DrawText("Œã’ö•Ê‚Ì‰B‚µêŠ‚ğ’T‚·‚Æ‚µ‚ÄAˆê’U‚Íˆø‚«o‚µ‚É‰B‚·‘¼–³‚¢‚©cB");
+        uitext.DrawText("å¾Œç¨‹åˆ¥ã®éš ã—å ´æ‰€ã‚’æ¢ã™ã¨ã—ã¦ã€ä¸€æ—¦ã¯å¼•ãå‡ºã—ã«éš ã™ä»–ç„¡ã„ã‹â€¦ã€‚");
         yield return StartCoroutine("Skip");
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚ ‚©‚ç‚³‚Ü‚ÉA‚±‚ÌC‚Á‚Ä‚Ì‚ª”Æl‚È‚Ì‚©H");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã‚ã‹ã‚‰ã•ã¾ã«ã€ã“ã®Cã£ã¦ã®ãŒçŠ¯äººãªã®ã‹ï¼Ÿ");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "ŠF‚³‚ñ‚»‚ñ‚È•—‚ÉØŒ¾‚µ‚Ä‚¢‚Ü‚·‚ËB");
+        uitext.DrawText("ã‚½ãƒ©", "çš†ã•ã‚“ãã‚“ãªé¢¨ã«è¨¼è¨€ã—ã¦ã„ã¾ã™ã­ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚É‚µ‚Ä‚àˆÓ–¡[‚Èƒƒ‚‚¾‚È‚±‚è‚áB");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã«ã—ã¦ã‚‚æ„å‘³æ·±ãªãƒ¡ãƒ¢ã ãªã“ã‚Šã‚ƒã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚±‚Ìæ¶‚Í‰½‚©‚ğ‰B‚µ‚Ä‚é‚İ‚½‚¢‚¾‚µB");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã“ã®å…ˆç”Ÿã¯ä½•ã‹ã‚’éš ã—ã¦ã‚‹ã¿ãŸã„ã ã—ã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "c‚±‚Ì‚¢‚¶‚ß’²¸ƒƒ‚‚¾‚¯‚Å‚Íî•ñ‚ª­‚È‚·‚¬‚Ü‚·‚ËB");
+        uitext.DrawText("ã‚½ãƒ©", "â€¦ã“ã®ã„ã˜ã‚èª¿æŸ»ãƒ¡ãƒ¢ã ã‘ã§ã¯æƒ…å ±ãŒå°‘ãªã™ãã¾ã™ã­ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚¾‚ÈB‘¼‚É‚à‰½‚©–³‚¢‚©AŒG‚È‚­’²‚×‚é‚µ‚©‚Ë‚¥‚ÈB");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã ãªã€‚ä»–ã«ã‚‚ä½•ã‹ç„¡ã„ã‹ã€éšˆãªãèª¿ã¹ã‚‹ã—ã‹ã­ã‡ãªã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
@@ -3009,22 +3049,22 @@ public class TextWriter : MonoBehaviour
         girl.SetActive(false);
         investigate.SetActive(false);
 
-        uitext.DrawText("“ª‚ÉA‚ÌŒ¾—t‚ª—¬‚ê‚ñ‚Å‚­‚é");
+        uitext.DrawText("é ­ã«Aã®è¨€è‘‰ãŒæµã‚Œè¾¼ã‚“ã§ãã‚‹");
         yield return StartCoroutine("Skip");
 
-        uitext.DrawText("uCŒN‚Í‚¢‚Á‚Â‚àŠF‚Ìl‹CÒBv");
+        uitext.DrawText("ã€ŒCå›ã¯ã„ã£ã¤ã‚‚çš†ã®äººæ°—è€…ã€‚ã€");
         yield return StartCoroutine("Skip");
 
-        uitext.DrawText("u¡“ú‚¾‚Á‚ÄA„‚ªd‚¢‰×•¨‚ğ‰^‚ñ‚Å‚éA‰½‚àŒ¾‚í‚¸‚É•Ï‚í‚Á‚Ä‚­‚ê‚½‚ÌBv");
+        uitext.DrawText("ã€Œä»Šæ—¥ã ã£ã¦ã€ç§ãŒé‡ã„è·ç‰©ã‚’é‹ã‚“ã§ã‚‹æ™‚ã€ä½•ã‚‚è¨€ã‚ãšã«å¤‰ã‚ã£ã¦ãã‚ŒãŸã®ã€‚ã€");
         yield return StartCoroutine("Skip");
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚ ‚êA‚±‚ÌA‚Á‚Ä‚³‚Á‚«‚ÌØŒ¾‚Ìl‚¾‚æ‚ÈB");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã‚ã‚Œã€ã“ã®Aã£ã¦ã•ã£ãã®è¨¼è¨€ã®äººã ã‚ˆãªã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "C‚Í—Ç‚¢‚â‚Â‚Å‚Í‚ ‚Á‚½‚İ‚Ä[‚¾‚ÈB");
+        uitext.DrawText("ãƒã‚«ãƒª", "Cã¯è‰¯ã„ã‚„ã¤ã§ã¯ã‚ã£ãŸã¿ã¦ãƒ¼ã ãªã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
@@ -3043,57 +3083,57 @@ public class TextWriter : MonoBehaviour
         girl.SetActive(false);
         investigate.SetActive(false);
 
-        uitext.DrawText("“ª‚ÉB‚ÌŒ¾—t‚ª—¬‚ê‚ñ‚Å‚­‚é");
+        uitext.DrawText("é ­ã«Bã®è¨€è‘‰ãŒæµã‚Œè¾¼ã‚“ã§ãã‚‹");
         yield return StartCoroutine("Skip");
 
-        uitext.DrawText("uCŒN‚Á‚Ä¦‚¢‚æ‚ËB‚È‚ñ‚ÄŒ¾‚¤‚©A•¶•—¼“¹Hv");
+        uitext.DrawText("ã€ŒCå›ã£ã¦å‡„ã„ã‚ˆã­ã€‚ãªã‚“ã¦è¨€ã†ã‹ã€æ–‡æ­¦ä¸¡é“ï¼Ÿã€");
         yield return StartCoroutine("Skip");
 
-        uitext.DrawText("u³‹`Š´‚à‚ ‚Á‚Ä‚©‚Á‚±‚¢‚¢‚æ‚ËB‚»‚ê‚Å—Ç‚­æ¶‚ÆŒû˜_‚µ‚Ä‚é‚±‚Æ‚à‚ ‚é‚¯‚ÇBv");
+        uitext.DrawText("ã€Œæ­£ç¾©æ„Ÿã‚‚ã‚ã£ã¦ã‹ã£ã“ã„ã„ã‚ˆã­ã€‚ãã‚Œã§è‰¯ãå…ˆç”Ÿã¨å£è«–ã—ã¦ã‚‹ã“ã¨ã‚‚ã‚ã‚‹ã‘ã©ã€‚ã€");
         yield return StartCoroutine("Skip");
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "æ¶‚ÆŒû˜_‚©`A‰´‚àÌ‚ÍŒ¾‚¢‡‚Á‚½‚È‚ŸB");
+        uitext.DrawText("ãƒã‚«ãƒª", "å…ˆç”Ÿã¨å£è«–ã‹ï½ã€ä¿ºã‚‚æ˜”ã¯è¨€ã„åˆã£ãŸãªãã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚¨‘O‚Í‚±‚ñ‚È–â‘è‚à‚í‚©‚ñ‚Ë[‚Ì‚©‚Á‚Ä‚Ç‚â‚³‚ê‚Ä‚æB");
+        uitext.DrawText("ãƒã‚«ãƒª", "ãŠå‰ã¯ã“ã‚“ãªå•é¡Œã‚‚ã‚ã‹ã‚“ã­ãƒ¼ã®ã‹ã£ã¦ã©ã‚„ã•ã‚Œã¦ã‚ˆã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "¬ŠwZ’Ê‚Á‚Ä–³‚©‚Á‚½‚©‚çd•û‚Ë‚¥‚¾‚ë‚Á‚ÄŒ¾‚Á‚Ä‚àŠÃ‚¦‚¾‚Á‚ÄŒ¾‚¤‚ñ‚¾‚ºH");
+        uitext.DrawText("ãƒã‚«ãƒª", "å°å­¦æ ¡é€šã£ã¦ç„¡ã‹ã£ãŸã‹ã‚‰ä»•æ–¹ã­ã‡ã ã‚ã£ã¦è¨€ã£ã¦ã‚‚ç”˜ãˆã ã£ã¦è¨€ã†ã‚“ã ãœï¼Ÿ");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‰´‚È‚è‚ÉŠæ’£‚Á‚Ä‚½‚ñ‚¾‚¯‚Ç‚È‚ŸB");
+        uitext.DrawText("ãƒã‚«ãƒª", "ä¿ºãªã‚Šã«é ‘å¼µã£ã¦ãŸã‚“ã ã‘ã©ãªãã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "ƒnƒJƒŠ‚³‚ñ¬ŠwZs‚Á‚Ä–³‚©‚Á‚½‚ñ‚Å‚·‚©H‚ ‚âc•·‚©‚È‚¢•û‚ª—Ç‚¢‚±‚Æ‚à‚ ‚è‚Ü‚·‚æ‚ËB");
+        uitext.DrawText("ã‚½ãƒ©", "ãƒã‚«ãƒªã•ã‚“å°å­¦æ ¡è¡Œã£ã¦ç„¡ã‹ã£ãŸã‚“ã§ã™ã‹ï¼Ÿã‚ã‚„â€¦èã‹ãªã„æ–¹ãŒè‰¯ã„ã“ã¨ã‚‚ã‚ã‚Šã¾ã™ã‚ˆã­ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‹C‚É‚·‚ñ‚ÈH‚½‚¾‚±‚¤A¬‚³‚¢ ‚©‚çe‚É—Ç‚­v‚í‚ê‚Ä–³‚­‚Ä‚ÈB");
+        uitext.DrawText("ãƒã‚«ãƒª", "æ°—ã«ã™ã‚“ãªï¼ŸãŸã ã“ã†ã€å°ã•ã„é ƒã‹ã‚‰è¦ªã«è‰¯ãæ€ã‚ã‚Œã¦ç„¡ãã¦ãªã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "c");
+        uitext.DrawText("ã‚½ãƒ©", "â€¦");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "10Ë‚Ì‚É‚Î‚Ÿ‚¿‚á‚ñ‚Éˆø‚«æ‚Á‚Ä‚à‚ç‚Á‚½‚ñ‚¾B");
+        uitext.DrawText("ãƒã‚«ãƒª", "10æ‰ã®æ™‚ã«ã°ãã¡ã‚ƒã‚“ã«å¼•ãå–ã£ã¦ã‚‚ã‚‰ã£ãŸã‚“ã ã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚»‚¤‚¾‚Á‚½‚ñ‚Å‚·‚Ëc");
+        uitext.DrawText("ã‚½ãƒ©", "ãã†ã ã£ãŸã‚“ã§ã™ã­â€¦");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
@@ -3112,27 +3152,27 @@ public class TextWriter : MonoBehaviour
         girl.SetActive(false);
         investigate.SetActive(false);
 
-        uitext.DrawText("“ª‚ÉC‚ÌŒ¾—t‚ª—¬‚ê‚ñ‚Å‚­‚é");
+        uitext.DrawText("é ­ã«Cã®è¨€è‘‰ãŒæµã‚Œè¾¼ã‚“ã§ãã‚‹");
         yield return StartCoroutine("Skip");
 
-        uitext.DrawText("u‚±‚Ì‘O•‚¯‚½q‚©‚ç”’‚ğ‚³‚ê‚½‚ñ‚¾Bv");
+        uitext.DrawText("ã€Œã“ã®å‰åŠ©ã‘ãŸå­ã‹ã‚‰å‘Šç™½ã‚’ã•ã‚ŒãŸã‚“ã ã€‚ã€");
         yield return StartCoroutine("Skip");
 
-        uitext.DrawText("u–Ü˜_’f‚Á‚½‚¯‚ÇA‚Ü‚½‚»[‚¿‚á‚ñ‚É“{‚ç‚ê‚é‚©‚ÈBv");
+        uitext.DrawText("ã€Œå‹¿è«–æ–­ã£ãŸã‘ã©ã€ã¾ãŸããƒ¼ã¡ã‚ƒã‚“ã«æ€’ã‚‰ã‚Œã‚‹ã‹ãªã€‚ã€");
         yield return StartCoroutine("Skip");
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚ñ‚ŸH‚È‚ñ‚¾‚±‚¢‚Â©–˜b‚¶‚á‚Ë‚¥‚©B‚¯‚ÁB");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã‚“ãï¼Ÿãªã‚“ã ã“ã„ã¤è‡ªæ…¢è©±ã˜ã‚ƒã­ã‡ã‹ã€‚ã‘ã£ã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "ƒnƒJƒŠ‚³‚ñ‚Á‚Ä‚à‚µ‚©‚µ‚Äƒ‚ƒe‚È‚¢‚ñ‚Å‚·‚©H");
+        uitext.DrawText("ã‚½ãƒ©", "ãƒã‚«ãƒªã•ã‚“ã£ã¦ã‚‚ã—ã‹ã—ã¦ãƒ¢ãƒ†ãªã„ã‚“ã§ã™ã‹ï¼Ÿ");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "c‚¤‚é‚¹‚¥B");
+        uitext.DrawText("ãƒã‚«ãƒª", "â€¦ã†ã‚‹ã›ã‡ã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
@@ -3151,42 +3191,42 @@ public class TextWriter : MonoBehaviour
         girl.SetActive(false);
         investigate.SetActive(false);
 
-        uitext.DrawText("“ª‚ÉD‚ÌŒ¾—t‚ª—¬‚ê‚ñ‚Å‚­‚é");
+        uitext.DrawText("é ­ã«Dã®è¨€è‘‰ãŒæµã‚Œè¾¼ã‚“ã§ãã‚‹");
         yield return StartCoroutine("Skip");
 
-        uitext.DrawText("u‚±‚Ì‘OA‚¢‚«‚È‚èæ¶‚É‰Ÿ‚µ“|‚³‚ê‚ÄcBv");
+        uitext.DrawText("ã€Œã“ã®å‰ã€ã„ããªã‚Šå…ˆç”Ÿã«æŠ¼ã—å€’ã•ã‚Œã¦â€¦ã€‚ã€");
         yield return StartCoroutine("Skip");
 
-        uitext.DrawText("u‚ ‚ÌCŒN‚ªˆÙ•Ï‚É‹C•t‚¢‚Ä‚­‚ê‚È‚©‚Á‚½‚ç„cBv");
+        uitext.DrawText("ã€Œã‚ã®æ™‚Cå›ãŒç•°å¤‰ã«æ°—ä»˜ã„ã¦ãã‚Œãªã‹ã£ãŸã‚‰ç§â€¦ã€‚ã€");
         yield return StartCoroutine("Skip");
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚°A‚â‚×‚¥æ¶‚¶‚á‚ñB");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã’ã€ã‚„ã¹ã‡å…ˆç”Ÿã˜ã‚ƒã‚“ã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "C‚ª‹~‚Á‚½‚Á‚Ä‚±‚Æ‚©c");
+        uitext.DrawText("ãƒã‚«ãƒª", "CãŒæ•‘ã£ãŸã£ã¦ã“ã¨ã‹â€¦");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚»‚¤‚Å‚·‚Ëc");
+        uitext.DrawText("ã‚½ãƒ©", "ãã†ã§ã™ã­â€¦");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚È‚ñ‚Â[‚©‚æA‰¼‚ÉC‚ª”Æl‚¾‚Æ‚µ‚Ä‚àB");
+        uitext.DrawText("ãƒã‚«ãƒª", "ãªã‚“ã¤ãƒ¼ã‹ã‚ˆã€ä»®ã«CãŒçŠ¯äººã ã¨ã—ã¦ã‚‚ã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚»‚Ì”íŠQÒ‘œ‚ª•‚‚©‚Î‚Ë‚¥‚ñ‚¾‚æ‚ÈB");
+        uitext.DrawText("ãƒã‚«ãƒª", "ãã®è¢«å®³è€…åƒãŒæµ®ã‹ã°ã­ã‡ã‚“ã ã‚ˆãªã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "“–‚½‚è‘O‚¾‚¯‚ÇA‚¢‚¶‚ß‚Á‚Ä‚Ì‚Í”íŠQÒ‚ª‹‚Ä‰‚ß‚Ä¬‚è—§‚Â‚æ‚Èc");
+        uitext.DrawText("ãƒã‚«ãƒª", "å½“ãŸã‚Šå‰ã ã‘ã©ã€ã„ã˜ã‚ã£ã¦ã®ã¯è¢«å®³è€…ãŒå±…ã¦åˆã‚ã¦æˆã‚Šç«‹ã¤ã‚ˆãªâ€¦");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
@@ -3206,117 +3246,117 @@ public class TextWriter : MonoBehaviour
         investigate.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‘e•û’²‚×‚½‚©H");
+        uitext.DrawText("ãƒã‚«ãƒª", "ç²—æ–¹èª¿ã¹ãŸã‹ï¼Ÿ");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚»‚¤c‚Å‚·‚ËB");
+        uitext.DrawText("ã‚½ãƒ©", "ãã†â€¦ã§ã™ã­ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚Å‚àA‚Ç‚ê‚à‚ ‚Ì”’‚¢ƒ‚ƒ„ƒ‚ƒ„‚³‚ñ‚ÉŠÖ‚·‚éî•ñ‚È‚Ì‚©•ª‚©‚è‚Ü‚¹‚ñ‚Ëc");
+        uitext.DrawText("ã‚½ãƒ©", "ã§ã‚‚ã€ã©ã‚Œã‚‚ã‚ã®ç™½ã„ãƒ¢ãƒ¤ãƒ¢ãƒ¤ã•ã‚“ã«é–¢ã™ã‚‹æƒ…å ±ãªã®ã‹åˆ†ã‹ã‚Šã¾ã›ã‚“ã­â€¦");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "ƒ\ƒ‰‚ÍƒAƒCƒc‚Ì‚±‚Æh”’‚¢ƒ‚ƒ„ƒ‚ƒ„‚³‚ñh‚Á‚ÄŒÄ‚ñ‚Å‚é‚Ì‚©‚—");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã‚½ãƒ©ã¯ã‚¢ã‚¤ãƒ„ã®ã“ã¨â€ç™½ã„ãƒ¢ãƒ¤ãƒ¢ãƒ¤ã•ã‚“â€ã£ã¦å‘¼ã‚“ã§ã‚‹ã®ã‹ï½—");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "ƒJƒƒC[‚Æ‚±‚ ‚é‚Ì‚È‚—");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã‚«ãƒ¯ã‚¤ãƒ¼ã¨ã“ã‚ã‚‹ã®ãªï½—");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "I");
+        uitext.DrawText("ã‚½ãƒ©", "ï¼");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚íAˆ«‚¢‚Å‚·‚©‚ÁIH");
+        uitext.DrawText("ã‚½ãƒ©", "ã‚ã€æ‚ªã„ã§ã™ã‹ã£ï¼ï¼Ÿ");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚¢‚âc‚——Ç‚¢‚ñ‚¾‚¯‚Çc‚—‚­‚­‚—");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã„ã‚„â€¦ï½—è‰¯ã„ã‚“ã ã‘ã©â€¦ï½—ããï½—");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚»‚ñ‚È‚±‚Æ‚Ç[‚Å‚à‚¢‚¢‚Å‚·‚©‚çB");
+        uitext.DrawText("ã‚½ãƒ©", "ãã‚“ãªã“ã¨ã©ãƒ¼ã§ã‚‚ã„ã„ã§ã™ã‹ã‚‰ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‘‚­èŠ|‚©‚è‚ğ’T‚µ‚Äæ‚Éi‚İ‚Ü‚·‚æƒmƒ“ƒfƒŠ‚³‚ñB");
+        uitext.DrawText("ã‚½ãƒ©", "æ—©ãæ‰‹æ›ã‹ã‚Šã‚’æ¢ã—ã¦å…ˆã«é€²ã¿ã¾ã™ã‚ˆãƒãƒ³ãƒ‡ãƒªã•ã‚“ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "ˆ«‚©‚Á‚½‚Á‚ÄcB");
+        uitext.DrawText("ãƒã‚«ãƒª", "æ‚ªã‹ã£ãŸã£ã¦â€¦ã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚ñ‚ÅccA‚Ç[‚·‚Á‚©B");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã‚“ã§â€¦â€¦ã€ã©ãƒ¼ã™ã£ã‹ã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚»‚¤‚Å‚·‚ËB‚¹‚ß‚Ä–¼‘O‚Æ‚©‚ª•ª‚©‚ê‚Îc");
+        uitext.DrawText("ã‚½ãƒ©", "ãã†ã§ã™ã­ã€‚ã›ã‚ã¦åå‰ã¨ã‹ãŒåˆ†ã‹ã‚Œã°â€¦");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚»‚¤‚¢‚¦‚ÎAEˆõº‚É‰B‚·‚Æ‚©‘‚¢‚Ä‚ ‚è‚Ü‚µ‚½‚æ‚ËB");
+        uitext.DrawText("ã‚½ãƒ©", "ãã†ã„ãˆã°ã€è·å“¡å®¤ã«éš ã™ã¨ã‹æ›¸ã„ã¦ã‚ã‚Šã¾ã—ãŸã‚ˆã­ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚»‚¤‚¢‚â‚»‚¤‚¾‚Á‚½‚ÈB");
+        uitext.DrawText("ãƒã‚«ãƒª", "ãã†ã„ã‚„ãã†ã ã£ãŸãªã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚ñ‚Å‚àAEˆõº‚àAŒq‚ª‚Á‚Ä‚»‚¤‚ÈêŠ‚àB");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã‚“ã§ã‚‚ã€è·å“¡å®¤ã‚‚ã€ç¹‹ãŒã£ã¦ãã†ãªå ´æ‰€ã‚‚ã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "¡‚Ü‚ÅŒ©‚Ä‚«‚½Š´‚¶–³‚©‚Á‚½‚æ‚ÈB");
+        uitext.DrawText("ãƒã‚«ãƒª", "ä»Šã¾ã§è¦‹ã¦ããŸæ„Ÿã˜ç„¡ã‹ã£ãŸã‚ˆãªã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "¡‚Ü‚ÅŒ©‚Ä‚«‚½ŒÀ‚è‚Í‚»‚¤‚Å‚µ‚½‚ËB");
+        uitext.DrawText("ã‚½ãƒ©", "ä»Šã¾ã§è¦‹ã¦ããŸé™ã‚Šã¯ãã†ã§ã—ãŸã­ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚Å‚àA‚ ‚Ì“V”‰‚Ì—Í‚©A‰½‚©‚µ‚ç•Ï‚í‚Á‚Ä‚é‰Â”\«‚Í‚‚¢‚Å‚·B");
+        uitext.DrawText("ã‚½ãƒ©", "ã§ã‚‚ã€ã‚ã®å¤©ç§¤ã®åŠ›ã‹ã€ä½•ã‹ã—ã‚‰å¤‰ã‚ã£ã¦ã‚‹å¯èƒ½æ€§ã¯é«˜ã„ã§ã™ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "’Tõ‚µ’¼‚µA‚©cB");
+        uitext.DrawText("ãƒã‚«ãƒª", "æ¢ç´¢ã—ç›´ã—ã€ã‹â€¦ã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "Œ³‹Co‚µ‚Ä‚­‚¾‚³‚¢ƒnƒJƒŠ‚³‚ñ‚Á");
+        uitext.DrawText("ã‚½ãƒ©", "å…ƒæ°—å‡ºã—ã¦ãã ã•ã„ãƒã‚«ãƒªã•ã‚“ã£");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "–³–‚±‚Ì¢ŠE‚©‚ç¶‚«‚Ä‹A‚é–‚ªo—ˆ‚½‚ç“ñl‚Å”ü–¡‚µ‚¢•¨‚Å‚àH‚×‚És‚«‚Ü‚µ‚å‚¤I");
+        uitext.DrawText("ã‚½ãƒ©", "ç„¡äº‹ã“ã®ä¸–ç•Œã‹ã‚‰ç”Ÿãã¦å¸°ã‚‹äº‹ãŒå‡ºæ¥ãŸã‚‰äºŒäººã§ç¾å‘³ã—ã„ç‰©ã§ã‚‚é£Ÿã¹ã«è¡Œãã¾ã—ã‚‡ã†ï¼");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚Í‚Í‚ÁcB¶‚«‚Ä‹A‚ê‚½‚ç‚ÈB");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã¯ã¯ã£â€¦ã€‚ç”Ÿãã¦å¸°ã‚ŒãŸã‚‰ãªã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
@@ -3336,22 +3376,22 @@ public class TextWriter : MonoBehaviour
         investigate.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚¨‚í‚ÁI‚Ü‚¶‚©‚±‚ñ‚ÈêŠ‘‚¦‚Ä‚½‚Ì‚©cB");
+        uitext.DrawText("ãƒã‚«ãƒª", "ãŠã‚ã£ï¼ã¾ã˜ã‹ã“ã‚“ãªå ´æ‰€å¢—ãˆã¦ãŸã®ã‹â€¦ã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚Á‚ÄA‚±‚±‚Ü‚³‚ÉEˆõºc‚©H");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã£ã¦ã€ã“ã“ã¾ã•ã«è·å“¡å®¤â€¦ã‹ï¼Ÿ");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚»‚¤‚İ‚½‚¢‚Å‚·‚æ‚Á");
+        uitext.DrawText("ã‚½ãƒ©", "ãã†ã¿ãŸã„ã§ã™ã‚ˆã£");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚È‚ñ‚Ìƒqƒ“ƒg‚à–³‚µ‚ÉV‚µ‚¢êŠ’T‚·‚Ì‚Íœ‚ªÜ‚ê‚½‚Èc");
+        uitext.DrawText("ãƒã‚«ãƒª", "ãªã‚“ã®ãƒ’ãƒ³ãƒˆã‚‚ç„¡ã—ã«æ–°ã—ã„å ´æ‰€æ¢ã™ã®ã¯éª¨ãŒæŠ˜ã‚ŒãŸãªâ€¦");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
@@ -3368,10 +3408,10 @@ public class TextWriter : MonoBehaviour
         girl.SetActive(false);
         investigate.SetActive(false);
 
-        uitext.DrawText("—Ç‚­®“Ú‚³‚ê‚½ãY—í‚ÈƒfƒXƒN‚¾B");
+        uitext.DrawText("è‰¯ãæ•´é “ã•ã‚ŒãŸç¶ºéº—ãªãƒ‡ã‚¹ã‚¯ã ã€‚");
         yield return StartCoroutine("Skip");
 
-        uitext.DrawText("ˆø‚«o‚µ‚Ì’†‚Íƒtƒ@ƒCƒ‹‚Å–„‚Ü‚Á‚Ä‚¢‚éB");
+        uitext.DrawText("å¼•ãå‡ºã—ã®ä¸­ã¯ãƒ•ã‚¡ã‚¤ãƒ«ã§åŸ‹ã¾ã£ã¦ã„ã‚‹ã€‚");
         yield return StartCoroutine("Skip");
 
         Canbus.SetActive(false);
@@ -3387,10 +3427,10 @@ public class TextWriter : MonoBehaviour
         girl.SetActive(false);
         investigate.SetActive(false);
 
-        uitext.DrawText("—G‚É•¨‚ª’u‚©‚ê‚Ä‚¢‚éB");
+        uitext.DrawText("ä¹±é›‘ã«ç‰©ãŒç½®ã‹ã‚Œã¦ã„ã‚‹ã€‚");
         yield return StartCoroutine("Skip");
 
-        uitext.DrawText("ˆø‚«o‚µ‚Ì’†‚à‚®‚¿‚á‚®‚¿‚á‚¾B");
+        uitext.DrawText("å¼•ãå‡ºã—ã®ä¸­ã‚‚ãã¡ã‚ƒãã¡ã‚ƒã ã€‚");
         yield return StartCoroutine("Skip");
 
         Canbus.SetActive(false);
@@ -3406,10 +3446,10 @@ public class TextWriter : MonoBehaviour
         girl.SetActive(false);
         investigate.SetActive(false);
 
-        uitext.DrawText("ŠX‚É‰˜‚ê‚ª–Ú—§‚Â‚ª®“Ú‚³‚ê‚Ä‚¢‚éB");
+        uitext.DrawText("æ‰€ã€…ã«æ±šã‚ŒãŒç›®ç«‹ã¤ãŒæ•´é “ã•ã‚Œã¦ã„ã‚‹ã€‚");
         yield return StartCoroutine("Skip");
 
-        uitext.DrawText("ˆø‚«o‚µ‚Ì’†‚Íƒtƒ@ƒCƒ‹‚Å–„‚Ü‚Á‚Ä‚¢‚éB");
+        uitext.DrawText("å¼•ãå‡ºã—ã®ä¸­ã¯ãƒ•ã‚¡ã‚¤ãƒ«ã§åŸ‹ã¾ã£ã¦ã„ã‚‹ã€‚");
         yield return StartCoroutine("Skip");
 
         Canbus.SetActive(false);
@@ -3425,240 +3465,240 @@ public class TextWriter : MonoBehaviour
         girl.SetActive(false);
         investigate.SetActive(false);
 
-        uitext.DrawText("ˆêŒ©®“Ú‚³‚ê‚Ä‚¢‚é‚æ‚¤‚ÉŒ©‚¦‚é‚ªA‰œ‚Ì•û‚É†‚ª‚®‚µ‚á‚®‚µ‚á‚É‹l‚ß‚Ü‚ê‚Ä‚¢‚éB");
+        uitext.DrawText("ä¸€è¦‹æ•´é “ã•ã‚Œã¦ã„ã‚‹ã‚ˆã†ã«è¦‹ãˆã‚‹ãŒã€å¥¥ã®æ–¹ã«ç´™ãŒãã—ã‚ƒãã—ã‚ƒã«è©°ã‚è¾¼ã¾ã‚Œã¦ã„ã‚‹ã€‚");
         yield return StartCoroutine("Skip");
 
-        uitext.DrawText("ˆø‚«o‚µ‚Ì’†‚Íc‚È‚ñ‚¾‚©ˆø‚«o‚µ‚ª”–‚¢B");
+        uitext.DrawText("å¼•ãå‡ºã—ã®ä¸­ã¯â€¦ãªã‚“ã ã‹å¼•ãå‡ºã—ãŒè–„ã„ã€‚");
         yield return StartCoroutine("Skip");
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚ñ‚ŸHc‚È‚Ÿƒ\ƒ‰B");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã‚“ãï¼Ÿâ€¦ãªãã‚½ãƒ©ã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚±‚±‚Ìˆø‚«o‚µ‚¾‚¯A•ª’ê‚ªó‚­‚Ë‚¥‚©H");
-        yield return StartCoroutine("Skip");
-        boy.SetActive(false);
-
-        girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "–{“–‚Å‚·‚ËB»‘¢ƒ~ƒX‚©AŒ^‚ªŒÃ‚¢‚Æ‚©‚Å‚·‚©H");
-        yield return StartCoroutine("Skip");
-        girl.SetActive(false);
-
-        boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚ñ‚âA‚±[‚ä[‚Ì‚Í‘å’ïc");
-        yield return StartCoroutine("Skip");
-        boy.SetActive(false);
-
-        boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚â‚Á‚Ï‚èA“ñd’ê‚¾B");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã“ã“ã®å¼•ãå‡ºã—ã ã‘ã€éšåˆ†åº•ãŒæµ…ãã­ã‡ã‹ï¼Ÿ");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "I");
-        yield return StartCoroutine("Skip");
-        girl.SetActive(false);
-
-        girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "¦‚¢‚Å‚·‚ËI‚È‚ñ‚Å‚í‚©‚Á‚½‚ñ‚Å‚·‚©H");
+        uitext.DrawText("ã‚½ãƒ©", "æœ¬å½“ã§ã™ã­ã€‚è£½é€ ãƒŸã‚¹ã‹ã€å‹ãŒå¤ã„ã¨ã‹ã§ã™ã‹ï¼Ÿ");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚ñ‚Ü‚ŸA„—‚à‚Ì‚Ì‰f‰æ‚Æ‚©‚Å‚æ‚­g‚í‚ê‚Ä‚éè–@‚È‚ñ‚¾‚æ‚ÈB");
-        yield return StartCoroutine("Skip");
-        boy.SetActive(false);
-
-        girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‘f’¼‚ÉŠÖS‚µ‚Ü‚·B@‚µ‚Íˆ«‚¢‚Ì‚É‚±‚¤‚¢‚¤‚Ì‹C•t‚¯‚é‚ñ‚Å‚·‚ËB");
-        yield return StartCoroutine("Skip");
-        girl.SetActive(false);
-
-        boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚¤‚é‚¹‚¥B");
-        yield return StartCoroutine("Skip");
-        boy.SetActive(false);
-
-        girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚±‚ê‚ªc‚ ‚Ìæ¶‚ª‰B‚µ‚½‚ª‚Á‚Ä‚¢‚½‚à‚Ì‚Å‚·‚©c‚Á‚ÄHI");
-        yield return StartCoroutine("Skip");
-        girl.SetActive(false);
-
-        girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "c‚ÁIƒnƒJƒŠ‚³‚ñŒ©‚È‚¢‚Å‚­‚¾‚³‚¢‚ÁI");
-        yield return StartCoroutine("Skip");
-        girl.SetActive(false);
-
-        boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚ñ‚¥A‚È‚ñ‚Åc");
-        yield return StartCoroutine("Skip");
-        boy.SetActive(false);
-
-        girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚±‚êA“BÊ^‚Å‚·B");
-        yield return StartCoroutine("Skip");
-        girl.SetActive(false);
-
-        boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "c‚â‚Á‚Ï‚â‚×‚¥æ¶‚¶‚á‚ñB");
-        yield return StartCoroutine("Skip");
-        boy.SetActive(false);
-
-        girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚È‚Ì‚ÅƒnƒJƒŠ‚³‚ñ‚Í‚±‚ê“Ç‚ñ‚Å‚Ä‚­‚¾‚³‚¢B");
-        yield return StartCoroutine("Skip");
-        girl.SetActive(false);
-
-        boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚ñ‚§B");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã‚“ã‚„ã€ã“ãƒ¼ã‚†ãƒ¼ã®ã¯å¤§æŠµâ€¦");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚¦‚¥‚Á‚ÆB");
-        yield return StartCoroutine("Skip");
-        boy.SetActive(false);
-
-        uitext.DrawText("“ª‚É‹³t‚ÌŒ¾—t‚ª—¬‚ê‚ñ‚Å‚­‚é");
-        yield return StartCoroutine("Skip");
-
-        uitext.DrawText("uƒLƒ^ƒ~ ƒAƒcƒgA‚ ‚¢‚Â‚Í‰½ŒÌ‚ ‚ñ‚È‚É‚à—q¶“k‚©‚çl‹C‚È‚Ì‚¾—‰ğ‚Å‚«‚ñBv");
-        yield return StartCoroutine("Skip");
-
-        uitext.DrawText("uŠm‚©‚É‘½­Šç‚ª—Ç‚¢‚Ì‚©‚à’m‚ê‚ñ‚ªc‚­‚Á‚»Bv");
-        yield return StartCoroutine("Skip");
-
-        uitext.DrawText("u‚ ‚¢‚Â‚Í‰½‚©‚Æ„‚Ìï–¡‚Ì×–‚‚ğ‚·‚éBƒ`ƒN‚ç‚ê‚Ä‚¢‚È‚¢‚Ì‚ª‚¹‚ß‚Ä‚à‚Ì‹~‚¢‚©Bv");
-        yield return StartCoroutine("Skip");
-
-        uitext.DrawText("u‚Ç‚¤‚É‚©‚ ‚¢‚Â‚ğ”rœo—ˆ‚ê‚ÎA‚±‚ÌƒNƒ‰ƒX‚Í„‚ÌD‚«‚Éo—ˆ‚é‚Ì‚¾‚ª‚ÈBv");
-        yield return StartCoroutine("Skip");
-
-        uitext.DrawText("u‚Ó‚ŞA‚¢‚¶‚ß’²¸ƒAƒ“ƒP[ƒg‚ÌÀ{‚©A‚Ü‚½–Ê“|‚È‚±‚Æ‚ğBv");
-        yield return StartCoroutine("Skip");
-
-        uitext.DrawText("u‚¢‚âA‚»‚¤‚©I‚±‚ê‚¾‚—Iv");
-        yield return StartCoroutine("Skip");
-
-        uitext.DrawText("u‚±‚Ì‚¢‚¶‚ß’²¸‚ğ—˜—p‚µ‚Ä‚ ‚¢‚Â‚ğŠ×‚ê‚Ä‚â‚ë‚¤Bv");
-        yield return StartCoroutine("Skip");
-
-        uitext.DrawText("u×–‚‚ª“ü‚ç‚È‚¯‚ê‚Î„‚Ícv");
-        yield return StartCoroutine("Skip");
-
-        boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚¤c");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã‚„ã£ã±ã‚Šã€äºŒé‡åº•ã ã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "H‚Ç‚¤‚µ‚Ü‚µ‚½H“Ç‚ß‚Ü‚µ‚½H");
+        uitext.DrawText("ã‚½ãƒ©", "ï¼");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ã‚½ãƒ©", "å‡„ã„ã§ã™ã­ï¼ãªã‚“ã§ã‚ã‹ã£ãŸã‚“ã§ã™ã‹ï¼Ÿ");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚ñ‚ŸA‚ ‚ŸA“Ç‚Ü‚È‚­‚Ä‚à“Ç‚ß‚½B");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã‚“ã¾ãã€æ¨ç†ã‚‚ã®ã®æ˜ ç”»ã¨ã‹ã§ã‚ˆãä½¿ã‚ã‚Œã¦ã‚‹æ‰‹æ³•ãªã‚“ã ã‚ˆãªã€‚");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ã‚½ãƒ©", "ç´ ç›´ã«é–¢å¿ƒã—ã¾ã™ã€‚å¯Ÿã—ã¯æ‚ªã„ã®ã«ã“ã†ã„ã†ã®æ°—ä»˜ã‘ã‚‹ã‚“ã§ã™ã­ã€‚");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ãƒã‚«ãƒª", "ã†ã‚‹ã›ã‡ã€‚");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ã‚½ãƒ©", "ã“ã‚ŒãŒâ€¦ã‚ã®å…ˆç”ŸãŒéš ã—ãŸãŒã£ã¦ã„ãŸã‚‚ã®ã§ã™ã‹â€¦ã£ã¦ï¼Ÿï¼");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ã‚½ãƒ©", "â€¦ã£ï¼ãƒã‚«ãƒªã•ã‚“è¦‹ãªã„ã§ãã ã•ã„ã£ï¼");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ãƒã‚«ãƒª", "ã‚“ã‡ã€ãªã‚“ã§â€¦");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ã‚½ãƒ©", "ã“ã‚Œã€ç›—æ’®å†™çœŸã§ã™ã€‚");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ãƒã‚«ãƒª", "â€¦ã‚„ã£ã±ã‚„ã¹ã‡å…ˆç”Ÿã˜ã‚ƒã‚“ã€‚");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ã‚½ãƒ©", "ãªã®ã§ãƒã‚«ãƒªã•ã‚“ã¯ã“ã‚Œèª­ã‚“ã§ã¦ãã ã•ã„ã€‚");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ãƒã‚«ãƒª", "ã‚“ã‰ã€‚");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ãƒã‚«ãƒª", "ãˆã‡ã£ã¨ã€‚");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        uitext.DrawText("é ­ã«æ•™å¸«ã®è¨€è‘‰ãŒæµã‚Œè¾¼ã‚“ã§ãã‚‹");
+        yield return StartCoroutine("Skip");
+
+        uitext.DrawText("ã€Œã‚­ã‚¿ãƒŸ ã‚¢ãƒ„ãƒˆã€ã‚ã„ã¤ã¯ä½•æ•…ã‚ã‚“ãªã«ã‚‚å¥³å­ç”Ÿå¾’ã‹ã‚‰äººæ°—ãªã®ã ç†è§£ã§ãã‚“ã€‚ã€");
+        yield return StartCoroutine("Skip");
+
+        uitext.DrawText("ã€Œç¢ºã‹ã«å¤šå°‘é¡”ãŒè‰¯ã„ã®ã‹ã‚‚çŸ¥ã‚Œã‚“ãŒâ€¦ãã£ãã€‚ã€");
+        yield return StartCoroutine("Skip");
+
+        uitext.DrawText("ã€Œã‚ã„ã¤ã¯ä½•ã‹ã¨ç§ã®è¶£å‘³ã®é‚ªé­”ã‚’ã™ã‚‹ã€‚ãƒã‚¯ã‚‰ã‚Œã¦ã„ãªã„ã®ãŒã›ã‚ã¦ã‚‚ã®æ•‘ã„ã‹ã€‚ã€");
+        yield return StartCoroutine("Skip");
+
+        uitext.DrawText("ã€Œã©ã†ã«ã‹ã‚ã„ã¤ã‚’æ’é™¤å‡ºæ¥ã‚Œã°ã€ã“ã®ã‚¯ãƒ©ã‚¹ã¯ç§ã®å¥½ãã«å‡ºæ¥ã‚‹ã®ã ãŒãªã€‚ã€");
+        yield return StartCoroutine("Skip");
+
+        uitext.DrawText("ã€Œãµã‚€ã€ã„ã˜ã‚èª¿æŸ»ã‚¢ãƒ³ã‚±ãƒ¼ãƒˆã®å®Ÿæ–½ã‹ã€ã¾ãŸé¢å€’ãªã“ã¨ã‚’ã€‚ã€");
+        yield return StartCoroutine("Skip");
+
+        uitext.DrawText("ã€Œã„ã‚„ã€ãã†ã‹ï¼ã“ã‚Œã ï½—ï¼ã€");
+        yield return StartCoroutine("Skip");
+
+        uitext.DrawText("ã€Œã“ã®ã„ã˜ã‚èª¿æŸ»ã‚’åˆ©ç”¨ã—ã¦ã‚ã„ã¤ã‚’é™¥ã‚Œã¦ã‚„ã‚ã†ã€‚ã€");
+        yield return StartCoroutine("Skip");
+
+        uitext.DrawText("ã€Œé‚ªé­”ãŒå…¥ã‚‰ãªã‘ã‚Œã°ç§ã¯â€¦ã€");
+        yield return StartCoroutine("Skip");
+
+        boy.SetActive(true);
+        uitext.DrawText("ãƒã‚«ãƒª", "ã†â€¦");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ã‚½ãƒ©", "ï¼Ÿã©ã†ã—ã¾ã—ãŸï¼Ÿèª­ã‚ã¾ã—ãŸï¼Ÿ");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ãƒã‚«ãƒª", "ã‚“ãã€ã‚ãã€èª­ã¾ãªãã¦ã‚‚èª­ã‚ãŸã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         fadeIn.fadeOutFlag = true;
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚Ç‚¤‚¢‚¤‚±‚Æ‚Å‚·‚©B");
+        uitext.DrawText("ã‚½ãƒ©", "ã©ã†ã„ã†ã“ã¨ã§ã™ã‹ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         fadeIn.fadeFlag = true;
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚È‚é‚Ù‚ÇBC‚Ì–¼‘O‚ÍƒLƒ^ƒ~ ƒAƒcƒg‚Á‚ÄŒ¾‚¤‚ñ‚Å‚·‚ËB");
+        uitext.DrawText("ã‚½ãƒ©", "ãªã‚‹ã»ã©ã€‚Cã®åå‰ã¯ã‚­ã‚¿ãƒŸ ã‚¢ãƒ„ãƒˆã£ã¦è¨€ã†ã‚“ã§ã™ã­ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚»‚¤B‚ñ‚ÅA‚±‚Ì¢ŠE‚Å–¼‘O‚ªŠ„‚ê‚½ƒLƒ^ƒ~‚Á‚Ä‚â‚Â‚ª”Ş(”’‚¢ƒ‚ƒ„)‚ÅŠÔˆá‚¢–³‚¢‚ñ‚¶‚á‚Ë‚¥‚©H");
+        uitext.DrawText("ãƒã‚«ãƒª", "ãã†ã€‚ã‚“ã§ã€ã“ã®ä¸–ç•Œã§åå‰ãŒå‰²ã‚ŒãŸã‚­ã‚¿ãƒŸã£ã¦ã‚„ã¤ãŒå½¼(ç™½ã„ãƒ¢ãƒ¤)ã§é–“é•ã„ç„¡ã„ã‚“ã˜ã‚ƒã­ã‡ã‹ï¼Ÿ");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "cH");
+        uitext.DrawText("ã‚½ãƒ©", "â€¦ï¼Ÿ");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚à‚¤ˆê‰ñŒ¾‚Á‚Ä‚à‚ç‚Á‚Ä‚à—Ç‚¢‚Å‚·‚©H");
+        uitext.DrawText("ã‚½ãƒ©", "ã‚‚ã†ä¸€å›è¨€ã£ã¦ã‚‚ã‚‰ã£ã¦ã‚‚è‰¯ã„ã§ã™ã‹ï¼Ÿ");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚ñ‚¦c‚¾‚©‚çƒLƒ^ƒ~‚Á‚Ä‚â‚Â‚ªh”Şh‚È‚ñ‚¶‚á‚Ë‚¥‚Ì‚Á‚ÄB");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã‚“ãˆâ€¦ã ã‹ã‚‰ã‚­ã‚¿ãƒŸã£ã¦ã‚„ã¤ãŒâ€å½¼â€ãªã‚“ã˜ã‚ƒã­ã‡ã®ã£ã¦ã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "ƒnƒJƒŠ‚³‚ñcc");
+        uitext.DrawText("ã‚½ãƒ©", "ãƒã‚«ãƒªã•ã‚“â€¦â€¦");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚Ç‚¤‚µ‚Äch”Şh‚È‚ñ‚Å‚·‚©H");
+        uitext.DrawText("ã‚½ãƒ©", "ã©ã†ã—ã¦â€¦â€å½¼â€ãªã‚“ã§ã™ã‹ï¼Ÿ");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚¦H");
+        uitext.DrawText("ãƒã‚«ãƒª", "ãˆï¼Ÿ");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "”’‚¢ƒ‚ƒ„‚Ìl‚Æ‚µ‚Ä‚ÌŠOŒ©‚Í•ª‚©‚ç‚È‚¢‚µA‰½‚æ‚èˆêlÌ‚Íh„h‚Å‚µ‚½‚æ‚ËB");
+        uitext.DrawText("ã‚½ãƒ©", "ç™½ã„ãƒ¢ãƒ¤ã®äººã¨ã—ã¦ã®å¤–è¦‹ã¯åˆ†ã‹ã‚‰ãªã„ã—ã€ä½•ã‚ˆã‚Šä¸€äººç§°ã¯â€ç§â€ã§ã—ãŸã‚ˆã­ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "•’Ê‚È‚ç„‚Æ‚¢‚¤ˆêlÌ‚ÅŠw¶‚È‚çŠT‚Ë—«‚ğ‘z‘œ‚·‚é‚Æv‚¤‚Ì‚Å‚·‚ªB");
+        uitext.DrawText("ã‚½ãƒ©", "æ™®é€šãªã‚‰ç§ã¨ã„ã†ä¸€äººç§°ã§å­¦ç”Ÿãªã‚‰æ¦‚ã­å¥³æ€§ã‚’æƒ³åƒã™ã‚‹ã¨æ€ã†ã®ã§ã™ãŒã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚ [[A‚ ‚ê‚¾‚æBˆø‚Á’£‚ç‚ê‚½‚ñ‚¾‚Á‚ÄB‚»‚ÌcƒAƒcƒg‚Á‚Ä’j‚µ‚©–¼‘Oo‚Ä‚Ë‚¥‚©‚ç‚³B");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã‚ãƒ¼ãƒ¼ã€ã‚ã‚Œã ã‚ˆã€‚å¼•ã£å¼µã‚‰ã‚ŒãŸã‚“ã ã£ã¦ã€‚ãã®â€¦ã‚¢ãƒ„ãƒˆã£ã¦ç”·ã—ã‹åå‰å‡ºã¦ã­ã‡ã‹ã‚‰ã•ã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "æ‚è‡‚¦‚¸A–ß‚Á‚Ä•·‚¢‚Ä‚İ‚æ‚¤‚ºH‚±‚Ì–¼‘O‚ÉŠo‚¦‚Í–³‚¢‚©‚Á‚Ä‚³B");
+        uitext.DrawText("ãƒã‚«ãƒª", "å–ã‚Šåˆãˆãšã€æˆ»ã£ã¦èã„ã¦ã¿ã‚ˆã†ãœï¼Ÿã“ã®åå‰ã«è¦šãˆã¯ç„¡ã„ã‹ã£ã¦ã•ã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "ˆê’U–ß‚è‚Ü‚·B‚Å‚àB");
+        uitext.DrawText("ã‚½ãƒ©", "ä¸€æ—¦æˆ»ã‚Šã¾ã™ã€‚ã§ã‚‚ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "ƒnƒJƒŠ‚³‚ñ‚Íâ‘Î‰½‚©‚ğ‰B‚µ‚Ä‚¢‚Ü‚·B");
+        uitext.DrawText("ã‚½ãƒ©", "ãƒã‚«ãƒªã•ã‚“ã¯çµ¶å¯¾ä½•ã‹ã‚’éš ã—ã¦ã„ã¾ã™ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "„‚É‚ÍcƒnƒJƒŠ‚³‚ñ‚ªˆ«‚¢l‚É‚ÍŒ©‚¦‚È‚¢‚Ì‚ÅB");
+        uitext.DrawText("ã‚½ãƒ©", "ç§ã«ã¯â€¦ãƒã‚«ãƒªã•ã‚“ãŒæ‚ªã„äººã«ã¯è¦‹ãˆãªã„ã®ã§ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "Œã‚Åâ‘ÎA˜b‚µ‚Ä‚­‚¾‚³‚¢‚ËB");
+        uitext.DrawText("ã‚½ãƒ©", "å¾Œã§çµ¶å¯¾ã€è©±ã—ã¦ãã ã•ã„ã­ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‰B‚µ–‚Íc‚ ‚Ü‚èD‚«‚¶‚á‚È‚¢‚Å‚·B");
+        uitext.DrawText("ã‚½ãƒ©", "éš ã—äº‹ã¯â€¦ã‚ã¾ã‚Šå¥½ãã˜ã‚ƒãªã„ã§ã™ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "cc‚ ‚ŸB");
+        uitext.DrawText("ãƒã‚«ãƒª", "â€¦â€¦ã‚ãã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
@@ -3676,298 +3716,298 @@ public class TextWriter : MonoBehaviour
         investigate.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "–ß‚è‚Ü‚µ‚½B");
+        uitext.DrawText("ã‚½ãƒ©", "æˆ»ã‚Šã¾ã—ãŸã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
-        uitext.DrawText("”’‚¢ƒ‚ƒ„", "‚â‚ŸA‚¨“ñl‚³‚ñB‚¨”æ‚ê—lB");
+        uitext.DrawText("ç™½ã„ãƒ¢ãƒ¤", "ã‚„ãã€ãŠäºŒäººã•ã‚“ã€‚ãŠç–²ã‚Œæ§˜ã€‚");
         yield return StartCoroutine("Skip");
 
-        uitext.DrawText("”’‚¢ƒ‚ƒ„", "‰½‚©î•ñ‚Í“¾‚ç‚ê‚½‚©‚¢H");
+        uitext.DrawText("ç™½ã„ãƒ¢ãƒ¤", "ä½•ã‹æƒ…å ±ã¯å¾—ã‚‰ã‚ŒãŸã‹ã„ï¼Ÿ");
         yield return StartCoroutine("Skip");
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚¦‚Á‚ÆAƒLƒ^ƒ~ ƒAƒcƒg‚³‚ñ‚Á‚Ä•û‚Ì–¼‘O‚ª‚ ‚è‚Ü‚µ‚½B");
+        uitext.DrawText("ã‚½ãƒ©", "ãˆã£ã¨ã€ã‚­ã‚¿ãƒŸ ã‚¢ãƒ„ãƒˆã•ã‚“ã£ã¦æ–¹ã®åå‰ãŒã‚ã‚Šã¾ã—ãŸã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
-        uitext.DrawText("”’‚¢ƒ‚ƒ„", "ƒAƒcƒgcAƒAƒcƒgB");
+        uitext.DrawText("ç™½ã„ãƒ¢ãƒ¤", "ã‚¢ãƒ„ãƒˆâ€¦ã€ã‚¢ãƒ„ãƒˆã€‚");
         yield return StartCoroutine("Skip");
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚â‚Í‚èA‹M•û‚Ì–¼‘O‚Å‚Í–³‚¢‚Å‚·‚æ‚Ëc");
+        uitext.DrawText("ã‚½ãƒ©", "ã‚„ã¯ã‚Šã€è²´æ–¹ã®åå‰ã§ã¯ç„¡ã„ã§ã™ã‚ˆã­â€¦");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
-        uitext.DrawText("”’‚¢ƒ‚ƒ„", "ccc„‚¾B");
+        uitext.DrawText("ç™½ã„ãƒ¢ãƒ¤", "â€¦â€¦â€¦ç§ã ã€‚");
         yield return StartCoroutine("Skip");
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚¦H");
+        uitext.DrawText("ã‚½ãƒ©", "ãˆï¼Ÿ");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
-        uitext.DrawText("”’‚¢ƒ‚ƒ„", "‚¢‚âA–l‚¾BƒAƒcƒg‚Í–l‚Ì–¼‘O‚¾‚æB");
+        uitext.DrawText("ç™½ã„ãƒ¢ãƒ¤", "ã„ã‚„ã€åƒ•ã ã€‚ã‚¢ãƒ„ãƒˆã¯åƒ•ã®åå‰ã ã‚ˆã€‚");
         yield return StartCoroutine("Skip");
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "c");
+        uitext.DrawText("ãƒã‚«ãƒª", "â€¦");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
-        uitext.DrawText("ƒAƒcƒg", "‚ ‚è‚ª‚Æ‚¤B‚Ü‚¾A‘N–¾‚¶‚á‚È‚¢‚¯‚ê‚ÇAŠm‚©‚É–l‚ÍƒAƒcƒg‚¾B");
+        uitext.DrawText("ã‚¢ãƒ„ãƒˆ", "ã‚ã‚ŠãŒã¨ã†ã€‚ã¾ã ã€é®®æ˜ã˜ã‚ƒãªã„ã‘ã‚Œã©ã€ç¢ºã‹ã«åƒ•ã¯ã‚¢ãƒ„ãƒˆã ã€‚");
         yield return StartCoroutine("Skip");
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚»‚¤‚¾‚Á‚½‚ñ‚Å‚·‚Ë‚ÁB‚¦‚Á‚ÆA‚»‚µ‚½‚çŒã‚Í‹M•û‚ª‚±‚±‚É”›‚ç‚ê‚Ä‚¢‚é——R‚ª•ª‚©‚ê‚Îc");
+        uitext.DrawText("ã‚½ãƒ©", "ãã†ã ã£ãŸã‚“ã§ã™ã­ã£ã€‚ãˆã£ã¨ã€ãã—ãŸã‚‰å¾Œã¯è²´æ–¹ãŒã“ã“ã«ç¸›ã‚‰ã‚Œã¦ã„ã‚‹ç†ç”±ãŒåˆ†ã‹ã‚Œã°â€¦");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
-        uitext.DrawText("ƒAƒcƒg", "‚»‚¤‚¾‚Ëc");
+        uitext.DrawText("ã‚¢ãƒ„ãƒˆ", "ãã†ã ã­â€¦");
         yield return StartCoroutine("Skip");
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚»‚µ‚½‚çƒ\ƒ‰A‚Ü‚½’T‚µ‚És‚­‚©H");
+        uitext.DrawText("ãƒã‚«ãƒª", "ãã—ãŸã‚‰ã‚½ãƒ©ã€ã¾ãŸæ¢ã—ã«è¡Œãã‹ï¼Ÿ");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚»‚¤‚Å‚·‚ËBŸ‚Í‚Ç‚±‚ğ’T‚µ‚Ü‚µ‚å‚¤‚©c");
+        uitext.DrawText("ã‚½ãƒ©", "ãã†ã§ã™ã­ã€‚æ¬¡ã¯ã©ã“ã‚’æ¢ã—ã¾ã—ã‚‡ã†ã‹â€¦");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
-        uitext.DrawText("ƒAƒcƒg", "ccƒ\ƒ‰cccH");
+        uitext.DrawText("ã‚¢ãƒ„ãƒˆ", "â€¦â€¦ã‚½ãƒ©â€¦â€¦â€¦ï¼Ÿ");
         yield return StartCoroutine("Skip");
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "H");
+        uitext.DrawText("ã‚½ãƒ©", "ï¼Ÿ");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
-        uitext.DrawText("ƒAƒcƒg", "ƒ\ƒ‰ccA‚»‚Á‚©B‚»‚¤‚¾‚Á‚½‚ñ‚¾‚ËB");
+        uitext.DrawText("ã‚¢ãƒ„ãƒˆ", "ã‚½ãƒ©â€¦â€¦ã€ãã£ã‹ã€‚ãã†ã ã£ãŸã‚“ã ã­ã€‚");
         yield return StartCoroutine("Skip");
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "HH");
+        uitext.DrawText("ã‚½ãƒ©", "ï¼Ÿï¼Ÿ");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
-        uitext.DrawText("ƒAƒcƒg", "–³–‚¾‚Á‚½‚ñ‚¾‚ËccB");
+        uitext.DrawText("ã‚¢ãƒ„ãƒˆ", "ç„¡äº‹ã ã£ãŸã‚“ã ã­â€¦â€¦ã€‚");
         yield return StartCoroutine("Skip");
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚¦H");
+        uitext.DrawText("ã‚½ãƒ©", "ãˆï¼Ÿ");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
-        uitext.DrawText("ƒAƒcƒg", "‚¢‚¢‚âA‚²‚ß‚ñ‚ËB‚±‚Á‚¿‚Ì˜bB");
+        uitext.DrawText("ã‚¢ãƒ„ãƒˆ", "ã„ã„ã‚„ã€ã”ã‚ã‚“ã­ã€‚ã“ã£ã¡ã®è©±ã€‚");
         yield return StartCoroutine("Skip");
 
-        uitext.DrawText("ƒAƒcƒg", "‚Å‚àA‚±‚ê‚Å“ñl‚ª‚Ü‚½’T‚µ‚És‚­•K—v‚Í–³‚­‚È‚Á‚½‚æ‚ÁB");
+        uitext.DrawText("ã‚¢ãƒ„ãƒˆ", "ã§ã‚‚ã€ã“ã‚Œã§äºŒäººãŒã¾ãŸæ¢ã—ã«è¡Œãå¿…è¦ã¯ç„¡ããªã£ãŸã‚ˆã£ã€‚");
         yield return StartCoroutine("Skip");
 
-        uitext.DrawText("ƒAƒcƒg", "‚ ‚è‚ª‚Æ‚¤‚ËA‚»‚¤‚¾‚±‚êA‚«‚Á‚Æ–ğ‚É—§‚Â‚æB");
+        uitext.DrawText("ã‚¢ãƒ„ãƒˆ", "ã‚ã‚ŠãŒã¨ã†ã­ã€ãã†ã ã“ã‚Œã€ãã£ã¨å½¹ã«ç«‹ã¤ã‚ˆã€‚");
         yield return StartCoroutine("Skip");
 
-        uitext.DrawText("‰½‚©‚Ìƒƒ‚‚ğó‚¯æ‚Á‚½B");
+        uitext.DrawText("ä½•ã‹ã®ãƒ¡ãƒ¢ã‚’å—ã‘å–ã£ãŸã€‚");
         yield return StartCoroutine("Skip");
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚¦‚Á‚ÆA‚Ç‚¤‚¢‚¤‚±‚Æ‚Å‚·‚©H");
+        uitext.DrawText("ã‚½ãƒ©", "ãˆã£ã¨ã€ã©ã†ã„ã†ã“ã¨ã§ã™ã‹ï¼Ÿ");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
-        uitext.DrawText("ƒAƒcƒg", "‚ ‚Ÿ‚²‚ß‚ñB‹C‚É‚µ‚È‚¢‚ÅB‚½‚¾–l‚Ì–Ú“I‚ª’B¬‚³‚ê‚ÄA–l‚Í–³–‚É¬•§o—ˆ‚»‚¤‚È‚ñ‚¾B");
+        uitext.DrawText("ã‚¢ãƒ„ãƒˆ", "ã‚ãã”ã‚ã‚“ã€‚æ°—ã«ã—ãªã„ã§ã€‚ãŸã åƒ•ã®ç›®çš„ãŒé”æˆã•ã‚Œã¦ã€åƒ•ã¯ç„¡äº‹ã«æˆä»å‡ºæ¥ãã†ãªã‚“ã ã€‚");
         yield return StartCoroutine("Skip");
 
-        uitext.DrawText("ƒAƒcƒg", "‚»‚ê‚©‚ç‚³A–l‚Í‚à‚¤‚·‚®Á‚¦‚¿‚á‚¤‚Æv‚¤‚ñ‚¾‚¯‚Ç‚ËB");
+        uitext.DrawText("ã‚¢ãƒ„ãƒˆ", "ãã‚Œã‹ã‚‰ã•ã€åƒ•ã¯ã‚‚ã†ã™ãæ¶ˆãˆã¡ã‚ƒã†ã¨æ€ã†ã‚“ã ã‘ã©ã­ã€‚");
         yield return StartCoroutine("Skip");
 
-        uitext.DrawText("ƒAƒcƒg", "‚±‚ê‚¾‚¯Œ¾‚Á‚Ä‚à‚¢‚¢‚©‚ÈB");
+        uitext.DrawText("ã‚¢ãƒ„ãƒˆ", "ã“ã‚Œã ã‘è¨€ã£ã¦ã‚‚ã„ã„ã‹ãªã€‚");
         yield return StartCoroutine("Skip");
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "H");
+        uitext.DrawText("ã‚½ãƒ©", "ï¼Ÿ");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         fadeIn.fadeOutFlag = true;
-        uitext.DrawText("ƒAƒcƒg", "ÅŒã‚É‚Ü‚½‰ï‚¦‚ÄŠğ‚µ‚¢‚æB‚¶‚á‚ ‚ËB‚»[‚¿‚á‚ñB");
+        uitext.DrawText("ã‚¢ãƒ„ãƒˆ", "æœ€å¾Œã«ã¾ãŸä¼šãˆã¦å¬‰ã—ã„ã‚ˆã€‚ã˜ã‚ƒã‚ã­ã€‚ããƒ¼ã¡ã‚ƒã‚“ã€‚");
         yield return StartCoroutine("Skip");
 
         whiteMistObject.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "I");
+        uitext.DrawText("ã‚½ãƒ©", "ï¼");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         fadeIn.fadeFlag = true;
 
-        uitext.DrawText("”’‚¢ƒ‚ƒ„‚Í‚à‚¤Œ©‚¦‚È‚¢B");
+        uitext.DrawText("ç™½ã„ãƒ¢ãƒ¤ã¯ã‚‚ã†è¦‹ãˆãªã„ã€‚");
         yield return StartCoroutine("Skip");
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "ccc");
-        yield return StartCoroutine("Skip");
-        boy.SetActive(false);
-
-        boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "ƒ\ƒ‰cH");
+        uitext.DrawText("ãƒã‚«ãƒª", "â€¦â€¦â€¦");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "I");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã‚½ãƒ©â€¦ï¼Ÿ");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ãƒã‚«ãƒª", "ï¼");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "ƒnƒJƒŠ‚³‚ñcc‚Ç‚¤‚µ‚Ä‚àv‚¢o‚¹‚È‚¢‚ñ‚Å‚·A");
+        uitext.DrawText("ã‚½ãƒ©", "ãƒã‚«ãƒªã•ã‚“â€¦â€¦ã©ã†ã—ã¦ã‚‚æ€ã„å‡ºã›ãªã„ã‚“ã§ã™ã€");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "v‚¢o‚µ‚Ä‚ ‚°‚ç‚ê‚È‚¢‚ñ‚Å‚·‚¯‚Çc");
+        uitext.DrawText("ã‚½ãƒ©", "æ€ã„å‡ºã—ã¦ã‚ã’ã‚‰ã‚Œãªã„ã‚“ã§ã™ã‘ã©â€¦");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‰½ŒÌ‚¾‚©—Ü‚ª~‚Ü‚ç‚È‚¢‚ñ‚Å‚·ccc");
+        uitext.DrawText("ã‚½ãƒ©", "ä½•æ•…ã ã‹æ¶™ãŒæ­¢ã¾ã‚‰ãªã„ã‚“ã§ã™â€¦â€¦â€¦");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         fadeIn.fadeOutFlag = true;
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "ccc");
+        uitext.DrawText("ãƒã‚«ãƒª", "â€¦â€¦â€¦");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         fadeIn.fadeFlag = true;
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚à‚¤‘åä•v‚È‚Ì‚©cH");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã‚‚ã†å¤§ä¸ˆå¤«ãªã®ã‹â€¦ï¼Ÿ");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚Í‚¢c‚à‚¤‘åä•v‚Å‚·B");
+        uitext.DrawText("ã‚½ãƒ©", "ã¯ã„â€¦ã‚‚ã†å¤§ä¸ˆå¤«ã§ã™ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "cc”–X‹C‚Ã‚¢‚Ä‚Í‹‚½‚ñ‚Å‚·B");
+        uitext.DrawText("ã‚½ãƒ©", "â€¦â€¦è–„ã€…æ°—ã¥ã„ã¦ã¯å±…ãŸã‚“ã§ã™ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚«‚Á‚Æ„‚Í‚¢‚­‚Â‚©‚Ì‹L‰¯‚ğ¸‚Á‚Ä‚¢‚Ü‚·B");
+        uitext.DrawText("ã‚½ãƒ©", "ãã£ã¨ç§ã¯ã„ãã¤ã‹ã®è¨˜æ†¶ã‚’å¤±ã£ã¦ã„ã¾ã™ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‹L‰¯‚ğ¸‚Á‚ÄA‰½ŒÌ‚©‚±‚±‚É‹‚Ü‚·c");
+        uitext.DrawText("ã‚½ãƒ©", "è¨˜æ†¶ã‚’å¤±ã£ã¦ã€ä½•æ•…ã‹ã“ã“ã«å±…ã¾ã™â€¦");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "i‚İ‚Ü‚µ‚å‚¤B‚±‚±‚É‹‚Ä‚àn‚Ü‚ç‚È‚¢‚Å‚·‚©‚çB");
+        uitext.DrawText("ã‚½ãƒ©", "é€²ã¿ã¾ã—ã‚‡ã†ã€‚ã“ã“ã«å±…ã¦ã‚‚å§‹ã¾ã‚‰ãªã„ã§ã™ã‹ã‚‰ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚»‚¤c‚¾‚ÈB");
+        uitext.DrawText("ãƒã‚«ãƒª", "ãã†â€¦ã ãªã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚³‚Á‚«‚±‚ê‚ğ–á‚Á‚½‚ñ‚Å‚·B");
+        uitext.DrawText("ã‚½ãƒ©", "ã•ã£ãã“ã‚Œã‚’è²°ã£ãŸã‚“ã§ã™ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
-        uitext.DrawText("[[[“V”‰‚É‚Â‚¢‚Ä‚ÌŒ¤‹†ƒƒ‚[[[");
+        uitext.DrawText("ãƒ¼ãƒ¼ãƒ¼å¤©ç§¤ã«ã¤ã„ã¦ã®ç ”ç©¶ãƒ¡ãƒ¢ãƒ¼ãƒ¼ãƒ¼");
         yield return StartCoroutine("Skip");
 
-        uitext.DrawText("u‚±‚Ì“V”‰A‰½‚©‚¨‚©‚µ‚¢‚Æv‚Á‚Ä‚½‚ñ‚¾B‚Ç‚¤‚â‚ç‚±‚Ì“V”‰‚ÍŠè‚¢‚ğŠ‚¦‚é‘Î‰¿‚ğ—v‹‚µ‚Ä‚¢‚éBv");
+        uitext.DrawText("ã€Œã“ã®å¤©ç§¤ã€ä½•ã‹ãŠã‹ã—ã„ã¨æ€ã£ã¦ãŸã‚“ã ã€‚ã©ã†ã‚„ã‚‰ã“ã®å¤©ç§¤ã¯é¡˜ã„ã‚’å¶ãˆã‚‹å¯¾ä¾¡ã‚’è¦æ±‚ã—ã¦ã„ã‚‹ã€‚ã€");
         yield return StartCoroutine("Skip");
 
-        uitext.DrawText("uŠÔˆá‚Á‚Ä‚à€Ò‘h¶‚È‚ñ‚Ä–]‚Ş‚ñ‚¶‚á‚È‚¢A’N‚©‚ª€‚Ê‚±‚Æ‚É‚È‚éBv");
+        uitext.DrawText("ã€Œé–“é•ã£ã¦ã‚‚æ­»è€…è˜‡ç”Ÿãªã‚“ã¦æœ›ã‚€ã‚“ã˜ã‚ƒãªã„ã€èª°ã‹ãŒæ­»ã¬ã“ã¨ã«ãªã‚‹ã€‚ã€");
         yield return StartCoroutine("Skip");
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚â‚Á‚Ï‚èc");
-        yield return StartCoroutine("Skip");
-        girl.SetActive(false);
-
-        girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚ ‚Ì“V”‰‚É„‚ªŠè‚Á‚½‚©‚çB");
+        uitext.DrawText("ã‚½ãƒ©", "ã‚„ã£ã±ã‚Šâ€¦");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "V‚µ‚¢êŠ‚És‚¯‚é—l‚É‚È‚Á‚½‘Î‰¿‚Æ‚µ‚ÄA‘O‚És‚¯‚½êŠ‚És‚¯‚È‚¢‚ñ‚Å‚·‚Ëc");
+        uitext.DrawText("ã‚½ãƒ©", "ã‚ã®å¤©ç§¤ã«ç§ãŒé¡˜ã£ãŸã‹ã‚‰ã€‚");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ã‚½ãƒ©", "æ–°ã—ã„å ´æ‰€ã«è¡Œã‘ã‚‹æ§˜ã«ãªã£ãŸå¯¾ä¾¡ã¨ã—ã¦ã€å‰ã«è¡Œã‘ãŸå ´æ‰€ã«è¡Œã‘ãªã„ã‚“ã§ã™ã­â€¦");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚È‚é‚Ù‚Ç‚È‚ŸcA‚Å‚à‚È‚ñ‚Å‚ ‚ê‚Í“V”‰‚È‚ñ‚¾H");
+        uitext.DrawText("ãƒã‚«ãƒª", "ãªã‚‹ã»ã©ãªãâ€¦ã€ã§ã‚‚ãªã‚“ã§ã‚ã‚Œã¯å¤©ç§¤ãªã‚“ã ï¼Ÿ");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "“V”‰‚Á‚Ä[‚ÆA¶‰E‚É’u‚¢‚½‚à‚Ì‚Ìd‚³‚ğ”ä‚×‚é‚à‚Ì‚¾‚ëB");
+        uitext.DrawText("ãƒã‚«ãƒª", "å¤©ç§¤ã£ã¦ãƒ¼ã¨ã€å·¦å³ã«ç½®ã„ãŸã‚‚ã®ã®é‡ã•ã‚’æ¯”ã¹ã‚‹ã‚‚ã®ã ã‚ã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚»‚¤‚Å‚·‚ËB‚à‚µ‚©‚µ‚½‚ç‚»‚ê‚ª‘Î‰¿‚ğ—v‹‚µ‚Ä‚¢‚éˆÓ–¡‚È‚Ì‚©‚à’m‚ê‚È‚¢‚Å‚·‚ËB");
+        uitext.DrawText("ã‚½ãƒ©", "ãã†ã§ã™ã­ã€‚ã‚‚ã—ã‹ã—ãŸã‚‰ãã‚ŒãŒå¯¾ä¾¡ã‚’è¦æ±‚ã—ã¦ã„ã‚‹æ„å‘³ãªã®ã‹ã‚‚çŸ¥ã‚Œãªã„ã§ã™ã­ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "HHH");
+        uitext.DrawText("ãƒã‚«ãƒª", "ï¼Ÿï¼Ÿï¼Ÿ");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "[‚­‚Í„‚à‚í‚©‚è‚Ü‚¹‚ñB");
+        uitext.DrawText("ã‚½ãƒ©", "æ·±ãã¯ç§ã‚‚ã‚ã‹ã‚Šã¾ã›ã‚“ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "“e‚ÉŠpAæ‚Éi‚Ş‚É‚µ‚ëŸ‚Éo—ˆ‚éè—§‚Ä‚ª–³‚­‚È‚Á‚¿‚á‚¢‚Ü‚µ‚½‚ËB");
+        uitext.DrawText("ã‚½ãƒ©", "å…ã«è§’ã€å…ˆã«é€²ã‚€ã«ã—ã‚æ¬¡ã«å‡ºæ¥ã‚‹æ‰‹ç«‹ã¦ãŒç„¡ããªã£ã¡ã‚ƒã„ã¾ã—ãŸã­ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚©‚­‚È‚é‚¤‚¦‚Í‚à‚¤ˆê“x“V”‰‚©cc");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã‹ããªã‚‹ã†ãˆã¯ã‚‚ã†ä¸€åº¦å¤©ç§¤ã‹â€¦â€¦");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "ccc‚»‚¤‚Å‚·‚ËB");
+        uitext.DrawText("ã‚½ãƒ©", "â€¦â€¦â€¦ãã†ã§ã™ã­ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚Ç‚ñ‚È‘Î‰¿‚ğ—v‹‚³‚ê‚é‚©–‘O‚É‚Í•ª‚©‚è‚Ü‚¹‚ñ‚ªA­‚È‚­‚Æ‚à‘Î“™‚È‚à‚Ì‚ğ—v‹‚µ‚Ä‚¢‚é—l‚ÉŠ´‚¶‚Ü‚·B");
+        uitext.DrawText("ã‚½ãƒ©", "ã©ã‚“ãªå¯¾ä¾¡ã‚’è¦æ±‚ã•ã‚Œã‚‹ã‹äº‹å‰ã«ã¯åˆ†ã‹ã‚Šã¾ã›ã‚“ãŒã€å°‘ãªãã¨ã‚‚å¯¾ç­‰ãªã‚‚ã®ã‚’è¦æ±‚ã—ã¦ã„ã‚‹æ§˜ã«æ„Ÿã˜ã¾ã™ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‘O‰ñ‚Æ“¯‚¶‚æ‚¤‚ÉA“–‚½‚èá‚è‚È‚­A‘½­‚Ì•Ï‰»‚ğ–]‚ß‚é—l‚ÈB");
+        uitext.DrawText("ã‚½ãƒ©", "å‰å›ã¨åŒã˜ã‚ˆã†ã«ã€å½“ãŸã‚Šéšœã‚Šãªãã€å¤šå°‘ã®å¤‰åŒ–ã‚’æœ›ã‚ã‚‹æ§˜ãªã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚»‚Ì‚­‚ç‚¢‚Ì‚¨Šè‚¢‚ğ‚µ‚ÉAs‚Á‚Ä‚İ‚é‚µ‚©–³‚¢‚Å‚·‚ËB");
+        uitext.DrawText("ã‚½ãƒ©", "ãã®ãã‚‰ã„ã®ãŠé¡˜ã„ã‚’ã—ã«ã€è¡Œã£ã¦ã¿ã‚‹ã—ã‹ç„¡ã„ã§ã™ã­ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         fadeIn.fadeOutFlag = true;
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "s‚­‚©‚ŸB“V”‰‚Ì‚ ‚Á‚½•”‰®B");
+        uitext.DrawText("ãƒã‚«ãƒª", "è¡Œãã‹ãã€‚å¤©ç§¤ã®ã‚ã£ãŸéƒ¨å±‹ã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
@@ -3977,56 +4017,56 @@ public class TextWriter : MonoBehaviour
         fadeIn.fadeFlag = true;
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚³‚Ä‚Æcc");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã•ã¦ã¨â€¦â€¦");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "“–‚½‚èá‚è‚Ì‚È‚¢Šè‚¢–‚Ë‚¥c");
+        uitext.DrawText("ãƒã‚«ãƒª", "å½“ãŸã‚Šéšœã‚Šã®ãªã„é¡˜ã„äº‹ã­ã‡â€¦");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         fadeIn.fadeOutFlag = true;
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚Ç‚¤‚·‚éHƒ\ƒ‰B");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã©ã†ã™ã‚‹ï¼Ÿã‚½ãƒ©ã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚»‚¤‚Å‚·‚Ëccc");
+        uitext.DrawText("ã‚½ãƒ©", "ãã†ã§ã™ã­â€¦â€¦â€¦");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "ccc");
+        uitext.DrawText("ã‚½ãƒ©", "â€¦â€¦â€¦");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚ñ‚Ÿ`A‚ ‚ñ‚Ü“ï‚µ‚­l‚¦‚ñ‚ÈB");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã‚“ãï½ã€ã‚ã‚“ã¾é›£ã—ãè€ƒãˆã‚“ãªã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚¨‘O‚Ì—¦’¼‚ÈˆÓŒ©‚Å‚¢‚¢B");
+        uitext.DrawText("ãƒã‚«ãƒª", "ãŠå‰ã®ç‡ç›´ãªæ„è¦‹ã§ã„ã„ã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "‚í‚©‚ècc‚Ü‚µ‚½B");
+        uitext.DrawText("ã‚½ãƒ©", "ã‚ã‹ã‚Šâ€¦â€¦ã¾ã—ãŸã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         fadeIn.fadeFlag = true;
         
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "¡‚Ü‚ÅŒ©‚¦‚Ä‚¢‚½êŠ‚ªA‚Ü‚½Œ©‚¦‚È‚­‚È‚Á‚½‚Æ‚µ‚Ä‚àB");
+        uitext.DrawText("ã‚½ãƒ©", "ä»Šã¾ã§è¦‹ãˆã¦ã„ãŸå ´æ‰€ãŒã€ã¾ãŸè¦‹ãˆãªããªã£ãŸã¨ã—ã¦ã‚‚ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
         girl.SetActive(true);
-        uitext.DrawText("ƒ\ƒ‰", "„‚½‚¿‚Ícccæ‚Éi‚İ‚½‚¢B");
+        uitext.DrawText("ã‚½ãƒ©", "ç§ãŸã¡ã¯â€¦â€¦â€¦å…ˆã«é€²ã¿ãŸã„ã€‚");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
@@ -4036,14 +4076,14 @@ public class TextWriter : MonoBehaviour
         Canbus.SetActive(true);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚»‚¤‚¾‚Èccc");
+        uitext.DrawText("ãƒã‚«ãƒª", "ãã†ã ãªâ€¦â€¦â€¦");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
         fadeIn.fadeOutFlag = true;
 
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‰´‚½‚¿‚Íæ‚Éi‚Ş‚µ‚©‚Ë‚¥B");
+        uitext.DrawText("ãƒã‚«ãƒª", "ä¿ºãŸã¡ã¯å…ˆã«é€²ã‚€ã—ã‹ã­ã‡ã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
@@ -4051,14 +4091,14 @@ public class TextWriter : MonoBehaviour
         playerChange.moveFlag = true;
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "s‚±\‚ºAƒ\ƒ‰B");
+        uitext.DrawText("ãƒã‚«ãƒª", "è¡Œã“â€•ãœã€ã‚½ãƒ©ã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         girlObject.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "cƒ\ƒ‰H");
+        uitext.DrawText("ãƒã‚«ãƒª", "â€¦ã‚½ãƒ©ï¼Ÿ");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
@@ -4066,68 +4106,614 @@ public class TextWriter : MonoBehaviour
         fadeIn.fadeFlag = true;
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚»‚¤—ˆ‚½‚©‚æ“V”‰cc");
+        uitext.DrawText("ãƒã‚«ãƒª", "ãã†æ¥ãŸã‹ã‚ˆå¤©ç§¤â€¦â€¦");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "ccc");
+        uitext.DrawText("ãƒã‚«ãƒª", "â€¦â€¦â€¦");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚¢‚âcƒ\ƒ‰‚Ì‘¶İ‚ªÁ‚¦‚¿‚Ü‚Á‚½‰Â”\«‚Í’á‚¢B");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã„ã‚„â€¦ã‚½ãƒ©ã®å­˜åœ¨ãŒæ¶ˆãˆã¡ã¾ã£ãŸå¯èƒ½æ€§ã¯ä½ã„ã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "“V”‰‚Ì—v‹‚·‚é‘Î‰¿‚ª‘Î“™‚È•¨‚¾‚Æ‚µ‚ÄB");
+        uitext.DrawText("ãƒã‚«ãƒª", "å¤©ç§¤ã®è¦æ±‚ã™ã‚‹å¯¾ä¾¡ãŒå¯¾ç­‰ãªç‰©ã ã¨ã—ã¦ã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "ƒ\ƒ‰‚Ì‘¶İ‚ªÁ‚¦‚é‚Ù‚Ç‚Ì—v‹‚ğ‰´‚½‚¿‚Í‚µ‚Ä‚¢‚È‚¢B");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã‚½ãƒ©ã®å­˜åœ¨ãŒæ¶ˆãˆã‚‹ã»ã©ã®è¦æ±‚ã‚’ä¿ºãŸã¡ã¯ã—ã¦ã„ãªã„ã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚»‚à‚»‚à‰´‚Å‚Í‚È‚­ƒ\ƒ‰‚ªÁ‚¦‚½‚±‚Æ‚ğl‚¦‚é‚Æc");
+        uitext.DrawText("ãƒã‚«ãƒª", "ãã‚‚ãã‚‚ä¿ºã§ã¯ãªãã‚½ãƒ©ãŒæ¶ˆãˆãŸã“ã¨ã‚’è€ƒãˆã‚‹ã¨â€¦");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚¨Œİ‚¢‚ªAŒ©‚¦‚È‚­‚È‚Á‚Ä‚¢‚é‰Â”\«‚ª‚‚¢‚©c");
+        uitext.DrawText("ãƒã‚«ãƒª", "ãŠäº’ã„ãŒã€è¦‹ãˆãªããªã£ã¦ã„ã‚‹å¯èƒ½æ€§ãŒé«˜ã„ã‹â€¦");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚­‚Á‚»Aƒ\ƒ‰c");
+        uitext.DrawText("ãƒã‚«ãƒª", "ãã£ãã€ã‚½ãƒ©â€¦");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "–³–‚Å‚¢‚Ä‚­‚êcc");
+        uitext.DrawText("ãƒã‚«ãƒª", "ç„¡äº‹ã§ã„ã¦ãã‚Œâ€¦â€¦");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         fadeIn.fadeOutFlag = true;
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚¨‘O‚Ì‰ß‹‚à’É‚İ‚à‰´‚ªccc");
+        uitext.DrawText("ãƒã‚«ãƒª", "ãŠå‰ã®éå»ã‚‚ç—›ã¿ã‚‚ä¿ºãŒâ€¦â€¦â€¦");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         fadeIn.fadeFlag = true;
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "ƒ\ƒ‰‚Ìˆ×‚É‚àA‰½‚©’Eo‚Ì…Œû‚ğŒ©‚Â‚¯‚Ë‚¥‚Æ‚ÈB");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã‚½ãƒ©ã®ç‚ºã«ã‚‚ã€ä½•ã‹è„±å‡ºã®ç³¸å£ã‚’è¦‹ã¤ã‘ã­ã‡ã¨ãªã€‚");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
         boy.SetActive(true);
-        uitext.DrawText("ƒnƒJƒŠ", "‚³‚Ä‚ÆA‘¼‚És‚¯‚éêŠ‚Í‚Ç‚±‚¾`");
+        uitext.DrawText("ãƒã‚«ãƒª", "ã•ã¦ã¨ã€ä»–ã«è¡Œã‘ã‚‹å ´æ‰€ã¯ã©ã“ã ï½");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
+
+        roomWarp.SetActive(true);
+        button1.SetActive(true);
+        button2.SetActive(true);
+        button3.SetActive(true);
+        button4.SetActive(true);
+        desk1.SetActive(false);
+        desk2.SetActive(false);
+
+        Canbus.SetActive(false);
+        gameStop.stopFlag = false;
+    }
+
+    IEnumerator lastGimmickRoomStory()
+    {
+        Canbus.SetActive(true);
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        boy_fear.SetActive(false);
+        girl.SetActive(false);
+        investigate2.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ãƒã‚«ãƒª", "ã‚“ãï¼Ÿãªã‚“ã ã‚ˆã“ã‚Œâ€¦");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        fadeIn.fadeOutFlag = true;
+
+        boy.SetActive(true);
+        uitext.DrawText("ãƒã‚«ãƒª", "ä»Šåº¦ã¯è¬ã®â€¦â€¦â€¦");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        //ã“ã“ã«ç§»å‹•å‡¦ç†ã‚’æ›¸ã
+        boyTeleport.SetPosition(33.12f, 219.48f);
+
+        fadeIn.fadeFlag = true;
+
+        boy.SetActive(true);
+        uitext.DrawText("ãƒã‚«ãƒª", "ã‚“ãâ€¦ã©ã†ãªã£ã¦ã‚“ã â€¦");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ãƒã‚«ãƒª", "ã©ã“ã ã‚ˆã“ã“â€¦â€¦â€¦");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        Canbus.SetActive(false);
+        gameStop.stopFlag = false;
+    }
+
+    IEnumerator lastRoomBookStory()
+    {
+        Canbus.SetActive(true);
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        boy_fear.SetActive(false);
+        girl.SetActive(false);
+        investigate2.SetActive(false);
+
+        uitext.DrawText("ãƒ¼ãƒ¼ãƒ¼ã¨ã‚ã‚‹å°‘å¥³ã®æ—¥è¨˜ãƒ¼ãƒ¼ãƒ¼");
+        yield return StartCoroutine("Skip");
+
+        uitext.DrawText("ã€‡æœˆâ—‹æ—¥");
+        yield return StartCoroutine("Skip");
+
+        uitext.DrawText("ä»Šæ—¥ã¯ã„ã¤ã‚‚ã‚ˆã‚Šæ—©ãèµ·ãã‚ŒãŸã‹ã‚‰å­¦æ ¡ã‚‚ä¸€è¶³å…ˆã«ç€ã„ãŸã€‚");
+        yield return StartCoroutine("Skip");
+
+        uitext.DrawText("ãã—ãŸã‚‰å…ˆç”Ÿã«ãŠæ‰‹ä¼ã„ã‚’é ¼ã¾ã‚Œã¡ã‚ƒã£ã¦è·å“¡å®¤ã¾ã§è·ç‰©ã‚’é‹ã‚“ã ã€‚");
+        yield return StartCoroutine("Skip");
+
+        uitext.DrawText("æˆæ¥­ã¯ã„ã¤ã‚‚é€šã‚Šã ã£ãŸã‚“ã ã‘ã©ã€ã‚¢ãƒ„ãƒˆãŒå¤§æ€ªæˆ‘ã—ãŸã£ã¦èã„ã¦æ€¥ã„ã§ç—…é™¢ã«è¡Œã£ãŸã€‚");
+        yield return StartCoroutine("Skip");
+
+        uitext.DrawText("ãã—ãŸã‚‰å…¨ç„¶å¤§ã—ãŸã“ã¨ç„¡ãã£ã¦ã€å¿ƒé…ã—ã¦æã—ãŸæ°—åˆ†ã€‚");
+        yield return StartCoroutine("Skip");
+
+        uitext.DrawText("ã€‡æœˆâœ•æ—¥");
+        yield return StartCoroutine("Skip");
+
+        uitext.DrawText("ä»Šç—…é™¢ã«å±…ã¦ã€ã‚¢ãƒ„ãƒˆãŒæ­»ã‚“ã˜ã‚ƒã†ã‹ã‚‚ã£ã¦ã€‚");
+        yield return StartCoroutine("Skip");
+
+        uitext.DrawText("ç§ã‚’åº‡ã£ã¦ã‚¢ãƒ„ãƒˆãŒãƒˆãƒ©ãƒƒã‚¯ã«ã²ã‹ã‚Œã¡ã‚ƒã£ãŸâ€¦ã€‚");
+        yield return StartCoroutine("Skip");
+
+        uitext.DrawText("ã‚„ã ã‚„ã ã‚„ã ã€æ­»ãªãªã„ã§ã€‚");
+        yield return StartCoroutine("Skip");
+
+        uitext.DrawText("ãŠé¡˜ã„ã—ã¾ã™ç¥æ§˜ã€‚ã‚¢ãƒ„ãƒˆã‚’åŠ©ã‘ã¦ãã ã•ã„ã€‚");
+        yield return StartCoroutine("Skip");
+
+        uitext.DrawText("ãƒ»ãƒ»ãƒ»ãƒ»ãƒ»ãƒ»ãƒ»ãƒ»ãƒ»ãƒ»ãƒ»ãƒ»ãƒ»ãƒ»ãƒ»");
+        yield return StartCoroutine("Skip");
+
+        uitext.DrawText("ãƒ»ãƒ»ãƒ»ãƒ»ãƒ»ãƒ»ãƒ»ãƒ»ãƒ»ãƒ»ãƒ»ãƒ»ãƒ»ãƒ»ãƒ»");
+        yield return StartCoroutine("Skip");
+
+        uitext.DrawText("æš«ããƒšãƒ¼ã‚¸ãŒç™½ç´™ã®ã¾ã¾ã ");
+        yield return StartCoroutine("Skip");
+
+        uitext.DrawText("âœ•æœˆâœ•æ—¥");
+        yield return StartCoroutine("Skip");
+
+        uitext.DrawText("ãŠæ¯ã•ã‚“ãŠçˆ¶ã•ã‚“ä»Šã¾ã§å¿ƒé…ã‹ã‘ã¦ã”ã‚ã‚“ãªã•ã„ã€‚");
+        yield return StartCoroutine("Skip");
+
+        uitext.DrawText("ã‚„ã£ã±ã‚Šç§ã«ã¨ã£ã¦ã€ã‚¢ãƒ„ãƒˆãŒå±…ãªã„ä¸–ç•Œã¯ä¾¡å€¤ãŒã‚ã‚Šå¾—ã¾ã›ã‚“ã€‚");
+        yield return StartCoroutine("Skip");
+
+        uitext.DrawText("ã ã‹ã‚‰ã€ã‚¢ãƒ„ãƒˆã«ä¼šã„ã«è¡Œã“ã†ã¨æ€ã„ã¾ã™ã€‚");
+        yield return StartCoroutine("Skip");
+
+        uitext.DrawText("ã¨ã£ã¦ã‚‚å‹æ‰‹ã§ã”ã‚ã‚“ãªã•ã„ã€‚");
+        yield return StartCoroutine("Skip");
+
+        uitext.DrawText("ã‚‚ã†è€ãˆã‚‰ã‚Œãªã„ã¿ãŸã„ãªã®â€¦ã€‚");
+        yield return StartCoroutine("Skip");
+
+        uitext.DrawText("ãƒ¼ãƒ¼ãƒ¼ãƒ¼ãƒ¼ãƒ¼ãƒ¼ãƒ¼ãƒ¼ãƒ¼ãƒ¼ãƒ¼ãƒ¼ãƒ¼");
+        yield return StartCoroutine("Skip");
+
+        boy.SetActive(true);
+        uitext.DrawText("ãƒã‚«ãƒª", "ã‚½ãƒ©ã®æ—¥è¨˜ã ã€‚");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ãƒã‚«ãƒª", "ã‚„ã£ã±ã‚Šãã†ã ã‚ˆãªã€‚");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ãƒã‚«ãƒª", "ã‚½ãƒ©ã¨ä¿ºã¯é‡£ã‚Šåˆã£ã¡ã¾ã£ãŸã‚“ã ã€‚");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ãƒã‚«ãƒª", "ã‚ã®å¤©ç§¤ã«ã‚ˆã£ã¦ã€‚");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ãƒã‚«ãƒª", "ãŠäº’ã„ã«ã€‚");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ãƒã‚«ãƒª", "è‹¦ã—ã•ã‹ã‚‰é€ƒã’ã¡ã¾ã£ãŸã‹ã‚‰â€¦");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ãƒã‚«ãƒª", "ã§ã‚‚ã€ã“ã†ã—ã¦ä¿ºã¯ã‚½ãƒ©ã®è¾›ã•ã‚‚å…¨éƒ¨æŠ±ãˆã¦ã€‚");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ãƒã‚«ãƒª", "ã‚½ãƒ©ã¯ã¾ã å…¨ã¦ã‚’æ€ã„å‡ºã›ãŸã‚ã‘ã˜ã‚ƒç„¡ã„ã€‚");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ãƒã‚«ãƒª", "ã¾ã é–“ã«åˆã†ã€‚ä¿ºãŒã‚½ãƒ©ã‚’æ•‘ã†ã‚“ã ã€‚");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ãƒã‚«ãƒª", "ç”Ÿã‹ã—ã¦è¦‹ã›ã‚‹ã€‚ã‚¢ãƒ„ãƒˆã®ç‚ºã«ã‚‚ã€‚");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        Canbus.SetActive(false);
+        gameStop.stopFlag = false;
+    }
+
+    IEnumerator lampStory1()
+    {
+        Canbus.SetActive(true);
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        boy_fear.SetActive(false);
+        girl.SetActive(false);
+        investigate2.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ãƒã‚«ãƒª", "ã“ã®ãƒ©ãƒ³ãƒ—ã¯ã©ã‚Œã‚‚ç‚¹ç¯ã—ã¦ã­ã‡ãªã€‚");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ãƒã‚«ãƒª", "ã‚“ãï¼Ÿã“ã“ã«ä½•ã‹æ›¸ã„ã¦ã‚ã‚‹ãªâ€¦");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        uitext.DrawText("ãƒœã‚¿ãƒ³ã‚’æŠ¼ã›ã€‚æ­£ã—ã„é †åºã§ç¯ã›ã€‚");
+        yield return StartCoroutine("Skip");
+
+        boy.SetActive(true);
+        uitext.DrawText("ãƒã‚«ãƒª", "ãƒœã‚¿ãƒ³ã­ã‡ã€‚");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ãƒã‚«ãƒª", "ãƒœã‚¿ãƒ³ãƒƒã¦â€•ã¨ã€ã‚ã®æ™‚ã®â€¦");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ãƒã‚«ãƒª", "é †åºã¯ã©ã†ã™ã‚‹ã‚“ã ãï¼Ÿ");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        uitext.DrawText("ã“ã“ã‹ã‚‰ã¯å„æ‰€ã®ãƒœã‚¿ãƒ³ã‚’æŠ¼ã™ã“ã¨ã§ãã‚Œã«é€£å‹•ã—ãŸãƒ©ãƒ³ãƒ—ãŒå…‰ã‚Šã¾ã™ã€‚");
+        yield return StartCoroutine("Skip");
+
+        uitext.DrawText("å…¨ã¦æ­£ã—ã„é †åºã§æŠ¼ã•ãªã„ã¨ã€å››ã¤ç›®ã®ãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ãŸã¨ãã«ãƒã‚«ãƒªãŒä¸€è¨€å–‹ã£ã¦ãƒ©ãƒ³ãƒ—ãŒå…¨ã¦æ¶ˆãˆã¾ã™ã€‚");
+        yield return StartCoroutine("Skip");
+
+        Canbus.SetActive(false);
+        gameStop.stopFlag = false;
+    }
+
+    IEnumerator lastButtonStory1()
+    {
+        Canbus.SetActive(true);
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        boy_fear.SetActive(false);
+        girl.SetActive(false);
+        investigate2.SetActive(false);
+
+        uitext.DrawText("ãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ãŸ");
+        yield return StartCoroutine("Skip");
+
+        if(boymove.lastButtonCount == 0)
+        {
+            light1.SetActive(true);
+        }
+        if (boymove.lastButtonCount == 1)
+        {
+            light2.SetActive(true);
+        }
+        if (boymove.lastButtonCount == 2)
+        {
+            light3.SetActive(true);
+        }
+        if (boymove.lastButtonCount == 3)
+        {
+            light4.SetActive(true);
+        }
+
+        boymove.lastButtonCount++;
+
+        Canbus.SetActive(false);
+        gameStop.stopFlag = false;
+    }
+
+    IEnumerator lastButtonStory2()
+    {
+        Canbus.SetActive(true);
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        boy_fear.SetActive(false);
+        girl.SetActive(false);
+        investigate2.SetActive(false);
+
+        fadeIn.fadeOutFlag = true;
+
+        boy.SetActive(true);
+        uitext.DrawText("ãƒã‚«ãƒª", "â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        lostObject1.SetActive(false);
+        lostObject2.SetActive(false);
+        lostObject3.SetActive(false);
+        lostObject4.SetActive(false);
+        lostObject5.SetActive(false);
+        lostObject6.SetActive(false);
+        lostObject7.SetActive(false);
+
+        button1.SetActive(false);
+        button2.SetActive(false);
+        button3.SetActive(false);
+        button4.SetActive(false);
+
+        boymove.lastButtonCount = 0;
+
+        boy.SetActive(true);
+        uitext.DrawText("ãƒã‚«ãƒª", "ã“ã‚Œã§ã©ã†ã â€¦ï¼Ÿä¸€æ—¦æˆ»ã£ã¦ã¿ã‚‹ã‹ãã€‚");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        fadeIn.fadeFlag = true;
+
+        Canbus.SetActive(false);
+        gameStop.stopFlag = false;
+    }
+
+    IEnumerator lastButtonStory3()
+    {
+        Canbus.SetActive(true);
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        boy_fear.SetActive(false);
+        girl.SetActive(false);
+        investigate2.SetActive(false);
+
+        fadeIn.fadeOutFlag = true;
+        boy.SetActive(true);
+        uitext.DrawText("ãƒã‚«ãƒª", "ã‚“ãï¼Ÿãªã‚“ã‹ãƒŸã‚¹ã£ãŸæ°—ãŒã™ã‚“ãªâ€¦");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+        fadeIn.fadeFlag = true;
+
+        boymove.lastButtonCount = 0;
+        boymove.lastButtonFlag = false;
+
+        light1.SetActive(false);
+        light2.SetActive(false);
+        light3.SetActive(false);
+        light4.SetActive(false);
+
+        Canbus.SetActive(false);
+        gameStop.stopFlag = false;
+    }
+
+    IEnumerator laboStory()
+    {
+        Canbus.SetActive(true);
+        girl_fear.SetActive(false);
+        boy.SetActive(false);
+        boy_fear.SetActive(false);
+        girl.SetActive(false);
+        investigate2.SetActive(false);
+
+        uitext.DrawText("ã¾ãšä¸€ã¤æ­£ã—ã¦ãŠã“ã†ã€‚ã‚ã®å¤©ç§¤ã®åå‰ã ãŒã€æœ¬å½“ã¯å‡è¡¡ã®å¤©ç§¤ã¨ã„ã†ã‚‰ã—ã„ã€‚");
+        yield return StartCoroutine("Skip");
+
+        uitext.DrawText("ãã—ã¦ã€ã‚ã®å¤©ç§¤ã«ã¯äºŒã¤ã®ãƒ«ãƒ¼ãƒ«ãŒã‚ã‚‹ã€‚ä¸€ã¤ã¯é¡˜ã„ã«é‡£ã‚Šåˆã†å¯¾ä¾¡ã‚’æ±‚ã‚ã‚‹ã“ã¨ã ã€‚");
+        yield return StartCoroutine("Skip");
+
+        uitext.DrawText("ãã—ã¦äºŒã¤ã¯å¯¾ä¾¡ã‚’å…ˆã«æŒ‡å®šã™ã‚‹ã“ã¨ã‚‚å‡ºæ¥ã‚‹ã¨ã„ã†ã“ã¨ã ã€‚");
+        yield return StartCoroutine("Skip");
+
+        uitext.DrawText("å‹¿è«–ãã‚ŒãŒé‡£ã‚Šåˆã£ã¦ã„ã‚‹ã‹ã‚’æ±ºã‚ã‚‹ã®ã¯å¤©ç§¤ã ãŒã€‚");
+        yield return StartCoroutine("Skip");
+
+        uitext.DrawText("ã“ã‚ŒãŒä¸Šæ‰‹ãæ‰±ãˆã‚Œã°ã‚ã‚‹ç¨‹åº¦ã®ãƒªã‚¹ã‚¯ã¯å›é¿ã§ãã‚‹ã ã‚ã†ã€‚");
+        yield return StartCoroutine("Skip");
+
+        boy.SetActive(true);
+        uitext.DrawText("ãƒã‚«ãƒª", "ãã†ã‹â€¦â€¦â€¦ï¼");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ãƒã‚«ãƒª", "ã“ã‚Œãªã‚‰ã€ã‚½ãƒ©ã‚’æ•‘ãˆã‚‹ã‹ã‚‚ã—ã‚Œã­ã‡ã€‚");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        fadeIn.fadeOutFlag = true;
+
+        boy.SetActive(true);
+        uitext.DrawText("ãƒã‚«ãƒª", "ã‚½ãƒ©ã‹â€¦ï¼Ÿï¼");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        girlObject.SetActive(true);
+        playerChange.moveFlag = true;
+        playerTeleport.SetPosition(-70.17f, 219.09f);
+        boyTeleport.SetPosition(-68.17f, 219.09f);
+
+        fadeIn.fadeFlag = true;
+
+        girl.SetActive(true);
+        uitext.DrawText("ã‚½ãƒ©", "è‰¯ã‹ã£ãŸã£ï¼ï¼ãƒã‚«ãƒªã•ã‚“ã£ï¼ï¼ï¼");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ãƒã‚«ãƒª", "ãŠã‰ï¼ç„¡äº‹ã ã£ãŸã‚“ã ãªã£");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        fadeIn.fadeOutFlag = true;
+
+        boy.SetActive(true);
+        uitext.DrawText("ãƒã‚«ãƒª", "ãªã‚‹ã»ã©ã€‚ã‚½ãƒ©ãŒä¿ºã¨ã®åˆæµã‚’é¡˜ã£ã¦ãã‚ŒãŸã‚“ã ãªã€‚");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        fadeIn.fadeFlag = true;
+
+        girl.SetActive(true);
+        uitext.DrawText("ã‚½ãƒ©", "ã¯ã„ã€‚ãã®â€¦ä¸€äººã«ãªã£ãŸã¨ãŸã‚“è¶³ãŒã™ãã‚“ã§ã—ã¾ã£ã¦ã€‚");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ãƒã‚«ãƒª", "ã„ããªã‚Šã ã£ãŸã‚‚ã‚“ãªãã€‚ç„¡ç†ã‚‚ãªã„ã€‚");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ã‚½ãƒ©", "ã”ã‚ã‚“ãªã•ã„ã€‚ãã®ã›ã„ã§æ¢ç´¢ã¯å…¨ãâ€¦");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ãƒã‚«ãƒª", "ã‚“ãã€ãã®ç‚¹ã¯å¿ƒé…ã™ã‚“ãªã€‚");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ãƒã‚«ãƒª", "è„±å‡ºã®ç³¸å£ã¯è¦‹ã¤ã‹ã£ãŸã‹ã‚‰ã‚ˆã€‚");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ã‚½ãƒ©", "ãˆã£ï¼æœ¬å½“ã§ã™ã‹ã£ï¼ï¼Ÿ");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ãƒã‚«ãƒª", "ãŠã†ã€‚ã ã‹ã‚‰â€¦ã‚‚ã†ä¸€åº¦ã ã‘ã€‚");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ãƒã‚«ãƒª", "ä»Šåº¦ã¯ä¿ºãŒã€ã“ã®å‡è¡¡ã®å¤©ç§¤ã‚’ä½¿ã†ã€‚");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ãƒã‚«ãƒª", "å®‰å¿ƒã—ã¦ãã‚Œã€‚");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ãƒã‚«ãƒª", "ã‚½ãƒ©ã ã‘ã¯çµ¶å¯¾ã«åŠ©ã‘ã¦ã‚„ã‚‹ã€‚");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ã‚½ãƒ©", "ãˆã£ã€ãã‚Œã£ã¦ã©ã†ã„ã†â€¦");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        fadeIn.fadeOutFlag = true;
+
+        uitext.DrawText("æŸã®é–“ã€ãƒã‚«ãƒªã¯åŠã°å¼·å¼•ã«ã‚½ãƒ©ã‚’éƒ¨å±‹ã®å¤–ã«è¿½ã„å‡ºã—ã€");
+        yield return StartCoroutine("Skip");
+
+        uitext.DrawText("ã€Œä¿¡ã˜ã¦ãã‚Œã€‚ã€ã¨ã ã‘ä¼ãˆã¦æ‰‰ã‚’é–‰ã‚ã¾ã—ãŸã€‚");
+        yield return StartCoroutine("Skip");
+
+        girl.SetActive(true);
+        uitext.DrawText("ã‚½ãƒ©", "ãƒã‚«ãƒªã•ã‚“ã£ï¼Ÿï¼");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        uitext.DrawText("ã‚½ãƒ©ã¯å«Œãªäºˆæ„Ÿã‚’è¦šãˆã¾ã™ã€‚");
+        yield return StartCoroutine("Skip");
+
+        girl.SetActive(true);
+        uitext.DrawText("ã‚½ãƒ©", "ãƒã‚«ãƒªã•ã‚“ã£ï¼ï¼ï¼");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        uitext.DrawText("ãƒã‚«ãƒªã¯å‘¼å¸ã‚’æ•´ãˆã¦ã€æ±ºæ„ã‚’å›ºã‚ãŸæ§˜ã«è¨€ã„ã¾ã—ãŸã€‚");
+        yield return StartCoroutine("Skip");
+
+        boy.SetActive(true);
+        uitext.DrawText("ãƒã‚«ãƒª", "æœ¬å½“ã¯ã‚‚ã†ã€ã¨ã£ãã®ã¨ã†ã«æ±ºã‚ã¦ãŸã“ã¨ãªã®ã«ãªâ€¦ã€‚");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ã‚½ãƒ©", "ãƒã‚«ãƒªã•ã‚“ã£ï¼ï¼ãƒã‚«ãƒªã•ã‚“ã£ï¼ï¼ï¼");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+        uitext.DrawText("ã‚½ãƒ©ã®å£°ãŒã€æ‰‰è¶Šã—ã®ãƒã‚«ãƒªã®è€³ã«éŸ¿ãã€‚");
+        yield return StartCoroutine("Skip");
+
+        boy.SetActive(true);
+        uitext.DrawText("ãƒã‚«ãƒª", "â€¦â€¦â€¦");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ãƒã‚«ãƒª", "å‡è¡¡ã®å¤©ç§¤ã•ã‚“ã‚ˆã‰ã€‚");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ãƒã‚«ãƒª", "ä¿ºã®å‘½ã¨å¼•ãæ›ãˆã ã€‚");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        boy.SetActive(true);
+        uitext.DrawText("ãƒã‚«ãƒª", "ã‚½ãƒ©ã‚’å…ƒã®ä¸–ç•Œã«è¿”ã—ã¦ã‚„ã£ã¦ãã‚Œã€‚");
+        yield return StartCoroutine("Skip");
+        boy.SetActive(false);
+
+        girl.SetActive(true);
+        uitext.DrawText("ã‚½ãƒ©", "â€¦â€¦ï¼");
+        yield return StartCoroutine("Skip");
+        girl.SetActive(false);
+
+
+        uitext.DrawText("ã©ã†ã‚„ã‚‰ã€ã‚½ãƒ©ã®äºˆæ„Ÿã¯å½“ãŸã£ãŸæ§˜ã§ã—ãŸã€‚");
+        yield return StartCoroutine("Skip");
+
+        uitext.DrawText("ã‚½ãƒ©ã®ä½“ãŒå…‰ã«æº¶ã‘ã‚‹æ§˜ã«ã“ã®ä¸–ç•Œã‹ã‚‰é›¢ã‚Œã¦ã„ãã¾ã™ã€‚");
+        yield return StartCoroutine("Skip");
+
+        uitext.DrawText("ãã‚Œã¨åŒæ™‚ã«ã€ãƒã‚«ãƒªã®å­˜åœ¨ã‚„è¨˜æ†¶å…¨ã¦ãŒã€ä¸–ç•Œã‹ã‚‰æ¶ˆãˆã¦ã„ãã€‚");
+        yield return StartCoroutine("Skip");
+
+        uitext.DrawText("ã‚½ãƒ©ã«ã¯ç¢ºã‹ã«ã€ãã‚ŒãŒåˆ†ã‚Šã¾ã—ãŸã€‚");
+        yield return StartCoroutine("Skip");
+
+        uitext.DrawText("ã‚½ãƒ©ã®ã€è‹¦ã—ã¿ã‚’å–ã‚Šé™¤ãã‚ˆã†ã«ã€‚");
+        yield return StartCoroutine("Skip");
+
+        uitext.DrawText("äºŒäººã®å­˜åœ¨ãŒãã®ä¸–ç•Œã‹ã‚‰æ¶ˆãˆã•ã£ãŸæ™‚ã€ã‚½ãƒ©ã¯ç›®ã‚’è¦šã¾ã—ã¾ã™ã€‚");
+        yield return StartCoroutine("Skip");
+
+        fadeIn.fadeFlag = true;
+
+        uitext.DrawText("é’ç©ºãŒè¦‹ãˆã‚‹ã€‚");
+        yield return StartCoroutine("Skip");
+
+        uitext.DrawText("ãã—ã¦ç—…é™¢ã®äº”éšãŒè¦‹ãˆã¦ä¸‰éšãŒè¦‹ãˆã¦â€¦â€¦â€¦");
+        yield return StartCoroutine("Skip");
+
+        uitext.DrawText("ã‚ã‚Œã€ç§ã¯ãªã‚“ã§è½ã¡ã¦ã„ã‚‹ã‚“ã ã£ã‘â€¦â€¦â€¦");
+        yield return StartCoroutine("Skip");
+
+        gameEndFlag = true;
 
         Canbus.SetActive(false);
         gameStop.stopFlag = false;
@@ -4142,7 +4728,7 @@ public class TextWriter : MonoBehaviour
             StartCoroutine("RooftopStory");
             TextNum = 1;
 
-            //‚ ‚Æ‚ÅÁ‚·
+            //ã‚ã¨ã§æ¶ˆã™
             //fadeIn.fadeFlag = true;
             //playerTeleport.SetPosition(-6.25f, 156.93f);
             //boyTeleport.SetPosition(-4.25f, 156.93f);
@@ -4152,28 +4738,28 @@ public class TextWriter : MonoBehaviour
             StartCoroutine("RooftopStory2");
             TextNum = 2;
         }
-        //ƒhƒA‚ÉG‚ê‚½‚Æ‚«
+        //ãƒ‰ã‚¢ã«è§¦ã‚ŒãŸã¨ã
         if (TextNum == 3)
         {
             gameStop.stopFlag = true;
             StartCoroutine("doorStory1");
             TextNum = 4;
         }
-        //ò‚ÉG‚ê‚½‚Æ‚«
+        //æŸµã«è§¦ã‚ŒãŸã¨ã
         if(TextNum == 5)
         {
             gameStop.stopFlag = true;
             StartCoroutine("fenceStory1");
             TextNum = 6;
         }
-        //ƒhƒA‚ÉG‚ê‚½‚Æ‚«‚Q
+        //ãƒ‰ã‚¢ã«è§¦ã‚ŒãŸã¨ãï¼’
         if(TextNum == 7)
         {
             gameStop.stopFlag = true;
             StartCoroutine("doorStory2");
             TextNum = 8;
         }
-        //“üŒû‚ÌƒXƒg[ƒŠ[
+        //å…¥å£ã®ã‚¹ãƒˆãƒ¼ãƒªãƒ¼
         if(TextNum == 9)
         {
             gameStop.stopFlag = true;
@@ -4682,6 +5268,48 @@ public class TextWriter : MonoBehaviour
             StartCoroutine("whiteMistStory3");
             TextNum = 171;
         }
+        if(TextNum == 172)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("lastGimmickRoomStory");
+            TextNum = 173;
+        }
+        if(TextNum == 174)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("lastRoomBookStory");
+            TextNum = 175;
+        }
+        if (TextNum == 176)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("lampStory1");
+            TextNum = 177;
+        }
+        if(TextNum == 178)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("lastButtonStory1");
+            TextNum = 179;
+        }
+        if (TextNum == 180)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("lastButtonStory2");
+            TextNum = 181;
+        }
+        if (TextNum == 182)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("lastButtonStory3");
+            TextNum = 183;
+        }
+        if (TextNum == 184)
+        {
+            gameStop.stopFlag = true;
+            StartCoroutine("laboStory");
+            TextNum = 185;
+        }
 
         if (A_DeskStoryFlag == true && B_DeskStoryFlag == true && C_DeskStoryFlag == true && D_DeskStoryFlag == true && DeskStoryFlag == false)
         {
@@ -4694,7 +5322,7 @@ public class TextWriter : MonoBehaviour
             TextNum = 138;
             openBlueRoomFlag = true;
         }
-        //ƒ_ƒ[ƒW‚ğó‚¯‚½‚Æ‚«‚Ìˆ—
+        //ãƒ€ãƒ¡ãƒ¼ã‚¸ã‚’å—ã‘ãŸã¨ãã®å‡¦ç†
         if (password.isMiss == true)
         {
             gameStop.stopFlag = true;
@@ -4753,7 +5381,7 @@ public class TextWriter : MonoBehaviour
         }
 
         //ToBeContinue
-        if (gameEndFlag == true && inputAction_.Player.Talk.triggered)
+        if (gameEndFlag == true)
         {
             SceneManager.LoadScene("EndScene");
         }

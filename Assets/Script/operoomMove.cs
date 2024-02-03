@@ -33,7 +33,7 @@ public class operoomMove : MonoBehaviour
             if (moveFlag2 == false)
             {
                 gameStop.stopFlag = true;
-                boyTransform.position = new Vector3(-16.14f, 1.511f, 109.5f);
+                boyTransform.position = new Vector3(-16.14f, 2.17f, 109.5f);
 
                 moveFlag2 = true;
             }

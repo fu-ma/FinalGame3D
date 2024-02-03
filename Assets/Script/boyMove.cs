@@ -22,6 +22,11 @@ public class boyMove : MonoBehaviour
     public bool blueRoomFlag;
     public bool blueStatueFlag;
     public bool blueChairFlag;
+
+    public int lastButtonCount;
+    public bool lastButtonFlag;
+
+    private bool firstRoomWarpFlag;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +54,10 @@ public class boyMove : MonoBehaviour
         blueRoomFlag = false;
         blueStatueFlag = false;
         blueChairFlag = false;
+        firstRoomWarpFlag = false;
+
+        lastButtonCount = 0;
+        lastButtonFlag = false;
     }
 
     // Update is called once per frame
@@ -245,19 +254,15 @@ public class boyMove : MonoBehaviour
             {
                 boyTeleport.SetPosition(-10.08f, 232.28f);
             }
-            if (collision.gameObject.tag == "equilibriumGoDoor" && inputAction_.Player.Talk.triggered)
+            if (collision.gameObject.tag == "soraRoomGoDoor1")
             {
                 boyTeleport.SetPosition(-123.8f, 106f);
             }
-            if (collision.gameObject.tag == "equilibriumGoDoor2")
-            {
-                boyTeleport.SetPosition(-123.8f, 106f);
-            }
-            if (collision.gameObject.tag == "blueButtonRoom2Go")
+            if (collision.gameObject.tag == "soraRoomGoDoor2")
             {
                 boyTeleport.SetPosition(-183.98f, 106f);
             }
-            if (collision.gameObject.tag == "blueButtonRoomGo")
+            if (collision.gameObject.tag == "soraRoomGoDoor3")
             {
                 boyTeleport.SetPosition(-135f, 106f);
             }
@@ -272,6 +277,87 @@ public class boyMove : MonoBehaviour
             if (collision.gameObject.tag == "classRoom1ToTeacherRoom")
             {
                 boyTeleport.SetPosition(-66.21f, 52.02f);
+            }
+            if(collision.gameObject.tag == "roomWarp" && inputAction_.Player.Talk.triggered)
+            {
+                if(firstRoomWarpFlag == true)
+                {
+                    //ˆÚ“®ˆ—‚ð‘‚­
+                    boyTeleport.SetPosition(33.12f, 219.48f);
+                }
+                if (firstRoomWarpFlag == false)
+                {
+                    textWriter.TextNum = 172;
+                    firstRoomWarpFlag = true;
+                }
+            }
+            if(collision.gameObject.tag == "lastRoomBook" && inputAction_.Player.Talk.triggered)
+            {
+                textWriter.TextNum = 174;
+            }
+            if (collision.gameObject.tag == "mainRoomWarp" && inputAction_.Player.Talk.triggered)
+            {
+                boyTeleport.SetPosition(5, 34.12f);
+            }
+            if(collision.gameObject.tag == "lamp" && inputAction_.Player.Talk.triggered)
+            {
+                textWriter.TextNum = 176;
+            }
+
+            if(collision.gameObject.tag == "lastButton1" && inputAction_.Player.Talk.triggered)
+            {
+                if(lastButtonCount != 0)
+                {
+                    lastButtonFlag = true;
+                }
+                textWriter.TextNum = 178;
+            }
+            if (collision.gameObject.tag == "lastButton2" && inputAction_.Player.Talk.triggered)
+            {
+                if (lastButtonCount != 1)
+                {
+                    lastButtonFlag = true;
+                }
+                textWriter.TextNum = 178;
+            }
+            if (collision.gameObject.tag == "lastButton3" && inputAction_.Player.Talk.triggered)
+            {
+                if (lastButtonCount != 2)
+                {
+                    lastButtonFlag = true;
+                }
+                textWriter.TextNum = 178;
+            }
+            if (collision.gameObject.tag == "lastButton4" && inputAction_.Player.Talk.triggered)
+            {
+                if (lastButtonCount != 3)
+                {
+                    lastButtonFlag = true;
+                }
+                textWriter.TextNum = 178;
+            }
+
+            if(lastButtonCount >= 4 && lastButtonFlag == false)
+            {
+                textWriter.TextNum = 180;
+            }
+
+            if (lastButtonCount >= 4 && lastButtonFlag == true)
+            {
+                textWriter.TextNum = 182;
+            }
+
+            if(collision.gameObject.tag == "goLaboDoor")
+            {
+                boyTeleport.SetPosition(89.72f, 235.34f);
+            }
+            if(collision.gameObject.tag == "goEntranceToLaboDoor")
+            {
+                boyTeleport.SetPosition(25.24f, 30.13f);
+            }
+            if (collision.gameObject.tag == "laboObject" && inputAction_.Player.Talk.triggered)
+            {
+                textWriter.TextNum = 184;
             }
 
             if (blueRoomFlag == false)

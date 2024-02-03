@@ -93,6 +93,20 @@ TagManager:
   - teacherDesk2
   - teacherDesk3
   - teacherDesk4
+  - roomWarp
+  - lastRoomBook
+  - mainRoomWarp
+  - lamp
+  - lastButton1
+  - lastButton2
+  - lastButton3
+  - lastButton4
+  - goLaboDoor
+  - goEntranceToLaboDoor
+  - laboObject
+  - soraRoomGoDoor1
+  - soraRoomGoDoor2
+  - soraRoomGoDoor3
   layers:
   - Default
   - TransparentFX

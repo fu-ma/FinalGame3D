@@ -79,5 +79,9 @@ public class boySpriteMove : MonoBehaviour
                 anim.enabled = false;
             }
         }
+        else
+        {
+            anim.enabled = false;
+        }
     }
 }
