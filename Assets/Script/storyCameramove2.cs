@@ -29,7 +29,7 @@ public class storyCameramove2 : MonoBehaviour
     {
         if (effectFlag == true)
         {
-            boyTransform.position = new Vector3(-16.14f, 1.511f, 109.5f);
+            boyTransform.position = new Vector3(-15.3f, 2.17f, 109.5f);
             girlTransform.position = new Vector3(-14.16f, 1.03f, 108.38f);
             fadeIn.fadeOutFlag = false;
             fadeIn.fadeFlag = true;

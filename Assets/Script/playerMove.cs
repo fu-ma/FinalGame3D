@@ -47,6 +47,8 @@ public class playerMove : MonoBehaviour
 
     private CameraChange playerChange;
 
+    private ChangeCameraEffect changeCameraEffect;
+
     private bool classroomFlag;
     private bool classroomFlag2;
 
@@ -147,6 +149,8 @@ public class playerMove : MonoBehaviour
         girlTransform = GameObject.Find("playerShadow").GetComponent<Transform>();
 
         playerChange = GameObject.Find("GameManager").GetComponent<CameraChange>();
+
+        changeCameraEffect = GameObject.Find("GameManager").GetComponent<ChangeCameraEffect>();
 
         classroomFlag = false;
         classroomFlag2 = false;
@@ -402,6 +406,8 @@ public class playerMove : MonoBehaviour
             }
             if (collision.gameObject.tag == "2-1goDoor")
             {
+                changeCameraEffect.isPlayerCameraEffect = true;
+
                 playerTeleport.SetPosition(83.5f, 39);
                 if (boyTarget.followFlag2 == true)
                 {
@@ -432,6 +438,8 @@ public class playerMove : MonoBehaviour
             }
             if (collision.gameObject.tag == "entrancegoDoor1")
             {
+                changeCameraEffect.isPlayerCameraEffect = false;
+
                 playerTeleport.SetPosition(-17.2f, 38.85f);
                 if (boyTarget.followFlag2 == true)
                 {
@@ -440,6 +448,8 @@ public class playerMove : MonoBehaviour
             }
             if (collision.gameObject.tag == "entrancegoDoor2")
             {
+                changeCameraEffect.isPlayerCameraEffect = false;
+
                 playerTeleport.SetPosition(27.1f, 38.85f);
                 if (boyTarget.followFlag2 == true)
                 {
@@ -475,6 +485,8 @@ public class playerMove : MonoBehaviour
             }
             if (collision.gameObject.tag == "2-2goDoor")
             {
+                changeCameraEffect.isPlayerCameraEffect = true;
+
                 playerTeleport.SetPosition(96.35f, 99.3f);
                 if (boyTarget.followFlag2 == true)
                 {
@@ -497,6 +509,8 @@ public class playerMove : MonoBehaviour
             }
             if (collision.gameObject.tag == "2-3goDoor")
             {
+                changeCameraEffect.isPlayerCameraEffect = true;
+
                 playerTeleport.SetPosition(96.35f, 159.3f);
                 if (boyTarget.followFlag2 == true)
                 {
@@ -513,6 +527,8 @@ public class playerMove : MonoBehaviour
             }
             if (collision.gameObject.tag == "2-1leftGoDoor")
             {
+                changeCameraEffect.isPlayerCameraEffect = true;
+
                 enemyMove1.counter = 0;
                 playerTeleport.SetPosition(96.35f, 39.3f);
                 if (boyTarget.followFlag2 == true)
@@ -581,6 +597,7 @@ public class playerMove : MonoBehaviour
             }
             if(collision.gameObject.tag == "operoomGoDoor")
             {
+                changeCameraEffect.isPlayerCameraEffect = false;
                 playerTeleport.SetPosition(-9.52f, 101.8f);
                 if (boyTarget.followFlag2 == true)
                 {
@@ -600,6 +617,7 @@ public class playerMove : MonoBehaviour
             }
             if (collision.gameObject.tag == "entrancetoOpeGoDoor")
             {
+                changeCameraEffect.isPlayerCameraEffect = false;
                 playerTeleport.SetPosition(-9.52f, 48.7f);
                 if (boyTarget.followFlag2 == true)
                 {
@@ -609,6 +627,8 @@ public class playerMove : MonoBehaviour
 
             if (collision.gameObject.tag == "room4goDoor")
             {
+                changeCameraEffect.isPlayerCameraEffect = false;
+
                 playerTeleport.SetPosition(37, 98.8f);
                 if (boyTarget.followFlag2 == true)
                 {
@@ -623,6 +643,8 @@ public class playerMove : MonoBehaviour
 
             if(collision.gameObject.tag == "entrancetoRoom4Door")
             {
+                changeCameraEffect.isPlayerCameraEffect = false;
+
                 playerTeleport.SetPosition(19.36f, 48.51f);
                 if (boyTarget.followFlag2 == true)
                 {
@@ -632,6 +654,8 @@ public class playerMove : MonoBehaviour
 
             if (collision.gameObject.tag == "room6goDoor")
             {
+                changeCameraEffect.isPlayerCameraEffect = false;
+
                 playerTeleport.SetPosition(-6.25f, 158.93f);
                 if (boyTarget.followFlag2 == true)
                 {
@@ -646,6 +670,8 @@ public class playerMove : MonoBehaviour
 
             if (collision.gameObject.tag == "room4toRoom6Door")
             {
+                changeCameraEffect.isPlayerCameraEffect = false;
+
                 playerTeleport.SetPosition(28.85f, 113.63f);
                 if (boyTarget.followFlag2 == true)
                 {
@@ -655,7 +681,9 @@ public class playerMove : MonoBehaviour
 
             if (collision.gameObject.tag == "room0goDoor")
             {
-                if(room0StoryFlag == false)
+                changeCameraEffect.isPlayerCameraEffect = true;
+
+                if (room0StoryFlag == false)
                 {
                     textWriter.TextNum = 55;
                     room0StoryFlag = true;
@@ -679,6 +707,8 @@ public class playerMove : MonoBehaviour
 
             if (collision.gameObject.tag == "undergroundgoDoor")
             {
+                changeCameraEffect.isPlayerCameraEffect = false;
+
                 playerTeleport.SetPosition(-9.89f, 219.28f);
                 if (boyTarget.followFlag2 == true)
                 {
@@ -694,6 +724,8 @@ public class playerMove : MonoBehaviour
 
             if (collision.gameObject.tag == "room6toRoom0Door")
             {
+                changeCameraEffect.isPlayerCameraEffect = false;
+
                 playerTeleport.SetPosition(-8.23f, 174.86f);
                 if (boyTarget.followFlag2 == true)
                 {
@@ -718,6 +750,8 @@ public class playerMove : MonoBehaviour
 
             if (collision.gameObject.tag == "room6toUndergroundDoor")
             {
+                changeCameraEffect.isPlayerCameraEffect = false;
+
                 playerTeleport.SetPosition(-13.63f, 172.86f);
                 if (boyTarget.followFlag2 == true)
                 {
@@ -727,6 +761,8 @@ public class playerMove : MonoBehaviour
 
             if (collision.gameObject.tag == "balanceroomGoDoor")
             {
+                changeCameraEffect.isPlayerCameraEffect = false;
+
                 playerTeleport.SetPosition(-70.17f, 219.09f);
                 if (boyTarget.followFlag2 == true)
                 {
@@ -741,6 +777,8 @@ public class playerMove : MonoBehaviour
 
             if (collision.gameObject.tag == "undergroundtobalanceDoor")
             {
+                changeCameraEffect.isPlayerCameraEffect = false;
+
                 playerTeleport.SetPosition(-10.08f, 232.28f);
                 if (boyTarget.followFlag2 == true)
                 {
@@ -756,6 +794,8 @@ public class playerMove : MonoBehaviour
 
             if(collision.gameObject.tag == "equilibriumGoDoor" && inputAction_.Player.Talk.triggered)
             {
+                changeCameraEffect.isPlayerCameraEffect = false;
+
                 if (textWriter.equilibriumGoDoorFlag == true)
                 {
                     playerTeleport.SetPosition(-123.8f, 106f);
@@ -773,6 +813,8 @@ public class playerMove : MonoBehaviour
 
             if (collision.gameObject.tag == "equilibriumGoDoor2")
             {
+                changeCameraEffect.isPlayerCameraEffect = false;
+
                 playerTeleport.SetPosition(-123.8f, 106f);
                 if (boyTarget.followFlag2 == true)
                 {
@@ -782,12 +824,16 @@ public class playerMove : MonoBehaviour
 
             if(collision.gameObject.tag == "blueButtonRoom2GoDoor" && inputAction_.Player.Talk.triggered && blueButtonRoomFlag == false)
             {
+                changeCameraEffect.isPlayerCameraEffect = false;
+
                 textWriter.TextNum = 94;
                 blueButtonRoomFlag = true;
             }
 
             if(collision.gameObject.tag == "blueButtonRoom2Go")
             {
+                changeCameraEffect.isPlayerCameraEffect = false;
+
                 playerTeleport.SetPosition(-183.98f, 106f);
                 if (boyTarget.followFlag2 == true)
                 {
@@ -797,6 +843,8 @@ public class playerMove : MonoBehaviour
 
             if (collision.gameObject.tag == "blueButtonRoomGo")
             {
+                changeCameraEffect.isPlayerCameraEffect = false;
+
                 playerTeleport.SetPosition(-135f, 106f);
                 if (boyTarget.followFlag2 == true)
                 {
@@ -806,6 +854,8 @@ public class playerMove : MonoBehaviour
 
             if(collision.gameObject.tag == "operoomtoEquilibriumDoor")
             {
+                changeCameraEffect.isPlayerCameraEffect = false;
+
                 playerTeleport.SetPosition(-15.73f, 107.07f);
                 if (boyTarget.followFlag2 == true)
                 {
@@ -925,6 +975,8 @@ public class playerMove : MonoBehaviour
 
             if(collision.gameObject.tag == "teacherRoomGoDoor")
             {
+                changeCameraEffect.isPlayerCameraEffect = false;
+
                 playerTeleport.SetPosition(-135.62f, 36.03f);
                 if (boyTarget.followFlag2 == true)
                 {

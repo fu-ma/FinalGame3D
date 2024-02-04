@@ -3,7 +3,6 @@ using UnityEngine;
 public class ChangeCameraEffect : MonoBehaviour
 {
     public GameObject PlayerCameraEffect1;
-    public GameObject PlayerCameraEffect2;
     public GameObject BoyCameraEffect1;
     public GameObject BoyCameraEffect2;
 
@@ -23,12 +22,10 @@ public class ChangeCameraEffect : MonoBehaviour
         if (isPlayerCameraEffect == true)
         {
             PlayerCameraEffect1.SetActive(true);
-            PlayerCameraEffect2.SetActive(true);
         }
         else
         {
             PlayerCameraEffect1.SetActive(false);
-            PlayerCameraEffect2.SetActive(false);
         }
         //ボーイカメラ
         if (isBoyCameraEffect == true)
