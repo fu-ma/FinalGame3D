@@ -11,8 +11,11 @@ public class TextWriter : MonoBehaviour
     public GameObject girl;
     public GameObject girl_fear;
     public GameObject girl_sad;
+    public GameObject girl_angry;
     public GameObject boy;
     public GameObject boy_fear;
+    public GameObject boy_smile;
+    public GameObject boy_bad;
     public GameObject boyObject;
     public GameObject Canbus;
     public GameObject HP;
@@ -206,7 +209,10 @@ public class TextWriter : MonoBehaviour
         TextNum = 0;
         fenceStoryFlag = false;
         girl_sad.SetActive(false);
+        girl_angry.SetActive(false);
         boy_fear.SetActive(false);
+        boy_smile.SetActive(false);
+        boy_bad.SetActive(false);
         boyObject.SetActive(false);
         Canbus.SetActive(true);
         HP.SetActive(false);
@@ -854,14 +860,14 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
-        boy.SetActive(true);
+        boy_bad.SetActive(true);
         uitext.DrawText("少年", "あいや、ビビらせるつもりは無かったんだが。");
         yield return StartCoroutine("Skip");
         uitext.DrawText("少年", "随分と、思い悩んでたっつーか。");
         yield return StartCoroutine("Skip");
         uitext.DrawText("少年", "危険な感じしたからよ…その、大丈夫か？");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_bad.SetActive(false);
 
         uitext.DrawText("少年が心配そうにしている。");
         yield return StartCoroutine("Skip");
@@ -871,10 +877,10 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
-        boy.SetActive(true);
+        boy_bad.SetActive(true);
         uitext.DrawText("少年", "…そうか。なんだ、お前も起きたらここに居た口か？それとも…");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_bad.SetActive(false);
 
         girl.SetActive(true);
         uitext.DrawText("少女", "！！");
@@ -883,12 +889,12 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
-        boy.SetActive(true);
+        boy_smile.SetActive(true);
         uitext.DrawText("少年", "おぉ、やっぱりそうなのか。なんか同じ匂いしたからよ。");
         yield return StartCoroutine("Skip");
         uitext.DrawText("少年", "あや、匂いっつーか気配的な、さ。");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_smile.SetActive(false);
 
         fadeIn.fadeOutFlag = true;
 
@@ -931,10 +937,10 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
-        boy.SetActive(true);
+        boy_smile.SetActive(true);
         uitext.DrawText("少年", "なるほどね、それが鍵とかならサイコーだな。");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_smile.SetActive(false);
 
         uitext.DrawText("※ここからは少年が共に行動してくれます。");
         yield return StartCoroutine("Skip");
@@ -965,10 +971,10 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
-        girl.SetActive(true);
+        girl_fear.SetActive(true);
         uitext.DrawText("少女", "な、なるほど。");
         yield return StartCoroutine("Skip");
-        girl.SetActive(false);
+        girl_fear.SetActive(false);
 
         Canbus.SetActive(false);
         gameStop.stopFlag = false;
@@ -1096,10 +1102,10 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
-        boy.SetActive(true);
+        boy_bad.SetActive(true);
         uitext.DrawText("少年", "いかんせん俺じゃ通れなくてな。");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_bad.SetActive(false);
 
         boy.SetActive(true);
         uitext.DrawText("少年", "お前の背格好なら通れたりしねぇか？");
@@ -1192,10 +1198,10 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
-        boy.SetActive(true);
+        boy_bad.SetActive(true);
         uitext.DrawText("少年", "そうだな、しかもなんつーか、ちょっと迷いそうになる。");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_bad.SetActive(false);
 
         girl.SetActive(true);
         uitext.DrawText("少女", "少し複雑に感じますもんね。");
@@ -1235,35 +1241,35 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
-        girl.SetActive(true);
+        girl_angry.SetActive(true);
         uitext.DrawText("少女", "てか、さっきから思ってたんですが、お前って呼び方やめてください。");
         yield return StartCoroutine("Skip");
-        girl.SetActive(false);
+        girl_angry.SetActive(false);
 
-        boy.SetActive(true);
+        boy_bad.SetActive(true);
         uitext.DrawText("少年", "んぁ？あー、でも俺お前の名前知らねぇからな…");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_bad.SetActive(false);
 
-        girl.SetActive(true);
+        girl_angry.SetActive(true);
         uitext.DrawText("少女", "じゃあ聞いてください。");
         yield return StartCoroutine("Skip");
-        girl.SetActive(false);
+        girl_angry.SetActive(false);
 
         boy.SetActive(true);
         uitext.DrawText("少年", "あぁ…");
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
-        girl.SetActive(true);
+        girl_angry.SetActive(true);
         uitext.DrawText("少女", "………");
         yield return StartCoroutine("Skip");
-        girl.SetActive(false);
+        girl_angry.SetActive(false);
 
-        boy.SetActive(true);
+        boy_bad.SetActive(true);
         uitext.DrawText("少年", "？……");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_bad.SetActive(false);
 
         boy.SetActive(true);
         uitext.DrawText("少年", "……名前……あや、俺は、ハカリ…お前は？");
@@ -1295,20 +1301,20 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
-        boy.SetActive(true);
+        boy_smile.SetActive(true);
         uitext.DrawText("ハカリ", "ソラって、実は男…？");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_smile.SetActive(false);
 
-        girl.SetActive(true);
+        girl_angry.SetActive(true);
         uitext.DrawText("ソラ", "失礼ですねぶっ飛ばしますよ？");
         yield return StartCoroutine("Skip");
-        girl.SetActive(false);
+        girl_angry.SetActive(false);
 
-        boy.SetActive(true);
+        boy_bad.SetActive(true);
         uitext.DrawText("ハカリ", "お前も似たようなモンだろ……");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_bad.SetActive(false);
 
         Canbus.SetActive(false);
         gameStop.stopFlag = false;
@@ -1328,20 +1334,20 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
-        girl.SetActive(true);
+        girl_fear.SetActive(true);
         uitext.DrawText("少女", "うぇ、ここ通れっていうんですか……");
         yield return StartCoroutine("Skip");
-        girl.SetActive(false);
+        girl_fear.SetActive(false);
 
-        boy.SetActive(true);
+        boy_bad.SetActive(true);
         uitext.DrawText("少年", "あや、まぁ、無理にとは言わねーが。如何せんここ以外は探索済みなんだよな…");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_bad.SetActive(false);
 
-        girl.SetActive(true);
+        girl_fear.SetActive(true);
         uitext.DrawText("少女", "うー……後でもいいですか……");
         yield return StartCoroutine("Skip");
-        girl.SetActive(false);
+        girl_fear.SetActive(false);
 
         boy.SetActive(true);
         uitext.DrawText("少年", "おー、無理はすんな。");
@@ -1361,20 +1367,20 @@ public class TextWriter : MonoBehaviour
         girl.SetActive(false);
         investigate.SetActive(false);
 
-        girl.SetActive(true);
+        girl_fear.SetActive(true);
         uitext.DrawText("ソラ", "頑張って、入ってみます…");
         yield return StartCoroutine("Skip");
-        girl.SetActive(false);
+        girl_fear.SetActive(false);
 
-        boy.SetActive(true);
+        boy_bad.SetActive(true);
         uitext.DrawText("ハカリ", "何かあったらすぐ戻って来いよ。俺は一緒に行けないが、ここで待機してるからよ。");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_bad.SetActive(false);
 
-        girl.SetActive(true);
+        girl_angry.SetActive(true);
         uitext.DrawText("ソラ", "ハカリさんは楽でいいですね。");
         yield return StartCoroutine("Skip");
-        girl.SetActive(false);
+        girl_angry.SetActive(false);
 
         boy.SetActive(true);
         uitext.DrawText("ハカリ", "………");
@@ -1827,10 +1833,10 @@ public class TextWriter : MonoBehaviour
 
         enemyTarget.moveFlag = false;
 
-        boy.SetActive(true);
+        boy_bad.SetActive(true);
         uitext.DrawText("ハカリ", "大丈夫かっ？！");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_bad.SetActive(false);
 
         girl_fear.SetActive(true);
         uitext.DrawText("ソラ", "はぁ、はぁ、はぁ、はぁ。");
@@ -1858,20 +1864,20 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
-        boy.SetActive(true);
+        boy_bad.SetActive(true);
         uitext.DrawText("ハカリ", "ありがとうな。");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_bad.SetActive(false);
 
         girl.SetActive(true);
         uitext.DrawText("ソラ", "そうですね。もっと感謝してください。");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
-        boy.SetActive(true);
+        boy_bad.SetActive(true);
         uitext.DrawText("ハカリ", "あぁ、ソラが居てくれて助かった。");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_bad.SetActive(false);
 
         girl.SetActive(true);
         uitext.DrawText("ソラ", "そしたら、ここからは番号を導く謎解きって所ですかね。");
@@ -1912,15 +1918,15 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
-        boy.SetActive(true);
+        boy_smile.SetActive(true);
         uitext.DrawText("ハカリ", "ま、まぁほら、願ったら叶うなんてこと自体普通はおかしいからな。");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_smile.SetActive(false);
 
-        boy.SetActive(true);
+        boy_smile.SetActive(true);
         uitext.DrawText("ハカリ", "俺ら随分長い事この変な空間に居るからちと期待しちまったなｗ");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_smile.SetActive(false);
 
         boy.SetActive(true);
         uitext.DrawText("ハカリ", "よしっ、まだ見てねぇ場所あるかもだ。探しに行k……？");
@@ -2060,10 +2066,10 @@ public class TextWriter : MonoBehaviour
 
         fadeIn.fadeOutFlag = true;
 
-        boy.SetActive(true);
+        boy_smile.SetActive(true);
         uitext.DrawText("ハカリ", "よし。");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_smile.SetActive(false);
 
         boyTeleport.SetPosition(-15.3f, 109.5f);
 
@@ -2073,10 +2079,10 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
-        boy.SetActive(true);
+        boy_smile.SetActive(true);
         uitext.DrawText("ハカリ", "ま、肉体労働ばっかしてたからな。");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_smile.SetActive(false);
 
         girl.SetActive(true);
         uitext.DrawText("ソラ", "お仕事大変だったんですね。");
@@ -2160,10 +2166,10 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
-        girl.SetActive(true);
+        girl_angry.SetActive(true);
         uitext.DrawText("ソラ", "あ、一応、クローゼットは絶対開けないでくださいね。");
         yield return StartCoroutine("Skip");
-        girl.SetActive(false);
+        girl_angry.SetActive(false);
 
         boy.SetActive(true);
         uitext.DrawText("ハカリ", "お、おう。");
@@ -2193,33 +2199,33 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         girl_fear.SetActive(false);
 
-        boy.SetActive(true);
+        boy_smile.SetActive(true);
         uitext.DrawText("ハカリ", "あー、そうみたいだな。");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_smile.SetActive(false);
 
-        girl.SetActive(true);
+        girl_angry.SetActive(true);
         uitext.DrawText("ソラ", "ハカリさんちょっと笑ってません？？");
         yield return StartCoroutine("Skip");
-        girl.SetActive(false);
+        girl_angry.SetActive(false);
 
-        boy.SetActive(true);
+        boy_smile.SetActive(true);
         uitext.DrawText("ハカリ", "いや？ｗ");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_smile.SetActive(false);
 
         uitext.DrawText("ソラはハカリの足を踏みつけた");
         yield return StartCoroutine("Skip");
 
-        boy.SetActive(true);
+        boy_fear.SetActive(true);
         uitext.DrawText("ハカリ", "いっ！っつーー。");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_fear.SetActive(false);
 
-        girl.SetActive(true);
+        girl_angry.SetActive(true);
         uitext.DrawText("ソラ", "行ってきます。");
         yield return StartCoroutine("Skip");
-        girl.SetActive(false);
+        girl_angry.SetActive(false);
 
         boy.SetActive(true);
         uitext.DrawText("ハカリ", "お、おう…気をつけてな……");
@@ -2764,10 +2770,10 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
-        boy.SetActive(true);
+        boy_bad.SetActive(true);
         uitext.DrawText("ハカリ", "にしても…やっかいな部屋だったな");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_bad.SetActive(false);
 
         girl.SetActive(true);
         uitext.DrawText("ソラ", "でも、どうにか先に進めそうですね");
@@ -3117,20 +3123,20 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
-        boy.SetActive(true);
+        boy_bad.SetActive(true);
         uitext.DrawText("ハカリ", "お前はこんな問題もわかんねーのかってどやされてよ。");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_bad.SetActive(false);
 
-        boy.SetActive(true);
+        boy_bad.SetActive(true);
         uitext.DrawText("ハカリ", "小学校通って無かったから仕方ねぇだろって言っても甘えだって言うんだぜ？");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_bad.SetActive(false);
 
-        boy.SetActive(true);
+        boy_bad.SetActive(true);
         uitext.DrawText("ハカリ", "俺なりに頑張ってたんだけどなぁ。");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_bad.SetActive(false);
 
         girl.SetActive(true);
         uitext.DrawText("ソラ", "ハカリさん小学校行って無かったんですか？あや…聞かない方が良いこともありますよね。");
@@ -3147,10 +3153,10 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
-        boy.SetActive(true);
+        boy_bad.SetActive(true);
         uitext.DrawText("ハカリ", "10才の時にばぁちゃんに引き取ってもらったんだ。");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_bad.SetActive(false);
 
         girl.SetActive(true);
         uitext.DrawText("ソラ", "そうだったんですね…");
@@ -3280,45 +3286,45 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
-        boy.SetActive(true);
+        boy_smile.SetActive(true);
         uitext.DrawText("ハカリ", "ソラはアイツのこと”白いモヤモヤさん”って呼んでるのかｗ");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_smile.SetActive(false);
 
-        boy.SetActive(true);
+        boy_smile.SetActive(true);
         uitext.DrawText("ハカリ", "カワイーとこあるのなｗ");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_smile.SetActive(false);
 
-        girl.SetActive(true);
+        girl_angry.SetActive(true);
         uitext.DrawText("ソラ", "！");
         yield return StartCoroutine("Skip");
-        girl.SetActive(false);
+        girl_angry.SetActive(false);
 
-        girl.SetActive(true);
+        girl_angry.SetActive(true);
         uitext.DrawText("ソラ", "わ、悪いですかっ！？");
         yield return StartCoroutine("Skip");
-        girl.SetActive(false);
+        girl_angry.SetActive(false);
 
-        boy.SetActive(true);
+        boy_smile.SetActive(true);
         uitext.DrawText("ハカリ", "いや…ｗ良いんだけど…ｗくくｗ");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_smile.SetActive(false);
 
-        girl.SetActive(true);
+        girl_angry.SetActive(true);
         uitext.DrawText("ソラ", "そんなことどーでもいいですから。");
         yield return StartCoroutine("Skip");
-        girl.SetActive(false);
+        girl_angry.SetActive(false);
 
-        girl.SetActive(true);
+        girl_angry.SetActive(true);
         uitext.DrawText("ソラ", "早く手掛かりを探して先に進みますよノンデリさん。");
         yield return StartCoroutine("Skip");
-        girl.SetActive(false);
+        girl_angry.SetActive(false);
 
-        boy.SetActive(true);
+        boy_bad.SetActive(true);
         uitext.DrawText("ハカリ", "悪かったって…。");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_bad.SetActive(false);
 
         boy.SetActive(true);
         uitext.DrawText("ハカリ", "んで……、どーすっか。");
@@ -3360,10 +3366,10 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
-        boy.SetActive(true);
+        boy_bad.SetActive(true);
         uitext.DrawText("ハカリ", "探索し直し、か…。");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_bad.SetActive(false);
 
         girl.SetActive(true);
         uitext.DrawText("ソラ", "元気出してくださいハカリさんっ");
@@ -3526,10 +3532,10 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
-        boy.SetActive(true);
+        boy_smile.SetActive(true);
         uitext.DrawText("ハカリ", "んまぁ、推理ものの映画とかでよく使われてる手法なんだよな。");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_smile.SetActive(false);
 
         girl.SetActive(true);
         uitext.DrawText("ソラ", "素直に関心します。察しは悪いのにこういうの気付けるんですね。");
@@ -3561,10 +3567,10 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         girl_fear.SetActive(false);
 
-        boy_fear.SetActive(true);
+        boy_bad.SetActive(true);
         uitext.DrawText("ハカリ", "…やっぱやべぇ先生じゃん。");
         yield return StartCoroutine("Skip");
-        boy_fear.SetActive(false);
+        boy_bad.SetActive(false);
 
         girl.SetActive(true);
         uitext.DrawText("ソラ", "なのでハカリさんはこれ読んでてください。");
@@ -3618,10 +3624,10 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
-        boy.SetActive(true);
+        boy_bad.SetActive(true);
         uitext.DrawText("ハカリ", "んぁ、あぁ、読まなくても読めた。");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_bad.SetActive(false);
 
         fadeIn.fadeOutFlag = true;
 
@@ -3717,10 +3723,10 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
-        boy.SetActive(true);
+        boy_bad.SetActive(true);
         uitext.DrawText("ハカリ", "……あぁ。");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_bad.SetActive(false);
 
         Canbus.SetActive(false);
         gameStop.stopFlag = false;
@@ -3770,10 +3776,10 @@ public class TextWriter : MonoBehaviour
         uitext.DrawText("白いモヤ", "いや、僕だ。アツトは僕の名前だよ。");
         yield return StartCoroutine("Skip");
 
-        boy.SetActive(true);
+        boy_bad.SetActive(true);
         uitext.DrawText("ハカリ", "…");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_bad.SetActive(false);
 
         uitext.DrawText("アツト", "ありがとう。まだ、鮮明じゃないけれど、確かに僕はアツトだ。");
         yield return StartCoroutine("Skip");
@@ -3867,20 +3873,20 @@ public class TextWriter : MonoBehaviour
         uitext.DrawText("白いモヤはもう見えない。");
         yield return StartCoroutine("Skip");
 
-        boy.SetActive(true);
+        boy_bad.SetActive(true);
         uitext.DrawText("ハカリ", "………");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_bad.SetActive(false);
 
-        boy.SetActive(true);
+        boy_bad.SetActive(true);
         uitext.DrawText("ハカリ", "ソラ…？");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_bad.SetActive(false);
 
-        boy.SetActive(true);
+        boy_bad.SetActive(true);
         uitext.DrawText("ハカリ", "！");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_bad.SetActive(false);
 
         girl_sad.SetActive(true);
         uitext.DrawText("ソラ", "ハカリさん……どうしても思い出せないんです、");
@@ -3899,17 +3905,17 @@ public class TextWriter : MonoBehaviour
 
         fadeIn.fadeOutFlag = true;
 
-        boy.SetActive(true);
+        boy_bad.SetActive(true);
         uitext.DrawText("ハカリ", "………");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_bad.SetActive(false);
 
         fadeIn.fadeFlag = true;
 
-        boy.SetActive(true);
+        boy_bad.SetActive(true);
         uitext.DrawText("ハカリ", "もう大丈夫なのか…？");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_bad.SetActive(false);
 
         girl.SetActive(true);
         uitext.DrawText("ソラ", "はい…もう大丈夫です。");
@@ -3936,10 +3942,10 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
-        boy.SetActive(true);
+        boy_bad.SetActive(true);
         uitext.DrawText("ハカリ", "そう…だな。");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_bad.SetActive(false);
 
         girl.SetActive(true);
         uitext.DrawText("ソラ", "さっきこれを貰ったんです。");
@@ -4110,10 +4116,10 @@ public class TextWriter : MonoBehaviour
         boyTarget.followFlag2 = false;
         playerChange.moveFlag = true;
 
-        boy.SetActive(true);
+        boy_smile.SetActive(true);
         uitext.DrawText("ハカリ", "行こ―ぜ、ソラ。");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_smile.SetActive(false);
 
         girlObject.SetActive(false);
 
@@ -4160,15 +4166,15 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
-        boy.SetActive(true);
+        boy_fear.SetActive(true);
         uitext.DrawText("ハカリ", "くっそ、ソラ…");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_fear.SetActive(false);
 
-        boy.SetActive(true);
+        boy_fear.SetActive(true);
         uitext.DrawText("ハカリ", "無事でいてくれ……");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_fear.SetActive(false);
 
         fadeIn.fadeOutFlag = true;
 
@@ -4313,50 +4319,50 @@ public class TextWriter : MonoBehaviour
         uitext.DrawText("ーーーーーーーーーーーーーー");
         yield return StartCoroutine("Skip");
 
-        boy.SetActive(true);
+        boy_bad.SetActive(true);
         uitext.DrawText("ハカリ", "ソラの日記だ。");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_bad.SetActive(false);
 
-        boy.SetActive(true);
+        boy_bad.SetActive(true);
         uitext.DrawText("ハカリ", "やっぱりそうだよな。");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_bad.SetActive(false);
 
-        boy.SetActive(true);
+        boy_bad.SetActive(true);
         uitext.DrawText("ハカリ", "ソラと俺は釣り合っちまったんだ。");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_bad.SetActive(false);
 
-        boy.SetActive(true);
+        boy_bad.SetActive(true);
         uitext.DrawText("ハカリ", "あの天秤によって。");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_bad.SetActive(false);
 
-        boy.SetActive(true);
+        boy_bad.SetActive(true);
         uitext.DrawText("ハカリ", "お互いに。");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_bad.SetActive(false);
 
-        boy.SetActive(true);
+        boy_bad.SetActive(true);
         uitext.DrawText("ハカリ", "苦しさから逃げちまったから…");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_bad.SetActive(false);
 
-        boy.SetActive(true);
+        boy_bad.SetActive(true);
         uitext.DrawText("ハカリ", "でも、こうして俺はソラの辛さも全部抱えて。");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_bad.SetActive(false);
 
-        boy.SetActive(true);
+        boy_bad.SetActive(true);
         uitext.DrawText("ハカリ", "ソラはまだ全てを思い出せたわけじゃ無い。");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_bad.SetActive(false);
 
-        boy.SetActive(true);
+        boy_bad.SetActive(true);
         uitext.DrawText("ハカリ", "まだ間に合う。俺がソラを救うんだ。");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_bad.SetActive(false);
 
         boy.SetActive(true);
         uitext.DrawText("ハカリ", "生かして見せる。アツトの為にも。");
@@ -4572,10 +4578,10 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
-        boy.SetActive(true);
+        boy_smile.SetActive(true);
         uitext.DrawText("ハカリ", "おぉ！無事だったんだなっ");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_smile.SetActive(false);
 
         fadeIn.fadeOutFlag = true;
 
@@ -4601,30 +4607,30 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
-        boy.SetActive(true);
+        boy_smile.SetActive(true);
         uitext.DrawText("ハカリ", "んぁ、その点は心配すんな。");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_smile.SetActive(false);
 
-        boy.SetActive(true);
+        boy_smile.SetActive(true);
         uitext.DrawText("ハカリ", "脱出の糸口は見つかったからよ。");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_smile.SetActive(false);
 
         girl.SetActive(true);
         uitext.DrawText("ソラ", "えっ！本当ですかっ！？");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
-        boy.SetActive(true);
+        boy_smile.SetActive(true);
         uitext.DrawText("ハカリ", "おう。だから…もう一度だけ。");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_smile.SetActive(false);
 
-        boy.SetActive(true);
+        boy_smile.SetActive(true);
         uitext.DrawText("ハカリ", "今度は俺が、この均衡の天秤を使う。");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_smile.SetActive(false);
 
         boy.SetActive(true);
         uitext.DrawText("ハカリ", "安心してくれ。");
@@ -4693,10 +4699,10 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         boy.SetActive(false);
 
-        boy.SetActive(true);
+        boy_bad.SetActive(true);
         uitext.DrawText("ハカリ", "ソラを元の世界に返してやってくれ。");
         yield return StartCoroutine("Skip");
-        boy.SetActive(false);
+        boy_bad.SetActive(false);
 
         girl_sad.SetActive(true);
         uitext.DrawText("ソラ", "……！");
