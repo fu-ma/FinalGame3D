@@ -13,6 +13,7 @@ public class SoundManager : MonoBehaviour
     public bool isDropKey;
     public bool isCheckUp;
     public bool isDamage;
+    public bool isBell;
     public AudioClip doorOpenSE;
     public AudioClip doorCloseSE;
     public AudioClip doorNotOpenSE;
@@ -23,6 +24,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip DropKeySE;
     public AudioClip CheckUpSE;
     public AudioClip DamageSE;
+    public AudioClip BellSE;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +39,7 @@ public class SoundManager : MonoBehaviour
         isDropKey = false;
         isCheckUp = false;
         isDamage = false;
+        isBell = false;
     }
 
     // Update is called once per frame
@@ -91,6 +94,11 @@ public class SoundManager : MonoBehaviour
         {
             audioSource.PlayOneShot(DamageSE);
             isDamage = false;
+        }
+        if(isBell == true)
+        {
+            audioSource.PlayOneShot(BellSE);
+            isBell = false;
         }
     }
 }

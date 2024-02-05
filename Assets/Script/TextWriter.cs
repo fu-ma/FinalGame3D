@@ -30,6 +30,8 @@ public class TextWriter : MonoBehaviour
     public GameObject room4goDoor;
     public GameObject balanceDoor;
     private GameObject fadeInObj;
+    public GameObject lostObject8;
+    public GameObject lostObject9;
 
     public GameObject kirakira1;
     public GameObject kirakira2;
@@ -271,6 +273,8 @@ public class TextWriter : MonoBehaviour
         lostObject5.SetActive(true);
         lostObject6.SetActive(true);
         lostObject7.SetActive(true);
+        lostObject8.SetActive(true);
+        lostObject9.SetActive(true);
 
         kirakira1.SetActive(true);
         kirakira2.SetActive(true);
@@ -1606,6 +1610,7 @@ public class TextWriter : MonoBehaviour
         uitext.DrawText("ソラ", "天秤さん、どうか進むべき道を教えて下さい。");
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
+        soundMan.isBell = true;
 
         fadeIn.fadeInOutFlag = true;
         cameraRotateFlag = true;
@@ -2588,8 +2593,11 @@ public class TextWriter : MonoBehaviour
         resetroom.resetButtonPushed = true;
         vase1.SetActive(true);
         vase2.SetActive(false);
-        statueCollision.Init();
-        chairCollision.Init();
+        statueCollision.rig.isKinematic = false;
+        boymove.statueFlag = false;
+        chairCollision.rig.isKinematic = false;
+        boymove.chairFlag = false;
+
         playermove.blueRoomBedCount = 0;
         blueRoomBook.SetActive(false);
         playermove.blueRoomFlag = false;
@@ -2784,6 +2792,7 @@ public class TextWriter : MonoBehaviour
 
         Canbus.SetActive(false);
         gameStop.stopFlag = false;
+        gameStop.hitFlag = false;
     }
 
     IEnumerator whiteMistStory1()
@@ -4091,6 +4100,8 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         girl.SetActive(false);
 
+        girlObject.SetActive(false);
+
         girl.SetActive(true);
         uitext.DrawText("ソラ", "私たちは………先に進みたい。");
         yield return StartCoroutine("Skip");
@@ -4100,6 +4111,7 @@ public class TextWriter : MonoBehaviour
         fadeIn.fadeInOutFlag = true;
         cameraRotateFlag = true;
         Canbus.SetActive(true);
+        soundMan.isBell = true;
 
         boy.SetActive(true);
         uitext.DrawText("ハカリ", "そうだな………");
@@ -4120,8 +4132,6 @@ public class TextWriter : MonoBehaviour
         uitext.DrawText("ハカリ", "行こ―ぜ、ソラ。");
         yield return StartCoroutine("Skip");
         boy_smile.SetActive(false);
-
-        girlObject.SetActive(false);
 
         boy.SetActive(true);
         uitext.DrawText("ハカリ", "…ソラ？");
@@ -4202,6 +4212,8 @@ public class TextWriter : MonoBehaviour
         button4.SetActive(true);
         desk1.SetActive(false);
         desk2.SetActive(false);
+        lostObject8.SetActive(false);
+        lostObject9.SetActive(false);
 
         Canbus.SetActive(false);
         gameStop.stopFlag = false;
@@ -4262,13 +4274,13 @@ public class TextWriter : MonoBehaviour
         uitext.DrawText("〇月○日");
         yield return StartCoroutine("Skip");
 
-        uitext.DrawText("今日はいつもより早く起きれたから学校も一足先に着いた。");
+        uitext.DrawText("今日は''いつもより早く起きれた''から学校も一足先に着いた。");
         yield return StartCoroutine("Skip");
 
-        uitext.DrawText("そしたら先生にお手伝いを頼まれちゃって職員室まで荷物を運んだ。");
+        uitext.DrawText("そしたら先生にお手伝いを頼まれちゃって''職員室''まで荷物を運んだ。");
         yield return StartCoroutine("Skip");
 
-        uitext.DrawText("授業はいつも通りだったんだけど、アツトが大怪我したって聞いて急いで病院に行った。");
+        uitext.DrawText("''授業はいつも通り''だったんだけど、アツトが大怪我したって聞いて急いで''病院に行った''。");
         yield return StartCoroutine("Skip");
 
         uitext.DrawText("そしたら全然大したこと無くって、心配して損した気分。");
@@ -4429,7 +4441,7 @@ public class TextWriter : MonoBehaviour
         girl.SetActive(false);
         investigate2.SetActive(false);
 
-        uitext.DrawText("ボタンを押した");
+        uitext.DrawText("・・・・・・・・・・・・・・・・・・・");
         yield return StartCoroutine("Skip");
 
         if(boymove.lastButtonCount == 0)
@@ -4449,10 +4461,12 @@ public class TextWriter : MonoBehaviour
             light4.SetActive(true);
         }
 
-        boymove.lastButtonCount++;
+        uitext.DrawText("ボタンを押した");
+        yield return StartCoroutine("Skip");
 
         Canbus.SetActive(false);
         gameStop.stopFlag = false;
+        boymove.lastButtonCount++;
     }
 
     IEnumerator lastButtonStory2()
@@ -4485,6 +4499,8 @@ public class TextWriter : MonoBehaviour
         button4.SetActive(false);
 
         boymove.lastButtonCount = 0;
+        boymove.lastRoomCount = 0;
+        boymove.lastlastRoomFlag = false;
 
         boy.SetActive(true);
         uitext.DrawText("ハカリ", "これでどうだ…？一旦戻ってみるかぁ。");
@@ -4495,6 +4511,7 @@ public class TextWriter : MonoBehaviour
 
         Canbus.SetActive(false);
         gameStop.stopFlag = false;
+        gameStop.hitFlag = false;
     }
 
     IEnumerator lastButtonStory3()
@@ -4515,6 +4532,8 @@ public class TextWriter : MonoBehaviour
 
         boymove.lastButtonCount = 0;
         boymove.lastButtonFlag = false;
+        boymove.lastRoomCount = 0;
+        boymove.lastlastRoomFlag = false;
 
         light1.SetActive(false);
         light2.SetActive(false);
@@ -4523,6 +4542,7 @@ public class TextWriter : MonoBehaviour
 
         Canbus.SetActive(false);
         gameStop.stopFlag = false;
+        gameStop.hitFlag = false;
     }
 
     IEnumerator laboStory()
@@ -4560,6 +4580,7 @@ public class TextWriter : MonoBehaviour
         boy.SetActive(false);
 
         fadeIn.fadeOutFlag = true;
+        soundMan.isBell = true;
 
         boy.SetActive(true);
         uitext.DrawText("ハカリ", "ソラか…？！");
@@ -4704,6 +4725,8 @@ public class TextWriter : MonoBehaviour
         yield return StartCoroutine("Skip");
         boy_bad.SetActive(false);
 
+        soundMan.isBell = true;
+
         girl_sad.SetActive(true);
         uitext.DrawText("ソラ", "……！");
         yield return StartCoroutine("Skip");
@@ -4730,7 +4753,7 @@ public class TextWriter : MonoBehaviour
 
         fadeIn.fadeFlag = true;
 
-        uitext.DrawText("青空が見える。");
+        uitext.DrawText("うっすらと雲が見える。");
         yield return StartCoroutine("Skip");
 
         uitext.DrawText("そして病院の五階が見えて三階が見えて………");
@@ -4752,6 +4775,7 @@ public class TextWriter : MonoBehaviour
         {
             TextNum = 138;
             openBlueRoomFlag = true;
+            gameStop.hitFlag = true;
         }
 
         if (TextNum == 0)
