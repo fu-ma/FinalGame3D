@@ -27,6 +27,10 @@ public class boyMove : MonoBehaviour
     public int lastButtonCount;
     public bool lastButtonFlag;
 
+    public int lastRoomCount;
+    public bool lastRoomFlag;
+    public bool lastlastRoomFlag;
+
     private bool firstRoomWarpFlag;
     // Start is called before the first frame update
     void Start()
@@ -60,6 +64,10 @@ public class boyMove : MonoBehaviour
 
         lastButtonCount = 0;
         lastButtonFlag = false;
+
+        lastRoomCount = 0;
+        lastRoomFlag = false;
+        lastlastRoomFlag = false;
     }
 
     // Update is called once per frame
@@ -154,6 +162,41 @@ public class boyMove : MonoBehaviour
 
     void OnTriggerStay(Collider collision)
     {
+        if (playermove.changeCharaFlag == true)
+        {
+            if (lastButtonCount >= 4 && lastButtonFlag == false)
+            {
+                lastRoomCount++;
+                gameStop.hitFlag = true;
+                gameStop.stopFlag = true;
+            }
+
+            if (lastButtonCount >= 4 && lastButtonFlag == true)
+            {
+                lastRoomCount++;
+                gameStop.hitFlag = true;
+                gameStop.stopFlag = true;
+            }
+
+            if (lastlastRoomFlag == false && lastRoomCount > 20)
+            {
+                lastRoomFlag = true;
+                lastlastRoomFlag = true;
+            }
+
+            if (lastRoomFlag == true)
+            {
+                if (lastButtonCount >= 4 && lastButtonFlag == false)
+                {
+                    textWriter.TextNum = 180;
+                }
+                if (lastButtonCount >= 4 && lastButtonFlag == true)
+                {
+                    textWriter.TextNum = 182;
+                }
+                lastRoomFlag = false;
+            }
+        }
         if (gameStop.hitFlag == false && playermove.changeCharaFlag == true)
         {
             if (collision.gameObject.layer == 8)
@@ -168,16 +211,6 @@ public class boyMove : MonoBehaviour
             if (blueRoomFlag == true)
             {
                 changeCameraEffect.isBoyCameraEffect = true;
-                if (lastButtonCount >= 4 && lastButtonFlag == false)
-                {
-                    textWriter.TextNum = 180;
-                }
-
-                if (lastButtonCount >= 4 && lastButtonFlag == true)
-                {
-                    textWriter.TextNum = 182;
-                }
-
                 if (collision.gameObject.tag == "1-1goDoor")
                 {
                     boyTeleport.SetPosition(-64, 39.5f);
