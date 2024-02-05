@@ -79,7 +79,7 @@ public class TextWriter : MonoBehaviour
     public GameObject lostObject6;
     public GameObject lostObject7;
     public GameObject kirakira10;
-
+    public GameObject lastPicter;
     public StatueCollision statueCollision;
     public ChairCollision chairCollision;
 
@@ -275,6 +275,7 @@ public class TextWriter : MonoBehaviour
         lostObject7.SetActive(true);
         lostObject8.SetActive(true);
         lostObject9.SetActive(true);
+        lastPicter.SetActive(false);
 
         kirakira1.SetActive(true);
         kirakira2.SetActive(true);
@@ -4747,6 +4748,8 @@ public class TextWriter : MonoBehaviour
 
         uitext.DrawText("ソラの、苦しみを取り除くように。");
         yield return StartCoroutine("Skip");
+
+        lastPicter.SetActive(true);
 
         uitext.DrawText("二人の存在がその世界から消えさった時、ソラは目を覚まします。");
         yield return StartCoroutine("Skip");
