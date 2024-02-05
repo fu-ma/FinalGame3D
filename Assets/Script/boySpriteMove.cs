@@ -6,6 +6,7 @@ public class boySpriteMove : MonoBehaviour
     private PlayerInputSystem inputAction_;
     private publicFlag gameStop;
 
+    public bool moveFlag;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +14,7 @@ public class boySpriteMove : MonoBehaviour
         inputAction_ = new PlayerInputSystem();
         inputAction_.Enable();
         gameStop = GameObject.Find("GameManager").GetComponent<publicFlag>();
+        moveFlag = false;
     }
 
     // Update is called once per frame
@@ -81,7 +83,10 @@ public class boySpriteMove : MonoBehaviour
         }
         else
         {
-            anim.enabled = false;
+            if (moveFlag == false)
+            {
+                anim.enabled = false;
+            }
         }
     }
 }

@@ -8,6 +8,7 @@ public class operoomMove : MonoBehaviour
     private TextWriter textwriter;
     private publicFlag gameStop;
     private Animator anim;
+    private boySpriteMove spritemove;
 
     public bool moveFlag;
     public Transform boyTransform;
@@ -23,6 +24,7 @@ public class operoomMove : MonoBehaviour
         fadeIn = fadeInObj.GetComponent<FadeIn>();
         textwriter = GameObject.Find("Canvas").GetComponent<TextWriter>();
         anim = GameObject.Find("boy").GetComponent<Animator>();
+        spritemove = GameObject.Find("boy").GetComponent<boySpriteMove>();
 
         boyTransform = GetComponent<Transform>();
     }
@@ -36,8 +38,9 @@ public class operoomMove : MonoBehaviour
             {
                 gameStop.stopFlag = true;
                 boyTransform.position = new Vector3(-15.3f, 2.17f, 109.5f);
+                spritemove.moveFlag = true;
                 anim.enabled = true;
-                anim.SetFloat("Speed", 0.4f);
+                anim.SetFloat("Speed", 1.0f);
                 //anim.SetBool("move", true);
                 anim.Play("boyLeftAnimation");
 
@@ -53,6 +56,7 @@ public class operoomMove : MonoBehaviour
                     moveFlag2 = false;
                     moveFlag = false;
                     anim.enabled = false;
+                    spritemove.moveFlag = false;
 
                     gameStop.stopFlag = false;
                     textwriter.TextNum = 88;
